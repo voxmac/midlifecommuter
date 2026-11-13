@@ -20,12 +20,14 @@ image = (modal.Image.debian_slim(python_version="3.11")
              "git clone -q --depth 1 https://github.com/comfyanonymous/ComfyUI /opt/ComfyUI",
              "git clone -q --depth 1 https://github.com/city96/ComfyUI-GGUF /opt/ComfyUI/custom_nodes/ComfyUI-GGUF",
              "git clone -q --depth 1 https://github.com/cubiq/ComfyUI_IPAdapter_plus /opt/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus"))
+GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
+image = image.env({"MODAL_GPU": GPU})     # so the container re-imports this file with the same GPU
 app = modal.App("midlife-commuter", image=image)
 vol = modal.Volume.from_name("midlife-commuter-cache", create_if_missing=True)
-GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
 
 
-def _run(spec, source, files):
+@app.function(gpu=GPU, volumes={"/cache": vol}, timeout=4 * 3600, memory=32768)
+def run(spec, source, files):
     import shutil
     t0 = time.time()
     # the studio code expects /tmp/ace and /tmp/ComfyUI: point them at the image, and their weight folders at the Volume
@@ -59,9 +61,6 @@ def _run(spec, source, files):
     res["modal.json"] = json.dumps({"id": spec["id"], "gpu": gpu, "exit": p.returncode, "minutes": round(mins, 1),
                                     "usd_approx": round(mins / 60 * RATE.get(GPU, 2.0), 2)}, indent=1).encode()
     return res
-
-
-run = app.function(gpu=GPU, volumes={"/cache": vol}, timeout=4 * 3600, memory=32768, serialized=True)(_run)
 
 
 @app.local_entrypoint()
