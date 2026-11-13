@@ -97,12 +97,12 @@
     4
    ],
    "expr": "walk",
-   "plate": "an empty Seoul subway platform in the early morning, a big digital clock on the wall showing 6:40, blue morning light, platform screen doors",
+   "plate": "a busy Seoul subway platform in the early morning, a big digital clock on the wall showing 6:40, blue morning light, platform screen doors",
    "camera": {
     "move": "push",
     "amount": 0.1
    },
-   "extras": "tired commuters in winter coats waiting along the platform"
+   "extras": "many sleepy commuters in winter coats standing in a line along the platform on both sides, a young woman with earphones, an old man with a cap"
   },
   {
    "lines": [
@@ -121,12 +121,12 @@
     6
    ],
    "expr": "seated",
-   "plate": "inside a Seoul subway train carriage in the morning, empty seats, warm golden sunlight streaming through the windows, hand straps hanging",
+   "plate": "inside a crowded Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
-   "extras": "sleepy office workers holding hand straps, an old man reading a newspaper"
+   "extras": "tired office workers sitting on both sides and holding hand straps, a student dozing, a grandmother with a shopping bag"
   },
   {
    "lines": [
