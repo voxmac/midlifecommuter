@@ -13,10 +13,11 @@ QUESTIONS = [
     ("panels", "Look at the whole image. Is it made of two or more separate pictures stacked on top of each other or placed side by side, with straight borders between them?"),
     ("riderless", "Is there a scooter, motorbike or bicycle in this image that nobody is sitting on?"),
     ("pagoda", "Does this image show a pagoda, a temple roof, or traditional Japanese or Chinese style buildings with curved tiled roofs?"),
-    ("cutoff", "Is one of the cartoon characters cut off by the left or right edge of the image, so that part of their body is missing?"),
+    ("cutoff", "Look only at the large cartoon characters in the foreground and ignore small people in the background. Is the head or more than half of the body of one of those large characters outside the left or right edge of the image?"),
     ("melted", "Does one of the cartoon characters have a clearly distorted face, extra arms or legs, or melted hands?"),
     ("furniture", "Is a chair or bench attached to a cartoon character's body as if it were part of them?"),
 ]
+WARN_ONLY = {"cutoff"}   # reported in the review issue but no redraw: placement is already linted before the run
 TEMPORAL = ("popin", "These are the first, middle and last frames of one shot. Does a person or a large object appear or disappear between them?")
 LABELS = {"panels": "picture split into panels / stacked copies", "riderless": "scooter or bike with nobody riding it",
           "pagoda": "pagodas or Japanese/Chinese-style buildings", "cutoff": "a character cut off at the frame edge",
@@ -58,7 +59,8 @@ def qc_check(images, scene=None, who=None, only=None):
     if len(ims) > 1:
         flags += [k for k, q in QUESTIONS if k in ("riderless", "cutoff", "melted") and k not in flags and _ask(m, ims[-1:], q)]
         if _ask(m, ims, TEMPORAL[1]): flags.append(TEMPORAL[0])
-    return {"ok": not flags, "problems": [LABELS[k] for k in flags], "flags": flags}
+    blocking = [k for k in flags if k not in WARN_ONLY]
+    return {"ok": not blocking, "problems": [LABELS[k] for k in flags], "flags": flags}
 
 
 def qc_frames(mp4, out_prefix, n=3):
@@ -88,8 +90,8 @@ if globals().get("SPEC", {}).get("type") == "qccal":
     for p in sorted(_glob.glob("/kaggle/input/**/qccal_*.jpg", recursive=True)):
         name = os.path.basename(p)[6:-4]
         r = qc_check([p], "a scene of a 3D animated Short about a Korean office worker's commute", "M (middle-aged man with glasses, grey coat)")
-        rows.append({"frame": name, "expected_ok": name.startswith("good"), "ok": r["ok"], "problems": r["problems"]})
+        rows.append({"frame": name, "expected_ok": name.startswith("good"), "ok": not r["flags"], "redraw": not r["ok"], "problems": r["problems"]})
         print(name, r, flush=True)
-    hits = sum(1 for x in rows if x["ok"] == x["expected_ok"])
+    hits = sum(1 for x in rows if x["ok"] == x["expected_ok"])   # any flag at all vs. the person's judgement
     json.dump({"episode": SPEC["id"], "type": "qccal", "agree": f"{hits}/{len(rows)}", "rows": rows},
               open(f"{out}/report.json", "w"), indent=1, ensure_ascii=False)

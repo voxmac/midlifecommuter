@@ -3,5 +3,5 @@
  "type": "qccal",
  "gpu": "L40S",
  "note": "Does the automatic check flag the frames judged bad by hand in SH01 (panels, riderless scooter, pagodas, cut-off son) and pass the good ones?",
- "round": 2
+ "round": 3
 }
