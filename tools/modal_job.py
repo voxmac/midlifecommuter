@@ -11,7 +11,15 @@ RATE = {"T4": 0.59, "L4": 0.80, "A10G": 1.10, "L40S": 1.95, "A100-40GB": 2.10, "
 image = (modal.Image.debian_slim(python_version="3.11")
          .apt_install("git", "ffmpeg", "build-essential", "libgl1", "libglib2.0-0")
          .pip_install("torch==2.7.1", "torchvision==0.22.1", "torchaudio==2.7.1", "numpy<2.3", "pillow", "scipy",
-                      "huggingface_hub", "imageio-ffmpeg", "soundfile", "requests", "uv"))
+                      "huggingface_hub", "imageio-ffmpeg", "soundfile", "requests", "uv")
+         # tools are baked into the image (built once, cached by Modal); only model weights live in the Volume
+         .run_commands(
+             "git clone -q --depth 1 https://github.com/ace-step/ACE-Step-1.5 /opt/ace",
+             "cd /opt/ace && uv sync -q",
+             "sed -i 's/self.dtype = torch.float16/self.dtype = torch.float32/' /opt/ace/acestep/core/generation/handler/init_service_orchestrator.py",
+             "git clone -q --depth 1 https://github.com/comfyanonymous/ComfyUI /opt/ComfyUI",
+             "git clone -q --depth 1 https://github.com/city96/ComfyUI-GGUF /opt/ComfyUI/custom_nodes/ComfyUI-GGUF",
+             "git clone -q --depth 1 https://github.com/cubiq/ComfyUI_IPAdapter_plus /opt/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus"))
 app = modal.App("midlife-commuter", image=image)
 vol = modal.Volume.from_name("midlife-commuter-cache", create_if_missing=True)
 GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
@@ -20,11 +28,17 @@ GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration ti
 def _run(spec, source, files):
     import shutil
     t0 = time.time()
-    for link, target, done in (("/tmp/ace", "/cache/ace", ".venv/bin/python"), ("/tmp/ComfyUI", "/cache/ComfyUI", "main.py")):
-        if os.path.isdir(target) and os.listdir(target) and not os.path.exists(f"{target}/{done}"):
-            shutil.rmtree(target)                     # a half-finished install from a failed run: start it again
-        os.makedirs(target, exist_ok=True)            # installs + weights persist between runs
+    # the studio code expects /tmp/ace and /tmp/ComfyUI: point them at the image, and their weight folders at the Volume
+    for link, target in (("/tmp/ace", "/opt/ace"), ("/tmp/ComfyUI", "/opt/ComfyUI")):
         if not os.path.lexists(link): os.symlink(target, link)
+    for local, cached in (("/opt/ace/checkpoints", "/cache/ace-checkpoints"), ("/opt/ComfyUI/models", "/cache/comfy-models")):
+        os.makedirs(cached, exist_ok=True)
+        if os.path.isdir(local) and not os.path.islink(local):
+            for f in os.listdir(local):                                   # keep the folders ComfyUI ships with
+                if not os.path.exists(f"{cached}/{f}"): shutil.move(f"{local}/{f}", f"{cached}/{f}")
+            shutil.rmtree(local)
+        if not os.path.lexists(local): os.symlink(cached, local)
+    for old in ("/cache/ace", "/cache/ComfyUI"): shutil.rmtree(old, ignore_errors=True)   # leftovers of the first layout
     os.makedirs("/cache/hf", exist_ok=True)
     os.makedirs("/kaggle/input/assets", exist_ok=True); os.makedirs("/kaggle/working/out", exist_ok=True)
     for name, data in files.items(): open(f"/kaggle/input/assets/{name}", "wb").write(data)
