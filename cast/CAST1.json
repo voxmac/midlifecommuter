@@ -1,0 +1,19 @@
+{
+ "id": "CAST1",
+ "type": "cast",
+ "note": "MIDLIFE COMMUTER: master design of M (pick one) + 3D banner backgrounds (download). Reference look: glossy 3D animated-movie illustration, warm dawn/sunset light.",
+ "design": {
+  "m": {
+   "prompt": "middle-aged Korean office worker man in his late 40s, short black hair graying at the temples, round thin-framed glasses, kind tired eyes, slight smile lines, grey wool coat over a white shirt and navy tie, employee ID badge on a lanyard, dark trousers, brown shoes, holding a worn brown leather briefcase, gentle warm smile",
+   "count": 8
+  }
+ },
+ "plates": {
+  "bannerbg": {
+   "prompt": "wide panoramic Korean city street at dawn, apartment blocks and office towers in the distance, warm glowing street lamps, first golden sunlight on the horizon, deep navy sky fading to amber and pink, quiet empty sidewalk leading to a cozy small house with warm lit windows on the right, hopeful calm mood",
+   "count": 4,
+   "w": 1344,
+   "h": 768
+  }
+ }
+}

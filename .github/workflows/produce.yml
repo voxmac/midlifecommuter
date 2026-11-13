@@ -1,0 +1,80 @@
+name: produce
+# A new or changed songs/MCxx.json or cast/CASTx.json runs on a Modal GPU (credits, not Kaggle) and comes back as a
+# GitHub Release + a review issue (GitHub emails you). A song with "pick" is prepped on this runner instead (CPU, free).
+on:
+  push:
+    branches: [main]
+    paths: ["songs/*.json", "cast/*.json"]
+  workflow_dispatch:
+    inputs:
+      id: {description: "Job id, e.g. MC01 or CAST1", required: true}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency: {group: produce, cancel-in-progress: false}
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Which jobs
+        id: j
+        run: |
+          if [ -n "${{ github.event.inputs.id }}" ]; then echo "list=${{ github.event.inputs.id }}" >> $GITHUB_OUTPUT
+          else
+            BEFORE="${{ github.event.before }}"; git cat-file -e "$BEFORE" 2>/dev/null || BEFORE=$(git rev-list --max-parents=0 HEAD)
+            echo "list=$(git diff --name-only --diff-filter=AM $BEFORE HEAD -- 'songs/*.json' 'cast/*.json' | xargs -r -n1 basename | sed 's/.json//' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+          fi
+      - name: Song prep (picked version -> vocals + lyric timing), CPU on this runner
+        run: |
+          for e in ${{ steps.j.outputs.list }}; do
+            [ -f songs/$e.json ] && python -c "import json,sys;sys.exit(0 if json.load(open('songs/$e.json')).get('pick') else 1)" || continue
+            sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+            pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+            pip install -q demucs faster-whisper soundfile
+            D=out/$e; if python tools/song_prep.py songs/$e.json $D; then
+              TAG="$e-prep-$(date -u +%m%d-%H%M)"
+              gh release create "$TAG" $D/*.mp3 $D/*_vocals.wav $D/timing.json $D/report.json --title "$e prep" --notes "Vocals + lyric timing."
+              python tools/song_body.py $D/report.json $REPO $TAG > body.md; gh issue create --title "Song prep: $e" --body-file body.md
+            else gh issue create --title "Failed: $e prep" --body "Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"; fi
+          done
+      - name: Run on Modal
+        run: |
+          pip install -q modal
+          for e in ${{ steps.j.outputs.list }}; do
+            f=songs/$e.json; [ -f cast/$e.json ] && f=cast/$e.json
+            [ -f "$f" ] || { echo "::error::no spec for $e"; continue; }
+            [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue      # prepped above, no GPU
+            O=out/$e; mkdir -p $O
+            export MODAL_GPU=$(python -c "import json;print(json.load(open('$f')).get('gpu','L4'))")
+            modal run tools/modal_job.py --spec $f --out $O 2>&1 | tail -c 200000 > $O/console.log || true
+            TAG="$e-$(date -u +%m%d-%H%M)"
+            if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
+              gh release create "$TAG" $O/*.mp3 $O/*.wav $O/report.json $O/modal.json --title "$e song versions" \
+                --notes "Listen on your phone, then answer in the review issue."
+              python tools/song_body.py $O/report.json $REPO $TAG > body.md
+              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
+              gh issue create --title "Review: $e" --body-file body.md
+            elif [ -f $O/report.json ]; then
+              gh release create "$TAG" $O/*.png $O/sheet_*.jpg $O/report.json $O/modal.json --title "$e candidates" \
+                --notes "Design candidates. Pick in the review issue."
+              python tools/cast_body.py $O $REPO $TAG > body.md
+              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
+              gh issue create --title "Review: $e" --body-file body.md
+            else
+              { echo "## $e failed on Modal"; echo '```'; tail -c 3500 $O/run.log 2>/dev/null || tail -c 3500 $O/console.log; echo '```'; } > body.md
+              gh issue create --title "Failed: $e" --body-file body.md
+            fi
+          done

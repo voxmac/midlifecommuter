@@ -1,0 +1,69 @@
+name: review
+# Owner comments on a "Review: MCxx/CASTx" or "Failed: ..." issue:
+#   /approve 2     (song) keep version 2 -> vocals + lyric timing are prepared automatically
+#   /pick m=3      (design) make candidate 3 the master cutout assets/m_cut.png
+#   /rerun         run the job again (songs get new seeds)      /approve  close the issue
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  review:
+    if: startsWith(github.event.issue.title, 'Review:') || startsWith(github.event.issue.title, 'Failed:')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BODY: ${{ github.event.comment.body }}
+      TITLE: ${{ github.event.issue.title }}
+      AUTHOR: ${{ github.event.comment.user.login }}
+      OWNER: ${{ github.repository_owner }}
+      N: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Handle command
+        run: |
+          [ "$AUTHOR" = "$OWNER" ] || { echo "only the owner can give commands"; exit 0; }
+          ID=$(echo "$TITLE" | grep -oE '(MC|CAST|SH)[0-9]+' | head -1)
+          CMD=$(echo "$BODY" | head -1 | tr -d '\r')
+          git config user.name "midlife-bot"; git config user.email "bot@users.noreply.github.com"
+          TAG=$(gh api "repos/${{ github.repository }}/releases?per_page=30" --jq "[.[] | select(.tag_name | startswith(\"$ID-\")) | select(.tag_name | contains(\"-prep-\") | not)][0].tag_name")
+          push() { for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done; }
+          case "$CMD" in
+            /pick*)
+              pip install -q "rembg[cpu]" pillow scipy numpy
+              mkdir -p picks; done_list=""
+              for pair in $(echo "$CMD" | sed -E 's#^/pick ?##'); do
+                key=${pair%%=*}; n=${pair##*=}
+                echo "$key=$n" | grep -Eq '^[a-z]+(_[a-z]+)?=[0-9]+$' || { echo "skip $pair"; continue; }
+                gh release download "$TAG" -p "${key}_${n}.png" -D picks --clobber || { echo "missing ${key}_${n}"; continue; }
+                python tools/make_cutout.py "picks/${key}_${n}.png" "assets/${key}_cut.png" && done_list="$done_list ${key}"
+              done
+              [ -n "$done_list" ] || { gh issue comment $N --body "No picks could be applied. Use the labels under the pictures, e.g. \`m=3\`."; exit 0; }
+              git add assets/ && git commit -m "picks:$done_list [skip ci]" && push
+              gh issue comment $N --body "Saved master cutout(s):$done_list in assets/." ;;
+            /approve*)
+              V=$(echo "$CMD" | grep -oE '[0-9]+' | head -1)
+              if [ -n "$V" ] && [ -f songs/$ID.json ]; then
+                gh release download "$TAG" -p "${ID}_v${V}.mp3" -D assets --clobber || { gh issue comment $N --body "Version $V not found in $TAG."; exit 0; }
+                python -c "import json;p='songs/$ID.json';s=json.load(open(p));s['pick']=$V;json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+                git add assets/ songs/$ID.json && git commit -m "$ID: pick v$V [skip ci]" && push
+                gh workflow run produce.yml -f id=$ID
+                gh issue comment $N --body "v$V kept. Vocals and lyric timing are being prepared; a \"Song prep: $ID\" issue follows."
+              else gh issue comment $N --body "Approved."; fi
+              gh issue close $N ;;
+            /rerun*)
+              if [ -f songs/$ID.json ]; then
+                python -c "import json,random;p='songs/$ID.json';s=json.load(open(p));s.pop('pick',None);s['seeds']=[random.randint(1,99999) for _ in s.get('seeds',[0]*4)];json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+                git add songs/$ID.json && git commit -m "$ID: new seeds [skip ci]" && push
+              fi
+              gh workflow run produce.yml -f id=$ID
+              gh issue comment $N --body "Running $ID again. A new review issue arrives when it's done."
+              gh issue close $N ;;
+          esac

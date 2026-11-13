@@ -1,0 +1,19 @@
+{
+ "id": "MC02",
+ "type": "song",
+ "title": "쓸모없는 나무 (쇼츠 버전)",
+ "lang": "ko",
+ "style": "Korean acoustic ballad, gentle nylon-string guitar, warm Rhodes piano, soft strings in chorus, husky male baritone vocal in late 40s, restrained tender verse, warm male-female backing harmony in chorus, bittersweet to hopeful",
+ "bpm": 78,
+ "key": "D major",
+ "time": "4",
+ "duration": 60,
+ "seeds": [
+  11,
+  22,
+  33,
+  44
+ ],
+ "lyrics": "[Verse]\n박스 하나에 담긴 스무 해\n머그컵과 가족사진, 남은 명함 몇 장\n엘리베이터 문이 닫히는 동안\n아무도 내 이름을 부르지 않았다\n\n[Chorus]\n나는 쓸모없는 나무가 되었네\n베어 갈 이유가 없는 나무가 되었네\n그래서 이제야 이 자리에 서서\n내 아이들의 그늘이 되어 주네\n쓸모없어 다행이다, 쓸모없어 다행이다\n이제야 내가 집에 왔다",
+ "gpu": "L4"
+}
