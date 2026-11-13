@@ -314,9 +314,12 @@
  "font": "Jua-Regular",
  "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
  "brand": "MIDLIFE COMMUTER",
- "cap_y": 0.79,
- "cap_size": 78,
- "top_label": "M의 출근일지 #01",
+ "cap_y": 0.83,
+ "cap_size": 60,
+ "cap_line": true,
+ "top_label": null,
+ "budget_min": 220,
+ "wan_min": 8,
  "hook": [],
  "end_tag": "",
  "loop_drop": false,
@@ -334,12 +337,10 @@
   "description": "사직서를 지갑에 넣고 다니는 모든 아빠, 엄마에게.\n매일 아침 바위를 밀어 올리는 시시포스처럼, 우리는 오늘도 출근합니다.\n\n가사는 MIDLIFE COMMUTER가 직접 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n당신의 출근길 이야기를 댓글로 들려주세요. 다음 노래가 됩니다.\n\n#출근 #직장인 #아빠 #위로 #가장 #직장인노래 #MIDLIFECOMMUTER",
   "made_for_kids": false
  },
- "gpu": "T4",
+ "gpu": "L40S",
  "shots": [
   {
    "id": "S1",
-   "still": true,
-   "dur": 5.49,
    "slot": [
     0.0,
     4.89
@@ -349,6 +350,8 @@
     "move": "push",
     "amount": 0.07
    },
+   "motion": "the tired man lets out a slow sigh, his shoulders rise and fall, he glances at the front door, the small ceiling lamp glows softly",
+   "frames": 85,
    "char": "m",
    "expr": "sigh",
    "place": {
@@ -360,8 +363,6 @@
   },
   {
    "id": "S2",
-   "still": true,
-   "dur": 6.6,
    "slot": [
     4.89,
     10.89
@@ -375,6 +376,8 @@
      0.45
     ]
    },
+   "motion": "the man looks down at the old wallet in his hands, gently touches a folded letter inside, then closes the wallet with a small sad smile",
+   "frames": 101,
    "char": "m",
    "expr": "wallet",
    "place": {
@@ -386,8 +389,6 @@
   },
   {
    "id": "S3",
-   "still": true,
-   "dur": 7.32,
    "slot": [
     10.89,
     17.61
@@ -397,6 +398,8 @@
     "move": "drift",
     "amount": 0.08
    },
+   "motion": "the two children wave and giggle at their father, the man smiles back warmly and nods, warm lamp light",
+   "frames": 113,
    "cast": [
     {
      "char": "m",
@@ -435,8 +438,6 @@
   },
   {
    "id": "S4",
-   "still": true,
-   "dur": 5.94,
    "slot": [
     17.61,
     22.95
@@ -446,6 +447,8 @@
     "move": "pan_right",
     "amount": 0.08
    },
+   "motion": "the man walks forward through the lobby with his briefcase, the elevator doors slide open behind him, the grandmother neighbour nods to him",
+   "frames": 93,
    "char": "m",
    "expr": "walk",
    "place": {
@@ -458,8 +461,6 @@
   },
   {
    "id": "S5",
-   "still": true,
-   "dur": 7.04,
    "slot": [
     22.95,
     29.39
@@ -469,6 +470,8 @@
     "move": "push",
     "amount": 0.1
    },
+   "motion": "the man walks along the busy platform among the commuters, a subway train slides into the station behind the screen doors, people shift and wait",
+   "frames": 109,
    "char": "m",
    "expr": "walk",
    "place": {
@@ -481,8 +484,6 @@
   },
   {
    "id": "S6",
-   "still": true,
-   "dur": 6.8,
    "slot": [
     29.39,
     35.59
@@ -492,6 +493,8 @@
     "move": "tilt_up",
     "amount": 0.08
    },
+   "motion": "the man walks slowly up the steep street away from the camera, a delivery scooter passes by, the morning light grows warmer",
+   "frames": 105,
    "char": "m",
    "expr": "back",
    "place": {
@@ -504,49 +507,49 @@
   },
   {
    "id": "S7",
-   "still": true,
-   "dur": 7.04,
    "slot": [
     35.59,
     42.03
    ],
-   "plate": "inside a crowded Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows",
+   "plate": "inside a Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows, hand straps hanging, long seats on both sides",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
+   "motion": "the subway car sways gently as it moves, sunlight flickers across the passengers, the man stands holding his briefcase and smiles softly to himself",
+   "frames": 109,
    "char": "m",
-   "expr": "seated",
+   "expr": "smile",
    "place": {
     "h": 0.5,
     "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
    },
-   "extras": "tired office workers sitting on both sides and holding hand straps, a student dozing, a grandmother with a shopping bag"
+   "extras": "passengers sitting on both long seats along the walls, a student dozing, a grandmother with a shopping bag, office workers standing farther back"
   },
   {
    "id": "S8",
-   "still": true,
-   "dur": 6.48,
    "slot": [
     42.03,
     47.91
    ],
-   "plate": "the top of a green hill above the city at sunrise, a wide golden sky, the city far below, warm hopeful light",
+   "plate": "a long outdoor stone staircase climbing up a hill in a quiet Korean neighbourhood at sunrise, small houses on both sides, a glowing golden sky at the top of the stairs",
    "camera": {
     "move": "tilt_up",
-    "amount": 0.1
+    "amount": 0.05
    },
+   "motion": "at the top of the stairs his wife and children wave to him happily, the man looks up at them and starts to climb, golden sunrise light",
+   "frames": 101,
    "cast": [
     {
      "char": "m",
-     "expr": "lookup",
+     "expr": "back",
      "flip": false,
      "place": {
-      "h": 0.5,
-      "cx": 0.3,
-      "foot": 0.93,
+      "h": 0.6,
+      "cx": 0.5,
+      "foot": 1.04,
       "shadow": 0.45
      }
     },
@@ -555,10 +558,10 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.46,
-      "cx": 0.6,
-      "foot": 0.92,
-      "shadow": 0.45
+      "h": 0.15,
+      "cx": 0.43,
+      "foot": 0.47,
+      "shadow": 0.2
      }
     },
     {
@@ -566,10 +569,10 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.34,
-      "cx": 0.78,
-      "foot": 0.94,
-      "shadow": 0.45
+      "h": 0.12,
+      "cx": 0.53,
+      "foot": 0.475,
+      "shadow": 0.2
      }
     },
     {
@@ -577,18 +580,16 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.27,
-      "cx": 0.9,
-      "foot": 0.95,
-      "shadow": 0.45
+      "h": 0.095,
+      "cx": 0.6,
+      "foot": 0.48,
+      "shadow": 0.2
      }
     }
    ]
   },
   {
    "id": "S9",
-   "still": true,
-   "dur": 7.56,
    "slot": [
     47.91,
     54.87
@@ -598,6 +599,8 @@
     "move": "pan_left",
     "amount": 0.08
    },
+   "motion": "the crowd crosses the zebra crossing around the man as he walks briskly forward, cars wait at the light, busy morning",
+   "frames": 117,
    "char": "m",
    "expr": "walk",
    "place": {
@@ -610,8 +613,6 @@
   },
   {
    "id": "S10",
-   "still": true,
-   "dur": 6.67,
    "slot": [
     54.87,
     60.94
@@ -621,6 +622,8 @@
     "move": "push",
     "amount": 0.08
    },
+   "motion": "the young colleague greets the man with a cheerful bow, the man smiles and pats his shoulder, the glass doors open behind them",
+   "frames": 105,
    "cast": [
     {
      "char": "m",
@@ -648,8 +651,6 @@
   },
   {
    "id": "S11",
-   "still": true,
-   "dur": 7.66,
    "slot": [
     60.94,
     68.0
@@ -659,6 +660,8 @@
     "move": "pull",
     "amount": 0.1
    },
+   "motion": "the man walks away toward the bright rising sun down the street, people walk to work around him",
+   "frames": 117,
    "char": "m",
    "expr": "back",
    "place": {

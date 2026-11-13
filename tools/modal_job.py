@@ -33,7 +33,7 @@ app = modal.App("midlife-commuter", image=image)
 vol = modal.Volume.from_name("midlife-commuter-cache", create_if_missing=True)
 
 
-@app.function(gpu=GPU, volumes={"/cache": vol}, timeout=4 * 3600, memory=32768)
+@app.function(gpu=GPU, volumes={"/cache": vol}, timeout=4 * 3600, memory=65536)
 def run(spec, source, files):
     import shutil
     t0 = time.time()

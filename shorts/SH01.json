@@ -4,7 +4,6 @@
  "song": "MC01",
  "pick": 1,
  "seconds": 68.0,
- "top_label": "M의 출근일지 #01",
  "thumb": {
   "text": [
    "여섯 시 사십 분",
@@ -26,7 +25,8 @@
    "camera": {
     "move": "push",
     "amount": 0.07
-   }
+   },
+   "motion": "the tired man lets out a slow sigh, his shoulders rise and fall, he glances at the front door, the small ceiling lamp glows softly"
   },
   {
    "lines": [
@@ -41,7 +41,8 @@
      0.5,
      0.45
     ]
-   }
+   },
+   "motion": "the man looks down at the old wallet in his hands, gently touches a folded letter inside, then closes the wallet with a small sad smile"
   },
   {
    "lines": [
@@ -78,7 +79,8 @@
       "foot": 0.95
      }
     }
-   ]
+   ],
+   "motion": "the two children wave and giggle at their father, the man smiles back warmly and nods, warm lamp light"
   },
   {
    "lines": [
@@ -90,7 +92,8 @@
     "move": "pan_right",
     "amount": 0.08
    },
-   "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side"
+   "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side",
+   "motion": "the man walks forward through the lobby with his briefcase, the elevator doors slide open behind him, the grandmother neighbour nods to him"
   },
   {
    "lines": [
@@ -102,7 +105,8 @@
     "move": "push",
     "amount": 0.1
    },
-   "extras": "many sleepy commuters in winter coats standing in a line along the platform on both sides, a young woman with earphones, an old man with a cap"
+   "extras": "many sleepy commuters in winter coats standing in a line along the platform on both sides, a young woman with earphones, an old man with a cap",
+   "motion": "the man walks along the busy platform among the commuters, a subway train slides into the station behind the screen doors, people shift and wait"
   },
   {
    "lines": [
@@ -114,64 +118,70 @@
     "move": "tilt_up",
     "amount": 0.08
    },
-   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill"
+   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill",
+   "motion": "the man walks slowly up the steep street away from the camera, a delivery scooter passes by, the morning light grows warmer"
   },
   {
    "lines": [
     6
    ],
-   "expr": "seated",
-   "plate": "inside a crowded Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows",
+   "expr": "smile",
+   "plate": "inside a Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows, hand straps hanging, long seats on both sides",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
-   "extras": "tired office workers sitting on both sides and holding hand straps, a student dozing, a grandmother with a shopping bag"
+   "extras": "passengers sitting on both long seats along the walls, a student dozing, a grandmother with a shopping bag, office workers standing farther back",
+   "motion": "the subway car sways gently as it moves, sunlight flickers across the passengers, the man stands holding his briefcase and smiles softly to himself"
   },
   {
    "lines": [
     7
    ],
-   "expr": "lookup",
-   "plate": "the top of a green hill above the city at sunrise, a wide golden sky, the city far below, warm hopeful light",
-   "camera": {
-    "move": "tilt_up",
-    "amount": 0.1
-   },
+   "plate": "a long outdoor stone staircase climbing up a hill in a quiet Korean neighbourhood at sunrise, small houses on both sides, a glowing golden sky at the top of the stairs",
    "cast": [
     {
      "char": "m",
-     "expr": "lookup",
+     "expr": "back",
      "place": {
-      "h": 0.5,
-      "cx": 0.3
+      "h": 0.6,
+      "cx": 0.5,
+      "foot": 1.04
      }
     },
     {
      "char": "wife",
      "place": {
-      "h": 0.46,
-      "cx": 0.6,
-      "foot": 0.92
+      "h": 0.15,
+      "cx": 0.43,
+      "foot": 0.47,
+      "shadow": 0.2
      }
     },
     {
      "char": "son",
      "place": {
-      "h": 0.34,
-      "cx": 0.78,
-      "foot": 0.94
+      "h": 0.12,
+      "cx": 0.53,
+      "foot": 0.475,
+      "shadow": 0.2
      }
     },
     {
      "char": "daughter",
      "place": {
-      "h": 0.27,
-      "cx": 0.9,
-      "foot": 0.95
+      "h": 0.095,
+      "cx": 0.6,
+      "foot": 0.48,
+      "shadow": 0.2
      }
     }
-   ]
+   ],
+   "motion": "at the top of the stairs his wife and children wave to him happily, the man looks up at them and starts to climb, golden sunrise light",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.05
+   }
   },
   {
    "lines": [
@@ -183,7 +193,8 @@
     "move": "pan_left",
     "amount": 0.08
    },
-   "extras": "a crowd of commuters crossing, a grandfather with a cane, a student with a backpack"
+   "extras": "a crowd of commuters crossing, a grandfather with a cane, a student with a backpack",
+   "motion": "the crowd crosses the zebra crossing around the man as he walks briskly forward, cars wait at the light, busy morning"
   },
   {
    "lines": [
@@ -212,7 +223,8 @@
       "cx": 0.72
      }
     }
-   ]
+   ],
+   "motion": "the young colleague greets the man with a cheerful bow, the man smiles and pats his shoulder, the glass doors open behind them"
   },
   {
    "lines": "outro",
@@ -226,7 +238,9 @@
     "move": "pull",
     "amount": 0.1
    },
-   "extras": "people walking to work along the street"
+   "extras": "people walking to work along the street",
+   "motion": "the man walks away toward the bright rising sun down the street, people walk to work around him"
   }
- ]
+ ],
+ "gpu": "L40S"
 }

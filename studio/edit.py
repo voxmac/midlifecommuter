@@ -197,7 +197,36 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
         hud_off = tag_t - 0.1
     # captions
     CAP = []
-    if spec.get("captions", True):
+    if spec.get("captions", True) and spec.get("cap_line") and voice_tl:
+        # song Shorts: each lyric line whole (one line, shrunk to fit; two lines only if it must), on a soft dark band
+        for li, v in enumerate(voice_tl):
+            words = v["words"]; on = words[0][1] - 0.12
+            off = (voice_tl[li + 1]["words"][0][1] - 0.12) if li + 1 < len(voice_tl) else words[-1][2] + 0.8
+            cs = spec.get("cap_size", 60); maxw = VW * 0.88
+            def build(sz):
+                ims = [(_text(font_path, w, sz, stroke=NAVY, sw=6), _text(font_path, w, sz, fill=GOLD, stroke=NAVY, sw=6), a, b) for w, a, b in words]
+                return ims, sum(i[0].width for i in ims) - 14 * (len(ims) - 1)
+            imgs, tw = build(cs)
+            while tw > maxw and cs > spec.get("cap_min", 44):
+                cs -= 2; imgs, tw = build(cs)
+            widths = [i[0].width for i in imgs]; space = -14
+            if tw <= maxw: rows = [list(range(len(imgs)))]
+            else:   # break once, at the word boundary nearest the middle
+                acc, best = 0, 1
+                for k in range(1, len(imgs)):
+                    acc += widths[k - 1]
+                    if abs(acc - tw / 2) < abs(sum(widths[:best]) - tw / 2): best = k
+                rows = [list(range(best)), list(range(best, len(imgs)))]
+            lh = imgs[0][0].height - 8; y0 = VH * spec.get("cap_y", CAP_Y) - lh * len(rows) / 2; pos = []
+            rw = [sum(widths[k] for k in r) + space * (len(r) - 1) for r in rows]
+            for ri, r in enumerate(rows):
+                x = VW / 2 - rw[ri] / 2
+                for k in r: pos.append((k, x, y0 + ri * lh)); x += widths[k] + space
+            bw, bh = max(rw) + 70, lh * len(rows) + 34
+            band = Image.new("RGBA", (int(bw), int(bh)), (0, 0, 0, 0))
+            ImageDraw.Draw(band).rounded_rectangle([0, 0, bw - 1, bh - 1], radius=int(bh / 2.6), fill=(12, 16, 32, spec.get("band_alpha", 120)))
+            CAP.append((on, off, imgs, pos, band, (VW / 2, y0 + lh * len(rows) / 2 + 4)))
+    elif spec.get("captions", True):
         for on, off, words in caption_chunks(voice_tl):
             cs = spec.get("cap_size", 66)
             imgs = [(_text(font_path, w.upper(), cs, stroke=NAVY, sw=8), _text(font_path, w.upper(), cs, fill=GOLD, stroke=NAVY, sw=8), a, b)
@@ -212,7 +241,7 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
             for li, ln in enumerate(lines):
                 lw = sum(widths[k] for k in ln) + space * (len(ln) - 1); x = VW / 2 - lw / 2
                 for k in ln: pos.append((k, x, y0 + li * lh)); x += widths[k] + space
-            CAP.append((on, off, imgs, pos))
+            CAP.append((on, off, imgs, pos, None, None))
 
     TOPL = _text(font_path, spec["top_label"], 58, stroke=NAVY, sw=8) if spec.get("top_label") else None
     def draw_common(fr, t):
@@ -246,9 +275,10 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
         for bt, pos in bangs:
             dt = t - bt
             if 0 <= dt < 1.2: _paste(fr, BANG, pos[0], pos[1], _ease(dt / 0.25), min(1, (1.2 - dt) / 0.25))
-        for on, off, imgs, pos in CAP:
+        for on, off, imgs, pos, band, bpos in CAP:
             if on <= t < off:
                 a = min(1, (t - on) / 0.12, (off - t) / 0.12)
+                if band is not None: _paste(fr, band, bpos[0], bpos[1], 1.0, a)
                 for k, x, y in pos:
                     wi, wg, wa, wb = imgs[k]; nxt_a = imgs[k + 1][2] if k + 1 < len(imgs) else wb + 0.3
                     act = wa - 0.05 <= t < nxt_a

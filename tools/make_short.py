@@ -37,8 +37,13 @@ for n, sc in enumerate(plan["scenes"]):
     nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
     b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.5, "cx": 0.5, "foot": 0.95, "shadow": 0.45, **sc.get("place", {})}
-    shot = {"id": f"S{n + 1}", "still": True, "dur": round(b - a + 0.6, 2), "slot": [round(a, 2), round(b, 2)],
-            "plate": sc["plate"], "camera": sc.get("camera", {"move": "push", "amount": 0.08})}
+    shot = {"id": f"S{n + 1}", "slot": [round(a, 2), round(b, 2)], "plate": sc["plate"],
+            "camera": sc.get("camera", {"move": "push", "amount": 0.04})}
+    if sc.get("motion"):   # animated with Wan 2.2 (16 fps): enough frames to cover the slot, 4k+1
+        fr = min(121, 4 * int(((b - a) * 16 + 3) // 4) + 5)
+        shot.update({"motion": sc["motion"], "frames": fr})
+    else:
+        shot.update({"still": True, "dur": round(b - a + 0.6, 2)})
     if sc.get("cast"):   # several people: M's family, colleagues, friends ...
         shot["cast"] = [{"char": c["char"], "expr": c.get("expr"), "flip": c.get("flip", False),
                          "place": {"h": 0.5, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **c.get("place", {})}} for c in sc["cast"]]
@@ -50,7 +55,8 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
         "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
-        "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.79), "cap_size": plan.get("cap_size", 78), "top_label": plan.get("top_label"), "hook": plan.get("hook", []),
+        "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.83), "cap_size": plan.get("cap_size", 60), "cap_line": True, "top_label": plan.get("top_label"),
+        "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
         "thumb": plan.get("thumb", {}), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
 dst = f"{ROOT}/episodes/{plan['id']}.json"
