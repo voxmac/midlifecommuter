@@ -58,7 +58,7 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
         "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.83), "cap_size": plan.get("cap_size", 60), "cap_line": True, "top_label": plan.get("top_label"),
         "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
-        "thumb": plan.get("thumb", {}), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
+        "thumb": plan.get("thumb", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
 dst = f"{ROOT}/episodes/{plan['id']}.json"
 json.dump(spec, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(dst, len(shots), "scenes,", sum(len(x) for x in lyrics_tl), "caption words")

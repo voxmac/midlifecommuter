@@ -126,7 +126,7 @@
     6
    ],
    "expr": "smile",
-   "plate": "inside a Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows, hand straps hanging, long seats on both sides",
+   "plate": "one single wide view down the aisle inside a Seoul subway train carriage in the morning, warm golden sunlight through the windows, hand straps hanging, long seats on both sides",
    "camera": {
     "move": "drift",
     "amount": 0.08
@@ -242,5 +242,8 @@
    "motion": "the man walks away toward the bright rising sun down the street, people walk to work around him"
   }
  ],
- "gpu": "L40S"
+ "gpu": "L40S",
+ "retake": [
+  "S7"
+ ]
 }

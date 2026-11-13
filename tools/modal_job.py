@@ -55,13 +55,18 @@ def run(spec, source, files):
     gpu = subprocess.run("nvidia-smi --query-gpu=name,memory.total --format=csv,noheader", shell=True,
                          capture_output=True, text=True).stdout.strip()
     print("GPU", gpu, flush=True)
-    env = {**os.environ, "STUDIO_OUT": "/kaggle/working/out", "HF_HOME": "/cache/hf", "PYTHONUNBUFFERED": "1", "STUDIO_DEPS_READY": "1"}
+    os.makedirs("/cache/shots", exist_ok=True)   # finished shots are kept: a re-run redoes only the shots in "retake"
+    env = {**os.environ, "STUDIO_OUT": "/kaggle/working/out", "HF_HOME": "/cache/hf", "PYTHONUNBUFFERED": "1",
+           "STUDIO_DEPS_READY": "1", "STUDIO_SHOTS": "/cache/shots"}
     p = subprocess.Popen([sys.executable, "/root/kernel.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
     log = []
     for line in p.stdout:
         print(line, end="", flush=True); log.append(line)
-    p.wait(); vol.commit()
+    p.wait()
     E = f"/kaggle/working/out/{spec['id']}"
+    for f in (os.listdir(f"{E}/shots") if os.path.isdir(f"{E}/shots") else []):
+        shutil.copy(f"{E}/shots/{f}", f"/cache/shots/{spec['id']}_{f}")
+    vol.commit()
     res = {f: open(f"{E}/{f}", "rb").read() for f in (os.listdir(E) if os.path.isdir(E) else []) if os.path.isfile(f"{E}/{f}")}
     mins = (time.time() - t0) / 60
     res["run.log"] = "".join(log[-4000:]).encode()

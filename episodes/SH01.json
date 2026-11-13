@@ -332,6 +332,9 @@
    "나는 또 바위를 민다"
   ]
  },
+ "retake": [
+  "S7"
+ ],
  "upload": {
   "title": "여섯 시 사십 분 | 사직서를 지갑에 넣고 출근하는 아빠의 노래 #shorts",
   "description": "사직서를 지갑에 넣고 다니는 모든 아빠, 엄마에게.\n매일 아침 바위를 밀어 올리는 시시포스처럼, 우리는 오늘도 출근합니다.\n\n가사는 MIDLIFE COMMUTER가 직접 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n당신의 출근길 이야기를 댓글로 들려주세요. 다음 노래가 됩니다.\n\n#출근 #직장인 #아빠 #위로 #가장 #직장인노래 #MIDLIFECOMMUTER",
@@ -511,7 +514,7 @@
     35.59,
     42.03
    ],
-   "plate": "inside a Seoul subway train carriage in the morning, warm golden sunlight streaming through the windows, hand straps hanging, long seats on both sides",
+   "plate": "one single wide view down the aisle inside a Seoul subway train carriage in the morning, warm golden sunlight through the windows, hand straps hanging, long seats on both sides",
    "camera": {
     "move": "drift",
     "amount": 0.08

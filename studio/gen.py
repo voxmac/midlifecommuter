@@ -153,7 +153,8 @@ STYLE_3D = ("3d render, pixar style animated movie character, soft subsurface sc
             "big glossy expressive eyes, cinematic soft key light with warm rim light, shallow depth of field, high detail, 8k")
 NEG_3D = ("2d, flat, illustration, lineart, outline, sketch, anime, photo of a real animal, realistic animal, creepy, uncanny, "
           "scary, extra limbs, deformed, blurry, lowres, text, watermark, logo, black outline, thick lines, cel shading, flat colors")
-PLATE_NEG = "animal, duck, bird, frog, turtle, cloud creature, character, creature, person, people, text, watermark, 2d, flat, illustration, lowres, blurry"
+PANELS_NEG = "collage, split screen, multiple panels, triptych, comic panels, grid of images, frame border"
+PLATE_NEG = "animal, duck, bird, frog, turtle, cloud creature, character, creature, person, people, text, watermark, 2d, flat, illustration, lowres, blurry, " + PANELS_NEG
 PLATE_STYLE = "cinematic 3d animated movie background, pixar style environment, no characters, shallow depth of field"
 BIBLE = {
     "pip": "cute baby duckling, round head and egg-shaped body, fluffy cream ivory down feathers, little feather tuft on top of the head, orange beak and webbed feet, big glossy black eyes",
@@ -334,7 +335,7 @@ def make_keyframe(shot, out_png, seed=None):
     members = [m for m in shot_members(shot) if m["char"].startswith("prop:") or find_input(f"{m['char']}_cut")]
     if len(members) < len(shot_members(shot)): log("skipped cast without a cutout yet:", [m["char"] for m in shot_members(shot) if m not in members])
     if shot.get("extras"):   # passers-by, commuters, elderly people... drawn into the background plate
-        neg = "text, watermark, 2d, flat, illustration, lowres, blurry, photo, photorealistic, person in the centre, object in the centre"
+        neg = "text, watermark, 2d, flat, illustration, lowres, blurry, photo, photorealistic, person in the centre, object in the centre, " + PANELS_NEG
         pf, pseed = gen_image(f"{shot['plate']}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
                               neg=neg, seed=seed, prefix=f"P_{shot['id']}")
     else:
