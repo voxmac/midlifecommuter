@@ -19,7 +19,14 @@ image = (modal.Image.debian_slim(python_version="3.11")
              "sed -i 's/self.dtype = torch.float16/self.dtype = torch.float32/' /opt/ace/acestep/core/generation/handler/init_service_orchestrator.py",
              "git clone -q --depth 1 https://github.com/comfyanonymous/ComfyUI /opt/ComfyUI",
              "git clone -q --depth 1 https://github.com/city96/ComfyUI-GGUF /opt/ComfyUI/custom_nodes/ComfyUI-GGUF",
-             "git clone -q --depth 1 https://github.com/cubiq/ComfyUI_IPAdapter_plus /opt/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus"))
+             "git clone -q --depth 1 https://github.com/cubiq/ComfyUI_IPAdapter_plus /opt/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus",
+             # new pip rejects torchsde 0.2.5's metadata (ComfyUI needs it): use an older pip, and install ComfyUI's
+             # requirements here once so a run only checks them
+             "pip install -q 'pip<24.1'",
+             "printf 'torch==2.7.1\\ntorchvision==0.22.1\\ntorchaudio==2.7.1\\n' > /tmp/c.txt && "
+             "for r in /opt/ComfyUI/requirements.txt /opt/ComfyUI/custom_nodes/*/requirements.txt; do "
+             "grep -viE '^(torch|torchvision|torchaudio)([<>=!~ ;]|$)' $r > /tmp/r.txt; pip install -q -c /tmp/c.txt -r /tmp/r.txt; done",
+             "pip install -q -c /tmp/c.txt gguf"))
 GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
 image = image.env({"MODAL_GPU": GPU})     # so the container re-imports this file with the same GPU
 app = modal.App("midlife-commuter", image=image)

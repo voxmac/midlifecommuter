@@ -23,9 +23,18 @@ msg, ok = llm.initialize(checkpoint_dir="/tmp/ace/checkpoints", lm_model_path=sp
                          backend="pt", device="cuda", offload_to_cpu=True, dtype=None)
 print("LM:", msg, flush=True); assert ok, msg
 rep = []
+ext = spec.get("extend")   # keep a chosen take and redo only its tail (e.g. a last line that was cut off), longer if needed
 for i, seed in enumerate(spec.get("seeds", [11, 22, 33, 44])):
     t0 = time.time()
-    p = GenerationParams(task_type="text2music", thinking=True, caption=spec["style"], lyrics=spec["lyrics"],
+    if ext:
+        p = GenerationParams(task_type="repaint", src_audio=spec["_src"], repainting_start=ext["start"],
+                             repainting_end=ext["end"], chunk_mask_mode="explicit", thinking=False,
+                             caption=spec["style"] + ", " + ext.get("caption", "the last line is sung completely, then a gentle short outro that ends naturally"),
+                             lyrics=spec["lyrics"], bpm=spec.get("bpm"), keyscale=spec.get("key", ""),
+                             timesignature=spec.get("time", "4"), vocal_language=spec.get("lang", "en"),
+                             duration=ext["end"], inference_steps=8, guidance_scale=1.0, seed=seed)
+    else:
+        p = GenerationParams(task_type="text2music", thinking=True, caption=spec["style"], lyrics=spec["lyrics"],
                          bpm=spec.get("bpm"), keyscale=spec.get("key", ""), timesignature=spec.get("time", "4"),
                          vocal_language=spec.get("lang", "en"), duration=spec.get("duration", 120), inference_steps=8,
                          guidance_scale=1.0, seed=seed)
@@ -42,6 +51,12 @@ json.dump(rep, open(f"{out}/versions.json", "w"), indent=1)
 def sh(cmd):
     print("$", cmd, flush=True); subprocess.run(cmd, shell=True, check=True)
 
+def fit_seconds(spec):
+    """Seconds the lyrics need: about two bars per sung line, plus two bars of intro and four of outro."""
+    lines = [l for l in spec["lyrics"].split("\n") if l.strip() and not l.strip().startswith("[")]
+    bar = 4 * 60 / spec.get("bpm", 90)
+    return int(round((len(lines) * 2 + 6) * bar))
+
 def produce_song(spec):
     t0 = time.time(); E = f"{OUT}/{spec['id']}"; os.makedirs(E, exist_ok=True)
     if not os.path.exists(f"{ACE_DIR}/.venv/bin/python"):
@@ -50,6 +65,14 @@ def produce_song(spec):
         sh(f"cd {ACE_DIR} && uv sync -q")
         # T4 has no bfloat16: ACE-Step falls back to float16, whose latents overflow to NaN. Use float32 instead.
         sh(f"sed -i 's/self.dtype = torch.float16/self.dtype = torch.float32/' {ACE_DIR}/acestep/core/generation/handler/init_service_orchestrator.py")
+    if spec.get("extend"):
+        src = find_input(spec["extend"]["from"]); assert src, "extend: source take not in assets"
+        spec = {**spec, "_src": "/tmp/extend_src.wav"}; sh(f'ffmpeg -loglevel error -y -i "{src}" -ar 48000 -ac 2 /tmp/extend_src.wav')
+    else:
+        need = fit_seconds(spec)
+        if spec.get("duration", 120) < need:   # a short duration cuts the last lines off: give every lyric line room
+            print(f"duration {spec.get('duration')} s is too short for the lyrics, using {need} s", flush=True)
+            spec = {**spec, "duration": need}
     open("/tmp/song_gen.py", "w").write(GEN); json.dump(spec, open("/tmp/song_spec.json", "w"))
     sh(f"cd {ACE_DIR} && PYTORCH_ALLOC_CONF=expandable_segments:True .venv/bin/python /tmp/song_gen.py /tmp/song_spec.json {E}")   # T4 (pre-Ampere): fp16 overflows to NaN
     vers = json.load(open(f"{E}/versions.json"))
