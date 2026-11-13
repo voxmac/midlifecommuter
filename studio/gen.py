@@ -383,6 +383,14 @@ EDITS = {
     "point": "Make the {n} point up excitedly at something above, looking up with wide sparkling eyes and an open mouth.",
     "sleep": "Make the {n} fast asleep, curled up cosily, eyes peacefully closed, tiny content smile.",
     "eat": "Make the {n} take a big happy bite of food, cheeks puffed out, eyes closed in delight.",
+    # MIDLIFE COMMUTER: M's scenes (commute, office, home)
+    "walk": "Make the {n} walk briskly to the right on his way to work, mid-stride, briefcase in his hand, tired but determined face.",
+    "sigh": "Make the {n} let out a long tired sigh, shoulders slumped, eyes half closed, briefcase hanging low.",
+    "smile": "Change only the facial expression: the {n} smiles warmly and gently, soft happy eyes, a little moved.",
+    "lookup": "Make the {n} look up at the sky with a hopeful, moved expression, eyes glistening, chin raised.",
+    "seated": "Make the {n} sit down with the briefcase on his lap and both hands resting on it, as if on a bench, tired gentle face.",
+    "back": "Show the {n} from behind, walking away from the camera, briefcase in his right hand, same clothes.",
+    "wallet": "Make the {n} look down sadly at an open wallet held in both hands, the briefcase standing at his feet.",
 }
 KEEP = " Keep exactly the same character design, colours, proportions and glossy 3D animated style. Plain light grey background."
 

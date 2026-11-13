@@ -1,0 +1,20 @@
+{
+ "id": "CAST3",
+ "type": "cast",
+ "gpu": "T4",
+ "engine": "qwen_edit",
+ "chars": [
+  "m"
+ ],
+ "exprs": [
+  "walk",
+  "sigh",
+  "smile",
+  "lookup",
+  "seated",
+  "back",
+  "wallet"
+ ],
+ "per_item": 2,
+ "note": "M's poses and expressions for the shorts, made from the approved master assets/m_cut.png"
+}
