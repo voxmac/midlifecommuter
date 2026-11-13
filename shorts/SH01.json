@@ -92,8 +92,7 @@
     "move": "pan_right",
     "amount": 0.08
    },
-   "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side",
-   "motion": "the man walks forward through the lobby with his briefcase, the elevator doors slide open behind him, the grandmother neighbour nods to him"
+   "motion": "the man walks forward through the quiet lobby with his briefcase, the elevator doors slowly close behind him, cool morning light"
   },
   {
    "lines": [
@@ -126,13 +125,13 @@
     6
    ],
    "expr": "smile",
-   "plate": "one single wide view down the aisle inside a Seoul subway train carriage in the morning, warm golden sunlight through the windows, hand straps hanging, long seats on both sides",
+   "plate": "interior of a Seoul metro subway car in the morning, long continuous bench seats running along both side walls facing each other across the aisle, rows of hand straps and metal poles, sliding doors, route map above the windows, warm golden sunlight through the windows",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
-   "extras": "passengers sitting on both long seats along the walls, a student dozing, a grandmother with a shopping bag, office workers standing farther back",
-   "motion": "the subway car sways gently as it moves, sunlight flickers across the passengers, the man stands holding his briefcase and smiles softly to himself"
+   "extras": "commuters seated shoulder to shoulder on both side benches, some dozing, some looking at phones, a few office workers standing and holding hand straps",
+   "motion": "the subway car sways gently as it moves, sunlight flickers across the seated passengers, the man stands in the aisle holding his briefcase and smiles softly to himself"
   },
   {
    "lines": [
@@ -244,6 +243,7 @@
  ],
  "gpu": "L40S",
  "retake": [
+  "S4",
   "S7"
  ]
 }
