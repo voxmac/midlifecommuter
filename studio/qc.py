@@ -77,3 +77,18 @@ def qc_who(shot):
              "junior": "a young colleague", "boss": "his boss", "friend": "his friend", "grandma": "grandmother", "grandpa": "grandfather"}
     chars = [c["char"] for c in shot.get("cast", [])] or ([shot["char"]] if shot.get("char") else [])
     return ", ".join(names.get(c, c) for c in chars)
+
+
+# ---- calibration: run the checker on frames we already judged by hand (assets/qccal_good_* / qccal_bad_*) ----
+if globals().get("SPEC", {}).get("type") == "qccal":
+    import glob as _glob
+    out = os.path.join(os.environ.get("STUDIO_OUT", "/kaggle/working/out"), SPEC["id"]); os.makedirs(out, exist_ok=True)
+    rows = []
+    for p in sorted(_glob.glob("/kaggle/input/**/qccal_*.jpg", recursive=True)):
+        name = os.path.basename(p)[6:-4]
+        r = qc_check([p], "a scene of a 3D animated Short about a Korean office worker's commute", "M (middle-aged man with glasses, grey coat)")
+        rows.append({"frame": name, "expected_ok": name.startswith("good"), "ok": r["ok"], "problems": r["problems"]})
+        print(name, r, flush=True)
+    hits = sum(1 for x in rows if x["ok"] == x["expected_ok"])
+    json.dump({"episode": SPEC["id"], "type": "qccal", "agree": f"{hits}/{len(rows)}", "rows": rows},
+              open(f"{out}/report.json", "w"), indent=1, ensure_ascii=False)

@@ -8,7 +8,7 @@ MODULES = ["sfx.py", "voice.py", "gen.py", "edit.py", "qc.py", "main.py"]
 
 def build_source(spec):
     src = [f"SPEC = json.loads({json.dumps(spec)!r})\n"]
-    mods = {"song": ["song.py"], "lab": ["wangp.py"]}.get(spec.get("type"), MODULES)
+    mods = {"song": ["song.py"], "lab": ["wangp.py"], "qccal": ["qc.py"]}.get(spec.get("type"), MODULES)
     if spec.get("format") == "mv": mods = MODULES[:-1] + ["wangp.py", "main.py"]   # lip-sync shots run WanGP
     for m in mods:
         src.append(open(os.path.join(ROOT, "studio", m), encoding="utf-8").read())
