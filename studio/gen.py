@@ -153,7 +153,7 @@ STYLE_3D = ("3d render, pixar style animated movie character, soft subsurface sc
             "big glossy expressive eyes, cinematic soft key light with warm rim light, shallow depth of field, high detail, 8k")
 NEG_3D = ("2d, flat, illustration, lineart, outline, sketch, anime, photo of a real animal, realistic animal, creepy, uncanny, "
           "scary, extra limbs, deformed, blurry, lowres, text, watermark, logo, black outline, thick lines, cel shading, flat colors")
-PANELS_NEG = "collage, split screen, multiple panels, triptych, comic panels, grid of images, frame border"
+PANELS_NEG = "collage, split screen, multiple panels, triptych, comic panels, grid of images, frame border, pagoda, temple, japanese architecture, chinese architecture"
 PLATE_NEG = "animal, duck, bird, frog, turtle, cloud creature, character, creature, person, people, text, watermark, 2d, flat, illustration, lowres, blurry, " + PANELS_NEG
 PLATE_STYLE = "cinematic 3d animated movie background, pixar style environment, no characters, shallow depth of field"
 BIBLE = {

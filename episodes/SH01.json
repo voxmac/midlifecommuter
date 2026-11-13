@@ -490,12 +490,12 @@
     29.39,
     35.59
    ],
-   "plate": "a long steep uphill street in a Korean city at sunrise, the road climbing high up a hill toward the sky, small shops and apartment blocks on both sides",
+   "plate": "a steep narrow uphill street in a modern Korean hillside neighbourhood (dal-dongne) at sunrise, two and three storey concrete and red-brick houses with flat roofs and blue rooftop water tanks, tangled power lines and utility poles, small Korean shop signs, the road climbing toward a golden sky",
    "camera": {
     "move": "tilt_up",
     "amount": 0.08
    },
-   "motion": "the man walks slowly up the steep street away from the camera, far ahead the helmeted delivery man rides his scooter up the hill, the morning light grows warmer",
+   "motion": "the man walks slowly up the steep street away from the camera, far ahead an old woman walks down with her shopping bag, the morning light grows warmer",
    "frames": 105,
    "char": "m",
    "expr": "back",
@@ -505,7 +505,7 @@
     "foot": 0.95,
     "shadow": 0.45
    },
-   "extras": "far up the hill a delivery man wearing a helmet and a jacket sits on his red scooter and rides it, a street sweeper in an orange vest"
+   "extras": "a street sweeper in an orange vest far up the hill, an old woman walking down with a shopping bag"
   },
   {
    "id": "S7",
