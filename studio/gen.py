@@ -438,6 +438,14 @@ def design_candidates(spec, out_dir):
                               f"plain light grey studio background, {STYLE_3D}", neg=NEG_3D + HUMAN_NEG,
                               w=d.get("w", 832), h=d.get("h", 1216), prefix=f"D_{key}")
             dst = f"{out_dir}/{key}_{k}.png"; shutil.copy(f, dst); made.setdefault(key, []).append(dst); log("design", key, k, sd)
+    sty = {k: d["stylize"] for k, d in spec.get("design", {}).items() if d.get("stylize")}
+    if sty:   # SDXL tends to draw people photo-real: Qwen-Image-Edit turns each candidate into the 3D animated look
+        stop_server(); ensure("edit")
+        for key, instr in sty.items():
+            for dst in made[key]:
+                f, sd, sec = gen_edit(dst, instr, prefix=f"S_{key}")
+                shutil.copy(f, dst); log("stylize", key, os.path.basename(dst), f"{sec:.0f}s")
+        stop_server(); ensure("image")
     for key, d in spec.get("plates", {}).items():
         for k in range(d.get("count", 4)):
             f, sd = gen_image(f"{d['prompt']}, {PLATE_STYLE}", neg=PLATE_NEG, w=d.get("w", 1344), h=d.get("h", 768), prefix=f"B_{key}")

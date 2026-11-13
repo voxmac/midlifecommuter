@@ -1,0 +1,13 @@
+{
+ "id": "CAST2",
+ "type": "cast",
+ "gpu": "T4",
+ "note": "M again, in the reference's 3D animated-film look (CAST1 came out photo-real). SDXL draft -> Qwen-Image-Edit stylize.",
+ "design": {
+  "m": {
+   "prompt": "stylized 3d animated movie character, a middle-aged Korean office worker dad in his late 40s, slightly big head, big expressive kind eyes, round thin-framed glasses, short black hair graying at the temples, warm tired smile, grey wool coat over white shirt and navy tie, employee ID badge on a lanyard, dark trousers, brown shoes, holding a worn brown leather briefcase, cartoon proportions",
+   "count": 8,
+   "stylize": "Turn this man into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep his round glasses, graying temples, grey coat, white shirt, navy tie, ID badge on a lanyard and brown leather briefcase. Full body from head to shoes, standing, plain light grey background."
+  }
+ }
+}
