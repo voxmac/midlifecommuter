@@ -1,0 +1,52 @@
+"""Builds a song Short spec (episodes/<id>.json) from a scene plan and the song's lyric timing.
+usage: python tools/make_short.py shorts/SH01.json <timing.json from the song's prep release>
+Plan: {"id", "song": "MC01", "pick": 1, "scenes": [{"lines": [0, 1] | "outro", "plate", "expr", "place"?, "camera"?}], ...}
+Every scene is a still keyframe (plate + M cutout + light harmonising pass) with a slow camera move; captions are the
+song's words, timed letter by letter from the Whisper alignment, coloured in karaoke style."""
+import json, os, re, sys, difflib
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+plan = json.load(open(sys.argv[1], encoding="utf-8")); tm = json.load(open(sys.argv[2], encoding="utf-8"))
+song = json.load(open(f"{ROOT}/songs/{plan['song']}.json", encoding="utf-8"))
+norm = lambda x: re.sub(r"[\W_]", "", x.lower())
+lines = [l.strip() for l in song["lyrics"].split("\n") if l.strip() and not l.strip().startswith("[")]
+starts = [l["start"] for l in tm["lines"]]; ends = [l["end"] for l in tm["lines"]]
+assert len(lines) == len(starts), (len(lines), len(starts))
+heard = tm["heard"]
+units = [(ch, i, k) for i, l in enumerate(lines) for k, w in enumerate(l.split()) for ch in norm(w)]
+sm = difflib.SequenceMatcher(None, [u[0] for u in units], [h[0] for h in heard], autojunk=False)
+t = [None] * len(units)
+for a, b, n in sm.get_matching_blocks():
+    for j in range(n): t[a + j] = (heard[b + j][1], heard[b + j][2])
+lyrics_tl = []
+for i, l in enumerate(lines):
+    words = l.split(); s0, s1 = starts[i], ends[i]; out = []
+    for k, w in enumerate(words):
+        got = [t[j] for j, u in enumerate(units) if u[1] == i and u[2] == k and t[j]]
+        if got: a, b = got[0][0], got[-1][1]
+        else: a = s0 + (s1 - s0) * k / len(words); b = s0 + (s1 - s0) * (k + 1) / len(words)
+        if a <= 0.01: a = max(0.0, b - 0.3 * len(norm(w)) - 0.15)     # Whisper pins a song's first word to 0 s
+        out.append([w, round(a, 2), round(max(b, a + 0.15), 2)])
+    for j in range(1, len(out)):
+        if out[j][1] < out[j - 1][1] + 0.05: out[j][1] = round(out[j - 1][1] + 0.12, 2); out[j][2] = max(out[j][2], out[j][1] + 0.15)
+    lyrics_tl.append(out)
+total = plan["seconds"]
+shots = []
+for n, sc in enumerate(plan["scenes"]):
+    ls = sc["lines"]
+    a = 0.0 if n == 0 else shots[-1]["slot"][1]
+    nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
+    b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
+    place = {"h": 0.52, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **sc.get("place", {})}
+    shots.append({"id": f"S{n + 1}", "still": True, "dur": round(b - a + 0.6, 2), "slot": [round(a, 2), round(b, 2)],
+                  "plate": sc["plate"], "char": "m", "expr": sc.get("expr"), "place": place,
+                  "camera": sc.get("camera", {"move": "push", "amount": 0.08})})
+spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": "m",
+        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
+        "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
+        "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+        "brand": "MIDLIFE COMMUTER", "top_label": plan.get("top_label"), "hook": plan.get("hook", []),
+        "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
+        "thumb": plan.get("thumb", {}), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
+dst = f"{ROOT}/episodes/{plan['id']}.json"
+json.dump(spec, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print(dst, len(shots), "scenes,", sum(len(x) for x in lyrics_tl), "caption words")

@@ -213,7 +213,10 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
                 for k in ln: pos.append((k, x, y0 + li * lh)); x += widths[k] + space
             CAP.append((on, off, imgs, pos))
 
+    TOPL = _text(font_path, spec["top_label"], 58, stroke=NAVY, sw=8) if spec.get("top_label") else None
     def draw_common(fr, t):
+        if TOPL is not None:   # series name fixed at the top, like a title card (MIDLIFE COMMUTER shorts)
+            _paste(fr, TOPL, VW / 2, 200 if VH > VW else 70, 1.0, 1.0)
         if L_HOOK and 0.15 < t < 2.55:
             a = min(1, (t - 0.15) / 0.2) * min(1, (2.55 - t) / 0.25)
             _paste(fr, L_HOOK[0], VW / 2, 250, _ease((t - 0.15) / 0.35), a)
@@ -419,7 +422,7 @@ def thumbnail(spec, tl, body, out_jpg, font_path, ff, ch_color=None, key_dir=Non
             Ls.append(L)
         y = H2 / 2 - sum(L.height - 20 for L in Ls) / 2 - 20
         for L in Ls: im.alpha_composite(L, (40, int(y))); y += L.height - 20
-        tag = _text(font_path, "PUDDLE PALS", 44, stroke=NAVY, sw=7); im.alpha_composite(tag, (W2 - tag.width - 24, H2 - tag.height - 16))
+        tag = _text(font_path, spec.get("brand", "PUDDLE PALS"), 44, stroke=NAVY, sw=7); im.alpha_composite(tag, (W2 - tag.width - 24, H2 - tag.height - 16))
         ImageDraw.Draw(im).rectangle([0, 0, W2 - 1, H2 - 1], outline=col + (255,), width=10)
         im.convert("RGB").save(out_jpg, quality=92); return out_jpg
     W2, H2 = 1280, 720; band = int(VW * H2 / 760)
@@ -445,7 +448,7 @@ def thumbnail(spec, tl, body, out_jpg, font_path, ff, ch_color=None, key_dir=Non
         Ls.append(L)
     total_h = sum(L.height - 20 for L in Ls); y = H2 / 2 - total_h / 2 - 30
     for L in Ls: im.alpha_composite(L, (int(room / 2 - L.width / 2 + 10), int(y))); y += L.height - 20
-    tag = _text(font_path, "PUDDLE PALS", 44, stroke=NAVY, sw=7)
+    tag = _text(font_path, spec.get("brand", "PUDDLE PALS"), 44, stroke=NAVY, sw=7)
     im.alpha_composite(tag, (W2 - tag.width - 24, H2 - tag.height - 16))
     if spec.get("series"):
         ch = _text(font_path, f"CHAPTER {spec['series'].get('chapter')}", 48, stroke=col, sw=8)
@@ -482,7 +485,7 @@ def thumbnail_vertical(spec, tl, body, out_jpg, font_path, ff, ch_color=None, ke
         L = _text(font_path, w.upper(), 128 if i == 0 else 150, fill=WHITE if i == 0 else GOLD, stroke=col if 0.299 * col[0] + 0.587 * col[1] + 0.114 * col[2] < 170 else NAVY, sw=16)
         if L.width > VW - 60: L = L.resize((VW - 60, int(L.height * (VW - 60) / L.width)), Image.LANCZOS)
         im.alpha_composite(L, (int(VW / 2 - L.width / 2), int(y))); y += L.height - 24
-    tag = _text(font_path, "PUDDLE PALS", 72, stroke=NAVY, sw=10)
+    tag = _text(font_path, spec.get("brand", "PUDDLE PALS"), 72, stroke=NAVY, sw=10)
     im.alpha_composite(tag, (int(VW / 2 - tag.width / 2), VH - tag.height - 150))
     im.convert("RGB").save(out_jpg, quality=92)
     return out_jpg

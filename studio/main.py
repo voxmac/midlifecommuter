@@ -11,6 +11,15 @@ def asset(name):
         if hits: return sorted(hits)[0]
     return None
 
+def font_file(spec):
+    """Caption/title font: an asset by name, else downloaded once (e.g. a Korean Google font for MIDLIFE COMMUTER)."""
+    name = spec.get("font", "LuckiestGuy"); p = asset(name)
+    if p: return p
+    import urllib.request
+    dst = f"/tmp/{name}.ttf"
+    if not os.path.exists(dst): urllib.request.urlretrieve(spec["font_url"], dst)
+    return dst
+
 def previous_shot(ep, sid):
     hits = glob.glob(f"{os.environ.get('STUDIO_SHOTS', '/kaggle/input')}/**/{ep}_{sid}.mp4", recursive=True)
     return hits[0] if hits else None
@@ -124,7 +133,7 @@ def produce(spec):
         voice_tl = [{"start": ln[0][1], "dur": ln[-1][2] - ln[0][1], "wav": None, "words": ln} for ln in spec["lyrics_tl"]]
     log("edit: graphics")
     chap = f"{work}/chapter_video.mp4" if spec.get("series") else None
-    motion = overlay(spec, tl, total, body, f"{work}/video.mp4", asset("LuckiestGuy"), ff, voice_tl, chap)
+    motion = overlay(spec, tl, total, body, f"{work}/video.mp4", font_file(spec), ff, voice_tl, chap)
     log("edit: sound")
     soundtrack(spec, tl, total, motion, f"{work}/audio.wav", voice_tl)
     final = f"{E}/{ep}_{spec.get('slug', 'episode')}.mp4"
@@ -142,10 +151,10 @@ def produce(spec):
     ser = spec.get("series", {})
     col = RAINBOW7[min(6, max(0, ser.get("chapter", 1) - 1))] if ser else None
     if spec.get("format", "short") == "bedtime" or landscape:     # regular video: landscape cover
-        thumbnail(spec, tl, body, f"{E}/thumb.jpg", asset("LuckiestGuy"), ff, col, f"{E}/keys")
+        thumbnail(spec, tl, body, f"{E}/thumb.jpg", font_file(spec), ff, col, f"{E}/keys")
     else:                                             # Shorts: vertical cover + a wide one for the full episode
-        thumbnail_vertical(spec, tl, body, f"{E}/thumb.jpg", asset("LuckiestGuy"), ff, col, f"{E}/keys")
-        thumbnail(spec, tl, body, f"{E}/thumb_wide.jpg", asset("LuckiestGuy"), ff, col, f"{E}/keys")
+        thumbnail_vertical(spec, tl, body, f"{E}/thumb.jpg", font_file(spec), ff, col, f"{E}/keys")
+        thumbnail(spec, tl, body, f"{E}/thumb_wide.jpg", font_file(spec), ff, col, f"{E}/keys")
     review_sheet(final, f"{E}/review.jpg", ff)
     shutil.rmtree(f"{work}/seg", ignore_errors=True)
     for f in (body, f"{work}/video.mp4", chap or ""):

@@ -4,7 +4,7 @@ name: produce
 on:
   push:
     branches: [main]
-    paths: ["songs/*.json", "cast/*.json"]
+    paths: ["songs/*.json", "cast/*.json", "episodes/*.json"]
   workflow_dispatch:
     inputs:
       id: {description: "Job id, e.g. MC01 or CAST1", required: true}
@@ -35,7 +35,7 @@ jobs:
           if [ -n "${{ github.event.inputs.id }}" ]; then echo "list=${{ github.event.inputs.id }}" >> $GITHUB_OUTPUT
           else
             BEFORE="${{ github.event.before }}"; git cat-file -e "$BEFORE" 2>/dev/null || BEFORE=$(git rev-list --max-parents=0 HEAD)
-            echo "list=$(git diff --name-only --diff-filter=AM $BEFORE HEAD -- 'songs/*.json' 'cast/*.json' | xargs -r -n1 basename | sed 's/.json//' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+            echo "list=$(git diff --name-only --diff-filter=AM $BEFORE HEAD -- 'songs/*.json' 'cast/*.json' 'episodes/*.json' | xargs -r -n1 basename | sed 's/.json//' | tr '\n' ' ')" >> $GITHUB_OUTPUT
           fi
       - name: Song prep (picked version -> vocals + lyric timing), CPU on this runner
         run: |
@@ -54,7 +54,7 @@ jobs:
         run: |
           pip install -q modal
           for e in ${{ steps.j.outputs.list }}; do
-            f=songs/$e.json; [ -f cast/$e.json ] && f=cast/$e.json
+            f=songs/$e.json; [ -f cast/$e.json ] && f=cast/$e.json; [ -f episodes/$e.json ] && f=episodes/$e.json
             [ -f "$f" ] || { echo "::error::no spec for $e"; continue; }
             [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue      # prepped above, no GPU
             O=out/$e; mkdir -p $O
@@ -73,6 +73,12 @@ jobs:
               gh release create "$TAG" $O/*.mp3 $O/*.wav $O/report.json $O/modal.json --title "$e song versions" \
                 --notes "Listen on your phone, then answer in the review issue."
               python tools/song_body.py $O/report.json $REPO $TAG > body.md
+              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
+              gh issue create --title "Review: $e" --body-file body.md
+            elif [ -f $O/report.json ] && [ -f episodes/$e.json ]; then
+              gh release create "$TAG" $O/*.mp4 $O/thumb*.jpg $O/review.jpg $O/report.json $O/modal.json --title "$e" \
+                --notes "Watch it on your phone, then answer in the review issue."
+              python tools/review_body.py $O/report.json $REPO $TAG > body.md
               echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
               gh issue create --title "Review: $e" --body-file body.md
             elif [ -f $O/report.json ]; then
