@@ -27,7 +27,8 @@ if rep.get("qc"):   # automatic visual check (qc.py): what it fixed, and anythin
     narr += f"\n**Automatic check:** {len(rep['qc'])} scenes checked" + (f", redrawn: {', '.join(fixed)}" if fixed else "") + ".\n"
     for k, probs in left:
         narr += f"- ⚠ {k}: {'; '.join(probs) or 'flagged'} — comment `/retake {k}` to redo it\n"
-kind = "Full episode (landscape, regular video)" if full else {"bedtime": "Bedtime story (regular video)", "mv": "Music video (16:9, regular video)"}.get(rep.get("format", "short"), "Short")
+kind = "Full episode (landscape, regular video)" if full else ({"bedtime": "Bedtime story (regular video)", "mv": "Music video (16:9, regular video)"}.get(rep.get("format", "short"), "Short")
+                                if rep.get("aspect", "9:16") == "16:9" or rep.get("format") != "mv" else "세로 쇼츠 (9:16)")
 print(f"""## {rep['episode']} is ready for review ({rep.get('seconds')}s · {kind})
 
 ![thumbnail]({base}/download/{tag}/thumb.jpg)
@@ -36,15 +37,28 @@ print(f"""## {rep['episode']} is ready for review ({rep.get('seconds')}s · {kin
 
 **Video and thumbnail:** {base}/tag/{tag}
 {narr}
-**YouTube title:** {up.get('title', '')}
+### 📋 업로드 정보 (복사해서 붙여 넣기)
 
-**Description:** {up.get('description', '')}
+**제목**
+```
+{up.get('title', '')}
+```
 
-**Settings:** Audience = {"Made for Kids" if up.get("made_for_kids") else "Not made for kids (general)"} · Altered or synthetic content = No (animation) · Thumbnail = thumb.jpg
+**설명**
+```
+{up.get('description', '')}
+```
+
+**태그**
+```
+{', '.join(up.get('tags', []))}
+```
+
+**설정:** 시청자층 = {"아동용" if up.get("made_for_kids") else "아동용 아님"} · 변경되거나 합성된 콘텐츠 = 아니요 (애니메이션) · 썸네일 = thumb.jpg{(" · 공개 예약 = " + up["schedule"]) if up.get("schedule") else ""}
 
 {table}
 
 Reply with a comment:
 - `/approve` to mark it approved (you then upload it to YouTube)
-- `/retake B3 B5` to regenerate only those shots and re-edit
+- `/retake S3 S5` to regenerate only those scenes and re-edit
 """)

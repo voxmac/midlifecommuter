@@ -50,6 +50,11 @@ for n, sc in enumerate(plan["scenes"]):
             errors.append(f"{tag}: {c['char']} would be cut off at the frame edge (cx {pl['cx']}, h {pl['h']})")
         if pl["foot"] - pl["h"] < 0.08:
             errors.append(f"{tag}: {c['char']}'s head would hit the top of the frame")
+up = plan.get("upload", {})   # every Short ships with its own title, description and tags
+if not up.get("title") or len(up["title"]) > 100: errors.append("upload: a title of at most 100 characters is needed")
+if "#shorts" not in up.get("title", "").lower() + up.get("description", "").lower(): errors.append("upload: add #shorts to the title or description")
+if len(up.get("description", "")) < 80: errors.append("upload: write a description (lyrics hook, story line, comment question, AI note, hashtags)")
+if not up.get("tags"): errors.append("upload: add tags")
 for x in notes: print("note:", x)
 if errors:
     print("\n".join("LINT: " + e for e in errors)); sys.exit("scene plan has problems; fix them before spending GPU time")

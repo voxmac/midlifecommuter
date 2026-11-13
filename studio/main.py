@@ -199,7 +199,7 @@ def produce(spec):
     for f in (body, f"{work}/video.mp4", chap or ""):
         if f and os.path.exists(f): os.remove(f)
     report.update({"timeline": tl, "seconds": round(total, 2), "final": os.path.basename(final),
-                   "upload": spec.get("upload", {}), "minutes_total": round((time.time() - t0) / 60, 1)})
+                   "upload": spec.get("upload", {}), "aspect": spec.get("aspect"), "minutes_total": round((time.time() - t0) / 60, 1)})
     json.dump(report, open(f"{E}/report.json", "w"), indent=1, ensure_ascii=False)
     log("DONE", final, f"{total:.1f}s", f"{report['minutes_total']} min")
     return final
