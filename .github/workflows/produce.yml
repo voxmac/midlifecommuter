@@ -59,7 +59,15 @@ jobs:
             [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue      # prepped above, no GPU
             O=out/$e; mkdir -p $O
             export MODAL_GPU=$(python -c "import json;print(json.load(open('$f')).get('gpu','T4'))")
-            modal run tools/modal_job.py --spec $f --out $O 2>&1 | tail -c 200000 > $O/console.log || true
+            PI=$(gh issue create --title "Running: $e" --body "Live log every 5 minutes. Closed when the job ends." | grep -oE '[0-9]+$')
+            ( modal run tools/modal_job.py --spec $f --out $O > $O/console.log 2>&1 || true ) &
+            MP=$!
+            while kill -0 $MP 2>/dev/null; do
+              sleep 300; kill -0 $MP 2>/dev/null || break
+              { echo "$(date -u +%H:%M) UTC"; echo '```'; tail -c 2500 $O/console.log | tr -d '\r'; echo '```'; } > tick.md
+              gh issue comment $PI --body-file tick.md || true
+            done
+            gh issue close $PI || true
             TAG="$e-$(date -u +%m%d-%H%M)"
             if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
               gh release create "$TAG" $O/*.mp3 $O/*.wav $O/report.json $O/modal.json --title "$e song versions" \
