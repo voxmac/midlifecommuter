@@ -8,6 +8,13 @@ if r.get("type") == "songprep":
     print("| section | line | start | end | matched |\n|---|---|---|---|---|")
     for l in r["lines"]:
         print(f"| {l['section']} | {l['line']} | {l['start']} | {l['end']} | {l['matched']}/{l['words']} |")
+    # automatic check: lines the singer skipped, and an ending cut off by the song length
+    warn = [l["line"] for l in r["lines"] if l.get("words") and l["matched"] / l["words"] < 0.5]
+    dur = r.get("seconds") or r.get("duration")
+    if warn: print("\n**⚠ Possibly not sung / unclear:** " + " · ".join(warn))
+    if dur and r["lines"] and r["lines"][-1]["end"] > dur - 1.5:
+        print(f"\n**⚠ The last line ends at {r['lines'][-1]['end']} s of {dur} s: it may be cut off.** Ask Claude to extend the ending.")
+    if not warn and not (dur and r["lines"] and r["lines"][-1]["end"] > dur - 1.5): print("\n✅ Automatic check: every line is sung and the ending is complete.")
     sys.exit()
 print(f"## {r['episode']} — {r.get('title', '')}: {len(r['versions'])} versions to listen to\n")
 for v in r["versions"]:

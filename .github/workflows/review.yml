@@ -2,7 +2,8 @@ name: review
 # Owner comments on a "Review: MCxx/CASTx" or "Failed: ..." issue:
 #   /approve 2     (song) keep version 2 -> vocals + lyric timing are prepared automatically
 #   /pick m=3      (design) make candidate 3 the master cutout assets/m_cut.png
-#   /rerun         run the job again (songs get new seeds)      /approve  close the issue
+#   /retake S4 S7  (Short) redo only those scenes               /rerun  run the job again (songs get new seeds)
+#   /approve       close the issue
 on:
   issue_comment:
     types: [created]
@@ -57,6 +58,15 @@ jobs:
                 gh workflow run produce.yml -f id=$ID
                 gh issue comment $N --body "v$V kept. Vocals and lyric timing are being prepared; a \"Song prep: $ID\" issue follows."
               else gh issue comment $N --body "Approved."; fi
+              gh issue close $N ;;
+            /retake*)
+              SHOTS=$(echo "$CMD" | grep -oE 'S[0-9]+' | tr '\n' ' ')
+              [ -f episodes/$ID.json ] && [ -n "$SHOTS" ] || { gh issue comment $N --body "Use it on a Short's review, e.g. \`/retake S4 S7\`."; exit 0; }
+              python -c "import json,sys;p='episodes/$ID.json';s=json.load(open(p));s['retake']='$SHOTS'.split();json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+              [ -f shorts/$ID.json ] && python -c "import json;p='shorts/$ID.json';s=json.load(open(p));s['retake']='$SHOTS'.split();json.dump(s,open(p,'w'),ensure_ascii=False,indent=1)"
+              git add episodes/$ID.json shorts/ && git commit -m "$ID: retake $SHOTS [skip ci]" && push
+              gh workflow run produce.yml -f id=$ID
+              gh issue comment $N --body "Redoing $SHOTS only; every other scene is kept. A new review issue follows."
               gh issue close $N ;;
             /rerun*)
               if [ -f songs/$ID.json ]; then

@@ -75,6 +75,9 @@ jobs:
               python tools/song_body.py $O/report.json $REPO $TAG > body.md
               echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
               gh issue create --title "Review: $e" --body-file body.md
+            elif [ -f $O/report.json ] && [ -f episodes/$e.json ] && ! ls $O/*.mp4 >/dev/null 2>&1; then
+              { echo "## $e: shots only (test run)"; echo '```json'; cat $O/report.json; echo '```'; echo "Modal: $(cat $O/modal.json | tr -d '\n ')"; } > body.md
+              gh issue create --title "Test: $e" --body-file body.md
             elif [ -f $O/report.json ] && [ -f episodes/$e.json ]; then
               gh release create "$TAG" $O/*.mp4 $O/thumb*.jpg $O/review.jpg $O/report.json $O/modal.json --title "$e" \
                 --notes "Watch it on your phone, then answer in the review issue."

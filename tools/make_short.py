@@ -29,6 +29,30 @@ for i, l in enumerate(lines):
     for j in range(1, len(out)):
         if out[j][1] < out[j - 1][1] + 0.05: out[j][1] = round(out[j - 1][1] + 0.12, 2); out[j][2] = max(out[j][2], out[j][1] + 0.15)
     lyrics_tl.append(out)
+# ---- pre-flight lint: the mistakes found by hand in SH01, caught before any GPU time is spent ----
+import re as _re
+errors, notes = [], []
+for n, sc in enumerate(plan["scenes"]):
+    tag = f"scene {n + 1}"
+    txt = " ".join([sc.get("plate", ""), sc.get("extras", ""), sc.get("motion", "")]).lower()
+    if _re.search(r"scooter|motorbike|motorcycle|bicycle|\bbike\b", txt) and not _re.search(r"rid(es|ing|er)|on his|on her|sits on", txt):
+        errors.append(f"{tag}: a scooter/bike is mentioned without its rider (it would move empty)")
+    if _re.search(r"\b(appears?|walks in|pops? up|comes into view|enters)\b", sc.get("motion", "").lower()):
+        errors.append(f"{tag}: the motion makes someone appear mid-shot; put them in the picture from the first frame")
+    if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
+        sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
+    for c in sc.get("cast", []) or [{"char": "m", "expr": sc.get("expr"), "place": sc.get("place", {})}]:
+        if c.get("expr") == "seated":
+            errors.append(f"{tag}: the 'seated' pose carries its own bench; use a standing pose or a seat drawn in the place")
+        pl = {"h": 0.5, "cx": 0.5, "foot": 0.95, **c.get("place", {})}
+        half = pl["h"] * 1920 * 0.45 / 1080 / 2          # a person is about 0.45 of their height wide
+        if pl["cx"] - half < 0.02 or pl["cx"] + half > 0.98:
+            errors.append(f"{tag}: {c['char']} would be cut off at the frame edge (cx {pl['cx']}, h {pl['h']})")
+        if pl["foot"] - pl["h"] < 0.08:
+            errors.append(f"{tag}: {c['char']}'s head would hit the top of the frame")
+for x in notes: print("note:", x)
+if errors:
+    print("\n".join("LINT: " + e for e in errors)); sys.exit("scene plan has problems; fix them before spending GPU time")
 total = plan["seconds"]
 shots = []
 for n, sc in enumerate(plan["scenes"]):

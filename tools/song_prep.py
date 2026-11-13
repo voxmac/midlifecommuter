@@ -10,6 +10,7 @@ src = os.path.join(ROOT, "assets", f"{spec['id']}_v{spec['pick']}.mp3")
 subprocess.run([sys.executable, "/tmp/song_prep_run.py", "/tmp/song_spec.json", src, E], check=True)
 subprocess.run(f'cp "{src}" {E}/ && ffmpeg -loglevel error -y -i {E}/{spec["id"]}_vocals.wav -b:a 160k {E}/{spec["id"]}_vocals.mp3', shell=True, check=True)
 tm = json.load(open(f"{E}/timing.json"))
-json.dump({"episode": spec["id"], "type": "songprep", "title": spec.get("title"), "pick": spec["pick"], "lines": tm["lines"],
+secs = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", src], capture_output=True, text=True).stdout.strip() or 0)
+json.dump({"episode": spec["id"], "type": "songprep", "title": spec.get("title"), "pick": spec["pick"], "lines": tm["lines"], "seconds": round(secs, 2),
            "minutes_total": round((time.time() - t0) / 60, 1)}, open(f"{E}/report.json", "w"), indent=1)
 print(E)

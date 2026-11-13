@@ -20,6 +20,13 @@ elif rep.get("narration"):
 if rep.get("pending"):
     narr += (f"\n**⏳ Not finished yet (time budget):** {', '.join(rep['pending'])} are still pictures for now. "
              "Comment `/rerun` to make them; every finished shot is kept.\n")
+if rep.get("qc"):   # automatic visual check (qc.py): what it fixed, and anything it could not fix
+    fixed = [k for k, v in rep["qc"].items() if v.get("key_tries", 1) > 1 and v.get("key_ok", True)]
+    left = [(k, v.get("key_problems", []) + v.get("shot_problems", [])) for k, v in rep["qc"].items()
+            if not v.get("key_ok", True) or not v.get("shot_ok", True)]
+    narr += f"\n**Automatic check:** {len(rep['qc'])} scenes checked" + (f", redrawn: {', '.join(fixed)}" if fixed else "") + ".\n"
+    for k, probs in left:
+        narr += f"- ⚠ {k}: {'; '.join(probs) or 'flagged'} — comment `/retake {k}` to redo it\n"
 kind = "Full episode (landscape, regular video)" if full else {"bedtime": "Bedtime story (regular video)", "mv": "Music video (16:9, regular video)"}.get(rep.get("format", "short"), "Short")
 print(f"""## {rep['episode']} is ready for review ({rep.get('seconds')}s · {kind})
 

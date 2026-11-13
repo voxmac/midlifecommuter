@@ -24,6 +24,15 @@ def previous_shot(ep, sid):
     hits = glob.glob(f"{os.environ.get('STUDIO_SHOTS', '/kaggle/input')}/**/{ep}_{sid}.mp4", recursive=True)
     return hits[0] if hits else None
 
+def qc_on(spec):
+    """The visual check needs about 17 GB next to the image models: on by default on the big GPUs (L40S, A100, H100)."""
+    if not spec.get("qc", True) or os.environ.get("STUDIO_LOCAL"): return False
+    try:
+        import torch
+        return torch.cuda.get_device_properties(0).total_memory > 40 * 2**30
+    except Exception:
+        return False
+
 def produce(spec):
     ep = spec["id"]; t0 = time.time()
     landscape = spec.get("aspect", "16:9" if spec.get("format") == "bedtime" else "9:16") == "16:9"
@@ -66,6 +75,18 @@ def produce(spec):
                 seed = make_keyframe(s, key, s.get("key_seed"))
                 report["shots"][s["id"]] = {"key_seed": seed}
                 log("keyframe", s["id"], seed)
+            if qc_on(spec):   # automatic check of every keyframe; a failing one is drawn again (new seed), up to twice
+                stop_server(); report["qc"] = {}
+                for s in todo:
+                    key = f"{E}/keys/{s['id']}.png"; tries = []
+                    for attempt in range(3):
+                        r = qc_check([key], s["plate"], qc_who(s)); tries.append(r["problems"])
+                        if r["ok"] or attempt == 2: break
+                        log("QC keyframe", s["id"], "redraw:", r["problems"])
+                        ensure("image"); report["shots"][s["id"]]["key_seed"] = make_keyframe(s, key, None); stop_server()
+                    report["qc"][s["id"]] = {"key_ok": r["ok"], "key_tries": len(tries), "key_problems": tries[-1]}
+                    log("QC keyframe", s["id"], "ok" if r["ok"] else f"still failing: {r['problems']}")
+                qc_unload(); ensure("image")
             for s in [x for x in todo if x.get("still")]:
                 still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], s.get("dur", 5.0))
                 report["shots"][s["id"]]["still"] = True
@@ -84,11 +105,26 @@ def produce(spec):
                         still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], 5.0)   # not in shots/ → redone next run
                         report["shots"][s["id"]]["pending"] = True; report.setdefault("pending", []).append(s["id"])
                         log("over budget, pending:", s["id"]); continue
-                    prompt = s["motion"] + ", the characters keep exactly the same faces and designs as in the first frame, pixar style 3d animation, smooth natural motion, cinematic"
+                    prompt = s["motion"] + (", the characters keep exactly the same faces and designs as in the first frame, no new people or objects appear, "
+                                            "every scooter or bicycle keeps its rider, pixar style 3d animation, smooth natural motion, cinematic")
                     seed, sec = gen_shot(f"{E}/keys/{s['id']}.png", prompt, shot_files[s["id"]], s.get("video_seed"), frames=s.get("frames", 81))
                     report["shots"][s["id"]].update({"video_seed": seed, "minutes": round(sec / 60, 1)})
                     log("shot", s["id"], f"{sec/60:.1f} min")
                 stop_server()
+                if qc_on(spec):   # check the animated shots too (first, middle, last frame); a failing one is made once more
+                    for s in moving:
+                        f = shot_files[s["id"]]
+                        if not os.path.exists(f) or "/pending/" in f: continue
+                        for attempt in range(2):
+                            r = qc_check(qc_frames(f, f"{E}/keys/{s['id']}_qc"), s["plate"] + ". Motion: " + s["motion"], qc_who(s))
+                            if r["ok"] or attempt == 1: break
+                            log("QC shot", s["id"], "remake:", r["problems"]); qc_unload(); ensure("video")
+                            prompt = s["motion"] + ", the characters keep exactly the same faces and designs as in the first frame, no new people or objects appear, every scooter or bicycle keeps its rider, pixar style 3d animation, smooth natural motion, cinematic"
+                            seed, sec = gen_shot(f"{E}/keys/{s['id']}.png", prompt, f, None, frames=s.get("frames", 81))
+                            report["shots"][s["id"]]["video_seed"] = seed; stop_server()
+                        report.setdefault("qc", {}).setdefault(s["id"], {}).update({"shot_ok": r["ok"], "shot_problems": r["problems"]})
+                        log("QC shot", s["id"], "ok" if r["ok"] else f"still failing: {r['problems']}")
+                    qc_unload()
             if sing:
                 shutil.rmtree(f"{CUI}/models", ignore_errors=True)   # disk for WanGP's weights
                 song = spec["song"]; voc = f"{E}/edit/vocals.wav"; os.makedirs(f"{E}/edit", exist_ok=True)
@@ -106,6 +142,9 @@ def produce(spec):
         else:
             raise RuntimeError("local run needs every shot as reuse or kept: " + ", ".join(s["id"] for s in todo))
 
+    if spec.get("shots_only"):   # test runs (e.g. of the automatic check): stop before editing
+        report["minutes_total"] = round((time.time() - t0) / 60, 1)
+        json.dump(report, open(f"{E}/report.json", "w"), indent=1, ensure_ascii=False); log("DONE shots only"); return
     for s in spec["shots"]:
         if s.get("same_as"): shot_files[s["id"]] = shot_files[s["same_as"]]
     ff = ffmpeg_bin(); work = f"{E}/edit"; os.makedirs(work, exist_ok=True)

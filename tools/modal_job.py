@@ -11,7 +11,7 @@ RATE = {"T4": 0.59, "L4": 0.80, "A10G": 1.10, "L40S": 1.95, "A100-40GB": 2.10, "
 image = (modal.Image.debian_slim(python_version="3.11")
          .apt_install("git", "ffmpeg", "build-essential", "libgl1", "libglib2.0-0")
          .pip_install("torch==2.7.1", "torchvision==0.22.1", "torchaudio==2.7.1", "numpy<2.3", "pillow", "scipy",
-                      "huggingface_hub", "imageio-ffmpeg", "soundfile", "requests", "uv", "opencv-python-headless")
+                      "huggingface_hub", "imageio-ffmpeg", "soundfile", "requests", "uv", "opencv-python-headless", "transformers>=4.51,<4.56", "accelerate")
          # tools are baked into the image (built once, cached by Modal); only model weights live in the Volume
          .run_commands(
              "git clone -q --depth 1 https://github.com/ace-step/ACE-Step-1.5 /opt/ace",

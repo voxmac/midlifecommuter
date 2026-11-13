@@ -4,7 +4,7 @@ writes build/<ep>/kernel.py + kernel-metadata.json"""
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODULES = ["sfx.py", "voice.py", "gen.py", "edit.py", "main.py"]
+MODULES = ["sfx.py", "voice.py", "gen.py", "edit.py", "qc.py", "main.py"]
 
 def build_source(spec):
     src = [f"SPEC = json.loads({json.dumps(spec)!r})\n"]
