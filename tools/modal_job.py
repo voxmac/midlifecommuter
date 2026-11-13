@@ -14,7 +14,7 @@ image = (modal.Image.debian_slim(python_version="3.11")
                       "huggingface_hub", "imageio-ffmpeg", "soundfile", "requests", "uv"))
 app = modal.App("midlife-commuter", image=image)
 vol = modal.Volume.from_name("midlife-commuter-cache", create_if_missing=True)
-GPU = os.environ.get("MODAL_GPU", "L4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
+GPU = os.environ.get("MODAL_GPU", "T4")   # Modal fixes the GPU at decoration time: the workflow sets it from the spec
 
 
 def _run(spec, source, files):
@@ -56,7 +56,7 @@ def main(spec: str, out: str):
     sys.path.insert(0, str(root / "tools"))
     from build_kernel import build_source
     sp = json.load(open(spec, encoding="utf-8"))
-    assert sp.get("gpu", "L4") == GPU, "set MODAL_GPU to the spec's gpu"
+    assert sp.get("gpu", "T4") == GPU, "set MODAL_GPU to the spec's gpu"
     files = {p.name: p.read_bytes() for p in (root / "assets").iterdir()
              if p.is_file() and not p.name.startswith(".") and p.stat().st_size < 50 * 2**20}
     res = run.remote(sp, build_source(sp), files)
