@@ -30,6 +30,8 @@ def setup():
     for repo in ["city96/ComfyUI-GGUF", "cubiq/ComfyUI_IPAdapter_plus"]:
         d = f"{CUI}/custom_nodes/{repo.split('/')[1]}"
         if not os.path.exists(d): sh(f"git clone --depth 1 https://github.com/{repo} {d}")
+    if os.environ.get("STUDIO_DEPS_READY"):   # Modal: ComfyUI and its requirements are baked into the image
+        return
     open("/tmp/constraints.txt", "w").write(f"torch=={torch.__version__}\ntorchvision=={torchvision.__version__}\n")
     TORCH_LINE = re.compile(r"^\s*(torch|torchvision|torchaudio)\s*([<>=!~;].*)?$", re.I)
     for req in [f"{CUI}/requirements.txt"] + glob.glob(f"{CUI}/custom_nodes/*/requirements.txt"):

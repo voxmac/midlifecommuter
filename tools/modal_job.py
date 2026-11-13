@@ -55,7 +55,7 @@ def run(spec, source, files):
     gpu = subprocess.run("nvidia-smi --query-gpu=name,memory.total --format=csv,noheader", shell=True,
                          capture_output=True, text=True).stdout.strip()
     print("GPU", gpu, flush=True)
-    env = {**os.environ, "STUDIO_OUT": "/kaggle/working/out", "HF_HOME": "/cache/hf", "PYTHONUNBUFFERED": "1"}
+    env = {**os.environ, "STUDIO_OUT": "/kaggle/working/out", "HF_HOME": "/cache/hf", "PYTHONUNBUFFERED": "1", "STUDIO_DEPS_READY": "1"}
     p = subprocess.Popen([sys.executable, "/root/kernel.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
     log = []
     for line in p.stdout:
