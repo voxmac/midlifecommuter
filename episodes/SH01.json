@@ -1,0 +1,584 @@
+{
+ "id": "SH01",
+ "slug": "여섯시사십분",
+ "format": "mv",
+ "aspect": "9:16",
+ "lead": "m",
+ "song": {
+  "file": "MC01_v1",
+  "at": 0.0,
+  "sfx_vol": 0.0
+ },
+ "lyrics_tl": [
+  [
+   [
+    "그만둘까,",
+    0.0,
+    1.32
+   ],
+   [
+    "백",
+    2.22,
+    2.44
+   ],
+   [
+    "번을",
+    2.44,
+    3.14
+   ],
+   [
+    "써",
+    3.14,
+    3.52
+   ],
+   [
+    "둔",
+    3.52,
+    4.0
+   ],
+   [
+    "사직서",
+    4.0,
+    5.04
+   ]
+  ],
+  [
+   [
+    "지갑",
+    5.04,
+    6.92
+   ],
+   [
+    "속에서",
+    6.92,
+    8.02
+   ],
+   [
+    "낡아만",
+    8.02,
+    9.6
+   ],
+   [
+    "가고",
+    9.6,
+    11.04
+   ]
+  ],
+  [
+   [
+    "그",
+    11.04,
+    13.12
+   ],
+   [
+    "위로",
+    13.12,
+    13.52
+   ],
+   [
+    "아이들",
+    13.52,
+    14.52
+   ],
+   [
+    "웃는",
+    14.52,
+    15.36
+   ],
+   [
+    "사진",
+    15.36,
+    15.84
+   ],
+   [
+    "한",
+    15.84,
+    16.42
+   ],
+   [
+    "장",
+    16.42,
+    16.8
+   ]
+  ],
+  [
+   [
+    "꾹",
+    17.76,
+    18.96
+   ],
+   [
+    "눌러",
+    18.96,
+    19.42
+   ],
+   [
+    "다시",
+    19.42,
+    20.46
+   ],
+   [
+    "지갑을",
+    20.46,
+    22.1
+   ],
+   [
+    "닫는다",
+    22.1,
+    23.1
+   ]
+  ],
+  [
+   [
+    "여섯",
+    23.1,
+    25.0
+   ],
+   [
+    "시",
+    25.0,
+    25.32
+   ],
+   [
+    "사십",
+    25.32,
+    25.76
+   ],
+   [
+    "분,",
+    25.76,
+    26.34
+   ],
+   [
+    "나는",
+    26.6,
+    27.38
+   ],
+   [
+    "또",
+    27.38,
+    27.8
+   ],
+   [
+    "바위를",
+    27.8,
+    28.64
+   ],
+   [
+    "민다",
+    28.64,
+    29.54
+   ]
+  ],
+  [
+   [
+    "어제",
+    29.54,
+    32.02
+   ],
+   [
+    "밀어",
+    32.02,
+    33.08
+   ],
+   [
+    "올린",
+    33.08,
+    33.74
+   ],
+   [
+    "그",
+    33.74,
+    34.02
+   ],
+   [
+    "자리에서",
+    34.02,
+    35.12
+   ],
+   [
+    "다시",
+    35.12,
+    35.74
+   ]
+  ],
+  [
+   [
+    "굴러떨어져도",
+    35.74,
+    40.36
+   ],
+   [
+    "웃으며",
+    40.36,
+    41.18
+   ],
+   [
+    "민다",
+    41.18,
+    42.18
+   ]
+  ],
+  [
+   [
+    "저",
+    42.18,
+    44.12
+   ],
+   [
+    "위에",
+    44.12,
+    44.44
+   ],
+   [
+    "내",
+    44.44,
+    44.78
+   ],
+   [
+    "아이들",
+    44.78,
+    46.0
+   ],
+   [
+    "내일이",
+    46.0,
+    47.06
+   ],
+   [
+    "있으니까",
+    47.06,
+    48.06
+   ]
+  ],
+  [
+   [
+    "여섯",
+    48.06,
+    50.36
+   ],
+   [
+    "시",
+    50.36,
+    50.6
+   ],
+   [
+    "사십",
+    50.6,
+    51.12
+   ],
+   [
+    "분,",
+    51.12,
+    51.84
+   ],
+   [
+    "여섯",
+    51.84,
+    53.38
+   ],
+   [
+    "시",
+    53.38,
+    53.76
+   ],
+   [
+    "사십",
+    53.76,
+    54.26
+   ],
+   [
+    "분",
+    54.26,
+    55.02
+   ]
+  ],
+  [
+   [
+    "오늘도",
+    55.02,
+    57.42
+   ],
+   [
+    "나는",
+    56.89,
+    58.77
+   ],
+   [
+    "출근합니다",
+    57.42,
+    60.64
+   ]
+  ]
+ ],
+ "font": "Jua-Regular",
+ "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+ "brand": "MIDLIFE COMMUTER",
+ "top_label": "M의 출근일지 #01",
+ "hook": [],
+ "end_tag": "",
+ "loop_drop": false,
+ "chirps": false,
+ "tracker": false,
+ "captions": true,
+ "thumb": {
+  "text": [
+   "여섯 시 사십 분",
+   "나는 또 바위를 민다"
+  ]
+ },
+ "upload": {
+  "title": "여섯 시 사십 분 | 사직서를 지갑에 넣고 출근하는 아빠의 노래 #shorts",
+  "description": "사직서를 지갑에 넣고 다니는 모든 아빠, 엄마에게.\n매일 아침 바위를 밀어 올리는 시시포스처럼, 우리는 오늘도 출근합니다.\n\n가사는 MIDLIFE COMMUTER가 직접 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n당신의 출근길 이야기를 댓글로 들려주세요. 다음 노래가 됩니다.\n\n#출근 #직장인 #아빠 #위로 #가장 #직장인노래 #MIDLIFECOMMUTER",
+  "made_for_kids": false
+ },
+ "gpu": "T4",
+ "shots": [
+  {
+   "id": "S1",
+   "still": true,
+   "dur": 5.49,
+   "slot": [
+    0.0,
+    4.89
+   ],
+   "plate": "the entrance hallway of a small Korean apartment before dawn, deep blue light through a small window, a shoe rack and a front door, quiet and still",
+   "char": "m",
+   "expr": "sigh",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   }
+  },
+  {
+   "id": "S2",
+   "still": true,
+   "dur": 6.6,
+   "slot": [
+    4.89,
+    10.89
+   ],
+   "plate": "a dim apartment hallway before dawn lit by one small warm wall lamp, a coat hanger and a mirror, cozy but tired mood",
+   "char": "m",
+   "expr": "wallet",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "push",
+    "amount": 0.12,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  },
+  {
+   "id": "S3",
+   "still": true,
+   "dur": 7.32,
+   "slot": [
+    10.89,
+    17.61
+   ],
+   "plate": "a Korean apartment front door at dawn, two pairs of small colourful children's sneakers neatly placed by the door, framed family photos on the wall, soft warm light",
+   "char": "m",
+   "expr": "smile",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S4",
+   "still": true,
+   "dur": 5.94,
+   "slot": [
+    17.61,
+    22.95
+   ],
+   "plate": "the elevator lobby of a Korean apartment building at dawn, steel elevator doors, cool blue morning light, clean tiled floor",
+   "char": "m",
+   "expr": "walk",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S5",
+   "still": true,
+   "dur": 7.04,
+   "slot": [
+    22.95,
+    29.39
+   ],
+   "plate": "an empty Seoul subway platform in the early morning, a big digital clock on the wall showing 6:40, blue morning light, platform screen doors",
+   "char": "m",
+   "expr": "walk",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "push",
+    "amount": 0.1
+   }
+  },
+  {
+   "id": "S6",
+   "still": true,
+   "dur": 6.8,
+   "slot": [
+    29.39,
+    35.59
+   ],
+   "plate": "a long steep uphill street in a Korean city at sunrise, the road climbing high up a hill toward the sky, small shops and apartment blocks on both sides",
+   "char": "m",
+   "expr": "back",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S7",
+   "still": true,
+   "dur": 7.04,
+   "slot": [
+    35.59,
+    42.03
+   ],
+   "plate": "inside a Seoul subway train carriage in the morning, empty seats, warm golden sunlight streaming through the windows, hand straps hanging",
+   "char": "m",
+   "expr": "seated",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S8",
+   "still": true,
+   "dur": 6.48,
+   "slot": [
+    42.03,
+    47.91
+   ],
+   "plate": "the rooftop of an office building at sunrise, a wide golden sky, the city skyline far below, warm hopeful light",
+   "char": "m",
+   "expr": "lookup",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.1
+   }
+  },
+  {
+   "id": "S9",
+   "still": true,
+   "dur": 7.56,
+   "slot": [
+    47.91,
+    54.87
+   ],
+   "plate": "a wide Seoul crosswalk in the morning rush hour, tall office towers, golden morning light, zebra crossing stripes",
+   "char": "m",
+   "expr": "walk",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "pan_left",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S10",
+   "still": true,
+   "dur": 6.67,
+   "slot": [
+    54.87,
+    60.94
+   ],
+   "plate": "a busy Seoul office building entrance in the morning, glass doors and warm sunlight, a few potted plants, hopeful start of the day",
+   "char": "m",
+   "expr": "smile",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   }
+  },
+  {
+   "id": "S11",
+   "still": true,
+   "dur": 7.66,
+   "slot": [
+    60.94,
+    68.0
+   ],
+   "plate": "a city street at sunrise, the road leading toward a bright golden rising sun between office buildings, warm hopeful mood",
+   "char": "m",
+   "expr": "back",
+   "place": {
+    "h": 0.4,
+    "cx": 0.5,
+    "foot": 0.9,
+    "shadow": 0.45
+   },
+   "camera": {
+    "move": "pull",
+    "amount": 0.1
+   }
+  }
+ ]
+}
