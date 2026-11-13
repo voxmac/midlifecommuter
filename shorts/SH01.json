@@ -117,8 +117,8 @@
     "move": "tilt_up",
     "amount": 0.08
    },
-   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill",
-   "motion": "the man walks slowly up the steep street away from the camera, a delivery scooter passes by, the morning light grows warmer"
+   "extras": "far up the hill a delivery man wearing a helmet and a jacket sits on his red scooter and rides it, a street sweeper in an orange vest",
+   "motion": "the man walks slowly up the steep street away from the camera, far ahead the helmeted delivery man rides his scooter up the hill, the morning light grows warmer"
   },
   {
    "lines": [
@@ -243,7 +243,6 @@
  ],
  "gpu": "L40S",
  "retake": [
-  "S4",
-  "S7"
+  "S6"
  ]
 }

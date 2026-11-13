@@ -333,8 +333,7 @@
   ]
  },
  "retake": [
-  "S4",
-  "S7"
+  "S6"
  ],
  "upload": {
   "title": "여섯 시 사십 분 | 사직서를 지갑에 넣고 출근하는 아빠의 노래 #shorts",
@@ -496,7 +495,7 @@
     "move": "tilt_up",
     "amount": 0.08
    },
-   "motion": "the man walks slowly up the steep street away from the camera, a delivery scooter passes by, the morning light grows warmer",
+   "motion": "the man walks slowly up the steep street away from the camera, far ahead the helmeted delivery man rides his scooter up the hill, the morning light grows warmer",
    "frames": 105,
    "char": "m",
    "expr": "back",
@@ -506,7 +505,7 @@
     "foot": 0.95,
     "shadow": 0.45
    },
-   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill"
+   "extras": "far up the hill a delivery man wearing a helmet and a jacket sits on his red scooter and rides it, a street sweeper in an orange vest"
   },
   {
    "id": "S7",
