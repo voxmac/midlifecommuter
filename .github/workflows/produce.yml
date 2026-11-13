@@ -58,7 +58,7 @@ jobs:
             [ -f "$f" ] || { echo "::error::no spec for $e"; continue; }
             [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue      # prepped above, no GPU
             O=out/$e; mkdir -p $O
-            export MODAL_GPU=$(python -c "import json;print(json.load(open('$f')).get("gpu","T4"))")
+            export MODAL_GPU=$(python -c "import json;print(json.load(open('$f')).get('gpu','T4'))")
             modal run tools/modal_job.py --spec $f --out $O 2>&1 | tail -c 200000 > $O/console.log || true
             TAG="$e-$(date -u +%m%d-%H%M)"
             if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
