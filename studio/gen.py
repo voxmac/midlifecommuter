@@ -404,9 +404,9 @@ EDITS = {
     "eat": "Make the {n} take a big happy bite of food, cheeks puffed out, eyes closed in delight.",
     # MIDLIFE COMMUTER: M's scenes (commute, office, home)
     "walk": "Make the {n} walk briskly to the right on his way to work, mid-stride, briefcase in his hand, tired but determined face.",
-    "sigh": "Make the {n} let out a long tired sigh, shoulders slumped, eyes half closed, briefcase hanging low.",
+    "sigh": "Make the {n} look worn out and resigned: shoulders slumped, head tilted slightly down, eyes half closed, mouth in a small flat line, no tears, briefcase hanging low.",
     "smile": "Change only the facial expression: the {n} smiles warmly and gently, soft happy eyes, a little moved.",
-    "lookup": "Make the {n} look up at the sky with a hopeful, moved expression, eyes glistening, chin raised.",
+    "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, warm, hopeful smile, relaxed eyebrows, no fear, no sweat, peaceful and moved.",
     "seated": "Make the {n} sit down with the briefcase on his lap and both hands resting on it, as if on a bench, tired gentle face.",
     "back": "Show the {n} from behind, walking away from the camera, briefcase in his right hand, same clothes.",
     "wallet": "Make the {n} look down sadly at an open wallet held in both hands, the briefcase standing at his feet.",

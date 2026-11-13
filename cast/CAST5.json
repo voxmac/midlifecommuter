@@ -1,0 +1,15 @@
+{
+ "id": "CAST5",
+ "type": "cast",
+ "gpu": "T4",
+ "engine": "qwen_edit",
+ "chars": [
+  "m"
+ ],
+ "exprs": [
+  "sigh",
+  "lookup"
+ ],
+ "per_item": 3,
+ "note": "Redo of M's sigh (came out crying) and look-up (came out scared) from CAST3"
+}
