@@ -1,0 +1,48 @@
+{
+ "id": "CAST4",
+ "type": "cast",
+ "gpu": "T4",
+ "note": "MIDLIFE COMMUTER supporting cast in M's 3D animated look: wife, son, daughter, junior colleague, boss, friend. Pick one master each. Grandma and grandpa (M's parents) too.",
+ "design": {
+  "wife": {
+   "prompt": "stylized 3d animated movie character, Korean woman in her mid 40s, M's wife, warm kind face, shoulder-length wavy dark brown hair, beige cardigan over a white blouse, blue jeans, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "son": {
+   "prompt": "stylized 3d animated movie character, Korean boy about 12 years old, M's son, short black hair, navy hoodie, jeans, sneakers, school backpack, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "daughter": {
+   "prompt": "stylized 3d animated movie character, Korean girl about 8 years old, M's daughter, black hair in two pigtails with yellow ribbons, pink dress, white sneakers, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "junior": {
+   "prompt": "stylized 3d animated movie character, young Korean office worker in his early 30s, M's junior colleague, neat short hair, white shirt with rolled sleeves, ID badge lanyard, laptop under his arm, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "boss": {
+   "prompt": "stylized 3d animated movie character, Korean manager in his late 50s, M's boss, balding with grey hair at the sides, thick eyebrows, dark navy suit and red tie, stern but comic, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "friend": {
+   "prompt": "stylized 3d animated movie character, Korean man in his late 40s, M's old school friend, chubby and cheerful, short hair, padded olive jacket over a hoodie, baseball cap, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "grandma": {
+   "prompt": "stylized 3d animated movie character, Korean grandmother in her mid 70s, M's mother, short permed grey hair, gentle wrinkled smiling face, floral blouse and a purple padded vest, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "grandpa": {
+   "prompt": "stylized 3d animated movie character, Korean grandfather in his late 70s, M's father, thin white hair, kind wrinkled face, beige jacket over a sweater, walking cane, cartoon proportions, friendly expression",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  }
+ }
+}

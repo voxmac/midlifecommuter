@@ -13,7 +13,7 @@ permissions:
   contents: write
   issues: write
 
-concurrency: {group: produce, cancel-in-progress: false}
+# no concurrency group: each job is its own Modal container, so runs may overlap (GitHub would drop queued ones)
 
 jobs:
   produce:

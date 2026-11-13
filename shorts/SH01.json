@@ -48,11 +48,37 @@
     2
    ],
    "expr": "smile",
-   "plate": "a Korean apartment front door at dawn, two pairs of small colourful children's sneakers neatly placed by the door, framed family photos on the wall, soft warm light",
+   "plate": "a cozy Korean apartment living room at dawn, soft warm lamp light, framed family photos and children's drawings on the wall, toys on the floor",
    "camera": {
     "move": "drift",
     "amount": 0.08
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.3
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.36,
+      "cx": 0.62,
+      "foot": 0.94
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.29,
+      "cx": 0.83,
+      "foot": 0.95
+     }
+    }
+   ]
   },
   {
    "lines": [
@@ -63,7 +89,8 @@
    "camera": {
     "move": "pan_right",
     "amount": 0.08
-   }
+   },
+   "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side"
   },
   {
    "lines": [
@@ -74,7 +101,8 @@
    "camera": {
     "move": "push",
     "amount": 0.1
-   }
+   },
+   "extras": "tired commuters in winter coats waiting along the platform"
   },
   {
    "lines": [
@@ -85,7 +113,8 @@
    "camera": {
     "move": "tilt_up",
     "amount": 0.08
-   }
+   },
+   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill"
   },
   {
    "lines": [
@@ -96,18 +125,53 @@
    "camera": {
     "move": "drift",
     "amount": 0.08
-   }
+   },
+   "extras": "sleepy office workers holding hand straps, an old man reading a newspaper"
   },
   {
    "lines": [
     7
    ],
    "expr": "lookup",
-   "plate": "the rooftop of an office building at sunrise, a wide golden sky, the city skyline far below, warm hopeful light",
+   "plate": "the top of a green hill above the city at sunrise, a wide golden sky, the city far below, warm hopeful light",
    "camera": {
     "move": "tilt_up",
     "amount": 0.1
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "lookup",
+     "place": {
+      "h": 0.5,
+      "cx": 0.3
+     }
+    },
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.46,
+      "cx": 0.6,
+      "foot": 0.92
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.34,
+      "cx": 0.78,
+      "foot": 0.94
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.27,
+      "cx": 0.9,
+      "foot": 0.95
+     }
+    }
+   ]
   },
   {
    "lines": [
@@ -118,7 +182,8 @@
    "camera": {
     "move": "pan_left",
     "amount": 0.08
-   }
+   },
+   "extras": "a crowd of commuters crossing, a grandfather with a cane, a student with a backpack"
   },
   {
    "lines": [
@@ -129,7 +194,25 @@
    "camera": {
     "move": "push",
     "amount": 0.08
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.36
+     }
+    },
+    {
+     "char": "junior",
+     "flip": true,
+     "place": {
+      "h": 0.5,
+      "cx": 0.72
+     }
+    }
+   ]
   },
   {
    "lines": "outro",
@@ -142,7 +225,8 @@
    "camera": {
     "move": "pull",
     "amount": 0.1
-   }
+   },
+   "extras": "people walking to work along the street"
   }
  ]
 }

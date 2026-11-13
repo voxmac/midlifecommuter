@@ -164,6 +164,15 @@ BIBLE = {
     "m": "middle-aged Korean office worker man in his late 40s, short black hair graying at the temples, round thin-framed glasses, "
          "kind tired eyes, slight smile lines, grey wool coat over a white shirt and navy tie, employee ID badge on a lanyard, "
          "dark trousers, brown shoes, holding a worn brown leather briefcase",
+    # M's people: family, office, friend (same 3D animated look)
+    "wife": "Korean woman in her mid 40s, M's wife, warm kind face, shoulder-length wavy dark brown hair, beige cardigan over a white blouse, blue jeans",
+    "son": "Korean boy about 12 years old, M's son, short black hair, navy hoodie, jeans, sneakers, school backpack",
+    "daughter": "Korean girl about 8 years old, M's daughter, black hair in two pigtails with yellow ribbons, pink dress, white sneakers",
+    "junior": "young Korean office worker in his early 30s, M's junior colleague, neat short hair, white shirt with rolled sleeves, ID badge lanyard, laptop under his arm",
+    "boss": "Korean manager in his late 50s, M's boss, balding with grey hair at the sides, thick eyebrows, dark navy suit and red tie, stern but comic",
+    "friend": "Korean man in his late 40s, M's old school friend, chubby and cheerful, short hair, padded olive jacket over a hoodie, baseball cap",
+    "grandma": "Korean grandmother in her mid 70s, M's mother, short permed grey hair, gentle wrinkled smiling face, floral blouse and a purple padded vest",
+    "grandpa": "Korean grandfather in his late 70s, M's father, thin white hair, kind wrinkled face, beige jacket over a sweater, walking cane",
 }
 
 def gen_image(prompt, neg=NEG_3D, w=None, h=None, seed=None, init=None, denoise=1.0, steps=30, cfg=6.0, prefix="img",
@@ -319,10 +328,18 @@ def still_clip(png, out_mp4, dur=5.0):
        f'-vf "scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},format=yuv420p" -c:v libx264 -crf 14 -pix_fmt yuv420p -preset veryfast "{out_mp4}"')
 
 PLATE_OPEN = "the centre and foreground of the frame left open and uncluttered for the characters"
+EXTRAS_STYLE = ("a few stylized 3d animated cartoon people in the background, soft focus, small in the frame, "
+                "same pixar-like style, nobody in the centre")
 def make_keyframe(shot, out_png, seed=None):
-    members = shot_members(shot)
-    pf, pseed = gen_image(f"{shot['plate']}, {PLATE_OPEN}, {PLATE_STYLE}", neg=PLATE_NEG + ", object in the centre",
-                          seed=seed, prefix=f"P_{shot['id']}")
+    members = [m for m in shot_members(shot) if m["char"].startswith("prop:") or find_input(f"{m['char']}_cut")]
+    if len(members) < len(shot_members(shot)): log("skipped cast without a cutout yet:", [m["char"] for m in shot_members(shot) if m not in members])
+    if shot.get("extras"):   # passers-by, commuters, elderly people... drawn into the background plate
+        neg = "text, watermark, 2d, flat, illustration, lowres, blurry, photo, photorealistic, person in the centre, object in the centre"
+        pf, pseed = gen_image(f"{shot['plate']}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
+                              neg=neg, seed=seed, prefix=f"P_{shot['id']}")
+    else:
+        pf, pseed = gen_image(f"{shot['plate']}, {PLATE_OPEN}, {PLATE_STYLE}", neg=PLATE_NEG + ", object in the centre",
+                              seed=seed, prefix=f"P_{shot['id']}")
     comp = composite(pf, members)
     raw = out_png.replace(".png", "_raw.png"); comp.save(raw)
     who = "; ".join(BIBLE.get(m["char"], m["char"][5:].replace("_", " ")) for m in members)
@@ -368,7 +385,9 @@ EXPRESSIONS = {
 FACE_BOX = {"pip": (0.12, 0.0, 0.88, 0.42), "momo": (0.05, 0.0, 0.95, 0.75),
             "tock": (0.12, 0.0, 0.88, 0.45), "bibi": (0.15, 0.22, 0.85, 0.78)}
 CAST_BG = (138, 143, 153)
-NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man"}
+NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man",
+         "wife": "woman", "son": "boy", "daughter": "little girl", "junior": "young office worker", "boss": "older manager", "friend": "chubby man",
+         "grandma": "grandmother", "grandpa": "grandfather"}
 EDITS = {
     "sad": "Change only the facial expression: the {n} is crying sadly with big tears rolling down and a downturned mouth.",
     "laugh": "Change only the facial expression: the {n} is laughing out loud with joy, eyes squeezed shut into happy curves, mouth wide open.",

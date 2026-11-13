@@ -343,6 +343,10 @@
     4.89
    ],
    "plate": "the entrance hallway of a small Korean apartment before dawn, deep blue light through a small window, a shoe rack and a front door, quiet and still",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
    "char": "m",
    "expr": "sigh",
    "place": {
@@ -350,10 +354,6 @@
     "cx": 0.5,
     "foot": 0.93,
     "shadow": 0.45
-   },
-   "camera": {
-    "move": "push",
-    "amount": 0.07
    }
   },
   {
@@ -365,14 +365,6 @@
     10.89
    ],
    "plate": "a dim apartment hallway before dawn lit by one small warm wall lamp, a coat hanger and a mirror, cozy but tired mood",
-   "char": "m",
-   "expr": "wallet",
-   "place": {
-    "h": 0.52,
-    "cx": 0.5,
-    "foot": 0.93,
-    "shadow": 0.45
-   },
    "camera": {
     "move": "push",
     "amount": 0.12,
@@ -380,6 +372,14 @@
      0.5,
      0.45
     ]
+   },
+   "char": "m",
+   "expr": "wallet",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.93,
+    "shadow": 0.45
    }
   },
   {
@@ -390,19 +390,46 @@
     10.89,
     17.61
    ],
-   "plate": "a Korean apartment front door at dawn, two pairs of small colourful children's sneakers neatly placed by the door, framed family photos on the wall, soft warm light",
-   "char": "m",
-   "expr": "smile",
-   "place": {
-    "h": 0.52,
-    "cx": 0.5,
-    "foot": 0.93,
-    "shadow": 0.45
-   },
+   "plate": "a cozy Korean apartment living room at dawn, soft warm lamp light, framed family photos and children's drawings on the wall, toys on the floor",
    "camera": {
     "move": "drift",
     "amount": 0.08
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.3,
+      "foot": 0.93,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.36,
+      "cx": 0.62,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.29,
+      "cx": 0.83,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ]
   },
   {
    "id": "S4",
@@ -413,6 +440,10 @@
     22.95
    ],
    "plate": "the elevator lobby of a Korean apartment building at dawn, steel elevator doors, cool blue morning light, clean tiled floor",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.08
+   },
    "char": "m",
    "expr": "walk",
    "place": {
@@ -421,10 +452,7 @@
     "foot": 0.93,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "pan_right",
-    "amount": 0.08
-   }
+   "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side"
   },
   {
    "id": "S5",
@@ -435,6 +463,10 @@
     29.39
    ],
    "plate": "an empty Seoul subway platform in the early morning, a big digital clock on the wall showing 6:40, blue morning light, platform screen doors",
+   "camera": {
+    "move": "push",
+    "amount": 0.1
+   },
    "char": "m",
    "expr": "walk",
    "place": {
@@ -443,10 +475,7 @@
     "foot": 0.93,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "push",
-    "amount": 0.1
-   }
+   "extras": "tired commuters in winter coats waiting along the platform"
   },
   {
    "id": "S6",
@@ -457,6 +486,10 @@
     35.59
    ],
    "plate": "a long steep uphill street in a Korean city at sunrise, the road climbing high up a hill toward the sky, small shops and apartment blocks on both sides",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   },
    "char": "m",
    "expr": "back",
    "place": {
@@ -465,10 +498,7 @@
     "foot": 0.93,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "tilt_up",
-    "amount": 0.08
-   }
+   "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill"
   },
   {
    "id": "S7",
@@ -479,6 +509,10 @@
     42.03
    ],
    "plate": "inside a Seoul subway train carriage in the morning, empty seats, warm golden sunlight streaming through the windows, hand straps hanging",
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   },
    "char": "m",
    "expr": "seated",
    "place": {
@@ -487,10 +521,7 @@
     "foot": 0.93,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "drift",
-    "amount": 0.08
-   }
+   "extras": "sleepy office workers holding hand straps, an old man reading a newspaper"
   },
   {
    "id": "S8",
@@ -500,19 +531,57 @@
     42.03,
     47.91
    ],
-   "plate": "the rooftop of an office building at sunrise, a wide golden sky, the city skyline far below, warm hopeful light",
-   "char": "m",
-   "expr": "lookup",
-   "place": {
-    "h": 0.52,
-    "cx": 0.5,
-    "foot": 0.93,
-    "shadow": 0.45
-   },
+   "plate": "the top of a green hill above the city at sunrise, a wide golden sky, the city far below, warm hopeful light",
    "camera": {
     "move": "tilt_up",
     "amount": 0.1
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "lookup",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.3,
+      "foot": 0.93,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.46,
+      "cx": 0.6,
+      "foot": 0.92,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.34,
+      "cx": 0.78,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.27,
+      "cx": 0.9,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ]
   },
   {
    "id": "S9",
@@ -523,6 +592,10 @@
     54.87
    ],
    "plate": "a wide Seoul crosswalk in the morning rush hour, tall office towers, golden morning light, zebra crossing stripes",
+   "camera": {
+    "move": "pan_left",
+    "amount": 0.08
+   },
    "char": "m",
    "expr": "walk",
    "place": {
@@ -531,10 +604,7 @@
     "foot": 0.93,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "pan_left",
-    "amount": 0.08
-   }
+   "extras": "a crowd of commuters crossing, a grandfather with a cane, a student with a backpack"
   },
   {
    "id": "S10",
@@ -545,18 +615,34 @@
     60.94
    ],
    "plate": "a busy Seoul office building entrance in the morning, glass doors and warm sunlight, a few potted plants, hopeful start of the day",
-   "char": "m",
-   "expr": "smile",
-   "place": {
-    "h": 0.52,
-    "cx": 0.5,
-    "foot": 0.93,
-    "shadow": 0.45
-   },
    "camera": {
     "move": "push",
     "amount": 0.08
-   }
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.36,
+      "foot": 0.93,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "junior",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.5,
+      "cx": 0.72,
+      "foot": 0.93,
+      "shadow": 0.45
+     }
+    }
+   ]
   },
   {
    "id": "S11",
@@ -567,6 +653,10 @@
     68.0
    ],
    "plate": "a city street at sunrise, the road leading toward a bright golden rising sun between office buildings, warm hopeful mood",
+   "camera": {
+    "move": "pull",
+    "amount": 0.1
+   },
    "char": "m",
    "expr": "back",
    "place": {
@@ -575,10 +665,7 @@
     "foot": 0.9,
     "shadow": 0.45
    },
-   "camera": {
-    "move": "pull",
-    "amount": 0.1
-   }
+   "extras": "people walking to work along the street"
   }
  ]
 }

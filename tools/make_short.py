@@ -37,9 +37,15 @@ for n, sc in enumerate(plan["scenes"]):
     nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
     b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.52, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **sc.get("place", {})}
-    shots.append({"id": f"S{n + 1}", "still": True, "dur": round(b - a + 0.6, 2), "slot": [round(a, 2), round(b, 2)],
-                  "plate": sc["plate"], "char": "m", "expr": sc.get("expr"), "place": place,
-                  "camera": sc.get("camera", {"move": "push", "amount": 0.08})})
+    shot = {"id": f"S{n + 1}", "still": True, "dur": round(b - a + 0.6, 2), "slot": [round(a, 2), round(b, 2)],
+            "plate": sc["plate"], "camera": sc.get("camera", {"move": "push", "amount": 0.08})}
+    if sc.get("cast"):   # several people: M's family, colleagues, friends ...
+        shot["cast"] = [{"char": c["char"], "expr": c.get("expr"), "flip": c.get("flip", False),
+                         "place": {"h": 0.5, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **c.get("place", {})}} for c in sc["cast"]]
+    else:
+        shot.update({"char": "m", "expr": sc.get("expr"), "place": place})
+    if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
+    shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": "m",
         "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
