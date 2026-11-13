@@ -7,19 +7,21 @@ import json, os, re, subprocess
 QC_MODEL = "Qwen/Qwen2.5-VL-7B-Instruct"
 _vlm = {}
 
-CHECKLIST = """You are a strict quality checker for a vertical 3D animated (Pixar-like) Short set in present-day South Korea.
-Intended scene: {scene}
-Main characters that must be fully visible: {who}
-Check the image(s) for these problems only:
-1. the picture is split into several panels, a collage or stacked copies of the same scene
-2. a scooter, motorbike or bicycle is moving or placed in the road with nobody riding it
-3. pagodas, temples or clearly Japanese/Chinese traditional buildings instead of a modern Korean place
-4. a main character is cut off by the frame edge, has a distorted face, extra limbs or melted hands
-5. people who look like real photographs next to the cartoon characters
-6. a person or object that suddenly appears or disappears between the frames (only when several frames are given)
-7. a chair, bench or other furniture fused to a character's body
-8. visible garbled text taking up a big part of the picture
-Reply with JSON only: {{"ok": true or false, "problems": ["short description", ...]}}. ok is false if any problem is clearly present."""
+# one short yes/no question per problem: a 7B vision model answers these far more reliably than one long checklist
+# (QC01 calibration: the checklist version agreed with a person on 5 of 7 frames and gave wrong reasons)
+QUESTIONS = [
+    ("panels", "Look at the whole image. Is it made of two or more separate pictures stacked on top of each other or placed side by side, with straight borders between them?"),
+    ("riderless", "Is there a scooter, motorbike or bicycle in this image that nobody is sitting on?"),
+    ("pagoda", "Does this image show a pagoda, a temple roof, or traditional Japanese or Chinese style buildings with curved tiled roofs?"),
+    ("cutoff", "Is one of the cartoon characters cut off by the left or right edge of the image, so that part of their body is missing?"),
+    ("melted", "Does one of the cartoon characters have a clearly distorted face, extra arms or legs, or melted hands?"),
+    ("furniture", "Is a chair or bench attached to a cartoon character's body as if it were part of them?"),
+]
+TEMPORAL = ("popin", "These are the first, middle and last frames of one shot. Does a person or a large object appear or disappear between them?")
+LABELS = {"panels": "picture split into panels / stacked copies", "riderless": "scooter or bike with nobody riding it",
+          "pagoda": "pagodas or Japanese/Chinese-style buildings", "cutoff": "a character cut off at the frame edge",
+          "melted": "distorted face or extra limbs", "furniture": "a chair or bench fused to a character",
+          "popin": "someone or something pops in or out during the shot"}
 
 
 def _qc_load():
@@ -37,27 +39,26 @@ def qc_unload():
         _vlm.clear(); gc.collect(); torch.cuda.empty_cache()
 
 
-def qc_check(images, scene, who):
-    """images: list of picture paths (one keyframe, or frames of one shot). Returns {"ok": bool, "problems": [...]}."""
-    from PIL import Image
+def _ask(m, ims, question):
     import torch
-    m = _qc_load()
-    content = [{"type": "image"} for _ in images] + [{"type": "text", "text": CHECKLIST.format(scene=scene, who=who or "none")}]
-    msgs = [{"role": "user", "content": content}]
-    text = m["proc"].apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
-    ims = [Image.open(p).convert("RGB") for p in images]
+    content = [{"type": "image"} for _ in ims] + [{"type": "text", "text": question + " Answer only yes or no."}]
+    text = m["proc"].apply_chat_template([{"role": "user", "content": content}], tokenize=False, add_generation_prompt=True)
     inp = m["proc"](text=[text], images=ims, return_tensors="pt").to("cuda")
     with torch.no_grad():
-        out = m["model"].generate(**inp, max_new_tokens=160, do_sample=False)
-    ans = m["proc"].batch_decode(out[:, inp.input_ids.shape[1]:], skip_special_tokens=True)[0]
-    hit = re.search(r"\{.*\}", ans, re.S)
-    try:
-        r = json.loads(hit.group(0)) if hit else {}
-    except Exception:
-        r = {}
-    if "ok" not in r:   # unreadable answer: do not block the run on the checker itself
-        return {"ok": True, "problems": [], "raw": ans[:200]}
-    return {"ok": bool(r["ok"]), "problems": [str(p)[:160] for p in r.get("problems", [])][:5]}
+        out = m["model"].generate(**inp, max_new_tokens=4, do_sample=False)
+    return m["proc"].batch_decode(out[:, inp.input_ids.shape[1]:], skip_special_tokens=True)[0].strip().lower().startswith("yes")
+
+
+def qc_check(images, scene=None, who=None, only=None):
+    """images: one keyframe, or the first/middle/last frames of a shot. Returns {"ok", "problems", "flags"}."""
+    from PIL import Image
+    m = _qc_load()
+    ims = [Image.open(p).convert("RGB") for p in images]
+    flags = [k for k, q in QUESTIONS if (not only or k in only) and _ask(m, ims[-1:] if len(ims) == 1 else ims[:1], q)]
+    if len(ims) > 1:
+        flags += [k for k, q in QUESTIONS if k in ("riderless", "cutoff", "melted") and k not in flags and _ask(m, ims[-1:], q)]
+        if _ask(m, ims, TEMPORAL[1]): flags.append(TEMPORAL[0])
+    return {"ok": not flags, "problems": [LABELS[k] for k in flags], "flags": flags}
 
 
 def qc_frames(mp4, out_prefix, n=3):
