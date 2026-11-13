@@ -314,6 +314,8 @@
  "font": "Jua-Regular",
  "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
  "brand": "MIDLIFE COMMUTER",
+ "cap_y": 0.79,
+ "cap_size": 78,
  "top_label": "M의 출근일지 #01",
  "hook": [],
  "end_tag": "",
@@ -350,9 +352,9 @@
    "char": "m",
    "expr": "sigh",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    }
   },
@@ -376,9 +378,9 @@
    "char": "m",
    "expr": "wallet",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    }
   },
@@ -447,9 +449,9 @@
    "char": "m",
    "expr": "walk",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    },
    "extras": "an elderly grandmother neighbour with a small shopping cart waiting at the side"
@@ -470,9 +472,9 @@
    "char": "m",
    "expr": "walk",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    },
    "extras": "tired commuters in winter coats waiting along the platform"
@@ -493,9 +495,9 @@
    "char": "m",
    "expr": "back",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    },
    "extras": "a delivery rider on a scooter and a street sweeper in an orange vest far up the hill"
@@ -516,9 +518,9 @@
    "char": "m",
    "expr": "seated",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    },
    "extras": "sleepy office workers holding hand straps, an old man reading a newspaper"
@@ -599,9 +601,9 @@
    "char": "m",
    "expr": "walk",
    "place": {
-    "h": 0.52,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 0.93,
+    "foot": 0.95,
     "shadow": 0.45
    },
    "extras": "a crowd of commuters crossing, a grandfather with a cane, a student with a backpack"

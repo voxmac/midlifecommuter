@@ -199,7 +199,8 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
     CAP = []
     if spec.get("captions", True):
         for on, off, words in caption_chunks(voice_tl):
-            imgs = [(_text(font_path, w.upper(), 66, stroke=NAVY, sw=8), _text(font_path, w.upper(), 66, fill=GOLD, stroke=NAVY, sw=8), a, b)
+            cs = spec.get("cap_size", 66)
+            imgs = [(_text(font_path, w.upper(), cs, stroke=NAVY, sw=8), _text(font_path, w.upper(), cs, fill=GOLD, stroke=NAVY, sw=8), a, b)
                     for w, a, b in words]
             space = -4; widths = [im[0].width for im in imgs]
             lines, cur, cw = [], [], 0
@@ -207,7 +208,7 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
                 if cur and cw + space + wdt > min(980, VW * 0.6): lines.append(cur); cur, cw = [], 0
                 cur.append(k); cw += wdt + (space if len(cur) > 1 else 0)
             lines.append(cur)
-            lh = imgs[0][0].height - 6; y0 = VH * CAP_Y - lh * len(lines) / 2; pos = []
+            lh = imgs[0][0].height - 6; y0 = VH * spec.get("cap_y", CAP_Y) - lh * len(lines) / 2; pos = []
             for li, ln in enumerate(lines):
                 lw = sum(widths[k] for k in ln) + space * (len(ln) - 1); x = VW / 2 - lw / 2
                 for k in ln: pos.append((k, x, y0 + li * lh)); x += widths[k] + space
