@@ -1,0 +1,10 @@
+{
+ "id": "CAST7",
+ "type": "cast",
+ "gpu": "L40S",
+ "engine": "qwen_edit",
+ "chars": ["mh"],
+ "exprs": ["walk", "sigh", "smile", "lookup", "back", "bed"],
+ "per_item": 2,
+ "note": "Poses of M in everyday clothes (master assets/mh_cut.png = CAST6 m_home_2): no badge, no briefcase; 'bed' = lying under a blanket, the bed is part of the cutout."
+}
