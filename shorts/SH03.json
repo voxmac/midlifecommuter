@@ -5,7 +5,12 @@
  "pick": 1,
  "seconds": 68.0,
  "gpu": "L40S",
- "retake": [],
+ "retake": [
+  "S1",
+  "S5",
+  "S6",
+  "S7"
+ ],
  "thumb": {
   "text": [
    "평일 오후 세 시",
@@ -35,17 +40,17 @@
     0
    ],
    "expr": "lookup",
-   "plate": "a small Korean apartment bedroom in soft morning light, an unmade bed with a white blanket, a round alarm clock on the nightstand showing half past seven, thin curtains glowing with sunlight",
+   "plate": "a small Korean apartment bedroom in soft morning light seen at eye level, an unmade bed with a white blanket, a low wooden nightstand beside the bed with a tiny palm-sized round alarm clock on it showing half past seven, thin curtains glowing with sunlight",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
    "place": {
-    "h": 0.5,
-    "cx": 0.62,
+    "h": 0.52,
+    "cx": 0.35,
     "foot": 0.95
    },
-   "motion": "the man stands by the bed and looks at the silent alarm clock, the thin curtains sway softly in the morning breeze, dust floats in the sunlight"
+   "motion": "the man stands still and glances at the tiny silent alarm clock on the nightstand, the thin curtains sway softly in the morning breeze, dust floats in the sunlight"
   },
   {
    "lines": [
@@ -107,7 +112,7 @@
     4
    ],
    "expr": "lookup",
-   "plate": "a bright Korean apartment complex walkway on a sunny weekday afternoon, golden ginkgo trees, warm sunlight and long soft shadows, flower beds, a clear blue sky",
+   "plate": "a bright Korean apartment complex walkway on a sunny weekday afternoon seen at eye level, golden ginkgo trees, warm sunlight and long soft shadows, flower beds, a clear blue sky, nobody on the path",
    "camera": {
     "move": "tilt_up",
     "amount": 0.08
@@ -117,15 +122,14 @@
     "cx": 0.4,
     "foot": 0.95
    },
-   "extras": "an old lady walking slowly with a shopping cart far behind, a mail carrier in a blue uniform walking with a bag",
-   "motion": "the man looks up into the warm afternoon sunlight with surprise, golden ginkgo leaves float down around him, the old lady walks slowly in the distance"
+   "motion": "the man looks up into the warm afternoon sunlight with surprise, golden ginkgo leaves float down around him, branches sway gently"
   },
   {
    "lines": [
     5
    ],
    "expr": "smile",
-   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon, a slide, swings, a sandbox, golden ginkgo trees around it",
+   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon seen at eye level from the edge of the sandbox, a slide and a climbing frame in the middle distance, golden ginkgo trees around it",
    "camera": {
     "move": "drift",
     "amount": 0.08
@@ -135,14 +139,14 @@
     "cx": 0.25,
     "foot": 0.95
    },
-   "extras": "young children playing on the slide and in the sandbox, a grandmother watching from beside the swings",
-   "motion": "children laugh and slide down the slide and dig in the sandbox, the grandmother claps, the man watches them with a soft smile, leaves drift down"
+   "extras": "three or four young children playing on the slide and climbing frame in the middle distance, a grandmother standing by the climbing frame",
+   "motion": "the children laugh and slide down the slide in the distance, the grandmother claps, the man watches them with a soft smile, leaves drift down"
   },
   {
    "lines": [
     6
    ],
-   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and a schoolyard behind, golden ginkgo trees along the fence",
+   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and an empty schoolyard behind, golden ginkgo trees along the fence, no bicycles",
    "camera": {
     "move": "push",
     "amount": 0.08
@@ -167,7 +171,6 @@
      }
     }
    ],
-   "extras": "a few schoolchildren with backpacks walking out of the schoolyard far behind",
    "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, ginkgo leaves fall"
   },
   {
