@@ -47,3 +47,9 @@ SH01(「여섯 시 사십 분」)을 만들며 사람이 직접 찾아낸 문제
 
 가사 확정, 노래 버전 고르기(`/approve N`), 등장인물 고르기(`/pick`), 완성본 승인(`/approve`), 고칠 장면 지정(`/retake`).
 Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직접 확인한 뒤에 보고합니다.
+
+## Learned from SH03 (2026-11-14)
+- Costume must match the story: after M leaves the company use `"lead": "mh"` (cardigan; `mh_sigh` is pyjamas for home mornings, `mh_bed` lies under a blanket). Lint blocks `m` (suit, badge, briefcase) in home scenes or in mh songs.
+- Review every shot at 0.5 s steps (contact sheet per scene), not 3 frames: stray arms and vehicles appear mid-shot.
+- Shot QC now checks 6 frames for vehicles in impossible places (slide, indoors) and hands that belong to nobody; Wan negative prompt lists them.
+- Avoid street extras and roads near small children; prefer pedestrian paths, homes and eye-level plates (aerial plates make characters float).
