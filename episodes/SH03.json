@@ -277,7 +277,12 @@
    "오늘은 너한테 출근했다"
   ]
  },
- "retake": [],
+ "retake": [
+  "S1",
+  "S5",
+  "S6",
+  "S7"
+ ],
  "upload": {
   "title": "퇴사 다음 날, 알람이 울지 않았다 | 평일 오후 세 시 #shorts",
   "description": "알람이 울지 않는 아침.\n넥타이는 옷장 속에서 잠이 들었습니다.\n\n카프카 『변신』의 그레고르처럼, 퇴사 다음 날 나는 벌레가 된 것만 같았습니다.\n그런데 평일 오후 세 시, 처음 보는 햇살 아래서 딸아이가 물었습니다. \"아빠 오늘 회사 안 가?\"\n오늘은 너한테 출근했어.\n\n🎵 평일 오후 세 시 - MIDLIFE COMMUTER\n💬 회사 대신 처음 '출근'한 곳은 어디였나요? 댓글로 들려주세요. 다음 노래가 됩니다.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#퇴사 #퇴사후 #아빠 #인생2막 #평일오후 #카프카 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -303,18 +308,18 @@
     0.0,
     5.65
    ],
-   "plate": "a small Korean apartment bedroom in soft morning light, an unmade bed with a white blanket, a round alarm clock on the nightstand showing half past seven, thin curtains glowing with sunlight",
+   "plate": "a small Korean apartment bedroom in soft morning light seen at eye level, an unmade bed with a white blanket, a low wooden nightstand beside the bed with a tiny palm-sized round alarm clock on it showing half past seven, thin curtains glowing with sunlight",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
-   "motion": "the man stands by the bed and looks at the silent alarm clock, the thin curtains sway softly in the morning breeze, dust floats in the sunlight",
+   "motion": "the man stands still and glances at the tiny silent alarm clock on the nightstand, the thin curtains sway softly in the morning breeze, dust floats in the sunlight",
    "frames": 97,
    "char": "m",
    "expr": "lookup",
    "place": {
-    "h": 0.5,
-    "cx": 0.62,
+    "h": 0.52,
+    "cx": 0.35,
     "foot": 0.95,
     "shadow": 0.45
    }
@@ -395,12 +400,12 @@
     21.89,
     26.45
    ],
-   "plate": "a bright Korean apartment complex walkway on a sunny weekday afternoon, golden ginkgo trees, warm sunlight and long soft shadows, flower beds, a clear blue sky",
+   "plate": "a bright Korean apartment complex walkway on a sunny weekday afternoon seen at eye level, golden ginkgo trees, warm sunlight and long soft shadows, flower beds, a clear blue sky, nobody on the path",
    "camera": {
     "move": "tilt_up",
     "amount": 0.08
    },
-   "motion": "the man looks up into the warm afternoon sunlight with surprise, golden ginkgo leaves float down around him, the old lady walks slowly in the distance",
+   "motion": "the man looks up into the warm afternoon sunlight with surprise, golden ginkgo leaves float down around him, branches sway gently",
    "frames": 77,
    "char": "m",
    "expr": "lookup",
@@ -409,8 +414,7 @@
     "cx": 0.4,
     "foot": 0.95,
     "shadow": 0.45
-   },
-   "extras": "an old lady walking slowly with a shopping cart far behind, a mail carrier in a blue uniform walking with a bag"
+   }
   },
   {
    "id": "S6",
@@ -418,12 +422,12 @@
     26.45,
     32.89
    ],
-   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon, a slide, swings, a sandbox, golden ginkgo trees around it",
+   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon seen at eye level from the edge of the sandbox, a slide and a climbing frame in the middle distance, golden ginkgo trees around it",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
-   "motion": "children laugh and slide down the slide and dig in the sandbox, the grandmother claps, the man watches them with a soft smile, leaves drift down",
+   "motion": "the children laugh and slide down the slide in the distance, the grandmother claps, the man watches them with a soft smile, leaves drift down",
    "frames": 109,
    "char": "m",
    "expr": "smile",
@@ -433,7 +437,7 @@
     "foot": 0.95,
     "shadow": 0.45
    },
-   "extras": "young children playing on the slide and in the sandbox, a grandmother watching from beside the swings"
+   "extras": "three or four young children playing on the slide and climbing frame in the middle distance, a grandmother standing by the climbing frame"
   },
   {
    "id": "S7",
@@ -441,7 +445,7 @@
     32.89,
     37.89
    ],
-   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and a schoolyard behind, golden ginkgo trees along the fence",
+   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and an empty schoolyard behind, golden ginkgo trees along the fence",
    "camera": {
     "move": "push",
     "amount": 0.08
@@ -471,8 +475,7 @@
       "shadow": 0.45
      }
     }
-   ],
-   "extras": "a few schoolchildren with backpacks walking out of the schoolyard far behind"
+   ]
   },
   {
    "id": "S8",
