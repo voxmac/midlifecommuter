@@ -335,16 +335,24 @@ def still_clip(png, out_mp4, dur=5.0):
 PLATE_OPEN = "the centre and foreground of the frame left open and uncluttered for the characters"
 EXTRAS_STYLE = ("a few stylized 3d animated cartoon people in the background, soft focus, small in the frame, "
                 "same pixar-like style, nobody in the centre")
+def gen_plate(prompt, neg, seed, prefix, square=True):
+    """Background plate. Tall SDXL frames (768x1344) often come out as stacked panels, worst in interiors, so by default the
+    layout is drawn square (1024x1024, SDXL's home size) and then re-drawn at 9:16 from its centre crop (img2img keeps the layout)."""
+    if not square or W > H:
+        return gen_image(prompt, neg=neg, seed=seed, prefix=prefix)
+    sq, sd = gen_image(prompt, neg=neg, w=1024, h=1024, seed=seed, prefix=prefix + "_sq")
+    return gen_image(prompt, neg=neg, init=sq, denoise=0.45, seed=sd, prefix=prefix)
+
 def make_keyframe(shot, out_png, seed=None):
     members = [m for m in shot_members(shot) if m["char"].startswith("prop:") or find_input(f"{m['char']}_cut")]
     if len(members) < len(shot_members(shot)): log("skipped cast without a cutout yet:", [m["char"] for m in shot_members(shot) if m not in members])
     if shot.get("extras"):   # passers-by, commuters, elderly people... drawn into the background plate
         neg = "text, watermark, 2d, flat, illustration, lowres, blurry, photo, photorealistic, person in the centre, object in the centre, " + PANELS_NEG
-        pf, pseed = gen_image(f"{shot['plate']}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
-                              neg=neg, seed=seed, prefix=f"P_{shot['id']}")
+        pf, pseed = gen_plate(f"{shot['plate']}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
+                              neg, seed, f"P_{shot['id']}", shot.get("square_plate", True))
     else:
-        pf, pseed = gen_image(f"{shot['plate']}, {PLATE_OPEN}, {PLATE_STYLE}", neg=PLATE_NEG + ", object in the centre",
-                              seed=seed, prefix=f"P_{shot['id']}")
+        pf, pseed = gen_plate(f"{shot['plate']}, {PLATE_OPEN}, {PLATE_STYLE}", PLATE_NEG + ", object in the centre",
+                              seed, f"P_{shot['id']}", shot.get("square_plate", True))
     comp = composite(pf, members)
     raw = out_png.replace(".png", "_raw.png"); comp.save(raw)
     who = "; ".join(BIBLE.get(m["char"], m["char"][5:].replace("_", " ")) for m in members)
