@@ -278,7 +278,6 @@
   ]
  },
  "retake": [
-  "S6",
   "S7"
  ],
  "upload": {
@@ -469,12 +468,12 @@
     32.89,
     37.89
    ],
-   "plate": "in front of the gate of a Korean elementary school on a quiet sunny afternoon, a red brick school building and an empty schoolyard behind the closed fence, golden ginkgo trees, an empty sidewalk",
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment in the morning, a shoe rack with family shoes, a small pink school backpack on the floor, a closed front door, warm soft light from the living room",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
-   "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, ginkgo leaves fall, the background stays calm and empty",
+   "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, soft light flickers on the wall, the room stays still and calm",
    "frames": 85,
    "cast": [
     {
