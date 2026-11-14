@@ -7,7 +7,7 @@
  "gpu": "L40S",
  "lead": "jun",
  "retake": [
-  "S5"
+  "S6"
  ],
  "thumb": {
   "text": [
@@ -47,7 +47,11 @@
     "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the young man stands still in the narrow hallway, the fluorescent light flickers softly, the hallway stays quiet and empty"
+   "motion": "the young man stands still in the narrow hallway, the fluorescent light flickers softly, the hallway stays quiet and empty",
+   "must": [
+    "a long narrow hallway with small doors",
+    "a ceiling light"
+   ]
   },
   {
    "lines": "intro",
@@ -62,7 +66,11 @@
     "cx": 0.4,
     "foot": 0.95
    },
-   "motion": "the young man stands in the tiny room with a tired sigh, the desk lamp glows, the sticky notes flutter slightly"
+   "motion": "the young man stands in the tiny room with a tired sigh, the desk lamp glows, the sticky notes flutter slightly",
+   "must": [
+    "a small desk with a lamp",
+    "sticky notes on the wall"
+   ]
   },
   {
    "lines": [
@@ -83,7 +91,11 @@
     "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the phone screen glows in the young man's hand, he stares down at it and his shoulders drop slowly, the lamp light flickers"
+   "motion": "the phone screen glows in the young man's hand, he stares down at it and his shoulders drop slowly, the lamp light flickers",
+   "must": [
+    "a smartphone in his hand",
+    "a desk lamp"
+   ]
   },
   {
    "lines": [
@@ -100,7 +112,11 @@
     "cx": 0.4,
     "foot": 1.0
    },
-   "motion": "the young man reads the message on his phone with a disappointed face, the laptop screen light flickers on his face, nothing else moves"
+   "motion": "the young man reads the message on his phone with a disappointed face, the laptop screen light flickers on his face, nothing else moves",
+   "must": [
+    "a smartphone in his hand",
+    "a laptop on a desk"
+   ]
   },
   {
    "lines": [
@@ -117,24 +133,38 @@
     "cx": 0.5,
     "foot": 0.96
    },
-   "motion": "the young man stands still in the tiny room with his back to us and looks at the small window, the distant warm window lights twinkle, the desk lamp glows softly, nothing else moves"
+   "motion": "the young man stands still in the tiny room with his back to us and looks at the small window, the distant warm window lights twinkle, the desk lamp glows softly, nothing else moves",
+   "must": [
+    "a small window in the back wall",
+    "a desk lamp"
+   ]
   },
   {
    "lines": [
     3
    ],
    "expr": "sigh",
-   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right with a little pot of instant ramen boiling on a single electric stove and an open laptop beside it, a fluorescent light",
+   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right side with a gas stove, a small pot of instant ramen sitting on the lit burner, an open laptop on the counter next to the stove, a fluorescent light on the ceiling",
    "camera": {
     "move": "drift",
     "amount": 0.07
    },
    "place": {
     "h": 0.52,
-    "cx": 0.32,
+    "cx": 0.3,
     "foot": 0.95
    },
-   "motion": "steam rises from the boiling ramen pot on the counter, the laptop screen glows on the counter, the young man looks at the screen with tired eyes and stays still"
+   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the counter, the young man looks at the laptop with tired eyes and stays still",
+   "must": [
+    "a small pot on a gas stove",
+    "a laptop on a counter"
+   ],
+   "avoid_key": [
+    "Is a pot floating in the air or hanging from the ceiling?"
+   ],
+   "avoid": [
+    "Is steam or smoke coming from the ceiling, a shelf or a wall instead of from a pot on the stove?"
+   ]
   },
   {
    "lines": [
@@ -151,7 +181,11 @@
     "cx": 0.4,
     "foot": 0.95
    },
-   "motion": "the young man looks up at the brightening dawn sky, the sky slowly turns pink and gold, the laundry sways in the wind"
+   "motion": "the young man looks up at the brightening dawn sky, the sky slowly turns pink and gold, the laundry sways in the wind",
+   "must": [
+    "a city skyline at dawn",
+    "laundry hanging on a line"
+   ]
   },
   {
    "lines": [
@@ -168,7 +202,11 @@
     "cx": 0.4,
     "foot": 0.95
    },
-   "motion": "the young man walks slowly along the farm road, the golden rice sways in the morning breeze, the sun rises over the mountains"
+   "motion": "the young man walks slowly along the farm road, the golden rice sways in the morning breeze, the sun rises over the mountains",
+   "must": [
+    "a field with rows of crops",
+    "mountains in the background"
+   ]
   },
   {
    "lines": [
@@ -185,7 +223,10 @@
     "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the young man stands in the morning sunlight and smiles bravely, sunlight flickers through the leaves, the background stays calm"
+   "motion": "the young man stands in the morning sunlight and smiles bravely, sunlight flickers through the leaves, the background stays calm",
+   "must": [
+    "sunlight"
+   ]
   },
   {
    "lines": [
@@ -202,7 +243,10 @@
     "cx": 0.4,
     "foot": 0.96
    },
-   "motion": "the young man looks up at the tiny buds on the branches with a hopeful smile, the branches sway gently, sunlight sparkles"
+   "motion": "the young man looks up at the tiny buds on the branches with a hopeful smile, the branches sway gently, sunlight sparkles",
+   "must": [
+    "a bare tree with branches"
+   ]
   },
   {
    "lines": [
@@ -219,7 +263,11 @@
     "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the soup pot, warm light glows"
+   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the pot on the stove, warm light glows",
+   "must": [
+    "a pot on a stove",
+    "a kitchen"
+   ]
   },
   {
    "lines": [
@@ -236,7 +284,11 @@
     "cx": 0.4,
     "foot": 0.95
    },
-   "motion": "the young man walks with steady steps across the plaza toward the glass doors, morning light reflects on the glass, the trees sway"
+   "motion": "the young man walks with steady steps across the plaza toward the glass doors, morning light reflects on the glass, the trees sway",
+   "must": [
+    "glass doors of a building",
+    "trees"
+   ]
   },
   {
    "lines": "outro",
@@ -251,7 +303,10 @@
     "cx": 0.5,
     "foot": 0.94
    },
-   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly, the rooftop stays empty"
+   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly, the rooftop stays empty",
+   "must": [
+    "the rising sun over a city"
+   ]
   }
  ]
 }

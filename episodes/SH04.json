@@ -308,7 +308,7 @@
   ]
  },
  "retake": [
-  "S5"
+  "S6"
  ],
  "upload": {
   "title": "서른 번째 불합격 문자를 받은 밤 | 서른 번째 불합격 #shorts",
@@ -349,7 +349,11 @@
     "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a long narrow hallway with small doors",
+    "a ceiling light"
+   ]
   },
   {
    "id": "S2",
@@ -371,7 +375,11 @@
     "cx": 0.4,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a small desk with a lamp",
+    "sticky notes on the wall"
+   ]
   },
   {
    "id": "S3",
@@ -397,7 +405,11 @@
     "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a smartphone in his hand",
+    "a desk lamp"
+   ]
   },
   {
    "id": "S4",
@@ -419,7 +431,11 @@
     "cx": 0.4,
     "foot": 1.0,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a smartphone in his hand",
+    "a laptop on a desk"
+   ]
   },
   {
    "id": "S5",
@@ -441,7 +457,11 @@
     "cx": 0.5,
     "foot": 0.96,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a small window in the back wall",
+    "a desk lamp"
+   ]
   },
   {
    "id": "S6",
@@ -449,21 +469,31 @@
     26.75,
     32.19
    ],
-   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right with a little pot of instant ramen boiling on a single electric stove and an open laptop beside it, a fluorescent light, in present-day South Korea",
+   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right side with a gas stove, a small pot of instant ramen sitting on the lit burner, an open laptop on the counter next to the stove, a fluorescent light on the ceiling, in present-day South Korea",
    "camera": {
     "move": "drift",
     "amount": 0.07
    },
-   "motion": "steam rises from the boiling ramen pot on the counter, the laptop screen glows on the counter, the young man looks at the screen with tired eyes and stays still",
+   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the counter, the young man looks at the laptop with tired eyes and stays still",
    "frames": 93,
    "char": "jun",
    "expr": "sigh",
    "place": {
     "h": 0.52,
-    "cx": 0.32,
+    "cx": 0.3,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a small pot on a gas stove",
+    "a laptop on a counter"
+   ],
+   "avoid": [
+    "Is steam or smoke coming from the ceiling, a shelf or a wall instead of from a pot on the stove?"
+   ],
+   "avoid_key": [
+    "Is a pot floating in the air or hanging from the ceiling?"
+   ]
   },
   {
    "id": "S7",
@@ -485,7 +515,11 @@
     "cx": 0.4,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a city skyline at dawn",
+    "laundry hanging on a line"
+   ]
   },
   {
    "id": "S8",
@@ -507,7 +541,11 @@
     "cx": 0.4,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a field with rows of crops",
+    "mountains in the background"
+   ]
   },
   {
    "id": "S9",
@@ -529,7 +567,10 @@
     "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "sunlight"
+   ]
   },
   {
    "id": "S10",
@@ -551,7 +592,10 @@
     "cx": 0.4,
     "foot": 0.96,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a bare tree with branches"
+   ]
   },
   {
    "id": "S11",
@@ -564,7 +608,7 @@
     "move": "push",
     "amount": 0.07
    },
-   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the soup pot, warm light glows",
+   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the pot on the stove, warm light glows",
    "frames": 65,
    "char": "jmom",
    "expr": null,
@@ -573,7 +617,11 @@
     "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "a pot on a stove",
+    "a kitchen"
+   ]
   },
   {
    "id": "S12",
@@ -595,7 +643,11 @@
     "cx": 0.4,
     "foot": 0.95,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "glass doors of a building",
+    "trees"
+   ]
   },
   {
    "id": "S13",
@@ -617,7 +669,10 @@
     "cx": 0.5,
     "foot": 0.94,
     "shadow": 0.45
-   }
+   },
+   "must": [
+    "the rising sun over a city"
+   ]
   }
  ]
 }

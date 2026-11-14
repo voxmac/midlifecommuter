@@ -80,7 +80,7 @@ def produce(spec):
                 for s in todo:
                     key = f"{E}/keys/{s['id']}.png"; tries = []
                     for attempt in range(3):
-                        r = qc_check([key], s["plate"], qc_who(s)); tries.append(r["problems"])
+                        r = qc_check([key], s["plate"], qc_who(s), must=s.get("must"), avoid=s.get("avoid_key")); tries.append(r["problems"])
                         if r["ok"] or attempt == 2: break
                         log("QC keyframe", s["id"], "redraw:", r["problems"])
                         ensure("image"); report["shots"][s["id"]]["key_seed"] = make_keyframe(s, key, None); stop_server()
@@ -116,7 +116,7 @@ def produce(spec):
                         f = shot_files[s["id"]]
                         if not os.path.exists(f) or "/pending/" in f: continue
                         for attempt in range(2):
-                            r = qc_check(qc_frames(f, f"{E}/keys/{s['id']}_qc"), s["plate"] + ". Motion: " + s["motion"], qc_who(s))
+                            r = qc_check(qc_frames(f, f"{E}/keys/{s['id']}_qc"), s["plate"] + ". Motion: " + s["motion"], qc_who(s), avoid=s.get("avoid"))
                             if r["ok"] or attempt == 1: break
                             log("QC shot", s["id"], "remake:", r["problems"]); qc_unload(); ensure("video")
                             prompt = s["motion"] + ", the characters keep exactly the same faces and designs as in the first frame, no new people or objects appear, every scooter or bicycle keeps its rider, pixar style 3d animation, smooth natural motion, cinematic"

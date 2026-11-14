@@ -39,6 +39,12 @@ for n, sc in enumerate(plan["scenes"]):
         errors.append(f"{tag}: a scooter/bike is mentioned without its rider (it would move empty)")
     if _re.search(r"\b(appears?|walks in|pops? up|comes into view|enters)\b", sc.get("motion", "").lower()):
         errors.append(f"{tag}: the motion makes someone appear mid-shot; put them in the picture from the first frame")
+    if plan.get("strict", True) and sc.get("motion") and not sc.get("must"):
+        errors.append(f"{tag}: list in 'must' the objects the motion animates (they are checked in the keyframe before animating)")
+    for w in ("steam", "smoke", "pot", "laptop", "phone", "swing", "slide", "door", "window", "clock", "tree", "leaves"):
+        if _re.search(rf"\b{w}", sc.get("motion", "").lower()) and sc.get("must") and not any(w in m.lower() for m in sc["must"]) \
+                and not (w == "steam" and any("pot" in m.lower() or "kettle" in m.lower() for m in sc["must"])) and w not in ("leaves",):
+            errors.append(f"{tag}: the motion animates '{w}' but 'must' does not list it")
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
     for c in sc.get("cast", []) or [{"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
@@ -84,6 +90,8 @@ for n, sc in enumerate(plan["scenes"]):
     else:
         shot.update({"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
+    for k in ("must", "avoid", "avoid_key"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
+        if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
         "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},

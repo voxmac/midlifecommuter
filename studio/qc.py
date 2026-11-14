@@ -53,18 +53,25 @@ def _ask(m, ims, question):
     return m["proc"].batch_decode(out[:, inp.input_ids.shape[1]:], skip_special_tokens=True)[0].strip().lower().startswith("yes")
 
 
-def qc_check(images, scene=None, who=None, only=None):
-    """images: one keyframe, or the first/middle/last frames of a shot. Returns {"ok", "problems", "flags"}."""
+def qc_check(images, scene=None, who=None, only=None, must=None, avoid=None):
+    """images: one keyframe, or frames spread over a shot. Returns {"ok", "problems", "flags"}.
+    must: things the scene plan needs to be visible in the keyframe (the motion prompt animates them), e.g. "a pot on a stove".
+    avoid: scene-specific yes/no questions where yes means a mistake, asked on every frame, e.g. "Is steam coming from the ceiling?"."""
     from PIL import Image
     m = _qc_load()
     ims = [Image.open(p).convert("RGB") for p in images]
+    extra = []
+    if len(ims) == 1:
+        extra += [f"missing: {x}" for x in (must or []) if not _ask(m, ims, f"Is there {x} clearly visible in this picture?")]
+    for q in (avoid or []):
+        if any(_ask(m, [im], q) for im in ims): extra.append(f"scene check failed: {q}")
     flags = [k for k, q in QUESTIONS if (not only or k in only) and _ask(m, ims[-1:] if len(ims) == 1 else ims[:1], q)]
     if len(ims) > 1:
         for im in ims[1:]:   # every sampled frame: problems often show up only mid-shot
             flags += [k for k, q in QUESTIONS if k in ("riderless", "melted", "vehicle", "limb") and k not in flags and _ask(m, [im], q)]
         if _ask(m, ims[::max(1, len(ims) // 3)][:3] + ims[-1:], TEMPORAL[1]): flags.append(TEMPORAL[0])
-    blocking = [k for k in flags if k not in WARN_ONLY]
-    return {"ok": not blocking, "problems": [LABELS[k] for k in flags], "flags": flags}
+    blocking = [k for k in flags if k not in WARN_ONLY] + extra
+    return {"ok": not blocking, "problems": [LABELS[k] for k in flags] + extra, "flags": flags + extra}
 
 
 def qc_frames(mp4, out_prefix, n=6):
