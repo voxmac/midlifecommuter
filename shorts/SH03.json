@@ -6,7 +6,7 @@
  "seconds": 68.0,
  "gpu": "L40S",
  "retake": [
-  "S11"
+  "S6"
  ],
  "thumb": {
   "text": [
@@ -121,7 +121,7 @@
    "lines": [
     5
    ],
-   "plate": "a small cozy Korean apartment playground on a sunny afternoon seen at eye level, a sandbox and a low wooden climbing frame behind, golden ginkgo trees and apartment buildings in the back",
+   "plate": "a Korean apartment playground on a sunny afternoon seen at eye level, a wide open green rubber safety floor in the foreground, swings, a colorful slide and a climbing frame standing in the middle distance behind, golden ginkgo trees and apartment buildings at the back",
    "camera": {
     "move": "drift",
     "amount": 0.08
@@ -131,31 +131,32 @@
      "char": "mh",
      "expr": "smile",
      "place": {
-      "h": 0.5,
-      "cx": 0.28,
-      "foot": 0.95
+      "h": 0.48,
+      "cx": 0.25,
+      "foot": 0.96
      }
     },
     {
      "char": "son",
      "flip": true,
      "place": {
-      "h": 0.33,
-      "cx": 0.6,
-      "foot": 0.96
+      "h": 0.32,
+      "cx": 0.58,
+      "foot": 0.95
      }
     },
     {
      "char": "daughter",
      "flip": true,
      "place": {
-      "h": 0.28,
+      "h": 0.27,
       "cx": 0.8,
-      "foot": 0.97
+      "foot": 0.95
      }
     }
    ],
-   "motion": "the two children laugh and bounce happily in front of the slide, the man watches them with a soft smile, golden leaves drift down"
+   "motion": "the boy and the girl hop and run around on the playground floor laughing, the two children on the swings swing back and forth in the distance, the father watches them with a warm smile, golden leaves drift down",
+   "extras": "two small children swinging on the swings in the middle distance"
   },
   {
    "lines": [
