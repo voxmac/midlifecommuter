@@ -53,3 +53,9 @@ Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직
 - Review every shot at 0.5 s steps (contact sheet per scene), not 3 frames: stray arms and vehicles appear mid-shot.
 - Shot QC now checks 6 frames for vehicles in impossible places (slide, indoors) and hands that belong to nobody; Wan negative prompt lists them.
 - Avoid street extras and roads near small children; prefer pedestrian paths, homes and eye-level plates (aerial plates make characters float).
+
+## Learned from SH04 (2026-11-15)
+- Every moving scene lists `must` (objects the motion animates: pot, laptop, phone...). The keyframe is checked for them before animating and redrawn if missing; lint refuses a motion that animates something not in `must`.
+- `avoid` = scene-specific yes/no questions asked on every shot frame (e.g. steam from the ceiling instead of the pot).
+- Plates are drawn square (1024²) and re-drawn at 9:16 from the centre crop: tall SDXL interiors stack into panels.
+- An object a lyric depends on (laptop for "이력서를 쓴다") can be a composited `prop` instead of hoping the plate draws it; keep `key_seed` to reuse a good plate.
