@@ -7,15 +7,20 @@
  "bpm": 82,
  "key": "G major",
  "time": "4",
- "duration": 78,
+ "duration": 68,
  "seeds": [
-  501,
-  502,
-  503,
-  504
+  511,
+  512,
+  513,
+  514
  ],
  "lyrics": "[Verse]\n알람이 울지 않는 아침\n넥타이는 옷장 속에 잠이 들었네\n그레고르처럼 이불 속에서\n나는 벌레가 된 것만 같아\n\n[Chorus]\n평일 오후 세 시, 처음 보는 햇살\n놀이터엔 아이들 웃음소리\n아빠 오늘 회사 안 가? 묻는 딸에게\n오늘은 너한테 출근했다고\n알람이 울지 않는 아침이\n이제야 내 하루가 되었네",
  "gpu": "T4",
- "note": "Week 2 song 3 (plan sec.5): M, the day after leaving the company. Kafka's Metamorphosis turned around: the man who felt like a bug finds his weekday afternoon. Hooks: 평일 오후 세 시, 처음 보는 햇살 / 오늘은 너한테 출근했다고.",
- "pick": 1
+ "note": "v1 chosen 2026-11-14; all lyrics end at 55.3 s, then a noisy 23 s tail. Keep 0-55.8 s, redo 55.8-68 s as a natural outro.",
+ "extend": {
+  "from": "MC03_base.mp3",
+  "start": 55.8,
+  "end": 68.0,
+  "caption": "after the last line 이제야 내 하루가 되었네, soft male-female backing voices hum the chorus melody once without words, then a gentle fingerpicked acoustic guitar outro that slows down and ends naturally on a final soft G major chord, no new lyrics"
+ }
 }

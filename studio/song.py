@@ -67,7 +67,7 @@ def produce_song(spec):
         sh(f"sed -i 's/self.dtype = torch.float16/self.dtype = torch.float32/' {ACE_DIR}/acestep/core/generation/handler/init_service_orchestrator.py")
     if spec.get("extend"):
         src = find_input(spec["extend"]["from"]); assert src, "extend: source take not in assets"
-        spec = {**spec, "_src": "/tmp/extend_src.wav"}; sh(f'ffmpeg -loglevel error -y -i "{src}" -ar 48000 -ac 2 /tmp/extend_src.wav')
+        spec = {**spec, "_src": "/tmp/extend_src.wav"}; sh(f'ffmpeg -loglevel error -y -i "{src}" -ar 48000 -ac 2 -t {spec["extend"]["end"]} /tmp/extend_src.wav')
     else:
         need = fit_seconds(spec)
         if spec.get("duration", 120) < need:   # a short duration cuts the last lines off: give every lyric line room
