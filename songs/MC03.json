@@ -1,0 +1,15 @@
+{
+ "id": "MC03",
+ "type": "song",
+ "title": "평일 오후 세 시",
+ "lang": "ko",
+ "style": "Korean acoustic folk, warm fingerpicked steel-string guitar, soft brushed drums, light glockenspiel and gentle harmonica, upright bass, husky male baritone vocal in late 40s, wistful lonely verse, bright warm hopeful chorus with soft male-female backing harmony, sunny weekday afternoon feeling",
+ "bpm": 82,
+ "key": "G major",
+ "time": "4",
+ "duration": 78,
+ "seeds": [501, 502, 503, 504],
+ "lyrics": "[Verse]\n알람이 울지 않는 아침\n넥타이는 옷장 속에 잠이 들었네\n그레고르처럼 이불 속에서\n나는 벌레가 된 것만 같아\n\n[Chorus]\n평일 오후 세 시, 처음 보는 햇살\n놀이터엔 아이들 웃음소리\n아빠 오늘 회사 안 가? 묻는 딸에게\n오늘은 너한테 출근했다고\n알람이 울지 않는 아침이\n이제야 내 하루가 되었네",
+ "gpu": "T4",
+ "note": "Week 2 song 3 (plan sec.5): M, the day after leaving the company. Kafka's Metamorphosis turned around: the man who felt like a bug finds his weekday afternoon. Hooks: 평일 오후 세 시, 처음 보는 햇살 / 오늘은 너한테 출근했다고."
+}
