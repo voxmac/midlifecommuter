@@ -307,7 +307,12 @@
    "아직 내 차례가 안 왔을 뿐"
   ]
  },
- "retake": [],
+ "retake": [
+  "S5",
+  "S6",
+  "S11",
+  "S13"
+ ],
  "upload": {
   "title": "서른 번째 불합격 문자를 받은 밤 | 서른 번째 불합격 #shorts",
   "description": "서른 번째 불합격 문자가 왔다.\n'귀하의 역량은 훌륭하나'로 시작하는.\n\n고시원 창문 너머 남의 집 불빛을 보며 라면 물이 끓는 동안 또 이력서를 씁니다.\n전도서는 말합니다. 심을 때가 있고 거둘 때가 있다고.\n나는 늦은 게 아니라, 아직 내 차례가 안 왔을 뿐입니다.\n\n🎵 서른 번째 불합격 - MIDLIFE COMMUTER\n💬 지금 '내 차례'를 기다리고 있는 누군가에게 한마디 남겨 주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#취준생 #취업준비 #불합격 #고시원 #청년 #위로 #응원 #전도서 #MIDLIFECOMMUTER #shorts",
@@ -425,19 +430,19 @@
     20.09,
     26.75
    ],
-   "plate": "inside a tiny gosiwon room at night looking out through a small window, warm yellow lights glowing in the windows of an apartment building across the alley, a dark blue sky, in present-day South Korea",
+   "plate": "inside a tiny dark Korean gosiwon room at night seen at eye level, a worn wooden floor in the foreground, a small square window in the back wall on the right showing warm yellow lights in the windows of an apartment building across the alley, a dark blue sky",
    "camera": {
     "move": "push",
     "amount": 0.07
    },
-   "motion": "the young man stands still and looks out of the small window at the warm lights across the alley, a few window lights turn on and off",
+   "motion": "the young man stands still inside the dark room and looks at the small window, the warm window lights across the alley glow, a few turn on and off",
    "frames": 113,
    "char": "jun",
    "expr": "back",
    "place": {
-    "h": 0.5,
-    "cx": 0.5,
-    "foot": 0.97,
+    "h": 0.55,
+    "cx": 0.36,
+    "foot": 0.96,
     "shadow": 0.45
    }
   },
@@ -447,18 +452,18 @@
     26.75,
     32.19
    ],
-   "plate": "a small shared gosiwon kitchen at night, a little pot of instant ramen boiling on a single electric stove, an open laptop on the narrow counter, a fluorescent light, in present-day South Korea",
+   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right with a little pot of instant ramen boiling on a single electric stove and an open laptop beside it, a fluorescent light, in present-day South Korea",
    "camera": {
     "move": "drift",
     "amount": 0.07
    },
-   "motion": "steam rises from the boiling ramen pot, the young man looks at the laptop screen with tired eyes, the fluorescent light hums",
+   "motion": "steam rises from the boiling ramen pot on the counter, the laptop screen glows on the counter, the young man looks at the screen with tired eyes and stays still",
    "frames": 93,
    "char": "jun",
    "expr": "sigh",
    "place": {
-    "h": 0.5,
-    "cx": 0.3,
+    "h": 0.52,
+    "cx": 0.32,
     "foot": 0.95,
     "shadow": 0.45
    }
@@ -557,12 +562,12 @@
     54.69,
     58.43
    ],
-   "plate": "the courtyard of a small traditional country house in Korea in the evening, a persimmon tree with orange fruit, a wooden porch (maru), warm light from the kitchen door",
+   "plate": "a warm small kitchen of a country house in Korea in the evening seen at eye level, a pot of soup steaming on the stove, a bowl of orange persimmons on the wooden table, warm light, nobody else",
    "camera": {
     "move": "push",
     "amount": 0.07
    },
-   "motion": "the mother smiles warmly and nods gently as if listening to her son, the persimmon leaves sway, warm light glows from the door",
+   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the soup pot, warm light glows",
    "frames": 65,
    "char": "jmom",
    "expr": null,
@@ -601,12 +606,12 @@
     62.64,
     72.0
    ],
-   "plate": "the flat rooftop of a small Seoul building at sunrise, a low railing, the sun rising between the city buildings, golden light and a few clouds",
+   "plate": "the empty flat rooftop of a small Seoul building at sunrise seen at eye level, a low railing, the sun rising between the city buildings, golden light and a few clouds, nobody else on the rooftop",
    "camera": {
     "move": "pull",
     "amount": 0.08
    },
-   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly",
+   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly, the rooftop stays empty",
    "frames": 121,
    "char": "jun",
    "expr": "back",

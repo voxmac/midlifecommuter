@@ -6,7 +6,12 @@
  "seconds": 72.0,
  "gpu": "L40S",
  "lead": "jun",
- "retake": [],
+ "retake": [
+  "S5",
+  "S6",
+  "S11",
+  "S13"
+ ],
  "thumb": {
   "text": [
    "서른 번째 불합격",
@@ -105,34 +110,34 @@
     2
    ],
    "expr": "back",
-   "plate": "inside a tiny gosiwon room at night looking out through a small window, warm yellow lights glowing in the windows of an apartment building across the alley, a dark blue sky",
+   "plate": "inside a tiny dark Korean gosiwon room at night seen at eye level, a worn wooden floor in the foreground, a small square window in the back wall on the right showing warm yellow lights in the windows of an apartment building across the alley, a dark blue sky",
    "camera": {
     "move": "push",
     "amount": 0.07
    },
    "place": {
-    "h": 0.5,
-    "cx": 0.5,
-    "foot": 0.97
+    "h": 0.55,
+    "cx": 0.36,
+    "foot": 0.96
    },
-   "motion": "the young man stands still and looks out of the small window at the warm lights across the alley, a few window lights turn on and off"
+   "motion": "the young man stands still inside the dark room and looks at the small window, the warm window lights across the alley glow, a few turn on and off"
   },
   {
    "lines": [
     3
    ],
    "expr": "sigh",
-   "plate": "a small shared gosiwon kitchen at night, a little pot of instant ramen boiling on a single electric stove, an open laptop on the narrow counter, a fluorescent light",
+   "plate": "a small shared gosiwon kitchen at night seen at eye level, a narrow counter on the right with a little pot of instant ramen boiling on a single electric stove and an open laptop beside it, a fluorescent light",
    "camera": {
     "move": "drift",
     "amount": 0.07
    },
    "place": {
-    "h": 0.5,
-    "cx": 0.3,
+    "h": 0.52,
+    "cx": 0.32,
     "foot": 0.95
    },
-   "motion": "steam rises from the boiling ramen pot, the young man looks at the laptop screen with tired eyes, the fluorescent light hums"
+   "motion": "steam rises from the boiling ramen pot on the counter, the laptop screen glows on the counter, the young man looks at the screen with tired eyes and stays still"
   },
   {
    "lines": [
@@ -207,7 +212,7 @@
     8
    ],
    "char": "jmom",
-   "plate": "the courtyard of a small traditional country house in Korea in the evening, a persimmon tree with orange fruit, a wooden porch (maru), warm light from the kitchen door",
+   "plate": "a warm small kitchen of a country house in Korea in the evening seen at eye level, a pot of soup steaming on the stove, a bowl of orange persimmons on the wooden table, warm light, nobody else",
    "camera": {
     "move": "push",
     "amount": 0.07
@@ -217,7 +222,7 @@
     "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the mother smiles warmly and nods gently as if listening to her son, the persimmon leaves sway, warm light glows from the door"
+   "motion": "the mother smiles warmly and nods gently as if listening to her son, steam rises from the soup pot, warm light glows"
   },
   {
    "lines": [
@@ -239,7 +244,7 @@
   {
    "lines": "outro",
    "expr": "back",
-   "plate": "the flat rooftop of a small Seoul building at sunrise, a low railing, the sun rising between the city buildings, golden light and a few clouds",
+   "plate": "the empty flat rooftop of a small Seoul building at sunrise seen at eye level, a low railing, the sun rising between the city buildings, golden light and a few clouds, nobody else on the rooftop",
    "camera": {
     "move": "pull",
     "amount": 0.08
@@ -249,7 +254,7 @@
     "cx": 0.5,
     "foot": 0.94
    },
-   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly"
+   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly, the rooftop stays empty"
   }
  ]
 }
