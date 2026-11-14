@@ -301,6 +301,9 @@
  "chirps": false,
  "tracker": false,
  "captions": true,
+ "props": {
+  "laptop": "an open silver laptop computer seen from the front at a slight angle, its screen glowing with a white resume document"
+ },
  "thumb": {
   "text": [
    "서른 번째 불합격",
@@ -474,7 +477,7 @@
     "move": "drift",
     "amount": 0.07
    },
-   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the counter, the young man looks at the laptop with tired eyes and stays still",
+   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the table, the young man stands still with tired eyes",
    "frames": 93,
    "char": "jun",
    "expr": "sigh",
@@ -486,14 +489,26 @@
    },
    "must": [
     "a small pot on a gas stove",
-    "a laptop on a counter"
+    "a laptop on a table"
    ],
    "avoid": [
     "Is steam or smoke coming from the ceiling, a shelf or a wall instead of from a pot on the stove?"
    ],
    "avoid_key": [
     "Is a pot floating in the air or hanging from the ceiling?"
-   ]
+   ],
+   "props": [
+    {
+     "prop": "laptop",
+     "place": {
+      "h": 0.075,
+      "cx": 0.8,
+      "foot": 0.548,
+      "shadow": 0.3
+     }
+    }
+   ],
+   "key_seed": 924930556
   },
   {
    "id": "S7",

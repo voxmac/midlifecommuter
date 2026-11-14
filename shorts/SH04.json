@@ -154,16 +154,28 @@
     "cx": 0.3,
     "foot": 0.95
    },
-   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the counter, the young man looks at the laptop with tired eyes and stays still",
+   "motion": "steam rises gently from the small pot on the stove, the laptop screen glows on the table, the young man stands still with tired eyes",
    "must": [
     "a small pot on a gas stove",
-    "a laptop on a counter"
+    "a laptop on a table"
    ],
    "avoid_key": [
     "Is a pot floating in the air or hanging from the ceiling?"
    ],
    "avoid": [
     "Is steam or smoke coming from the ceiling, a shelf or a wall instead of from a pot on the stove?"
+   ],
+   "key_seed": 924930556,
+   "props": [
+    {
+     "prop": "laptop",
+     "place": {
+      "h": 0.075,
+      "cx": 0.8,
+      "foot": 0.548,
+      "shadow": 0.3
+     }
+    }
    ]
   },
   {
@@ -308,5 +320,8 @@
     "the rising sun over a city"
    ]
   }
- ]
+ ],
+ "props": {
+  "laptop": "an open silver laptop computer seen from the front at a slight angle, its screen glowing with a white resume document"
+ }
 }
