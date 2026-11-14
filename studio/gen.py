@@ -167,6 +167,8 @@ BIBLE = {
          "dark trousers, brown shoes, holding a worn brown leather briefcase",
     "mh": "the same middle-aged Korean man after leaving his company, short black hair graying at the temples, round thin-framed glasses, "
           "heather-grey knit cardigan over a white t-shirt, loose navy trousers, grey slip-on shoes, empty hands",
+    "jun": "a Korean young man about 26, a job seeker, slim, messy short black hair, light grey hoodie over a white t-shirt, dark jeans, white sneakers",
+    "jmom": "his mother, a Korean woman in her late 50s, short permed black hair with some grey, floral blouse under a padded purple vest",
     # M's people: family, office, friend (same 3D animated look)
     "wife": "Korean woman in her mid 40s, M's wife, warm kind face, shoulder-length wavy dark brown hair, beige cardigan over a white blouse, blue jeans",
     "son": "Korean boy about 12 years old, M's son, short black hair, navy hoodie, jeans, sneakers, school backpack",
@@ -390,7 +392,8 @@ FACE_BOX = {"pip": (0.12, 0.0, 0.88, 0.42), "momo": (0.05, 0.0, 0.95, 0.75),
 CAST_BG = (138, 143, 153)
 NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man",
          "wife": "woman", "son": "boy", "daughter": "little girl", "junior": "young office worker", "boss": "older manager", "friend": "chubby man",
-         "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man with round glasses in a grey knit cardigan"}
+         "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man with round glasses in a grey knit cardigan",
+         "jun": "young man in a grey hoodie", "jmom": "older woman"}
 EDITS = {
     "sad": "Change only the facial expression: the {n} is crying sadly with big tears rolling down and a downturned mouth.",
     "laugh": "Change only the facial expression: the {n} is laughing out loud with joy, eyes squeezed shut into happy curves, mouth wide open.",

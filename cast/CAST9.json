@@ -1,0 +1,18 @@
+{
+ "id": "CAST9",
+ "type": "cast",
+ "gpu": "L40S",
+ "note": "Song 4 lead 'jun' (취준생): Korean man about 26, job seeker living in a gosiwon. Plus his mother 'jmom' (late 50s, countryside). Pick one master each.",
+ "design": {
+  "jun": {
+   "prompt": "stylized 3d animated movie character, Korean young man about 26 years old, job seeker, slim, messy short black hair, tired but kind eyes, light grey hoodie over a white t-shirt, dark jeans, white sneakers, empty hands, cartoon proportions, gentle expression",
+   "count": 4,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  },
+  "jmom": {
+   "prompt": "stylized 3d animated movie character, Korean mother in her late 50s from a small country town, short permed black hair with some grey, warm round kind face, floral blouse under a padded purple vest, dark slacks, cartoon proportions, warm smile",
+   "count": 3,
+   "stylize": "Turn this person into a stylized 3D animated feature-film character like a modern Pixar or Disney movie: slightly larger head, big glossy expressive eyes, soft rounded friendly features, smooth stylized skin, warm cinematic lighting. Keep the same hairstyle, clothes and colours. Full body from head to shoes, standing, plain light grey background."
+  }
+ }
+}
