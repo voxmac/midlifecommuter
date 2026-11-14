@@ -49,7 +49,7 @@ for n, sc in enumerate(plan["scenes"]):
         if c.get("expr") == "seated":
             errors.append(f"{tag}: the 'seated' pose carries its own bench; use a standing pose or a seat drawn in the place")
         pl = {"h": 0.5, "cx": 0.5, "foot": 0.95, **c.get("place", {})}
-        half = pl["h"] * 1920 * (1.7 if c.get("expr") == "bed" else 0.45) / 1080 / 2   # a person is about 0.45 of their height wide; a bed about 1.7
+        half = pl["h"] * 1920 * (1.85 if c.get("expr") == "bed" else 0.45) / 1080 / 2   # a person is about 0.45 of their height wide; a bed about 1.85
         if pl["cx"] - half < 0.02 or pl["cx"] + half > 0.98:
             errors.append(f"{tag}: {c['char']} would be cut off at the frame edge (cx {pl['cx']}, h {pl['h']})")
         if pl["foot"] - pl["h"] < 0.08:

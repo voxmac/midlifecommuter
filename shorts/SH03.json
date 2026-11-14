@@ -5,7 +5,20 @@
  "pick": 1,
  "seconds": 68.0,
  "gpu": "L40S",
- "retake": [],
+ "retake": [
+  "S1",
+  "S2",
+  "S3",
+  "S4",
+  "S5",
+  "S6",
+  "S7",
+  "S8",
+  "S9",
+  "S10",
+  "S11",
+  "S12"
+ ],
  "thumb": {
   "text": [
    "평일 오후 세 시",
@@ -75,9 +88,9 @@
     "amount": 0.08
    },
    "place": {
-    "h": 0.34,
+    "h": 0.25,
     "cx": 0.5,
-    "foot": 0.95
+    "foot": 0.93
    },
    "motion": "the man lies still under the thick blanket and slowly blinks, staring blankly, the thin line of sunlight trembles on the wall, the curtain moves a little"
   },
