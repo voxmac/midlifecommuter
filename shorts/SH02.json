@@ -1,0 +1,348 @@
+{
+ "id": "SH02",
+ "slug": "쓸모없는나무",
+ "song": "MC02",
+ "pick": 2,
+ "seconds": 78.0,
+ "gpu": "L40S",
+ "retake": [],
+ "thumb": {
+  "text": [
+   "쓸모없는 나무",
+   "쓸모없어 다행이다"
+  ]
+ },
+ "upload": {
+  "title": "스무 해 회사를 떠나던 날, 아빠가 찾은 진짜 자리 | 쓸모없는 나무 #shorts",
+  "description": "박스 하나에 담긴 스무 해.\n엘리베이터 문이 닫히는 동안, 아무도 내 이름을 부르지 않았다.\n\n장자는 말했습니다. 쓸모없는 나무는 베어 가는 이가 없어 오래 산다고.\n회사에서 쓸모가 다한 날, 나는 비로소 아이들의 그늘이 되었습니다.\n\n🎵 쓸모없는 나무 - MIDLIFE COMMUTER\n💬 당신에게 '두 번째 시작'은 언제였나요? 댓글로 들려주세요. 다음 노래가 됩니다.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#퇴사 #희망퇴직 #아빠 #가장 #인생2막 #위로 #직장인공감 #장자 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "퇴사",
+   "희망퇴직",
+   "인생 2막",
+   "아빠",
+   "가장",
+   "중년",
+   "직장인 공감",
+   "위로 노래",
+   "장자 쓸모없는 나무",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "scenes": [
+  {
+   "lines": "intro",
+   "end": 5.8,
+   "expr": "sigh",
+   "plate": "a quiet Korean open-plan office in the evening, rows of desks with monitors, one cleared desk in front with a cardboard box holding a mug and a framed family photo, warm desk lamp light, blue dusk through big windows",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.62
+   },
+   "motion": "the man stands beside the cleared desk and looks down at the cardboard box with a quiet sigh, the desk lamp glows, dusk light slowly fades outside the windows"
+  },
+  {
+   "lines": "intro",
+   "expr": "lookup",
+   "plate": "a big office window high in a Seoul office tower at dusk, the city skyline with lights turning on, a purple and orange sky, empty desks behind",
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.4
+   },
+   "motion": "the man gazes out of the window at the city, the city lights twinkle on one by one, clouds drift slowly across the dusk sky"
+  },
+  {
+   "lines": [
+    0
+   ],
+   "expr": "walk",
+   "plate": "a long aisle between office desks in a Korean company in the evening, monitors glowing, papers and files on desks, fluorescent ceiling lights",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.08
+   },
+   "extras": "office workers sitting at their desks on both sides, heads down, typing and looking at their monitors, nobody looking up",
+   "motion": "the man walks slowly down the aisle, the seated office workers keep typing at their monitors without looking up, a monitor flickers"
+  },
+  {
+   "lines": [
+    1
+   ],
+   "expr": "wallet",
+   "plate": "close view of an office desk corner in the evening, a cardboard box with a white mug, a framed family photo of a smiling mother and two children, and a few business cards, warm lamp light",
+   "camera": {
+    "move": "push",
+    "amount": 0.12,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   },
+   "place": {
+    "h": 0.55,
+    "cx": 0.38,
+    "foot": 1.0
+   },
+   "motion": "the man looks down at the small thing in his hands with a faint sad smile, the lamp light flickers softly, dust floats in the light"
+  },
+  {
+   "lines": [
+    2
+   ],
+   "expr": "sigh",
+   "plate": "inside a stainless steel office elevator in the evening, brushed metal walls, a lit floor number panel, soft overhead light",
+   "camera": {
+    "move": "push",
+    "amount": 0.06
+   },
+   "place": {
+    "h": 0.55,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the man stands alone in the elevator and lowers his head, the floor numbers on the panel count down, the overhead light hums softly"
+  },
+  {
+   "lines": [
+    3
+   ],
+   "expr": "back",
+   "plate": "the glass entrance of a tall Seoul office building at dusk, a wide plaza in front, street lamps turning on, a blue evening sky",
+   "camera": {
+    "move": "pull",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.45,
+    "cx": 0.5,
+    "foot": 0.93
+   },
+   "extras": "office workers in coats hurrying past across the plaza, talking on phones, a security guard standing by the glass doors",
+   "motion": "the man walks slowly away from the building across the plaza, the office workers hurry past him without looking, the street lamps glow"
+  },
+  {
+   "lines": [
+    4
+   ],
+   "expr": "lookup",
+   "plate": "a huge old crooked zelkova tree with a thick twisted trunk and wide gnarled branches in a small Korean neighbourhood park on a hill, a low stone wall around its roots, golden sunset sky, apartment buildings far behind",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.42,
+    "cx": 0.34,
+    "foot": 0.95
+   },
+   "motion": "the man looks up at the giant crooked tree, the leaves sway gently in the evening wind, golden light shines through the branches"
+  },
+  {
+   "lines": [
+    5
+   ],
+   "plate": "a wide view of a huge old crooked zelkova tree on a small hill park at sunset, a traditional wooden pavilion (jeongja) beside it, a dirt path, warm golden light",
+   "camera": {
+    "move": "drift",
+    "amount": 0.07
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.4,
+      "cx": 0.3,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "grandpa",
+     "flip": true,
+     "place": {
+      "h": 0.36,
+      "cx": 0.66,
+      "foot": 0.93
+     }
+    },
+    {
+     "char": "grandma",
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.83,
+      "foot": 0.94
+     }
+    }
+   ],
+   "motion": "an old couple standing under the tree chat and laugh together, the old man nods kindly at the man, the man smiles back, leaves sway and fall slowly"
+  },
+  {
+   "lines": [
+    6
+   ],
+   "expr": "smile",
+   "plate": "under the wide spreading branches of a huge old crooked tree, dappled late afternoon sunlight on green grass, a quiet Korean neighbourhood park",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.96
+   },
+   "motion": "the man stands in the shade of the tree and takes a deep calm breath, his face relaxes into a gentle smile, sunlight flickers through the leaves"
+  },
+  {
+   "lines": [
+    7
+   ],
+   "plate": "a picnic mat spread on the grass in the deep shade under a huge old crooked tree, a picnic basket and fruit on the mat, a sunny Korean park in the afternoon",
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.48,
+      "cx": 0.28,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.45,
+      "cx": 0.52,
+      "foot": 0.93
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.32,
+      "cx": 0.72,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.27,
+      "cx": 0.87,
+      "foot": 0.97
+     }
+    }
+   ],
+   "motion": "the two children laugh and play in the cool shade, the wife smiles at her husband, the man watches his family happily, leaves sway above them"
+  },
+  {
+   "lines": [
+    8
+   ],
+   "plate": "the gate of a Korean elementary school on a sunny weekday afternoon, a schoolyard and a red brick school building behind, cherry trees along the fence",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.32,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "daughter",
+     "flip": true,
+     "place": {
+      "h": 0.3,
+      "cx": 0.68,
+      "foot": 0.96
+     }
+    }
+   ],
+   "extras": "a few schoolchildren with backpacks in the schoolyard far behind, a crossing guard grandmother in a yellow vest by the gate",
+   "motion": "the little girl waves happily at her father and skips toward him, the father opens his arms with a big smile, children play in the schoolyard behind"
+  },
+  {
+   "lines": [
+    9
+   ],
+   "plate": "a warm cozy Korean apartment kitchen and dining area in the evening, a dining table set with steaming rice bowls, stew and side dishes, warm pendant light",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.27,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "wife",
+     "flip": true,
+     "place": {
+      "h": 0.47,
+      "cx": 0.52,
+      "foot": 0.94
+     }
+    },
+    {
+     "char": "son",
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.71,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "daughter",
+     "flip": true,
+     "place": {
+      "h": 0.27,
+      "cx": 0.86,
+      "foot": 0.97
+     }
+    }
+   ],
+   "motion": "the family gathers around the dinner table, steam rises from the stew, the wife laughs and the children cheer, the man smiles warmly at them"
+  },
+  {
+   "lines": "outro",
+   "expr": "back",
+   "plate": "a quiet Korean apartment complex at night seen from a small park, a huge old crooked tree in front with its branches against a starry sky, warm lights glowing in many apartment windows",
+   "camera": {
+    "move": "pull",
+    "amount": 0.1
+   },
+   "place": {
+    "h": 0.36,
+    "cx": 0.5,
+    "foot": 0.92
+   },
+   "motion": "the man walks slowly toward the warm lights of the apartment building, the leaves of the big tree rustle softly, stars twinkle"
+  }
+ ]
+}

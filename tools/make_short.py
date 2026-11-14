@@ -1,6 +1,6 @@
 """Builds a song Short spec (episodes/<id>.json) from a scene plan and the song's lyric timing.
 usage: python tools/make_short.py shorts/SH01.json <timing.json from the song's prep release>
-Plan: {"id", "song": "MC01", "pick": 1, "scenes": [{"lines": [0, 1] | "outro", "plate", "expr", "place"?, "camera"?}], ...}
+Plan: {"id", "song": "MC01", "pick": 1, "scenes": [{"lines": [0, 1] | "intro" | "outro", "end"?, "plate", "expr", "place"?, "camera"?}], ...}
 Every scene is a still keyframe (plate + M cutout + light harmonising pass) with a slow camera move; captions are the
 song's words, timed letter by letter from the Whisper alignment, coloured in karaoke style."""
 import json, os, re, sys, difflib
@@ -64,7 +64,8 @@ for n, sc in enumerate(plan["scenes"]):
     ls = sc["lines"]
     a = 0.0 if n == 0 else shots[-1]["slot"][1]
     nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
-    b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
+    if sc.get("end"): b = sc["end"]   # split a long instrumental intro into several scenes ("lines": "intro", "end": s)
+    else: b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.5, "cx": 0.5, "foot": 0.95, "shadow": 0.45, **sc.get("place", {})}
     shot = {"id": f"S{n + 1}", "slot": [round(a, 2), round(b, 2)], "plate": sc["plate"],
             "camera": sc.get("camera", {"move": "push", "amount": 0.04})}
