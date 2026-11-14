@@ -1,0 +1,621 @@
+{
+ "id": "SH04",
+ "slug": "서른번째불합격",
+ "format": "mv",
+ "aspect": "9:16",
+ "lead": "jun",
+ "song": {
+  "file": "MC04_v3",
+  "at": 0.0,
+  "sfx_vol": 0.0
+ },
+ "lyrics_tl": [
+  [
+   [
+    "서른",
+    11.42,
+    11.58
+   ],
+   [
+    "번째",
+    11.58,
+    12.1
+   ],
+   [
+    "불합격",
+    12.1,
+    13.06
+   ],
+   [
+    "문자가",
+    13.06,
+    13.96
+   ],
+   [
+    "왔다",
+    13.96,
+    15.18
+   ]
+  ],
+  [
+   [
+    "귀하의",
+    15.18,
+    16.88
+   ],
+   [
+    "역량은",
+    16.88,
+    17.84
+   ],
+   [
+    "훌륭하나로",
+    17.84,
+    19.04
+   ],
+   [
+    "시작하는",
+    19.04,
+    20.24
+   ]
+  ],
+  [
+   [
+    "고시원",
+    20.24,
+    22.94
+   ],
+   [
+    "창문엔",
+    22.94,
+    24.0
+   ],
+   [
+    "남의",
+    24.0,
+    24.7
+   ],
+   [
+    "집",
+    24.7,
+    24.94
+   ],
+   [
+    "불빛",
+    24.94,
+    26.9
+   ]
+  ],
+  [
+   [
+    "라면",
+    26.9,
+    27.54
+   ],
+   [
+    "물이",
+    27.54,
+    28.58
+   ],
+   [
+    "끓는",
+    28.58,
+    29.06
+   ],
+   [
+    "동안",
+    29.06,
+    29.66
+   ],
+   [
+    "또",
+    29.66,
+    30.7
+   ],
+   [
+    "이력서를",
+    30.7,
+    31.44
+   ],
+   [
+    "쓴다",
+    31.44,
+    32.34
+   ]
+  ],
+  [
+   [
+    "모든",
+    32.34,
+    33.04
+   ],
+   [
+    "일에는",
+    33.04,
+    34.6
+   ],
+   [
+    "때가",
+    34.6,
+    35.4
+   ],
+   [
+    "있다고",
+    35.4,
+    36.08
+   ]
+  ],
+  [
+   [
+    "심을",
+    36.08,
+    38.16
+   ],
+   [
+    "때가",
+    38.16,
+    38.56
+   ],
+   [
+    "있고",
+    38.56,
+    38.94
+   ],
+   [
+    "거둘",
+    38.94,
+    40.3
+   ],
+   [
+    "때가",
+    40.3,
+    40.96
+   ],
+   [
+    "있다고",
+    40.96,
+    41.58
+   ]
+  ],
+  [
+   [
+    "나는",
+    41.58,
+    43.96
+   ],
+   [
+    "아직",
+    43.96,
+    44.82
+   ],
+   [
+    "늦은",
+    44.82,
+    46.08
+   ],
+   [
+    "게",
+    46.08,
+    46.32
+   ],
+   [
+    "아니야",
+    46.32,
+    46.94
+   ]
+  ],
+  [
+   [
+    "아직",
+    46.94,
+    51.08
+   ],
+   [
+    "내",
+    51.08,
+    51.36
+   ],
+   [
+    "차례가",
+    51.36,
+    52.3
+   ],
+   [
+    "안",
+    52.3,
+    53.08
+   ],
+   [
+    "왔을",
+    53.08,
+    53.62
+   ],
+   [
+    "뿐",
+    53.62,
+    54.84
+   ]
+  ],
+  [
+   [
+    "엄마",
+    54.84,
+    56.5
+   ],
+   [
+    "걱정",
+    56.5,
+    56.98
+   ],
+   [
+    "마,",
+    56.98,
+    57.52
+   ],
+   [
+    "밥은",
+    57.82,
+    58.0
+   ],
+   [
+    "먹었어",
+    58.0,
+    58.58
+   ]
+  ],
+  [
+   [
+    "내일도",
+    58.58,
+    59.52
+   ],
+   [
+    "나는",
+    58.7,
+    59.9
+   ],
+   [
+    "문을",
+    59.9,
+    60.42
+   ],
+   [
+    "두드린다",
+    60.42,
+    62.34
+   ]
+  ]
+ ],
+ "font": "Jua-Regular",
+ "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+ "brand": "MIDLIFE COMMUTER",
+ "cap_y": 0.83,
+ "cap_size": 60,
+ "cap_line": true,
+ "top_label": null,
+ "budget_min": 220,
+ "wan_min": 8,
+ "hook": [],
+ "end_tag": "",
+ "loop_drop": false,
+ "chirps": false,
+ "tracker": false,
+ "captions": true,
+ "thumb": {
+  "text": [
+   "서른 번째 불합격",
+   "아직 내 차례가 안 왔을 뿐"
+  ]
+ },
+ "retake": [],
+ "upload": {
+  "title": "서른 번째 불합격 문자를 받은 밤 | 서른 번째 불합격 #shorts",
+  "description": "서른 번째 불합격 문자가 왔다.\n'귀하의 역량은 훌륭하나'로 시작하는.\n\n고시원 창문 너머 남의 집 불빛을 보며 라면 물이 끓는 동안 또 이력서를 씁니다.\n전도서는 말합니다. 심을 때가 있고 거둘 때가 있다고.\n나는 늦은 게 아니라, 아직 내 차례가 안 왔을 뿐입니다.\n\n🎵 서른 번째 불합격 - MIDLIFE COMMUTER\n💬 지금 '내 차례'를 기다리고 있는 누군가에게 한마디 남겨 주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#취준생 #취업준비 #불합격 #고시원 #청년 #위로 #응원 #전도서 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "취준생",
+   "취업준비",
+   "불합격",
+   "고시원",
+   "청년 위로",
+   "응원 노래",
+   "위로 노래",
+   "전도서 때",
+   "엄마",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "gpu": "L40S",
+ "shots": [
+  {
+   "id": "S1",
+   "slot": [
+    0.0,
+    5.8
+   ],
+   "plate": "a narrow Korean gosiwon hallway at night seen at eye level, rows of identical small numbered doors on both sides, a long fluorescent ceiling light, a worn linoleum floor",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "motion": "the young man stands still in the narrow hallway, the fluorescent light flickers softly, the hallway stays quiet and empty",
+   "frames": 97,
+   "char": "jun",
+   "expr": "back",
+   "place": {
+    "h": 0.45,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S2",
+   "slot": [
+    5.8,
+    11.27
+   ],
+   "plate": "a tiny Korean gosiwon room at night seen at eye level, a narrow desk with a laptop and stacks of job-test books, many yellow sticky notes on the wall, a small desk lamp glowing, a narrow window",
+   "camera": {
+    "move": "drift",
+    "amount": 0.07
+   },
+   "motion": "the young man stands in the tiny room with a tired sigh, the desk lamp glows, the sticky notes flutter slightly",
+   "frames": 93,
+   "char": "jun",
+   "expr": "sigh",
+   "place": {
+    "h": 0.52,
+    "cx": 0.4,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S3",
+   "slot": [
+    11.27,
+    15.03
+   ],
+   "plate": "a tiny Korean gosiwon room at night, a narrow desk with a laptop and stacks of books, sticky notes on the wall, dim lamp light",
+   "camera": {
+    "move": "push",
+    "amount": 0.1,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   },
+   "motion": "the phone screen glows in the young man's hand, he stares down at it and his shoulders drop slowly, the lamp light flickers",
+   "frames": 65,
+   "char": "jun",
+   "expr": "phone",
+   "place": {
+    "h": 0.55,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S4",
+   "slot": [
+    15.03,
+    20.09
+   ],
+   "plate": "close view of a gosiwon desk corner at night, an open laptop showing an email page, a cup of instant coffee, crumpled paper, cold blue screen light, in present-day South Korea",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "motion": "the young man reads the message on his phone with a disappointed face, the laptop screen light flickers on his face, nothing else moves",
+   "frames": 85,
+   "char": "jun",
+   "expr": "phone",
+   "place": {
+    "h": 0.62,
+    "cx": 0.4,
+    "foot": 1.0,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S5",
+   "slot": [
+    20.09,
+    26.75
+   ],
+   "plate": "inside a tiny gosiwon room at night looking out through a small window, warm yellow lights glowing in the windows of an apartment building across the alley, a dark blue sky, in present-day South Korea",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "motion": "the young man stands still and looks out of the small window at the warm lights across the alley, a few window lights turn on and off",
+   "frames": 113,
+   "char": "jun",
+   "expr": "back",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.97,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S6",
+   "slot": [
+    26.75,
+    32.19
+   ],
+   "plate": "a small shared gosiwon kitchen at night, a little pot of instant ramen boiling on a single electric stove, an open laptop on the narrow counter, a fluorescent light, in present-day South Korea",
+   "camera": {
+    "move": "drift",
+    "amount": 0.07
+   },
+   "motion": "steam rises from the boiling ramen pot, the young man looks at the laptop screen with tired eyes, the fluorescent light hums",
+   "frames": 93,
+   "char": "jun",
+   "expr": "sigh",
+   "place": {
+    "h": 0.5,
+    "cx": 0.3,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S7",
+   "slot": [
+    32.19,
+    35.93
+   ],
+   "plate": "the flat rooftop of a small Seoul building before dawn seen at eye level, a low railing, laundry lines, the city skyline under a deep blue sky turning pink at the horizon",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   },
+   "motion": "the young man looks up at the brightening dawn sky, the sky slowly turns pink and gold, the laundry sways in the wind",
+   "frames": 65,
+   "char": "jun",
+   "expr": "lookup",
+   "place": {
+    "h": 0.48,
+    "cx": 0.4,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S8",
+   "slot": [
+    35.93,
+    41.43
+   ],
+   "plate": "a narrow farm road between golden rice paddies in the Korean countryside at sunrise, bundles of harvested rice on one side and green young sprouts in a seedbed on the other, low mountains behind",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.07
+   },
+   "motion": "the young man walks slowly along the farm road, the golden rice sways in the morning breeze, the sun rises over the mountains",
+   "frames": 93,
+   "char": "jun",
+   "expr": "walk",
+   "place": {
+    "h": 0.45,
+    "cx": 0.4,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S9",
+   "slot": [
+    41.43,
+    46.79
+   ],
+   "plate": "the top of the stairs at a Seoul subway station exit in the early morning seen at eye level, bright morning sunlight pouring in, a glass canopy, trees on the sidewalk",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "motion": "the young man stands in the morning sunlight and smiles bravely, sunlight flickers through the leaves, the background stays calm",
+   "frames": 93,
+   "char": "jun",
+   "expr": "smile",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S10",
+   "slot": [
+    46.79,
+    54.69
+   ],
+   "plate": "a bare winter tree in a small Korean city park with many tiny new buds on its branches, soft golden morning sunlight, a clear pale blue sky",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   },
+   "motion": "the young man looks up at the tiny buds on the branches with a hopeful smile, the branches sway gently, sunlight sparkles",
+   "frames": 121,
+   "char": "jun",
+   "expr": "lookup",
+   "place": {
+    "h": 0.45,
+    "cx": 0.4,
+    "foot": 0.96,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S11",
+   "slot": [
+    54.69,
+    58.43
+   ],
+   "plate": "the courtyard of a small traditional country house in Korea in the evening, a persimmon tree with orange fruit, a wooden porch (maru), warm light from the kitchen door",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "motion": "the mother smiles warmly and nods gently as if listening to her son, the persimmon leaves sway, warm light glows from the door",
+   "frames": 65,
+   "char": "jmom",
+   "expr": null,
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S12",
+   "slot": [
+    58.43,
+    62.64
+   ],
+   "plate": "a wide pedestrian plaza in front of a tall glass office tower in Seoul on a bright morning, glass entrance doors, small trees in planters, no road",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.07
+   },
+   "motion": "the young man walks with steady steps across the plaza toward the glass doors, morning light reflects on the glass, the trees sway",
+   "frames": 73,
+   "char": "jun",
+   "expr": "walk",
+   "place": {
+    "h": 0.45,
+    "cx": 0.4,
+    "foot": 0.95,
+    "shadow": 0.45
+   }
+  },
+  {
+   "id": "S13",
+   "slot": [
+    62.64,
+    72.0
+   ],
+   "plate": "the flat rooftop of a small Seoul building at sunrise, a low railing, the sun rising between the city buildings, golden light and a few clouds",
+   "camera": {
+    "move": "pull",
+    "amount": 0.08
+   },
+   "motion": "the young man stands still facing the rising sun, golden light spreads across the city, clouds drift slowly",
+   "frames": 121,
+   "char": "jun",
+   "expr": "back",
+   "place": {
+    "h": 0.45,
+    "cx": 0.5,
+    "foot": 0.94,
+    "shadow": 0.45
+   }
+  }
+ ]
+}

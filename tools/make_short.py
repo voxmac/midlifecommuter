@@ -41,7 +41,7 @@ for n, sc in enumerate(plan["scenes"]):
         errors.append(f"{tag}: the motion makes someone appear mid-shot; put them in the picture from the first frame")
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
-    for c in sc.get("cast", []) or [{"char": plan.get("lead", "m"), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
+    for c in sc.get("cast", []) or [{"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
         if plan.get("lead") == "mh" and c["char"] == "m":
             errors.append(f"{tag}: this song is after M left the company; use 'mh' (everyday clothes), not 'm' (suit, badge, briefcase)")
         if c["char"] == "m" and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
@@ -82,7 +82,7 @@ for n, sc in enumerate(plan["scenes"]):
         shot["cast"] = [{"char": c["char"], "expr": c.get("expr"), "flip": c.get("flip", False),
                          "place": {"h": 0.5, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **c.get("place", {})}} for c in sc["cast"]]
     else:
-        shot.update({"char": plan.get("lead", "m"), "expr": sc.get("expr"), "place": place})
+        shot.update({"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
