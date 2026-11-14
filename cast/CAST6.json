@@ -1,0 +1,10 @@
+{
+ "id": "CAST6",
+ "type": "cast",
+ "gpu": "T4",
+ "engine": "qwen_edit",
+ "chars": ["m"],
+ "exprs": ["home"],
+ "per_item": 4,
+ "note": "M after leaving the company: same face, everyday clothes (grey cardigan, white t-shirt, navy trousers), no tie, badge or briefcase. The pick becomes the master of the new character 'mh'."
+}

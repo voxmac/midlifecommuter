@@ -165,6 +165,8 @@ BIBLE = {
     "m": "middle-aged Korean office worker man in his late 40s, short black hair graying at the temples, round thin-framed glasses, "
          "kind tired eyes, slight smile lines, grey wool coat over a white shirt and navy tie, employee ID badge on a lanyard, "
          "dark trousers, brown shoes, holding a worn brown leather briefcase",
+    "mh": "the same middle-aged Korean man after leaving his company, short black hair graying at the temples, round thin-framed glasses, "
+          "heather-grey knit cardigan over a white t-shirt, loose navy trousers, grey slip-on shoes, empty hands",
     # M's people: family, office, friend (same 3D animated look)
     "wife": "Korean woman in her mid 40s, M's wife, warm kind face, shoulder-length wavy dark brown hair, beige cardigan over a white blouse, blue jeans",
     "son": "Korean boy about 12 years old, M's son, short black hair, navy hoodie, jeans, sneakers, school backpack",
@@ -388,7 +390,7 @@ FACE_BOX = {"pip": (0.12, 0.0, 0.88, 0.42), "momo": (0.05, 0.0, 0.95, 0.75),
 CAST_BG = (138, 143, 153)
 NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man",
          "wife": "woman", "son": "boy", "daughter": "little girl", "junior": "young office worker", "boss": "older manager", "friend": "chubby man",
-         "grandma": "grandmother", "grandpa": "grandfather"}
+         "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man in comfortable home clothes"}
 EDITS = {
     "sad": "Change only the facial expression: the {n} is crying sadly with big tears rolling down and a downturned mouth.",
     "laugh": "Change only the facial expression: the {n} is laughing out loud with joy, eyes squeezed shut into happy curves, mouth wide open.",
@@ -412,6 +414,22 @@ EDITS = {
     "back": "Show the {n} from behind, walking away from the camera, briefcase in his right hand, same clothes.",
     "wallet": "Make the {n} look down sadly at an open wallet held in both hands, the briefcase standing at his feet.",
 }
+# M after leaving the company (songs 2+ of the second-life arc): his own face and hair, everyday clothes, no badge or briefcase
+EDITS["home"] = ("Change only his clothes to comfortable everyday home wear: a soft heather-grey knit cardigan over a plain white "
+                 "crew-neck t-shirt, loose navy cotton trousers and grey slip-on shoes. Remove the coat, the shirt collar, the tie, "
+                 "the ID badge and lanyard, and the briefcase; both hands empty and relaxed at his sides. Same face, glasses, hair and "
+                 "body, standing, gentle calm expression, full body from head to shoes.")
+EDITS_MH = {
+    "walk": "Make the {n} walk calmly to the right, mid-stride, arms swinging loosely, both hands empty, gentle relaxed face.",
+    "sigh": "Make the {n} look lost and worn out: shoulders slumped, head tilted slightly down, eyes half closed, mouth in a small flat line, no tears, both hands empty.",
+    "smile": "Change only the facial expression: the {n} smiles warmly and gently, soft happy eyes, a little moved.",
+    "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, warm, hopeful smile, relaxed eyebrows, both hands empty.",
+    "back": "Show the {n} from behind, standing still and looking ahead, arms relaxed at his sides, same clothes.",
+    "bed": ("Show the {n} lying on his side in a single bed under a thick fluffy white blanket pulled up to his chin, only his head on a white "
+            "pillow showing above the blanket, eyes open staring blankly, glum tired face. Side view of the whole bed with its wooden frame, "
+            "nothing else."),
+}
+EDITS_BY_CHAR = {"mh": EDITS_MH}
 KEEP = " Keep exactly the same character design, colours, proportions and glossy 3D animated style. Plain light grey background."
 
 def cast_candidates_edit(spec, out_dir):
@@ -422,9 +440,10 @@ def cast_candidates_edit(spec, out_dir):
         s = 760 / max(base.width, base.height); b = base.resize((int(base.width * s), int(base.height * s)), Image.LANCZOS)
         canvas.paste(b, ((1024 - b.width) // 2, 1024 - 90 - b.height), b)
         init = f"{out_dir}/{char}_init.png"; canvas.save(init)
-        for expr in spec.get("exprs", list(EDITS)):
+        ed = EDITS_BY_CHAR.get(char, EDITS)
+        for expr in spec.get("exprs", list(ed)):
             for k in range(spec.get("per_item", 2)):
-                f, sd, sec = gen_edit(init, EDITS[expr].format(n=NAMES[char]) + KEEP, prefix=f"E_{char}_{expr}")
+                f, sd, sec = gen_edit(init, ed[expr].format(n=NAMES[char]) + KEEP, prefix=f"E_{char}_{expr}")
                 dst = f"{out_dir}/{char}_{expr}_{k}.png"; shutil.copy(f, dst); made.setdefault(f"{char}_{expr}", []).append(dst)
                 log("edit", char, expr, k, sd, f"{sec:.0f}s")
     return made
