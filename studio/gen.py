@@ -432,7 +432,15 @@ EDITS_MH = {
             "pillow showing above the blanket, eyes open staring blankly, glum tired face. Side view of the whole bed with its wooden frame, "
             "nothing else."),
 }
-EDITS_BY_CHAR = {"mh": EDITS_MH}
+EDITS_JUN = {
+    "walk": "Make the {n} walk calmly to the right, mid-stride, arms swinging loosely, both hands empty, determined gentle face. Same hoodie, jeans and sneakers.",
+    "sigh": "Make the {n} look tired and discouraged: shoulders slumped, head tilted slightly down, eyes half closed, small flat mouth, no tears, both hands empty. Same clothes.",
+    "phone": "Make the {n} hold a smartphone in his right hand at chest height and look down at its screen with a disappointed, deflated face, no tears. Same clothes.",
+    "smile": "Change only the facial expression: the {n} smiles warmly and bravely, soft hopeful eyes. Same clothes.",
+    "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, determined, hopeful smile, both hands empty. Same hoodie, jeans and sneakers.",
+    "back": "Show the {n} from behind, standing still and looking ahead, arms relaxed at his sides, same hoodie, jeans and sneakers.",
+}
+EDITS_BY_CHAR = {"mh": EDITS_MH, "jun": EDITS_JUN}
 KEEP = " Keep exactly the same character design, colours, proportions and glossy 3D animated style. Plain light grey background."
 
 def cast_candidates_edit(spec, out_dir):
