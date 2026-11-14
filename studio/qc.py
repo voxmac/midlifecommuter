@@ -15,6 +15,8 @@ QUESTIONS = [
     ("pagoda", "Does this image show a pagoda, a temple roof, or traditional Japanese or Chinese style buildings with curved tiled roofs?"),
     ("cutoff", "Look only at the large cartoon characters in the foreground and ignore small people in the background. Is the head or more than half of the body of one of those large characters outside the left or right edge of the image?"),
     ("melted", "Does one of the cartoon characters have a clearly distorted face, extra arms or legs, or melted hands?"),
+    ("vehicle", "Is there a car, motorbike, scooter or bicycle somewhere it could not really be, for example on a slide, on playground equipment, inside a room, or on furniture?"),
+    ("limb", "Is there a hand or arm that does not belong to any fully visible character, for example reaching in from the edge of the picture or coming out of a wardrobe, a wall or a door?"),
     ("furniture", "Is a chair or bench attached to a cartoon character's body as if it were part of them?"),
 ]
 WARN_ONLY = {"cutoff"}   # reported in the review issue but no redraw: placement is already linted before the run
@@ -22,6 +24,7 @@ TEMPORAL = ("popin", "These are the first, middle and last frames of one shot. D
 LABELS = {"panels": "picture split into panels / stacked copies", "riderless": "scooter or bike with nobody riding it",
           "pagoda": "pagodas or Japanese/Chinese-style buildings", "cutoff": "a character cut off at the frame edge",
           "melted": "distorted face or extra limbs", "furniture": "a chair or bench fused to a character",
+          "vehicle": "a vehicle in an impossible place (slide, playground, indoors)", "limb": "a stray hand or arm that belongs to nobody",
           "popin": "someone or something pops in or out during the shot"}
 
 
@@ -57,18 +60,19 @@ def qc_check(images, scene=None, who=None, only=None):
     ims = [Image.open(p).convert("RGB") for p in images]
     flags = [k for k, q in QUESTIONS if (not only or k in only) and _ask(m, ims[-1:] if len(ims) == 1 else ims[:1], q)]
     if len(ims) > 1:
-        flags += [k for k, q in QUESTIONS if k in ("riderless", "cutoff", "melted") and k not in flags and _ask(m, ims[-1:], q)]
-        if _ask(m, ims, TEMPORAL[1]): flags.append(TEMPORAL[0])
+        for im in ims[1:]:   # every sampled frame: problems often show up only mid-shot
+            flags += [k for k, q in QUESTIONS if k in ("riderless", "melted", "vehicle", "limb") and k not in flags and _ask(m, [im], q)]
+        if _ask(m, ims[::max(1, len(ims) // 3)][:3] + ims[-1:], TEMPORAL[1]): flags.append(TEMPORAL[0])
     blocking = [k for k in flags if k not in WARN_ONLY]
     return {"ok": not blocking, "problems": [LABELS[k] for k in flags], "flags": flags}
 
 
-def qc_frames(mp4, out_prefix, n=3):
-    """First, middle and last frame of a shot (for checks that need motion: things popping in or out)."""
+def qc_frames(mp4, out_prefix, n=6):
+    """n frames spread over a shot (pop-ins, stray arms and odd vehicles often appear only mid-shot)."""
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp4],
                                capture_output=True, text=True).stdout.strip() or 0)
     paths = []
-    for k, t in enumerate([0.2, dur / 2, max(0.0, dur - 0.3)][:n]):
+    for k, t in enumerate([0.2 + (max(0.0, dur - 0.5)) * i / (n - 1) for i in range(n)]):
         p = f"{out_prefix}_{k}.jpg"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t:.2f}", "-i", mp4, "-frames:v", "1", "-vf", "scale=-2:640", p])
         if os.path.exists(p): paths.append(p)
@@ -76,7 +80,7 @@ def qc_frames(mp4, out_prefix, n=3):
 
 
 def qc_who(shot):
-    names = {"m": "M (middle-aged man with glasses, grey coat)", "wife": "his wife", "son": "his son", "daughter": "his little daughter",
+    names = {"m": "M (middle-aged man with glasses, grey coat)", "mh": "M (middle-aged man with glasses, grey cardigan)", "wife": "his wife", "son": "his son", "daughter": "his little daughter",
              "junior": "a young colleague", "boss": "his boss", "friend": "his friend", "grandma": "grandmother", "grandpa": "grandfather"}
     chars = [c["char"] for c in shot.get("cast", [])] or ([shot["char"]] if shot.get("char") else [])
     return ", ".join(names.get(c, c) for c in chars)

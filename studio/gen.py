@@ -211,7 +211,7 @@ def gen_image(prompt, neg=NEG_3D, w=None, h=None, seed=None, init=None, denoise=
     g["save"] = {"class_type": "SaveImage", "inputs": {"images": ["dec", 0], "filename_prefix": prefix}}
     files, sec = run(g); return files[0], seed
 
-WAN_NEG = "blurry, low quality, distorted, deformed, extra limbs, bad anatomy, flickering, jitter, text, watermark, ugly, static image"
+WAN_NEG = "blurry, low quality, distorted, deformed, extra limbs, bad anatomy, flickering, jitter, text, watermark, ugly, static image, disembodied hands, arms reaching in from the edge, extra arms, motorbike, scooter, bicycle, vehicle driving in, people walking into the frame"
 def gen_shot(image, prompt, out_mp4, seed=None, width=None, height=None, frames=81, fps=16):
     seed = random.randint(0, 2**31 - 1) if seed is None else seed
     width, height = width or (832 if W > H else 480), height or (480 if W > H else 832)
