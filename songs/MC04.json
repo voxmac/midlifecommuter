@@ -8,8 +8,14 @@
  "key": "D major",
  "time": "4",
  "duration": 72,
- "seeds": [601, 602, 603, 604],
+ "seeds": [
+  601,
+  602,
+  603,
+  604
+ ],
  "lyrics": "[Verse]\n서른 번째 불합격 문자가 왔다\n귀하의 역량은 훌륭하나로 시작하는\n고시원 창문엔 남의 집 불빛\n라면 물이 끓는 동안 또 이력서를 쓴다\n\n[Chorus]\n모든 일에는 때가 있다고\n심을 때가 있고 거둘 때가 있다고\n나는 아직 늦은 게 아니야\n아직 내 차례가 안 왔을 뿐\n엄마 걱정 마, 밥은 먹었어\n내일도 나는 문을 두드린다",
  "gpu": "T4",
- "note": "Song 4 (plan sec.5): young job seeker in a gosiwon after his 30th rejection. Ecclesiastes 3 (a time to plant, a time to reap). Hooks: 아직 내 차례가 안 왔을 뿐 / 엄마 걱정 마, 밥은 먹었어."
+ "note": "Song 4 (plan sec.5): young job seeker in a gosiwon after his 30th rejection. Ecclesiastes 3 (a time to plant, a time to reap). Hooks: 아직 내 차례가 안 왔을 뿐 / 엄마 걱정 마, 밥은 먹었어.",
+ "pick": 3
 }
