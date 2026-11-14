@@ -1,0 +1,335 @@
+{
+ "id": "SH03",
+ "slug": "평일오후세시",
+ "song": "MC03",
+ "pick": 1,
+ "seconds": 68.0,
+ "gpu": "L40S",
+ "retake": [],
+ "thumb": {
+  "text": [
+   "평일 오후 세 시",
+   "오늘은 너한테 출근했다"
+  ]
+ },
+ "upload": {
+  "title": "퇴사 다음 날, 알람이 울지 않았다 | 평일 오후 세 시 #shorts",
+  "description": "알람이 울지 않는 아침.\n넥타이는 옷장 속에서 잠이 들었습니다.\n\n카프카 『변신』의 그레고르처럼, 퇴사 다음 날 나는 벌레가 된 것만 같았습니다.\n그런데 평일 오후 세 시, 처음 보는 햇살 아래서 딸아이가 물었습니다. \"아빠 오늘 회사 안 가?\"\n오늘은 너한테 출근했어.\n\n🎵 평일 오후 세 시 - MIDLIFE COMMUTER\n💬 회사 대신 처음 '출근'한 곳은 어디였나요? 댓글로 들려주세요. 다음 노래가 됩니다.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#퇴사 #퇴사후 #아빠 #인생2막 #평일오후 #카프카 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "퇴사",
+   "퇴사 다음 날",
+   "인생 2막",
+   "아빠",
+   "육아하는 아빠",
+   "중년",
+   "직장인 공감",
+   "위로 노래",
+   "카프카 변신",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "scenes": [
+  {
+   "lines": [
+    0
+   ],
+   "expr": "lookup",
+   "plate": "a small Korean apartment bedroom in soft morning light, an unmade bed with a white blanket, a round alarm clock on the nightstand showing half past seven, thin curtains glowing with sunlight",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.62,
+    "foot": 0.95
+   },
+   "motion": "the man stands by the bed and looks at the silent alarm clock, the thin curtains sway softly in the morning breeze, dust floats in the sunlight"
+  },
+  {
+   "lines": [
+    1
+   ],
+   "expr": "back",
+   "plate": "an open wooden wardrobe in a Korean apartment bedroom, a row of neckties and white shirts and dark suits hanging inside, morning light from the side",
+   "camera": {
+    "move": "drift",
+    "amount": 0.07
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.96
+   },
+   "motion": "the man stands still in front of the open wardrobe looking at the hanging neckties, the neckties sway gently, morning light shifts slowly on the wall"
+  },
+  {
+   "lines": [
+    2
+   ],
+   "expr": "sigh",
+   "plate": "a dim Korean apartment bedroom at late morning with the curtains half closed, a rumpled bed with a thick blanket, a sunny windowsill with a small potted plant and a tiny brown beetle on the sill",
+   "camera": {
+    "move": "push",
+    "amount": 0.1,
+    "focus": [
+     0.5,
+     0.4
+    ]
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.35,
+    "foot": 0.95
+   },
+   "motion": "the man stands by the rumpled bed with a tired sigh, a tiny brown beetle slowly crawls along the sunny windowsill, the curtain moves a little"
+  },
+  {
+   "lines": [
+    3
+   ],
+   "expr": "sigh",
+   "plate": "a quiet empty Korean apartment living room at midday, a sofa, a low table with a cold cup of coffee, a wall clock, children's school bags gone from their hooks, flat grey light",
+   "camera": {
+    "move": "pull",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.55,
+    "foot": 0.95
+   },
+   "motion": "the man stands alone in the silent living room and lowers his shoulders, the wall clock's second hand ticks, the light slowly brightens through the window"
+  },
+  {
+   "lines": [
+    4
+   ],
+   "expr": "lookup",
+   "plate": "a bright Korean apartment complex walkway on a sunny weekday afternoon, golden ginkgo trees, warm sunlight and long soft shadows, flower beds, a clear blue sky",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.48,
+    "cx": 0.4,
+    "foot": 0.95
+   },
+   "extras": "an old lady walking slowly with a shopping cart far behind, a mail carrier in a blue uniform walking with a bag",
+   "motion": "the man looks up into the warm afternoon sunlight with surprise, golden ginkgo leaves float down around him, the old lady walks slowly in the distance"
+  },
+  {
+   "lines": [
+    5
+   ],
+   "expr": "smile",
+   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon, a slide, swings, a sandbox, golden ginkgo trees around it",
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   },
+   "place": {
+    "h": 0.45,
+    "cx": 0.25,
+    "foot": 0.95
+   },
+   "extras": "young children playing on the slide and in the sandbox, a grandmother watching from beside the swings",
+   "motion": "children laugh and slide down the slide and dig in the sandbox, the grandmother claps, the man watches them with a soft smile, leaves drift down"
+  },
+  {
+   "lines": [
+    6
+   ],
+   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and a schoolyard behind, golden ginkgo trees along the fence",
+   "camera": {
+    "move": "push",
+    "amount": 0.08
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.32,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "daughter",
+     "flip": true,
+     "place": {
+      "h": 0.3,
+      "cx": 0.68,
+      "foot": 0.96
+     }
+    }
+   ],
+   "extras": "a few schoolchildren with backpacks walking out of the schoolyard far behind",
+   "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, ginkgo leaves fall"
+  },
+  {
+   "lines": [
+    7
+   ],
+   "plate": "a quiet Korean neighborhood sidewalk lined with golden ginkgo trees on a sunny afternoon, small shops and a stationery store, warm long shadows",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.07
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "walk",
+     "place": {
+      "h": 0.5,
+      "cx": 0.38,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.3,
+      "cx": 0.64,
+      "foot": 0.96
+     }
+    }
+   ],
+   "motion": "the father and his little daughter walk side by side along the sidewalk, the girl swings her arms happily, golden leaves fall around them"
+  },
+  {
+   "lines": [
+    8
+   ],
+   "plate": "a sunny Korean apartment kitchen in the morning, breakfast on the table, a frying pan with eggs on the stove, a window with morning sun, a silent alarm clock on the counter",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.3,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "son",
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.6,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "daughter",
+     "flip": true,
+     "place": {
+      "h": 0.28,
+      "cx": 0.8,
+      "foot": 0.97
+     }
+    }
+   ],
+   "motion": "steam rises from the frying pan, the children laugh and chatter, the man smiles at them warmly, morning sunlight fills the kitchen"
+  },
+  {
+   "lines": [
+    9
+   ],
+   "plate": "a walking path along a small stream in a Korean city park on a sunny afternoon, reeds and golden trees by the water, a stepping-stone bridge, apartment buildings far behind",
+   "camera": {
+    "move": "drift",
+    "amount": 0.08
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.48,
+      "cx": 0.25,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.46,
+      "cx": 0.48,
+      "foot": 0.94
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.33,
+      "cx": 0.68,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.28,
+      "cx": 0.84,
+      "foot": 0.97
+     }
+    }
+   ],
+   "motion": "the family stands together by the stream laughing, the wife leans toward her husband, the children point at the water, reeds sway in the wind"
+  },
+  {
+   "lines": "outro",
+   "end": 62.0,
+   "plate": "an apartment complex playground at golden sunset in Korea, empty swings, long warm shadows, golden ginkgo trees",
+   "camera": {
+    "move": "pull",
+    "amount": 0.08
+   },
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.5,
+      "cx": 0.35,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "daughter",
+     "flip": true,
+     "place": {
+      "h": 0.3,
+      "cx": 0.66,
+      "foot": 0.96
+     }
+    }
+   ],
+   "motion": "the father and daughter stand together in the golden sunset light and smile at each other, the empty swings sway gently in the breeze"
+  },
+  {
+   "lines": "outro",
+   "expr": "lookup",
+   "plate": "a window of a Korean apartment at sunset seen from inside, warm orange sky over the apartment complex, a child's crayon drawing of a smiling dad taped to the glass",
+   "camera": {
+    "move": "push",
+    "amount": 0.07
+   },
+   "place": {
+    "h": 0.5,
+    "cx": 0.4,
+    "foot": 0.95
+   },
+   "motion": "the man stands still by the window and gazes at the warm sunset sky with a calm face, clouds drift slowly, the sky glows orange"
+  }
+ ]
+}
