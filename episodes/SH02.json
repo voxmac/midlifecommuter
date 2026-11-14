@@ -292,7 +292,11 @@
    "쓸모없어 다행이다"
   ]
  },
- "retake": [],
+ "retake": [
+  "S5",
+  "S7",
+  "S13"
+ ],
  "upload": {
   "title": "스무 해 회사를 떠나던 날, 아빠가 찾은 진짜 자리 | 쓸모없는 나무 #shorts",
   "description": "박스 하나에 담긴 스무 해.\n엘리베이터 문이 닫히는 동안, 아무도 내 이름을 부르지 않았다.\n\n장자는 말했습니다. 쓸모없는 나무는 베어 가는 이가 없어 오래 산다고.\n회사에서 쓸모가 다한 날, 나는 비로소 아이들의 그늘이 되었습니다.\n\n🎵 쓸모없는 나무 - MIDLIFE COMMUTER\n💬 당신에게 '두 번째 시작'은 언제였나요? 댓글로 들려주세요. 다음 노래가 됩니다.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#퇴사 #희망퇴직 #아빠 #가장 #인생2막 #위로 #직장인공감 #장자 #MIDLIFECOMMUTER #shorts",
@@ -411,12 +415,12 @@
     22.27,
     29.01
    ],
-   "plate": "inside a stainless steel office elevator in the evening, brushed metal walls, a lit floor number panel, soft overhead light, in present-day South Korea",
+   "plate": "inside a small stainless steel elevator car of a Korean office building, narrow box-shaped cabin, a mirrored back wall, a button panel with glowing floor numbers on the side wall, handrail, soft ceiling light",
    "camera": {
     "move": "push",
     "amount": 0.06
    },
-   "motion": "the man stands alone in the elevator and lowers his head, the floor numbers on the panel count down, the overhead light hums softly",
+   "motion": "the man stands still in the small elevator and slowly lowers his head, the floor numbers on the button panel blink as they count down, the ceiling light glows softly",
    "frames": 113,
    "char": "m",
    "expr": "sigh",
@@ -461,7 +465,7 @@
     "move": "tilt_up",
     "amount": 0.08
    },
-   "motion": "the man looks up at the giant crooked tree, the leaves sway gently in the evening wind, golden light shines through the branches",
+   "motion": "the man stands still and gazes up at the giant crooked tree with a calm face, the leaves sway gently in the evening wind, golden light flickers through the branches",
    "frames": 109,
    "char": "m",
    "expr": "lookup",
@@ -708,19 +712,19 @@
     71.5,
     78.0
    ],
-   "plate": "a quiet Korean apartment complex at night seen from a small park, a huge old crooked tree in front with its branches against a starry sky, warm lights glowing in many apartment windows",
+   "plate": "a huge old crooked tree in a small park in front of a Korean apartment complex at blue dusk, warm yellow lights glowing in many apartment windows, a big full moon in a deep blue sky, soft street lamp light on the path",
    "camera": {
     "move": "pull",
-    "amount": 0.1
+    "amount": 0.08
    },
-   "motion": "the man walks slowly toward the warm lights of the apartment building, the leaves of the big tree rustle softly, stars twinkle",
+   "motion": "the man stands still under the big tree and smiles gently, the leaves rustle softly, the apartment windows glow warmly, the moon shines",
    "frames": 109,
    "char": "m",
-   "expr": "back",
+   "expr": "smile",
    "place": {
-    "h": 0.36,
+    "h": 0.45,
     "cx": 0.5,
-    "foot": 0.92,
+    "foot": 0.94,
     "shadow": 0.45
    }
   }

@@ -5,7 +5,11 @@
  "pick": 2,
  "seconds": 78.0,
  "gpu": "L40S",
- "retake": [],
+ "retake": [
+  "S5",
+  "S7",
+  "S13"
+ ],
  "thumb": {
   "text": [
    "쓸모없는 나무",
@@ -98,7 +102,7 @@
     2
    ],
    "expr": "sigh",
-   "plate": "inside a stainless steel office elevator in the evening, brushed metal walls, a lit floor number panel, soft overhead light",
+   "plate": "inside a small stainless steel elevator car of a Korean office building, narrow box-shaped cabin, a mirrored back wall, a button panel with glowing floor numbers on the side wall, handrail, soft ceiling light",
    "camera": {
     "move": "push",
     "amount": 0.06
@@ -108,7 +112,7 @@
     "cx": 0.5,
     "foot": 0.97
    },
-   "motion": "the man stands alone in the elevator and lowers his head, the floor numbers on the panel count down, the overhead light hums softly"
+   "motion": "the man stands still in the small elevator and slowly lowers his head, the floor numbers on the button panel blink as they count down, the ceiling light glows softly"
   },
   {
    "lines": [
@@ -143,7 +147,7 @@
     "cx": 0.34,
     "foot": 0.95
    },
-   "motion": "the man looks up at the giant crooked tree, the leaves sway gently in the evening wind, golden light shines through the branches"
+   "motion": "the man stands still and gazes up at the giant crooked tree with a calm face, the leaves sway gently in the evening wind, golden light flickers through the branches"
   },
   {
    "lines": [
@@ -331,18 +335,18 @@
   },
   {
    "lines": "outro",
-   "expr": "back",
-   "plate": "a quiet Korean apartment complex at night seen from a small park, a huge old crooked tree in front with its branches against a starry sky, warm lights glowing in many apartment windows",
+   "expr": "smile",
+   "plate": "a huge old crooked tree in a small park in front of a Korean apartment complex at blue dusk, warm yellow lights glowing in many apartment windows, a big full moon in a deep blue sky, soft street lamp light on the path",
    "camera": {
     "move": "pull",
-    "amount": 0.1
+    "amount": 0.08
    },
    "place": {
-    "h": 0.36,
+    "h": 0.45,
     "cx": 0.5,
-    "foot": 0.92
+    "foot": 0.94
    },
-   "motion": "the man walks slowly toward the warm lights of the apartment building, the leaves of the big tree rustle softly, stars twinkle"
+   "motion": "the man stands still under the big tree and smiles gently, the leaves rustle softly, the apartment windows glow warmly, the moon shines"
   }
  ]
 }
