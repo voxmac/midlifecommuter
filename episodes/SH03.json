@@ -278,8 +278,6 @@
   ]
  },
  "retake": [
-  "S1",
-  "S5",
   "S6",
   "S7"
  ],
@@ -422,22 +420,48 @@
     26.45,
     32.89
    ],
-   "plate": "a colorful apartment complex playground in Korea on a sunny afternoon seen at eye level from the edge of the sandbox, a slide and a climbing frame in the middle distance, golden ginkgo trees around it",
+   "plate": "a small cozy Korean apartment playground on a sunny afternoon seen at eye level, a low red slide and a sandbox right behind, golden ginkgo trees and apartment buildings in the back",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
-   "motion": "the children laugh and slide down the slide in the distance, the grandmother claps, the man watches them with a soft smile, leaves drift down",
+   "motion": "the two children laugh and bounce happily in front of the slide, the man watches them with a soft smile, golden leaves drift down",
    "frames": 109,
-   "char": "m",
-   "expr": "smile",
-   "place": {
-    "h": 0.45,
-    "cx": 0.25,
-    "foot": 0.95,
-    "shadow": 0.45
-   },
-   "extras": "three or four young children playing on the slide and climbing frame in the middle distance, a grandmother standing by the climbing frame"
+   "cast": [
+    {
+     "char": "m",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.28,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.6,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.28,
+      "cx": 0.8,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    }
+   ]
   },
   {
    "id": "S7",
@@ -445,12 +469,12 @@
     32.89,
     37.89
    ],
-   "plate": "in front of the gate of a Korean elementary school on a sunny afternoon, a red brick school building and an empty schoolyard behind, golden ginkgo trees along the fence",
+   "plate": "in front of the gate of a Korean elementary school on a quiet sunny afternoon, a red brick school building and an empty schoolyard behind the closed fence, golden ginkgo trees, an empty sidewalk",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
-   "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, ginkgo leaves fall",
+   "motion": "the little girl tilts her head and looks up at her father with curious eyes, the father smiles warmly and nods, ginkgo leaves fall, the background stays calm and empty",
    "frames": 85,
    "cast": [
     {
