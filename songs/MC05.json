@@ -1,0 +1,15 @@
+{
+ "id": "MC05",
+ "type": "song",
+ "title": "저녁 일곱 시의 식탁",
+ "lang": "ko",
+ "style": "Korean medium-tempo folk ballad, warm nylon-string guitar and soft piano, gentle cello, light shaker and brushed snare, husky warm male baritone vocal in late 40s, tender nostalgic verse, warm heartfelt sing-along chorus with soft family-like backing voices, cozy evening dinner feeling",
+ "bpm": 92,
+ "key": "C major",
+ "time": "4",
+ "duration": 70,
+ "seeds": [701, 702, 703, 704],
+ "lyrics": "[Verse]\n스무 해 동안 식탁엔 내 자리만 비어 있었지\n야근 문자 한 줄로 미뤄 둔 저녁들\n오늘은 일곱 시, 현관문을 연다\n된장찌개 냄새가 나를 먼저 안아 주네\n\n[Chorus]\n돌아가자, 저녁으로\n밭이 거칠어지기 전에 돌아가자\n숟가락 네 개가 나란히 놓인 밤\n아들은 오늘 있었던 얘기를 하고\n딸은 내 밥 위에 반찬을 올려 주네\n돌아가자, 저녁으로",
+ "gpu": "T4",
+ "note": "Song 5 (plan sec.5): M's first on-time family dinner after leaving the company. Tao Yuanming, 귀거래사 (歸去來兮 田園將蕪胡不歸). Hooks: 돌아가자, 저녁으로 / 숟가락 네 개가 나란히 놓인 밤. Scenes: many characters (wife, son, daughter, neighbours, grandparents)."
+}
