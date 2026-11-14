@@ -7,10 +7,7 @@
  "gpu": "L40S",
  "lead": "jun",
  "retake": [
-  "S5",
-  "S6",
-  "S11",
-  "S13"
+  "S5"
  ],
  "thumb": {
   "text": [
@@ -110,17 +107,17 @@
     2
    ],
    "expr": "back",
-   "plate": "inside a tiny dark Korean gosiwon room at night seen at eye level, a worn wooden floor in the foreground, a small square window in the back wall on the right showing warm yellow lights in the windows of an apartment building across the alley, a dark blue sky",
+   "plate": "a tiny Korean gosiwon room at night seen at eye level, a narrow bed on the left, a small desk with a lamp on the right, a small square window in the middle of the back wall with distant warm yellow apartment window lights far away, dim cozy light",
    "camera": {
     "move": "push",
     "amount": 0.07
    },
    "place": {
     "h": 0.55,
-    "cx": 0.36,
+    "cx": 0.5,
     "foot": 0.96
    },
-   "motion": "the young man stands still inside the dark room and looks at the small window, the warm window lights across the alley glow, a few turn on and off"
+   "motion": "the young man stands still in the tiny room with his back to us and looks at the small window, the distant warm window lights twinkle, the desk lamp glows softly, nothing else moves"
   },
   {
    "lines": [
