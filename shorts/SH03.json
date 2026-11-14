@@ -5,9 +5,7 @@
  "pick": 1,
  "seconds": 68.0,
  "gpu": "L40S",
- "retake": [
-  "S7"
- ],
+ "retake": [],
  "thumb": {
   "text": [
    "평일 오후 세 시",
@@ -36,56 +34,52 @@
    "lines": [
     0
    ],
-   "expr": "lookup",
-   "plate": "a small Korean apartment bedroom in soft morning light seen at eye level, an unmade bed with a white blanket, a low wooden nightstand beside the bed with a tiny palm-sized round alarm clock on it showing half past seven, thin curtains glowing with sunlight",
+   "expr": "sigh",
+   "plate": "a small Korean apartment bedroom in soft morning light seen at eye level, plain walls, a low wooden nightstand on the left with a tiny palm-sized round alarm clock on it showing half past seven, thin curtains glowing with sunlight",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
    "place": {
     "h": 0.52,
-    "cx": 0.35,
+    "cx": 0.58,
     "foot": 0.95
    },
-   "motion": "the man stands still and glances at the tiny silent alarm clock on the nightstand, the thin curtains sway softly in the morning breeze, dust floats in the sunlight"
+   "motion": "the man stands still with tired eyes and glances down at the tiny silent alarm clock, the thin curtains sway softly, dust floats in the sunlight"
   },
   {
    "lines": [
     1
    ],
    "expr": "back",
-   "plate": "an open wooden wardrobe in a Korean apartment bedroom, a row of neckties and white shirts and dark suits hanging inside, morning light from the side",
+   "plate": "a Korean apartment bedroom with a tall wooden wardrobe on the right side, its doors wide open showing a row of neckties and white shirts and dark suits hanging neatly, morning light, plain wall on the left",
    "camera": {
-    "move": "drift",
-    "amount": 0.07
+    "move": "push",
+    "amount": 0.06
    },
    "place": {
-    "h": 0.5,
-    "cx": 0.5,
+    "h": 0.46,
+    "cx": 0.32,
     "foot": 0.96
    },
-   "motion": "the man stands still in front of the open wardrobe looking at the hanging neckties, the neckties sway gently, morning light shifts slowly on the wall"
+   "motion": "the man stands still on the left and looks at the open wardrobe, nothing inside moves, morning light slowly slides across the floor, the camera pushes in gently"
   },
   {
    "lines": [
     2
    ],
-   "expr": "sigh",
-   "plate": "a dim Korean apartment bedroom at late morning with the curtains half closed, a rumpled bed with a thick blanket, a sunny windowsill with a small potted plant and a tiny brown beetle on the sill",
+   "expr": "bed",
+   "plate": "a dim Korean apartment bedroom at late morning seen at eye level, curtains half closed with a thin line of sunlight, a plain wall, an empty wooden floor in the middle of the room",
    "camera": {
     "move": "push",
-    "amount": 0.1,
-    "focus": [
-     0.5,
-     0.4
-    ]
+    "amount": 0.08
    },
    "place": {
-    "h": 0.5,
-    "cx": 0.35,
+    "h": 0.34,
+    "cx": 0.5,
     "foot": 0.95
    },
-   "motion": "the man stands by the rumpled bed with a tired sigh, a tiny brown beetle slowly crawls along the sunny windowsill, the curtain moves a little"
+   "motion": "the man lies still under the thick blanket and slowly blinks, staring blankly, the thin line of sunlight trembles on the wall, the curtain moves a little"
   },
   {
    "lines": [
@@ -125,14 +119,14 @@
    "lines": [
     5
    ],
-   "plate": "a small cozy Korean apartment playground on a sunny afternoon seen at eye level, a low red slide and a sandbox right behind, golden ginkgo trees and apartment buildings in the back",
+   "plate": "a small cozy Korean apartment playground on a sunny afternoon seen at eye level, a sandbox and a low wooden climbing frame behind, golden ginkgo trees and apartment buildings in the back",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "smile",
      "place": {
       "h": 0.5,
@@ -165,14 +159,14 @@
    "lines": [
     6
    ],
-   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment in the morning, a shoe rack with family shoes, a small pink school backpack on the floor, a closed front door, warm soft light from the living room",
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment in the afternoon, plain cream walls, a closed white shoe cabinet, family shoes neatly on the floor, a closed front door, warm soft light from the living room",
    "camera": {
     "move": "push",
     "amount": 0.08
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "smile",
      "place": {
       "h": 0.5,
@@ -196,14 +190,14 @@
    "lines": [
     7
    ],
-   "plate": "a quiet Korean neighborhood sidewalk lined with golden ginkgo trees on a sunny afternoon, small shops and a stationery store, warm long shadows",
+   "plate": "a pedestrian-only walking path inside a Korean apartment complex on a sunny afternoon, golden ginkgo trees and flower beds on both sides, apartment buildings behind, no road",
    "camera": {
     "move": "pan_right",
     "amount": 0.07
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "walk",
      "place": {
       "h": 0.5,
@@ -220,7 +214,7 @@
      }
     }
    ],
-   "motion": "the father and his little daughter walk side by side along the sidewalk, the girl swings her arms happily, golden leaves fall around them"
+   "motion": "the father and his little daughter walk side by side along the path, the girl swings her arms happily, golden leaves fall around them"
   },
   {
    "lines": [
@@ -233,7 +227,7 @@
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "smile",
      "place": {
       "h": 0.5,
@@ -266,14 +260,14 @@
    "lines": [
     9
    ],
-   "plate": "a walking path along a small stream in a Korean city park on a sunny afternoon, reeds and golden trees by the water, a stepping-stone bridge, apartment buildings far behind",
+   "plate": "a walking path along a small stream in a Korean neighborhood park on a sunny afternoon, reeds and golden trees by the water, apartment buildings far behind",
    "camera": {
     "move": "drift",
     "amount": 0.08
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "smile",
      "place": {
       "h": 0.48,
@@ -311,14 +305,14 @@
   {
    "lines": "outro",
    "end": 62.0,
-   "plate": "an apartment complex playground at golden sunset in Korea, empty swings, long warm shadows, golden ginkgo trees",
+   "plate": "a garden lawn inside a Korean apartment complex at golden sunset, ginkgo trees with golden leaves, long warm shadows, apartment buildings glowing behind",
    "camera": {
     "move": "pull",
     "amount": 0.08
    },
    "cast": [
     {
-     "char": "m",
+     "char": "mh",
      "expr": "smile",
      "place": {
       "h": 0.5,
@@ -336,7 +330,7 @@
      }
     }
    ],
-   "motion": "the father and daughter stand together in the golden sunset light and smile at each other, the empty swings sway gently in the breeze"
+   "motion": "the father and daughter stand together in the golden sunset light and smile at each other, golden leaves drift down slowly"
   },
   {
    "lines": "outro",
@@ -353,5 +347,6 @@
    },
    "motion": "the man stands still by the window and gazes at the warm sunset sky with a calm face, clouds drift slowly, the sky glows orange"
   }
- ]
+ ],
+ "lead": "mh"
 }

@@ -390,7 +390,7 @@ FACE_BOX = {"pip": (0.12, 0.0, 0.88, 0.42), "momo": (0.05, 0.0, 0.95, 0.75),
 CAST_BG = (138, 143, 153)
 NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man",
          "wife": "woman", "son": "boy", "daughter": "little girl", "junior": "young office worker", "boss": "older manager", "friend": "chubby man",
-         "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man in comfortable home clothes"}
+         "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man with round glasses in a grey knit cardigan"}
 EDITS = {
     "sad": "Change only the facial expression: the {n} is crying sadly with big tears rolling down and a downturned mouth.",
     "laugh": "Change only the facial expression: the {n} is laughing out loud with joy, eyes squeezed shut into happy curves, mouth wide open.",
@@ -423,7 +423,7 @@ EDITS_MH = {
     "walk": "Make the {n} walk calmly to the right, mid-stride, arms swinging loosely, both hands empty, gentle relaxed face.",
     "sigh": "Make the {n} look lost and worn out: shoulders slumped, head tilted slightly down, eyes half closed, mouth in a small flat line, no tears, both hands empty.",
     "smile": "Change only the facial expression: the {n} smiles warmly and gently, soft happy eyes, a little moved.",
-    "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, warm, hopeful smile, relaxed eyebrows, both hands empty.",
+    "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, warm, hopeful smile, relaxed eyebrows, both hands empty. He keeps his round glasses and the same grey cardigan, white t-shirt and navy trousers.",
     "back": "Show the {n} from behind, standing still and looking ahead, arms relaxed at his sides, same clothes.",
     "bed": ("Show the {n} lying on his side in a single bed under a thick fluffy white blanket pulled up to his chin, only his head on a white "
             "pillow showing above the blanket, eyes open staring blankly, glum tired face. Side view of the whole bed with its wooden frame, "

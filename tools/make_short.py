@@ -41,11 +41,15 @@ for n, sc in enumerate(plan["scenes"]):
         errors.append(f"{tag}: the motion makes someone appear mid-shot; put them in the picture from the first frame")
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
-    for c in sc.get("cast", []) or [{"char": "m", "expr": sc.get("expr"), "place": sc.get("place", {})}]:
+    for c in sc.get("cast", []) or [{"char": plan.get("lead", "m"), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
+        if plan.get("lead") == "mh" and c["char"] == "m":
+            errors.append(f"{tag}: this song is after M left the company; use 'mh' (everyday clothes), not 'm' (suit, badge, briefcase)")
+        if c["char"] == "m" and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
+            errors.append(f"{tag}: M in his office suit inside the home; use 'mh' (everyday clothes)")
         if c.get("expr") == "seated":
             errors.append(f"{tag}: the 'seated' pose carries its own bench; use a standing pose or a seat drawn in the place")
         pl = {"h": 0.5, "cx": 0.5, "foot": 0.95, **c.get("place", {})}
-        half = pl["h"] * 1920 * 0.45 / 1080 / 2          # a person is about 0.45 of their height wide
+        half = pl["h"] * 1920 * (1.7 if c.get("expr") == "bed" else 0.45) / 1080 / 2   # a person is about 0.45 of their height wide; a bed about 1.7
         if pl["cx"] - half < 0.02 or pl["cx"] + half > 0.98:
             errors.append(f"{tag}: {c['char']} would be cut off at the frame edge (cx {pl['cx']}, h {pl['h']})")
         if pl["foot"] - pl["h"] < 0.08:
@@ -78,10 +82,10 @@ for n, sc in enumerate(plan["scenes"]):
         shot["cast"] = [{"char": c["char"], "expr": c.get("expr"), "flip": c.get("flip", False),
                          "place": {"h": 0.5, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **c.get("place", {})}} for c in sc["cast"]]
     else:
-        shot.update({"char": "m", "expr": sc.get("expr"), "place": place})
+        shot.update({"char": plan.get("lead", "m"), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
     shots.append(shot)
-spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": "m",
+spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
         "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",

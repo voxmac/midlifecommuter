@@ -1,0 +1,2 @@
+{"id":"CAST8","type":"cast","gpu":"L40S","engine":"qwen_edit","chars":["mh"],"exprs":["lookup"],"per_item":3,
+ "note":"Redo of mh look-up (CAST7 came out in pyjamas without glasses)"}
