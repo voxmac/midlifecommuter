@@ -13,6 +13,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 # no concurrency group: each job is its own Modal container, so runs may overlap (GitHub would drop queued ones)
 
@@ -72,6 +73,7 @@ jobs:
           git config user.name "midlife-bot"; git config user.email "bot@users.noreply.github.com"
           mkdir -p state; git add -A state; git diff --cached --quiet && exit 0
           git commit -q -m "kaggle pending [skip ci]"; for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          gh api -X POST repos/$REPO/actions/workflows/collect.yml/dispatches -f ref=main   # poll until the Kaggle jobs finish
       - name: Run on Modal
         run: |
           pip install -q modal

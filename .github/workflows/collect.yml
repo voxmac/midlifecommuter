@@ -3,7 +3,7 @@ name: collect
 # A finished Short's shots are copied to the Modal volume so `/retake` can redo single scenes on Modal.
 # A Kaggle error -> the job is started again on Modal automatically (and the log tail goes into an issue).
 on:
-  schedule: [{cron: "*/20 * * * *"}]
+  schedule: [{cron: "*/30 * * * *"}]   # backup; produce starts this right after a Kaggle push and it polls every 5 min
   workflow_dispatch:
 
 permissions:
@@ -16,6 +16,7 @@ concurrency: {group: collect, cancel-in-progress: false}
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 345
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
@@ -27,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Anything pending?
         id: p
-        run: echo "list=$(ls state/pending 2>/dev/null | grep -v '^\.' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+        run: echo "list=$(ls state/pending 2>/dev/null | grep -v '^\\.' | tr '\n' ' ')" >> $GITHUB_OUTPUT
       - if: steps.p.outputs.list != ''
         uses: actions/setup-python@v5
         with: {python-version: "3.11"}
@@ -49,7 +50,13 @@ jobs:
             git rm -q state/pending/$1; git commit -q -m "collect $1 [skip ci]"
             for i in 1 2 3; do git pull --rebase -q && git push -q && return 0; sleep 5; done; return 1
           }
-          for e in ${{ steps.p.outputs.list }}; do
+          T0=$(date +%s)
+          while :; do
+          git pull -q --rebase || true
+          list=$(ls state/pending 2>/dev/null | tr '\n' ' ')
+          [ -z "$list" ] && break
+          [ $(( $(date +%s) - T0 )) -gt 19800 ] && break
+          for e in $list; do
             slug="$U/midlife-$(echo $e | tr 'A-Z' 'a-z')"
             st=$(kaggle kernels status $slug 2>/dev/null | grep -o 'has status "[^"]*"' | tr 'A-Z' 'a-z')
             echo "$e: ${st:-unknown}"
@@ -74,4 +81,7 @@ jobs:
                 close_running $e
                 gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal" ;;
             esac
+          done
+          ls state/pending 2>/dev/null | grep -q . || break
+          sleep 300
           done
