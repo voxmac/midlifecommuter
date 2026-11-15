@@ -4,6 +4,10 @@ e=$1; O=$2; RUN=$3
 TAG="$e-$(date -u +%m%d-%H%M)"
 note() { echo; echo "$RUN"; }
 if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
+  # vocal-pitch check on this runner (CPU): flags a female / too-high voice before anyone listens
+  ( sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+    pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+    pip install -q demucs librosa soundfile && python tools/voice_check.py $O ) || echo "voice check failed"
   gh release create "$TAG" $O/*.mp3 $(ls $O/*.wav 2>/dev/null) $O/report.json $(ls $O/modal.json 2>/dev/null) --title "$e song versions" \
     --notes "Listen on your phone, then answer in the review issue."
   { python tools/song_body.py $O/report.json $REPO $TAG; note; } > body.md

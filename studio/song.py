@@ -78,9 +78,6 @@ def produce_song(spec):
     vers = json.load(open(f"{E}/versions.json"))
     for v in vers:   # mp3 for listening on a phone, wav kept for the edit
         w = f"{E}/{v['file']}"; sh(f'ffmpeg -loglevel error -y -i "{w}" -af loudnorm=I=-14:TP=-1.5 -b:a 192k "{w[:-4]}.mp3"')
-    if spec.get("voice", "male") == "male":
-        try: voice_check(E, vers, spec)
-        except Exception as ex: print("voice check skipped:", ex, flush=True)
     json.dump({"episode": spec["id"], "type": "song", "title": spec.get("title"), "versions": vers,
                "minutes_total": round((time.time() - t0) / 60, 1)}, open(f"{E}/report.json", "w"), indent=1)
     print("DONE", E, flush=True)
