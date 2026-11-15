@@ -21,5 +21,7 @@ for v in r["versions"]:
     vc = v.get("voice")
     tag = "" if not vc else (" — ✅ male voice throughout" if not vc["high"] else
           " — ⚠ high / possibly female voice at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"]))
+    if "lyrics_missing" in v:
+        tag += " — ✅ every line sung" if not v["lyrics_missing"] else " — ⚠ not heard: " + " / ".join(v["lyrics_missing"])
     print(f"- **v{v['version']}**: [{v['file'][:-4]}.mp3]({base}/{v['file'][:-4]}.mp3) (seed {v['seed']}){tag}")
 print("\nReply with the version you like, e.g. `/approve 2`, or `/rerun` for new versions.")

@@ -6,7 +6,7 @@ spec, E = json.load(open(sys.argv[1])), sys.argv[2]; os.makedirs(E, exist_ok=Tru
 src_code = open(os.path.join(ROOT, "studio/song.py")).read()
 PREP = next(n.value.value for n in ast.parse(src_code).body if isinstance(n, ast.Assign) and n.targets[0].id == "PREP")
 open("/tmp/song_prep_run.py", "w").write(PREP); json.dump(spec, open("/tmp/song_spec.json", "w"))
-src = os.path.join(ROOT, "assets", f"{spec['id']}_v{spec['pick']}.mp3")
+src = os.environ.get("PREP_SRC") or os.path.join(ROOT, "assets", f"{spec['id']}_v{spec['pick']}.mp3")
 subprocess.run([sys.executable, "/tmp/song_prep_run.py", "/tmp/song_spec.json", src, E], check=True)
 subprocess.run(f'cp "{src}" {E}/ && ffmpeg -loglevel error -y -i {E}/{spec["id"]}_vocals.wav -b:a 160k {E}/{spec["id"]}_vocals.mp3', shell=True, check=True)
 tm = json.load(open(f"{E}/timing.json"))
