@@ -75,7 +75,12 @@ jobs:
                 if [ -f episodes/$e.json ] && ls $E/shots/*.mp4 >/dev/null 2>&1; then   # keep shots for Modal retakes
                   for f in $E/shots/*.mp4; do modal volume put -f midlife-commuter-cache "$f" "/shots/${e}_$(basename $f)" || true; done
                 fi
-                close_running $e ;;
+                close_running $e
+                if python -c "import json,sys;sys.exit(0 if json.load(open('$E/report.json')).get('pending') else 1)" 2>/dev/null; then
+                  gh issue comment $(gh issue list --state open --search "in:title \"Review: $e\"" --json number --jq '.[0].number') \
+                    --body "Kaggle ran out of session time for some scenes (still pictures for now). Finishing them on Modal automatically." || true
+                  gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"
+                fi ;;
               *error*|*cancel*)
                 done_with $e || exit 1
                 rm -rf dl && mkdir dl && (kaggle kernels output $slug -p dl -q || true)

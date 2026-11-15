@@ -96,11 +96,13 @@ def produce(spec):
             # time budget (Kaggle stops a session at 12 h): lip-sync is reserved first, Wan shots that do not fit
             # become stills of their keyframe for now and are made on the next run ("kept from last run" keeps the rest)
             budget = spec.get("budget_min", 640) * 60
+            if os.path.isdir("/kaggle/input"):   # Kaggle T4: ~20-30 min per Wan shot -> use the whole 12 h session
+                budget = max(budget, 650 * 60)
             reserve = (len(sing) * 50 + (20 if sing else 0) + 25) * 60
             if moving:
                 ensure("video")
                 for s in moving:
-                    if time.time() - t0 + reserve + spec.get("wan_min", 40) * 60 > budget:
+                    if time.time() - t0 + reserve + (40 if os.path.isdir("/kaggle/input") else spec.get("wan_min", 40)) * 60 > budget:
                         os.makedirs(f"{E}/pending", exist_ok=True); shot_files[s["id"]] = f"{E}/pending/{s['id']}.mp4"
                         still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], 5.0)   # not in shots/ → redone next run
                         report["shots"][s["id"]]["pending"] = True; report.setdefault("pending", []).append(s["id"])
