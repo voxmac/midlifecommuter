@@ -1,0 +1,77 @@
+name: collect
+# Every 20 minutes: checks jobs running on Kaggle (state/pending/ID). Finished -> GitHub Release + review issue (same as Modal).
+# A finished Short's shots are copied to the Modal volume so `/retake` can redo single scenes on Modal.
+# A Kaggle error -> the job is started again on Modal automatically (and the log tail goes into an issue).
+on:
+  schedule: [{cron: "*/20 * * * *"}]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency: {group: collect, cancel-in-progress: false}
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Anything pending?
+        id: p
+        run: echo "list=$(ls state/pending 2>/dev/null | grep -v '^\.' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+      - if: steps.p.outputs.list != ''
+        uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - if: steps.p.outputs.list != ''
+        name: Check and collect
+        run: |
+          pip install -q kaggle six modal
+          U=$KAGGLE_USERNAME
+          mkdir -p ~/.kaggle
+          if echo "$KAGGLE_KEY" | grep -Eq '^[0-9a-f]{32}$'; then printf '{"username":"%s","key":"%s"}' "$U" "$KAGGLE_KEY" > ~/.kaggle/kaggle.json
+          else printf '%s' "$KAGGLE_KEY" > ~/.kaggle/access_token; export KAGGLE_API_TOKEN=$KAGGLE_KEY; fi
+          chmod 600 ~/.kaggle/*
+          git config user.name "midlife-bot"; git config user.email "bot@users.noreply.github.com"
+          close_running() {
+            for n in $(gh issue list --state open --search "in:title \"Running: $1\"" --json number --jq '.[].number'); do
+              gh api -X PATCH repos/$REPO/issues/$n -f state=closed > /dev/null; done
+          }
+          done_with() {   # drop the pending marker first, so a later failure can't publish twice
+            git rm -q state/pending/$1; git commit -q -m "collect $1 [skip ci]"
+            for i in 1 2 3; do git pull --rebase -q && git push -q && return 0; sleep 5; done; return 1
+          }
+          for e in ${{ steps.p.outputs.list }}; do
+            slug="$U/midlife-$(echo $e | tr 'A-Z' 'a-z')"
+            st=$(kaggle kernels status $slug 2>/dev/null | grep -o 'has status "[^"]*"' | tr 'A-Z' 'a-z')
+            echo "$e: ${st:-unknown}"
+            case "$st" in
+              *complete*)
+                done_with $e || exit 1
+                rm -rf dl && mkdir dl && kaggle kernels output $slug -p dl -q
+                E=$(find dl -type d -name "$e" | head -1); [ -n "$E" ] || E=dl
+                cp $(ls dl/*.log 2>/dev/null | head -1) $E/run.log 2>/dev/null || true
+                bash tools/publish.sh $e $E "Kaggle T4 (free, no Modal credits used)"
+                if [ -f episodes/$e.json ] && ls $E/shots/*.mp4 >/dev/null 2>&1; then   # keep shots for Modal retakes
+                  for f in $E/shots/*.mp4; do modal volume put -f midlife-commuter-cache "$f" "/shots/${e}_$(basename $f)" || true; done
+                fi
+                close_running $e ;;
+              *error*|*cancel*)
+                done_with $e || exit 1
+                rm -rf dl && mkdir dl && (kaggle kernels output $slug -p dl -q || true)
+                LOG=$(ls dl/*.log 2>/dev/null | head -1)
+                { echo "## $e failed on Kaggle — started again on Modal automatically"; echo '```';
+                  [ -n "$LOG" ] && python -c "import json,sys;print(''.join(x.get('data','') for x in json.load(open(sys.argv[1])))[-3500:])" "$LOG" 2>/dev/null || tail -c 3500 "$LOG"; echo '```'; } > body.md
+                gh issue create --title "Kaggle failed: $e" --body-file body.md
+                close_running $e
+                gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal" ;;
+            esac
+          done

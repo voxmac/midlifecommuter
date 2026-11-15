@@ -14,6 +14,9 @@ def build_source(spec):
         src.append(open(os.path.join(ROOT, "studio", m), encoding="utf-8").read())
     return "import json\n" + "\n".join(src)
 
+PREFIX = os.environ.get("KERNEL_PREFIX", "midlife")
+DATASET = os.environ.get("KERNEL_DATASET", "midlife-assets")
+
 def main():
     spec_path, user = sys.argv[1], sys.argv[2]
     with_shots = "--shots-dataset" in sys.argv
@@ -22,8 +25,8 @@ def main():
     d = os.path.join(ROOT, "build", ep); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "kernel.py"), "w", encoding="utf-8").write(build_source(spec))
     meta = {
-        "id": f"{user}/puddlepals-{ep.lower()}",
-        "title": f"puddlepals-{ep.lower()}",
+        "id": f"{user}/{PREFIX}-{ep.lower()}",
+        "title": f"{PREFIX}-{ep.lower()}",
         "code_file": "kernel.py",
         "language": "python",
         "kernel_type": "script",
@@ -31,7 +34,7 @@ def main():
         "enable_internet": True,
         "enable_gpu": True,
         "machine_shape": "NvidiaTeslaT4",
-        "dataset_sources": [f"{user}/puddlepals-assets"] + ([f"{user}/puddlepals-shots"] if with_shots else []),
+        "dataset_sources": [f"{user}/{DATASET}"] + ([f"{user}/{PREFIX}-shots"] if with_shots else []),
         "competition_sources": [], "kernel_sources": [], "model_sources": [],
     }
     json.dump(meta, open(os.path.join(d, "kernel-metadata.json"), "w"), indent=1)

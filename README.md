@@ -61,3 +61,10 @@ VOXMAC 댓글: /approve 2   /pick m=3   /rerun
 - 노래 60초 × 4버전: L4에서 수 분 → 수십 센트 수준.
 - 디자인 후보 8장 + 배경 4장: L4에서 20~40분 → 1달러 안팎.
 - 각 실행의 GPU 시간과 대략 비용은 검토 이슈 맨 아래 `Modal:` 줄에 나옵니다.
+
+## GPU: Kaggle (free) + Modal (credits)
+- `tools/route.py` decides: songs, character designs and first renders of a Short go to **Kaggle** (free T4, ~30 GPU h/week, slower;
+  results collected every 20 min by `collect.yml`). Retakes and anything with `"runner": "modal"` go to **Modal** (fast L40S).
+- Needs repo secrets `KAGGLE_USERNAME` / `KAGGLE_KEY` (the one original Kaggle account, same as puddlepals-studio). Without them everything runs on Modal.
+- A Kaggle error or full GPU quota falls back to Modal automatically. Force one with Actions → produce → Run workflow → runner.
+- Kaggle T4 has no room for the Qwen2.5-VL checker, so Kaggle renders rely on the scene plan's `must`/`avoid` lint and the 0.5 s frame review.

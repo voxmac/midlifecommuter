@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       id: {description: "Job id, e.g. MC01 or CAST1", required: true}
+      runner: {description: "kaggle or modal (empty = automatic)", required: false}
 
 permissions:
   contents: write
@@ -22,6 +23,9 @@ jobs:
     env:
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      FORCE_RUNNER: ${{ github.event.inputs.runner }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
     steps:
@@ -50,10 +54,28 @@ jobs:
               python tools/song_body.py $D/report.json $REPO $TAG > body.md; gh issue create --title "Song prep: $e" --body-file body.md
             else gh issue create --title "Failed: $e prep" --body "Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"; fi
           done
+      - name: Run on Kaggle (free T4) where route.py says so; the rest goes to Modal below
+        id: kg
+        run: |
+          rest=""
+          for e in ${{ steps.j.outputs.list }}; do
+            f=songs/$e.json; [ -f cast/$e.json ] && f=cast/$e.json; [ -f episodes/$e.json ] && f=episodes/$e.json
+            [ -f "$f" ] || continue
+            [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue
+            if [ "$(python tools/route.py $f)" = kaggle ] && bash tools/kaggle_push.sh $e $f; then
+              gh issue create --title "Running: $e" --body "On Kaggle (free T4, slower). Results arrive by themselves (checked every 20 minutes)." > /dev/null
+            else rest="$rest $e"; fi
+          done
+          echo "rest=$rest" >> $GITHUB_OUTPUT
+      - name: Record Kaggle runs
+        run: |
+          git config user.name "midlife-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A state 2>/dev/null; git diff --cached --quiet && exit 0
+          git commit -q -m "kaggle pending [skip ci]"; for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
       - name: Run on Modal
         run: |
           pip install -q modal
-          for e in ${{ steps.j.outputs.list }}; do
+          for e in ${{ steps.kg.outputs.rest }}; do
             f=songs/$e.json; [ -f cast/$e.json ] && f=cast/$e.json; [ -f episodes/$e.json ] && f=episodes/$e.json
             [ -f "$f" ] || { echo "::error::no spec for $e"; continue; }
             [ -f songs/$e.json ] && grep -q '"pick"' songs/$e.json && continue      # prepped above, no GPU
@@ -68,30 +90,5 @@ jobs:
               gh issue comment $PI --body-file tick.md || true
             done
             gh issue close $PI || true
-            TAG="$e-$(date -u +%m%d-%H%M)"
-            if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
-              gh release create "$TAG" $O/*.mp3 $O/*.wav $O/report.json $O/modal.json --title "$e song versions" \
-                --notes "Listen on your phone, then answer in the review issue."
-              python tools/song_body.py $O/report.json $REPO $TAG > body.md
-              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
-              gh issue create --title "Review: $e" --body-file body.md
-            elif [ -f $O/report.json ] && [ -f episodes/$e.json ] && ! ls $O/*.mp4 >/dev/null 2>&1; then
-              { echo "## $e: shots only (test run)"; echo '```json'; cat $O/report.json; echo '```'; echo "Modal: $(cat $O/modal.json | tr -d '\n ')"; } > body.md
-              gh issue create --title "Test: $e" --body-file body.md
-            elif [ -f $O/report.json ] && [ -f episodes/$e.json ]; then
-              gh release create "$TAG" $O/*.mp4 $O/thumb*.jpg $O/review.jpg $O/report.json $O/modal.json --title "$e" \
-                --notes "Watch it on your phone, then answer in the review issue."
-              python tools/review_body.py $O/report.json $REPO $TAG > body.md
-              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
-              gh issue create --title "Review: $e" --body-file body.md
-            elif [ -f $O/report.json ]; then
-              gh release create "$TAG" $O/*.png $O/sheet_*.jpg $O/report.json $O/modal.json --title "$e candidates" \
-                --notes "Design candidates. Pick in the review issue."
-              python tools/cast_body.py $O $REPO $TAG > body.md
-              echo; echo "Modal: $(cat $O/modal.json | tr -d '\n ')" >> body.md
-              gh issue create --title "Review: $e" --body-file body.md
-            else
-              { echo "## $e failed on Modal"; echo '```'; tail -c 3500 $O/run.log 2>/dev/null || tail -c 3500 $O/console.log; echo '```'; } > body.md
-              gh issue create --title "Failed: $e" --body-file body.md
-            fi
+            bash tools/publish.sh $e $O "Modal: $(cat $O/modal.json 2>/dev/null | tr -d '\n ')"
           done
