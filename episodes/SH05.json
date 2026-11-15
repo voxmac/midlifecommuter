@@ -243,7 +243,9 @@
    "돌아가자, 저녁으로"
   ]
  },
- "retake": [],
+ "retake": [
+  "S11"
+ ],
  "upload": {
   "title": "이십 년 만에 저녁 일곱 시에 집에 왔다 | 저녁 일곱 시의 식탁 #shorts",
   "description": "현관 앞 나란한 신발들.\n오늘은 나도 일찍 왔다.\n\n이십 년 동안 비어 있던 식탁의 내 자리에\n아이들이 숟가락 하나를 놓아 줍니다.\n\n도연명은 「귀거래사」에서 말했습니다. 돌아가자, 밭이 거칠어지기 전에.\n늦지 않게, 저녁으로.\n\n🎵 저녁 일곱 시의 식탁 - MIDLIFE COMMUTER\n💬 오늘 저녁, 누구와 함께 드시나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#저녁 #가족 #아빠 #퇴근 #가족식사 #귀거래사 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -739,7 +741,7 @@
     54.41,
     60.6
    ],
-   "plate": "close view of a wooden dining table set for dinner in the evening, rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, warm light, in present-day South Korea",
+   "plate": "a Korean apartment dining room in the evening seen at eye level from a normal distance, a wooden dining table behind the characters at waist height with small rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, chairs, warm pendant light",
    "camera": {
     "move": "push",
     "amount": 0.04
@@ -775,7 +777,8 @@
     "rice bowls"
    ],
    "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?"
+    "Is any dish, bowl, spoon or object floating in the air?",
+    "Are the dishes or bowls much bigger than a person's head?"
    ]
   },
   {

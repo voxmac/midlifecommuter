@@ -6,7 +6,9 @@
  "seconds": 78.0,
  "gpu": "L40S",
  "lead": "mh",
- "retake": [],
+ "retake": [
+  "S11"
+ ],
  "thumb": {
   "text": [
    "저녁 일곱 시의 식탁",
@@ -383,7 +385,7 @@
    "lines": [
     7
    ],
-   "plate": "close view of a wooden dining table set for dinner in the evening, rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, warm light",
+   "plate": "a Korean apartment dining room in the evening seen at eye level from a normal distance, a wooden dining table behind the characters at waist height with small rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, chairs, warm pendant light",
    "cast": [
     {
      "char": "son",
@@ -410,7 +412,8 @@
     "rice bowls"
    ],
    "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?"
+    "Is any dish, bowl, spoon or object floating in the air?",
+    "Are the dishes or bowls much bigger than a person's head?"
    ],
    "end": 60.6
   },
