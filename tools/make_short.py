@@ -17,15 +17,24 @@ def _free_layouts(sc):
     if all(c["place"].get("foot", 0.95) - c["place"]["h"] * 0.8 < 0.55 for c in cast): ok.append("bottom_left")   # faces above the lower third
     return ok or ["top"]
 
+def _thumb_scene(plan):
+    """Thumbnail picture: the scene with the most people that includes the lead (the song's heart, not the closing shot)."""
+    lead = plan.get("lead", "m"); best, bi = -1, len(plan["scenes"]) - 1
+    for i, sc in enumerate(plan["scenes"]):
+        who = [c["char"] for c in sc.get("cast", [])] or [sc.get("char", lead)]
+        sc_ = len(who) + (10 if lead in who else 0) + (0.5 if sc.get("lines") not in ("intro", "outro") else 0)
+        if sc_ > best: best, bi = sc_, i
+    return bi
+
 def _thumb_style(plan):
     """A different thumbnail layout / font / colour set for each Short, rotating with the Short number so neighbours on
     the channel grid never share a layout, font or colours (a rerun keeps the same one)."""
     n = int(re.sub(r"\D", "", plan["id"]) or 0) + 1
     lays = ["top", "bottom_left", "band", "split", "side"]; fonts = ["jua", "blackhan", "dohyeon", "gowun", "pen"]
     cols = ["warm", "night", "ink", "sunset", "mint"]
-    sc = plan["scenes"][-1]; free = _free_layouts(sc)
+    sc = plan["scenes"][_thumb_scene(plan)]; free = _free_layouts(sc)
     lay = next(l for l in lays[n % 5:] + lays[:n % 5] if l in free)
-    return {"layout": lay, "font": fonts[(n * 2) % 5], "colors": cols[(n * 3) % 5]}
+    return {"layout": lay, "font": fonts[(n * 2) % 5], "colors": cols[(n * 3) % 5], "shot": f"S{plan['scenes'][_thumb_scene(plan)].get('_n', _thumb_scene(plan) + 1)}"}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 plan = json.load(open(sys.argv[1], encoding="utf-8")); tm = json.load(open(sys.argv[2], encoding="utf-8"))
 song = json.load(open(f"{ROOT}/songs/{plan['song']}.json", encoding="utf-8"))

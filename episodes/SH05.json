@@ -228,6 +228,7 @@
   "layout": "band",
   "font": "dohyeon",
   "colors": "sunset",
+  "shot": "S8",
   "text": [
    "저녁 일곱 시의 식탁",
    "돌아가자, 저녁으로"
