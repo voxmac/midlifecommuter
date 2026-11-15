@@ -29,7 +29,7 @@ def qc_on(spec):
     if not spec.get("qc", True) or os.environ.get("STUDIO_LOCAL"): return False
     try:
         import torch
-        return torch.cuda.get_device_properties(0).total_memory > 40 * 2**30
+        return torch.cuda.get_device_properties(0).total_memory > 40 * 2**30 or torch.cuda.device_count() > 1   # Kaggle 2x T4: checker on the 2nd GPU
     except Exception:
         return False
 

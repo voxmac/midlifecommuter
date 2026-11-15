@@ -32,8 +32,15 @@ def _qc_load():
     if _vlm: return _vlm
     import torch
     from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
-    _vlm["model"] = Qwen2_5_VLForConditionalGeneration.from_pretrained(QC_MODEL, torch_dtype=torch.bfloat16, device_map="cuda")
-    _vlm["proc"] = AutoProcessor.from_pretrained(QC_MODEL, min_pixels=256 * 28 * 28, max_pixels=640 * 28 * 28)
+    # Kaggle has two T4s: the checker gets the second one to itself (3B in float16, T4 has no bfloat16);
+    # a single big GPU (L40S/A100) shares it with the image models and runs the 7B in bfloat16.
+    dev = "cuda:1" if torch.cuda.device_count() > 1 else "cuda:0"
+    big = torch.cuda.get_device_properties(int(dev[-1])).total_memory > 40 * 2**30
+    model = QC_MODEL if big else "Qwen/Qwen2.5-VL-3B-Instruct"
+    dt = torch.bfloat16 if torch.cuda.is_bf16_supported() and big else torch.float16
+    _vlm["model"] = Qwen2_5_VLForConditionalGeneration.from_pretrained(model, torch_dtype=dt, device_map=dev)
+    _vlm["proc"] = AutoProcessor.from_pretrained(model, min_pixels=256 * 28 * 28, max_pixels=640 * 28 * 28)
+    _vlm["dev"] = dev; print("QC model", model, "on", dev, flush=True)
     return _vlm
 
 
@@ -47,7 +54,7 @@ def _ask(m, ims, question):
     import torch
     content = [{"type": "image"} for _ in ims] + [{"type": "text", "text": question + " Answer only yes or no."}]
     text = m["proc"].apply_chat_template([{"role": "user", "content": content}], tokenize=False, add_generation_prompt=True)
-    inp = m["proc"](text=[text], images=ims, return_tensors="pt").to("cuda")
+    inp = m["proc"](text=[text], images=ims, return_tensors="pt").to(m["model"].device)
     with torch.no_grad():
         out = m["model"].generate(**inp, max_new_tokens=4, do_sample=False)
     return m["proc"].batch_decode(out[:, inp.input_ids.shape[1]:], skip_special_tokens=True)[0].strip().lower().startswith("yes")

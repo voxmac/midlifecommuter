@@ -1,0 +1,986 @@
+{
+ "id": "SH05",
+ "slug": "저녁일곱시의식탁",
+ "format": "mv",
+ "aspect": "9:16",
+ "lead": "mh",
+ "song": {
+  "file": "MC05_v1",
+  "at": 0.0,
+  "sfx_vol": 0.0
+ },
+ "lyrics_tl": [
+  [
+   [
+    "현관",
+    16.52,
+    17.13
+   ],
+   [
+    "앞",
+    17.13,
+    17.74
+   ],
+   [
+    "나란한",
+    17.25,
+    17.8
+   ],
+   [
+    "신발들",
+    17.8,
+    18.96
+   ]
+  ],
+  [
+   [
+    "오늘은",
+    18.96,
+    21.58
+   ],
+   [
+    "나도",
+    21.58,
+    22.86
+   ],
+   [
+    "일찍",
+    22.86,
+    23.96
+   ],
+   [
+    "왔다",
+    23.96,
+    25.06
+   ]
+  ],
+  [
+   [
+    "된장찌개",
+    27.46,
+    28.86
+   ],
+   [
+    "끓는",
+    28.86,
+    29.72
+   ],
+   [
+    "소리에",
+    29.72,
+    31.4
+   ]
+  ],
+  [
+   [
+    "이십",
+    31.4,
+    33.5
+   ],
+   [
+    "년",
+    33.5,
+    34.08
+   ],
+   [
+    "늦은",
+    34.08,
+    35.14
+   ],
+   [
+    "인사를",
+    35.14,
+    35.8
+   ],
+   [
+    "한다",
+    35.8,
+    37.1
+   ]
+  ],
+  [
+   [
+    "돌아가자",
+    38.88,
+    40.28
+   ],
+   [
+    "돌아가자",
+    40.28,
+    41.42
+   ],
+   [
+    "저녁으로",
+    41.42,
+    42.78
+   ]
+  ],
+  [
+   [
+    "불",
+    42.78,
+    44.26
+   ],
+   [
+    "켜진",
+    44.26,
+    45.34
+   ],
+   [
+    "우리",
+    45.34,
+    46.08
+   ],
+   [
+    "집",
+    46.08,
+    46.94
+   ],
+   [
+    "식탁으로",
+    46.94,
+    49.2
+   ]
+  ],
+  [
+   [
+    "비워",
+    50.2,
+    51.12
+   ],
+   [
+    "뒀던",
+    51.12,
+    52.06
+   ],
+   [
+    "내",
+    52.06,
+    52.62
+   ],
+   [
+    "자리에",
+    52.62,
+    54.56
+   ]
+  ],
+  [
+   [
+    "숟가락",
+    54.56,
+    57.34
+   ],
+   [
+    "하나",
+    57.34,
+    58.06
+   ],
+   [
+    "놓아",
+    58.06,
+    59.0
+   ],
+   [
+    "주는",
+    59.0,
+    59.6
+   ],
+   [
+    "밤",
+    59.6,
+    60.46
+   ]
+  ],
+  [
+   [
+    "돌아가자",
+    65.44,
+    66.84
+   ],
+   [
+    "돌아가자",
+    66.84,
+    68.24
+   ]
+  ],
+  [
+   [
+    "늦지",
+    68.24,
+    69.5
+   ],
+   [
+    "않게",
+    69.5,
+    70.72
+   ],
+   [
+    "저녁으로",
+    70.72,
+    72.52
+   ]
+  ]
+ ],
+ "font": "Jua-Regular",
+ "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+ "brand": "MIDLIFE COMMUTER",
+ "cap_y": 0.83,
+ "cap_size": 60,
+ "cap_line": true,
+ "top_label": null,
+ "budget_min": 220,
+ "wan_min": 8,
+ "hook": [],
+ "end_tag": "",
+ "loop_drop": false,
+ "chirps": false,
+ "tracker": false,
+ "captions": true,
+ "props": {},
+ "thumb": {
+  "text": [
+   "저녁 일곱 시의 식탁",
+   "돌아가자, 저녁으로"
+  ]
+ },
+ "retake": [],
+ "upload": {
+  "title": "이십 년 만에 저녁 일곱 시에 집에 왔다 | 저녁 일곱 시의 식탁 #shorts",
+  "description": "현관 앞 나란한 신발들.\n오늘은 나도 일찍 왔다.\n\n이십 년 동안 비어 있던 식탁의 내 자리에\n아이들이 숟가락 하나를 놓아 줍니다.\n\n도연명은 「귀거래사」에서 말했습니다. 돌아가자, 밭이 거칠어지기 전에.\n늦지 않게, 저녁으로.\n\n🎵 저녁 일곱 시의 식탁 - MIDLIFE COMMUTER\n💬 오늘 저녁, 누구와 함께 드시나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#저녁 #가족 #아빠 #퇴근 #가족식사 #귀거래사 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "저녁 식탁",
+   "가족",
+   "아빠",
+   "퇴근길",
+   "가족 식사",
+   "귀거래사",
+   "위로 노래",
+   "직장인 공감",
+   "인생 2막",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "gpu": "L40S",
+ "shots": [
+  {
+   "id": "S1",
+   "slot": [
+    0.0,
+    5.4
+   ],
+   "plate": "a cozy Korean apartment dining room at night seen at eye level, a wooden dining table set with rice bowls, side dishes and a pot of stew, four chairs, the chair at the end of the table empty, warm pendant light",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the mother and the two children stand by the table and glance at the empty chair quietly, the pendant light glows softly",
+   "frames": 93,
+   "cast": [
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.46,
+      "cx": 0.3,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.62,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.28,
+      "cx": 0.82,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a dining table with food",
+    "an empty chair"
+   ],
+   "avoid": [
+    "Is any dish, bowl, spoon or object floating in the air?"
+   ]
+  },
+  {
+   "id": "S2",
+   "slot": [
+    5.4,
+    10.9
+   ],
+   "plate": "a dim Korean office at night seen at eye level, rows of desks with glowing monitors, the city lights through the big window, most lights off",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the tired man in a suit stands at his desk under the dim light with a sigh, the monitors glow, the coworkers keep typing in the back",
+   "frames": 93,
+   "cast": [
+    {
+     "char": "m",
+     "expr": "sigh",
+     "flip": false,
+     "place": {
+      "h": 0.52,
+      "cx": 0.45,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "extras": "two tired coworkers typing at their desks far in the back",
+   "must": [
+    "office desks with monitors",
+    "a window with city lights"
+   ]
+  },
+  {
+   "id": "S3",
+   "slot": [
+    10.9,
+    16.37
+   ],
+   "plate": "a walking path inside a Korean apartment complex at dusk seen at eye level, flower beds and trees, warm lights turning on in the apartment windows, a purple evening sky, no road",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the man walks home along the path, the old neighbor smiles and nods to greet him, the apartment window lights glow",
+   "frames": 93,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "walk",
+     "flip": false,
+     "place": {
+      "h": 0.48,
+      "cx": 0.3,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.42,
+      "cx": 0.72,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "apartment buildings with lit windows",
+    "a walking path"
+   ]
+  },
+  {
+   "id": "S4",
+   "slot": [
+    16.37,
+    18.81
+   ],
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment in the evening seen at eye level, four pairs of shoes lined up neatly side by side on the floor (a man's, a woman's and two children's), a closed white shoe cabinet, warm light",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the man looks down at the shoes lined up on the floor and smiles softly, warm light glows from the living room",
+   "frames": 45,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.55,
+      "cx": 0.62,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "shoes lined up on the floor",
+    "a shoe cabinet"
+   ],
+   "avoid": [
+    "Are any shoes floating in the air or moving by themselves?"
+   ]
+  },
+  {
+   "id": "S5",
+   "slot": [
+    18.81,
+    27.31
+   ],
+   "plate": "a warm Korean apartment living room in the evening seen at eye level, a sofa, a low table, family photos on the wall, a lamp",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the two children turn to their father with big happy smiles and wave, the father smiles back, the lamp light glows",
+   "frames": 121,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.52,
+      "cx": 0.28,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.29,
+      "cx": 0.6,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.34,
+      "cx": 0.8,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a sofa",
+    "family photos on the wall"
+   ]
+  },
+  {
+   "id": "S6",
+   "slot": [
+    27.31,
+    31.25
+   ],
+   "plate": "a cozy Korean apartment kitchen in the evening seen at eye level, a gas stove on the right with a clay pot of bubbling doenjang stew on the burner, a cutting board with green onions, warm light",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "steam rises from the bubbling stew pot on the stove, the wife stirs the stew and smiles, the man watches her warmly",
+   "frames": 69,
+   "cast": [
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.47,
+      "cx": 0.62,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.52,
+      "cx": 0.27,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a pot on a gas stove",
+    "a kitchen counter"
+   ],
+   "avoid": [
+    "Is steam or smoke coming from somewhere other than a pot or bowl, such as the ceiling, a wall or a person?"
+   ]
+  },
+  {
+   "id": "S7",
+   "slot": [
+    31.25,
+    38.73
+   ],
+   "plate": "a cozy Korean apartment kitchen in the evening seen at eye level, kitchen cabinets, a window with the evening sky, warm light",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the wife turns to her husband and smiles warmly, the man smiles back shyly, the son watches them happily",
+   "frames": 121,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.53,
+      "cx": 0.3,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.48,
+      "cx": 0.6,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.84,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "kitchen cabinets",
+    "a window"
+   ]
+  },
+  {
+   "id": "S8",
+   "slot": [
+    38.73,
+    42.63
+   ],
+   "plate": "a Korean apartment dining room in the evening seen at eye level, a wooden dining table with rice bowls, side dishes and a pot of stew, warm pendant light over the table",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the family stands around the dinner table together and laughs, the pendant light glows warmly, steam rises from the pot of stew on the table",
+   "frames": 69,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.48,
+      "cx": 0.22,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.44,
+      "cx": 0.45,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.32,
+      "cx": 0.66,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.27,
+      "cx": 0.84,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a dining table with rice bowls",
+    "a pot on the table"
+   ],
+   "avoid": [
+    "Is steam or smoke coming from somewhere other than a pot or bowl, such as the ceiling, a wall or a person?",
+    "Is any dish, bowl, spoon or object floating in the air?"
+   ]
+  },
+  {
+   "id": "S9",
+   "slot": [
+    42.63,
+    50.05
+   ],
+   "plate": "a Korean apartment building seen from the walking path below at night, many windows glowing with warm yellow light, trees and street lamps along the path, a deep blue sky, no road",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old couple stands on the path and looks up at the warm glowing windows with gentle smiles, the street lamps glow, leaves sway",
+   "frames": 121,
+   "cast": [
+    {
+     "char": "grandpa",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.42,
+      "cx": 0.36,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandma",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.38,
+      "cx": 0.6,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "an apartment building with lit windows",
+    "street lamps"
+   ]
+  },
+  {
+   "id": "S10",
+   "slot": [
+    50.05,
+    54.41
+   ],
+   "plate": "a Korean apartment dining room in the evening seen at eye level, a wooden dining table with dinner, a wooden chair at the end of the table pulled out and empty, warm pendant light",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the little girl points to the empty chair at the table and smiles at her father, the father smiles warmly, the light glows",
+   "frames": 77,
+   "cast": [
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.29,
+      "cx": 0.62,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.53,
+      "cx": 0.3,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a dining table",
+    "an empty chair"
+   ],
+   "avoid": [
+    "Is a chair attached to or merged into a person?"
+   ]
+  },
+  {
+   "id": "S11",
+   "slot": [
+    54.41,
+    60.6
+   ],
+   "plate": "close view of a wooden dining table set for dinner in the evening, rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, warm light, in present-day South Korea",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the boy looks at his father and grins proudly next to the neatly set table, the father smiles, the warm light glows",
+   "frames": 105,
+   "cast": [
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.36,
+      "cx": 0.68,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.55,
+      "cx": 0.3,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "spoons and chopsticks on a table",
+    "rice bowls"
+   ],
+   "avoid": [
+    "Is any dish, bowl, spoon or object floating in the air?"
+   ]
+  },
+  {
+   "id": "S12",
+   "slot": [
+    60.6,
+    65.2
+   ],
+   "plate": "a cozy Korean apartment dining room at night seen at eye level, a dining table with half-eaten dinner, warm pendant light, a window with night city lights",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the family laughs together around the table, the children giggle, the father laughs warmly, the pendant light glows",
+   "frames": 81,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.48,
+      "cx": 0.22,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.44,
+      "cx": 0.45,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.32,
+      "cx": 0.66,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.27,
+      "cx": 0.84,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a dining table",
+    "a window with city lights"
+   ],
+   "avoid": [
+    "Is any dish, bowl, spoon or object floating in the air?"
+   ]
+  },
+  {
+   "id": "S13",
+   "slot": [
+    65.2,
+    68.09
+   ],
+   "plate": "a small apartment balcony in Korea at night seen at eye level, a railing, potted plants, the night city lights and apartment windows glowing across, a dark blue sky",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the husband and wife stand side by side on the balcony and smile at each other, the city lights twinkle, the plants sway",
+   "frames": 53,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.52,
+      "cx": 0.32,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "wife",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.48,
+      "cx": 0.62,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a balcony railing",
+    "city lights"
+   ]
+  },
+  {
+   "id": "S14",
+   "slot": [
+    68.09,
+    72.82
+   ],
+   "plate": "a warm Korean apartment living room at night seen at eye level, a sofa with cushions, a soft floor lamp, a window with the night sky",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the children lean happily toward their father and laugh, the father smiles with warm eyes, the floor lamp glows",
+   "frames": 81,
+   "cast": [
+    {
+     "char": "mh",
+     "expr": "smile",
+     "flip": false,
+     "place": {
+      "h": 0.53,
+      "cx": 0.35,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "daughter",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.28,
+      "cx": 0.63,
+      "foot": 0.97,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "son",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.33,
+      "cx": 0.82,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a sofa",
+    "a floor lamp"
+   ]
+  },
+  {
+   "id": "S15",
+   "slot": [
+    72.82,
+    78.0
+   ],
+   "plate": "a Korean apartment building at night seen from the small park in front, one window in the middle glowing with especially warm golden light, a quiet path, trees, a starry sky, no road",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old couple walks slowly together along the path under the glowing windows and smiles, the stars twinkle, the trees sway",
+   "frames": 89,
+   "cast": [
+    {
+     "char": "grandma",
+     "expr": null,
+     "flip": false,
+     "place": {
+      "h": 0.36,
+      "cx": 0.4,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.4,
+      "cx": 0.62,
+      "foot": 0.95,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "an apartment building with lit windows",
+    "trees"
+   ]
+  }
+ ]
+}

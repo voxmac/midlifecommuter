@@ -48,7 +48,7 @@ for n, sc in enumerate(plan["scenes"]):
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
     for c in sc.get("cast", []) or [{"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
-        if plan.get("lead") == "mh" and c["char"] == "m":
+        if plan.get("lead") == "mh" and c["char"] == "m" and not sc.get("flashback"):
             errors.append(f"{tag}: this song is after M left the company; use 'mh' (everyday clothes), not 'm' (suit, badge, briefcase)")
         if c["char"] == "m" and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
             errors.append(f"{tag}: M in his office suit inside the home; use 'mh' (everyday clothes)")
