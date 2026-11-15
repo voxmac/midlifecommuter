@@ -9,18 +9,19 @@
  "time": "4",
  "duration": 72,
  "seeds": [
-  721,
-  722,
-  723,
-  724
+  731,
+  732,
+  733,
+  734
  ],
- "lyrics": "[Verse]\n현관 앞 신발이 네 켤레\n오늘은 나도 일찍 왔다\n된장찌개 끓는 소리에\n이십 년 늦은 인사를 한다\n\n[Chorus]\n돌아가자 돌아가자 저녁으로\n불 켜진 우리 집 식탁으로\n비워 뒀던 내 자리에\n숟가락 하나 놓아 주는 밤\n돌아가자 돌아가자\n늦지 않게 저녁으로",
+ "lyrics": "[Verse]\n현관 앞 나란한 신발들\n오늘은 나도 일찍 왔다\n된장찌개 끓는 소리에\n이십 년 늦은 인사를 한다\n\n[Chorus]\n돌아가자 돌아가자 저녁으로\n불 켜진 우리 집 식탁으로\n비워 뒀던 내 자리에\n숟가락 하나 놓아 주는 밤\n돌아가자 돌아가자\n늦지 않게 저녁으로",
  "gpu": "T4",
- "note": "Remake 2026-11-15 (user: awkward lyrics, a female voice / odd sounds on high notes). New lyrics with even 8-11 syllable lines; voice = MC02 settings, solo male baritone, no female/choir/falsetto. Tao Yuanming 귀거래사 '돌아가자'. Scenes: many characters (wife, son, daughter, neighbours). | v2 picked; its chorus (38-73 s) went up to ~440 Hz (female-sounding). Keep 0-37.6 s, redo the chorus low; versions get an automatic vocal-pitch check.",
+ "note": "Remake 2026-11-15 (user: awkward lyrics, a female voice / odd sounds on high notes). New lyrics with even 8-11 syllable lines; voice = MC02 settings, solo male baritone, no female/choir/falsetto. Tao Yuanming 귀거래사 '돌아가자'. Scenes: many characters (wife, son, daughter, neighbours). | v2 picked; its chorus (38-73 s) went up to ~440 Hz (female-sounding). Keep 0-37.6 s, redo the chorus low; versions get an automatic vocal-pitch check. | v1 (MC05-1115-0746) chosen; '네 켤레' was sung like '니 켤레' -> line 1 changed to '현관 앞 나란한 신발들' (same 9 syllables), only 15.3-19.4 s redone.",
  "extend": {
-  "from": "MC05_base.mp3",
-  "start": 37.6,
-  "end": 78.0,
-  "caption": "the chorus is sung by the same solo male baritone in his low warm chest voice, low comfortable melody, no high notes, no female voice, no falsetto, no backing singers; ends softly with guitar"
+  "from": "MC05_fix.mp3",
+  "start": 15.3,
+  "end": 19.4,
+  "total": 78.02,
+  "caption": "the same solo male baritone sings the line clearly, same melody, same voice and tone, no female voice"
  }
 }
