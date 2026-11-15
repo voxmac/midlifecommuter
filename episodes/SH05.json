@@ -7,224 +7,225 @@
  "song": {
   "file": "MC05_v1",
   "at": 0.0,
+  "skip": 15.92,
   "sfx_vol": 0.0
  },
  "lyrics_tl": [
   [
    [
     "현관",
-    16.52,
-    17.13
+    0.6,
+    1.21
    ],
    [
     "앞",
-    17.13,
-    17.74
+    1.21,
+    1.82
    ],
    [
     "나란한",
-    17.25,
-    17.8
+    1.33,
+    1.88
    ],
    [
     "신발들",
-    17.8,
-    18.96
+    1.88,
+    3.04
    ]
   ],
   [
    [
     "오늘은",
-    18.96,
-    21.58
+    3.04,
+    5.66
    ],
    [
     "나도",
-    21.58,
-    22.86
+    5.66,
+    6.94
    ],
    [
     "일찍",
-    22.86,
-    23.96
+    6.94,
+    8.04
    ],
    [
     "왔다",
-    23.96,
-    25.06
+    8.04,
+    9.14
    ]
   ],
   [
    [
     "된장찌개",
-    27.46,
-    28.86
+    11.54,
+    12.94
    ],
    [
     "끓는",
-    28.86,
-    29.72
+    12.94,
+    13.8
    ],
    [
     "소리에",
-    29.72,
-    31.4
+    13.8,
+    15.48
    ]
   ],
   [
    [
     "이십",
-    31.4,
-    33.5
+    15.48,
+    17.58
    ],
    [
     "년",
-    33.5,
-    34.08
+    17.58,
+    18.16
    ],
    [
     "늦은",
-    34.08,
-    35.14
+    18.16,
+    19.22
    ],
    [
     "인사를",
-    35.14,
-    35.8
+    19.22,
+    19.88
    ],
    [
     "한다",
-    35.8,
-    37.1
+    19.88,
+    21.18
    ]
   ],
   [
    [
     "돌아가자",
-    38.88,
-    40.28
+    22.96,
+    24.36
    ],
    [
     "돌아가자",
-    40.28,
-    41.42
+    24.36,
+    25.5
    ],
    [
     "저녁으로",
-    41.42,
-    42.78
+    25.5,
+    26.86
    ]
   ],
   [
    [
     "불",
-    42.78,
-    44.26
+    26.86,
+    28.34
    ],
    [
     "켜진",
-    44.26,
-    45.34
+    28.34,
+    29.42
    ],
    [
     "우리",
-    45.34,
-    46.08
+    29.42,
+    30.16
    ],
    [
     "집",
-    46.08,
-    46.94
+    30.16,
+    31.02
    ],
    [
     "식탁으로",
-    46.94,
-    49.2
+    31.02,
+    33.28
    ]
   ],
   [
    [
     "비워",
-    50.2,
-    51.12
+    34.28,
+    35.2
    ],
    [
     "뒀던",
-    51.12,
-    52.06
+    35.2,
+    36.14
    ],
    [
     "내",
-    52.06,
-    52.62
+    36.14,
+    36.7
    ],
    [
     "자리에",
-    52.62,
-    54.56
+    36.7,
+    38.64
    ]
   ],
   [
    [
     "숟가락",
-    54.56,
-    57.34
+    38.64,
+    41.42
    ],
    [
     "하나",
-    57.34,
-    58.06
+    41.42,
+    42.14
    ],
    [
     "놓아",
-    58.06,
-    59.0
+    42.14,
+    43.08
    ],
    [
     "주는",
-    59.0,
-    59.6
+    43.08,
+    43.68
    ],
    [
     "밤",
-    59.6,
-    60.46
+    43.68,
+    44.54
    ]
   ],
   [
    [
     "돌아가자",
-    65.44,
-    66.84
+    49.52,
+    50.92
    ],
    [
     "돌아가자",
-    66.84,
-    68.24
+    50.92,
+    52.32
    ]
   ],
   [
    [
     "늦지",
-    68.24,
-    69.5
+    52.32,
+    53.58
    ],
    [
     "않게",
-    69.5,
-    70.72
+    53.58,
+    54.8
    ],
    [
     "저녁으로",
-    70.72,
-    72.52
+    54.8,
+    56.6
    ]
   ]
  ],
  "font": "Jua-Regular",
  "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
  "thumb": {
-  "layout": "bottom_left",
+  "layout": "band",
   "font": "dohyeon",
   "colors": "sunset",
   "text": [
@@ -246,9 +247,7 @@
  "tracker": false,
  "captions": true,
  "props": {},
- "retake": [
-  "S12"
- ],
+ "retake": [],
  "upload": {
   "title": "이십 년 만에 저녁 일곱 시에 집에 왔다 | 저녁 일곱 시의 식탁 #shorts",
   "description": "현관 앞 나란한 신발들.\n오늘은 나도 일찍 왔다.\n\n이십 년 동안 비어 있던 식탁의 내 자리에\n아이들이 숟가락 하나를 놓아 줍니다.\n\n도연명은 「귀거래사」에서 말했습니다. 돌아가자, 밭이 거칠어지기 전에.\n늦지 않게, 저녁으로.\n\n🎵 저녁 일곱 시의 식탁 - MIDLIFE COMMUTER\n💬 오늘 저녁, 누구와 함께 드시나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#저녁 #가족 #아빠 #퇴근 #가족식사 #귀거래사 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -269,140 +268,10 @@
  "gpu": "L40S",
  "shots": [
   {
-   "id": "S1",
-   "slot": [
-    0.0,
-    5.4
-   ],
-   "plate": "a cozy Korean apartment dining room at night seen at eye level, a wooden dining table set with rice bowls, side dishes and a pot of stew, four chairs, the chair at the end of the table empty, warm pendant light",
-   "camera": {
-    "move": "push",
-    "amount": 0.04
-   },
-   "motion": "the mother and the two children stand by the table and glance at the empty chair quietly, the pendant light glows softly",
-   "frames": 93,
-   "cast": [
-    {
-     "char": "wife",
-     "expr": null,
-     "flip": false,
-     "place": {
-      "h": 0.46,
-      "cx": 0.3,
-      "foot": 0.95,
-      "shadow": 0.45
-     }
-    },
-    {
-     "char": "son",
-     "expr": null,
-     "flip": true,
-     "place": {
-      "h": 0.33,
-      "cx": 0.62,
-      "foot": 0.96,
-      "shadow": 0.45
-     }
-    },
-    {
-     "char": "daughter",
-     "expr": null,
-     "flip": true,
-     "place": {
-      "h": 0.28,
-      "cx": 0.82,
-      "foot": 0.97,
-      "shadow": 0.45
-     }
-    }
-   ],
-   "must": [
-    "a dining table with food",
-    "an empty chair"
-   ],
-   "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?"
-   ]
-  },
-  {
-   "id": "S2",
-   "slot": [
-    5.4,
-    10.9
-   ],
-   "plate": "a dim Korean office at night seen at eye level, rows of desks with glowing monitors, the city lights through the big window, most lights off",
-   "camera": {
-    "move": "push",
-    "amount": 0.04
-   },
-   "motion": "the tired man in a suit stands at his desk under the dim light with a sigh, the monitors glow, the coworkers keep typing in the back",
-   "frames": 93,
-   "cast": [
-    {
-     "char": "m",
-     "expr": "sigh",
-     "flip": false,
-     "place": {
-      "h": 0.52,
-      "cx": 0.45,
-      "foot": 0.95,
-      "shadow": 0.45
-     }
-    }
-   ],
-   "extras": "two tired coworkers typing at their desks far in the back",
-   "must": [
-    "office desks with monitors",
-    "a window with city lights"
-   ]
-  },
-  {
-   "id": "S3",
-   "slot": [
-    10.9,
-    16.37
-   ],
-   "plate": "a walking path inside a Korean apartment complex at dusk seen at eye level, flower beds and trees, warm lights turning on in the apartment windows, a purple evening sky, no road",
-   "camera": {
-    "move": "push",
-    "amount": 0.04
-   },
-   "motion": "the man walks home along the path, the old neighbor smiles and nods to greet him, the apartment window lights glow",
-   "frames": 93,
-   "cast": [
-    {
-     "char": "mh",
-     "expr": "walk",
-     "flip": false,
-     "place": {
-      "h": 0.48,
-      "cx": 0.3,
-      "foot": 0.95,
-      "shadow": 0.45
-     }
-    },
-    {
-     "char": "grandpa",
-     "expr": null,
-     "flip": true,
-     "place": {
-      "h": 0.42,
-      "cx": 0.72,
-      "foot": 0.94,
-      "shadow": 0.45
-     }
-    }
-   ],
-   "must": [
-    "apartment buildings with lit windows",
-    "a walking path"
-   ]
-  },
-  {
    "id": "S4",
    "slot": [
-    16.37,
-    18.81
+    0.0,
+    2.89
    ],
    "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment in the evening seen at eye level, four pairs of shoes lined up neatly side by side on the floor (a man's, a woman's and two children's), a closed white shoe cabinet, warm light",
    "camera": {
@@ -410,7 +279,7 @@
     "amount": 0.04
    },
    "motion": "the man looks down at the shoes lined up on the floor and smiles softly, warm light glows from the living room",
-   "frames": 45,
+   "frames": 53,
    "cast": [
     {
      "char": "mh",
@@ -435,8 +304,8 @@
   {
    "id": "S5",
    "slot": [
-    18.81,
-    27.31
+    2.89,
+    11.39
    ],
    "plate": "a warm Korean apartment living room in the evening seen at eye level, a sofa, a low table, family photos on the wall, a lamp",
    "camera": {
@@ -488,8 +357,8 @@
   {
    "id": "S6",
    "slot": [
-    27.31,
-    31.25
+    11.39,
+    15.33
    ],
    "plate": "a cozy Korean apartment kitchen in the evening seen at eye level, a gas stove on the right with a clay pot of bubbling doenjang stew on the burner, a cutting board with green onions, warm light",
    "camera": {
@@ -533,8 +402,8 @@
   {
    "id": "S7",
    "slot": [
-    31.25,
-    38.73
+    15.33,
+    22.81
    ],
    "plate": "a cozy Korean apartment kitchen in the evening seen at eye level, kitchen cabinets, a window with the evening sky, warm light",
    "camera": {
@@ -586,8 +455,8 @@
   {
    "id": "S8",
    "slot": [
-    38.73,
-    42.63
+    22.81,
+    26.71
    ],
    "plate": "a Korean apartment dining room in the evening seen at eye level, a wooden dining table with rice bowls, side dishes and a pot of stew, warm pendant light over the table",
    "camera": {
@@ -656,8 +525,8 @@
   {
    "id": "S9",
    "slot": [
-    42.63,
-    50.05
+    26.71,
+    34.13
    ],
    "plate": "inside a small cozy Korean apartment living room at night seen at eye level, a big window showing the apartment building across with many warm glowing windows, a lamp, a potted plant",
    "camera": {
@@ -702,8 +571,8 @@
   {
    "id": "S10",
    "slot": [
-    50.05,
-    54.41
+    34.13,
+    38.49
    ],
    "plate": "a Korean apartment dining room in the evening seen at eye level, a wooden dining table with dinner, a wooden chair at the end of the table pulled out and empty, warm pendant light",
    "camera": {
@@ -747,8 +616,8 @@
   {
    "id": "S11",
    "slot": [
-    54.41,
-    60.6
+    38.49,
+    44.68
    ],
    "plate": "a Korean apartment dining room in the evening seen at eye level from a normal distance, a wooden dining table behind the characters at waist height with small rice bowls, side dishes and four sets of a silver spoon and chopsticks lined up neatly, chairs, warm pendant light",
    "camera": {
@@ -793,8 +662,8 @@
   {
    "id": "S12",
    "slot": [
-    60.6,
-    65.2
+    44.68,
+    49.28
    ],
    "plate": "a cozy Korean apartment dining room at night seen at eye level, warm beige wallpaper with a framed family photo and a wall clock, a dining table with half-eaten dinner behind the family, warm pendant light, no windows",
    "camera": {
@@ -862,8 +731,8 @@
   {
    "id": "S13",
    "slot": [
-    65.2,
-    68.09
+    49.28,
+    52.17
    ],
    "plate": "a small apartment balcony in Korea at night seen at eye level, a railing, potted plants, the night city lights and apartment windows glowing across, a dark blue sky",
    "camera": {
@@ -904,8 +773,8 @@
   {
    "id": "S14",
    "slot": [
-    68.09,
-    72.82
+    52.17,
+    56.9
    ],
    "plate": "a warm Korean apartment living room at night seen at eye level, a sofa with cushions, a soft floor lamp, a window with the night sky",
    "camera": {
@@ -957,8 +826,8 @@
   {
    "id": "S15",
    "slot": [
-    72.82,
-    78.0
+    56.9,
+    62.08
    ],
    "plate": "a small cozy Korean apartment dining room at night seen at eye level, a small wooden table with two bowls of rice, a pot of stew and side dishes, a window with the night city lights, warm light",
    "camera": {

@@ -5,13 +5,27 @@ Every scene is a still keyframe (plate + M cutout + light harmonising pass) with
 song's words, timed letter by letter from the Whisper alignment, coloured in karaoke style."""
 import json, os, re, sys, difflib
 
+def _free_layouts(sc):
+    """Layouts whose text area does not cover a face in this scene (from the cast placements)."""
+    cast = sc.get("cast") or [{"place": sc.get("place", {"h": 0.5, "cx": 0.5, "foot": 0.95})}]
+    tops = [c["place"].get("foot", 0.95) - c["place"]["h"] for c in cast]          # head tops (0 = top of frame)
+    lefts = [c["place"]["cx"] - c["place"]["h"] * 0.4 for c in cast]
+    ok = []
+    if min(tops) > 0.30: ok += ["top", "band"]
+    if min(tops) > 0.30 and min(tops) > 0.30: ok.append("split")
+    if min(lefts) > 0.42: ok.append("side")
+    if all(c["place"].get("foot", 0.95) - c["place"]["h"] * 0.8 < 0.55 for c in cast): ok.append("bottom_left")   # faces above the lower third
+    return ok or ["top"]
+
 def _thumb_style(plan):
     """A different thumbnail layout / font / colour set for each Short, rotating with the Short number so neighbours on
     the channel grid never share a layout, font or colours (a rerun keeps the same one)."""
     n = int(re.sub(r"\D", "", plan["id"]) or 0) + 1
     lays = ["top", "bottom_left", "band", "split", "side"]; fonts = ["jua", "blackhan", "dohyeon", "gowun", "pen"]
     cols = ["warm", "night", "ink", "sunset", "mint"]
-    return {"layout": lays[n % 5], "font": fonts[(n * 2) % 5], "colors": cols[(n * 3) % 5]}
+    sc = plan["scenes"][-1]; free = _free_layouts(sc)
+    lay = next(l for l in lays[n % 5:] + lays[:n % 5] if l in free)
+    return {"layout": lay, "font": fonts[(n * 2) % 5], "colors": cols[(n * 3) % 5]}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 plan = json.load(open(sys.argv[1], encoding="utf-8")); tm = json.load(open(sys.argv[2], encoding="utf-8"))
 song = json.load(open(f"{ROOT}/songs/{plan['song']}.json", encoding="utf-8"))
@@ -20,6 +34,18 @@ lines = [l.strip() for l in song["lyrics"].split("\n") if l.strip() and not l.st
 starts = [l["start"] for l in tm["lines"]]; ends = [l["end"] for l in tm["lines"]]
 assert len(lines) == len(starts), (len(lines), len(starts))
 heard = tm["heard"]
+SKIP = plan.get("skip", round(max(0.0, starts[0] - 0.6), 2) if starts[0] > 2.0 else 0.0)   # user: no long intros in Shorts
+for i, sc in enumerate(plan["scenes"]): sc["_n"] = i + 1   # shot ids stay S<original number> (cached shots match)
+if SKIP:   # scenes that sat only in the trimmed intro are dropped; absolute "end" times move with the song
+    keep = []
+    for sc in plan["scenes"]:
+        if sc.get("end"):
+            if sc["end"] - SKIP < 1.5: print("note: intro scene dropped by the trim:", sc.get("plate", "")[:50]); continue
+            sc = {**sc, "end": round(sc["end"] - SKIP, 2)}
+        keep.append(sc)
+    plan["scenes"] = keep
+    starts = [x - SKIP for x in starts]; ends = [x - SKIP for x in ends]
+    heard = [[h[0], h[1] - SKIP, h[2] - SKIP] + list(h[3:]) for h in heard]
 units = [(ch, i, k) for i, l in enumerate(lines) for k, w in enumerate(l.split()) for ch in norm(w)]
 sm = difflib.SequenceMatcher(None, [u[0] for u in units], [h[0] for h in heard], autojunk=False)
 t = [None] * len(units)
@@ -76,7 +102,7 @@ if not up.get("tags"): errors.append("upload: add tags")
 for x in notes: print("note:", x)
 if errors:
     print("\n".join("LINT: " + e for e in errors)); sys.exit("scene plan has problems; fix them before spending GPU time")
-total = plan["seconds"]
+total = round(plan["seconds"] - SKIP, 2)
 shots = []
 for n, sc in enumerate(plan["scenes"]):
     ls = sc["lines"]
@@ -85,7 +111,7 @@ for n, sc in enumerate(plan["scenes"]):
     if sc.get("end"): b = sc["end"]   # split a long instrumental intro into several scenes ("lines": "intro", "end": s)
     else: b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.5, "cx": 0.5, "foot": 0.95, "shadow": 0.45, **sc.get("place", {})}
-    shot = {"id": f"S{n + 1}", "slot": [round(a, 2), round(b, 2)], "plate": sc["plate"],
+    shot = {"id": f"S{sc.get('_n', n + 1)}", "slot": [round(a, 2), round(b, 2)], "plate": sc["plate"],
             "camera": sc.get("camera", {"move": "push", "amount": 0.04})}
     if sc.get("motion"):   # animated with Wan 2.2 (16 fps): enough frames to cover the slot, 4k+1
         fr = min(121, 4 * int(((b - a) * 16 + 3) // 4) + 5)
@@ -102,7 +128,7 @@ for n, sc in enumerate(plan["scenes"]):
         if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
-        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
+        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "skip": SKIP, "sfx_vol": 0.0},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
         "thumb": {**_thumb_style(plan), **plan.get("thumb", {})},

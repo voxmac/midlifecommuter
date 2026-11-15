@@ -6,9 +6,7 @@
  "seconds": 78.0,
  "gpu": "L40S",
  "lead": "mh",
- "retake": [
-  "S12"
- ],
+ "retake": [],
  "thumb": {
   "text": [
    "저녁 일곱 시의 식탁",
@@ -125,7 +123,8 @@
    "must": [
     "apartment buildings with lit windows",
     "a walking path"
-   ]
+   ],
+   "end": 16.37
   },
   {
    "lines": [

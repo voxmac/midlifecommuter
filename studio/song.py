@@ -34,7 +34,7 @@ for i, seed in enumerate(spec.get("seeds", [11, 22, 33, 44])):
                              timesignature=spec.get("time", "4"), vocal_language=spec.get("lang", "en"),
                              duration=ext.get("total", ext["end"]), inference_steps=8, guidance_scale=1.0, seed=seed)
     else:
-        p = GenerationParams(task_type="text2music", thinking=True, caption=spec["style"], lyrics=spec["lyrics"],
+        p = GenerationParams(task_type="text2music", thinking=True, caption=spec["style"] + ("" if spec.get("intro") else ", very short intro of one bar, the vocals start within the first two seconds"), lyrics=spec["lyrics"],
                          bpm=spec.get("bpm"), keyscale=spec.get("key", ""), timesignature=spec.get("time", "4"),
                          vocal_language=spec.get("lang", "en"), duration=spec.get("duration", 120), inference_steps=8,
                          guidance_scale=1.0, seed=seed)

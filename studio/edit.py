@@ -360,6 +360,8 @@ def soundtrack(spec, tl, total, motion, out_wav, voice_tl=(), chapter=False):
         sp = f"/tmp/song_{spec['id']}.wav"
         subprocess.run([ffmpeg_bin(), "-loglevel", "error", "-y", "-i", asset(spec["song"]["file"]), "-ar", str(SR), "-ac", "2", sp], check=True)
         sr_, a_ = _wf.read(sp); a_ = a_.astype(np.float32) / 32768.0
+        sk = int(spec["song"].get("skip", 0.0) * SR)   # Shorts start close to the first sung line
+        if sk: a_ = a_[sk:].copy(); fi = min(len(a_), int(0.25 * SR)); a_[:fi] *= np.linspace(0, 1, fi)[:, None]
         music = np.zeros(N); i0 = int(spec["song"].get("at", 0.0) * SR); n_ = min(N - i0, len(a_))
         song_lr = np.zeros((N, 2)); song_lr[i0:i0 + n_] = a_[:n_]
     else:
@@ -562,9 +564,9 @@ def thumbnail_vertical(spec, tl, body, out_jpg, font_path, ff, ch_color=None, ke
         y = 150
         for w in " ".join(words).split():
             L = fit(_text(fnt, w, 104, fill=c1, stroke=ol, sw=11), 480); im.alpha_composite(L, (40, y)); y += L.height - 6
-    tag = _text(fnt, spec.get("brand", "MIDLIFE COMMUTER"), 58, fill=c1, stroke=ol, sw=8)
-    tx = 55 if lay in ("bottom_left", "side") else int(VW / 2 - tag.width / 2)
-    im.alpha_composite(tag, (tx, VH - tag.height - 150))
+    if th.get("brand"):   # off by default (the channel name is already on the channel page); a small corner mark if asked
+        tag = _text(fnt, spec.get("brand", "MIDLIFE COMMUTER"), 40, fill=c1, stroke=ol, sw=6)
+        im.alpha_composite(tag, (VW - tag.width - 40, 60) if lay in ("bottom_left", "side") else (40, VH - tag.height - 60))
     im.convert("RGB").save(out_jpg, quality=92)
     return out_jpg
 

@@ -64,3 +64,7 @@ Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직
 - Kaggle T4: ~20-30 min per Wan shot. Kaggle runs now use the whole 12 h session; scenes it cannot finish are completed on Modal automatically. Check `pending` in report.json before reviewing.
 - Wan invents traffic and passers-by in wide outdoor views and in big windows with a city view (cyclists flying past a window!). For scenes with people, prefer interiors without big city windows; outdoor night paths with buildings attract scooters.
 - Every scene with several people: avoid "more people than ..." and "suddenly a different scene"; the Wan prompt now says one continuous shot, nobody else enters.
+- Shorts open with the message: songs are asked for a one-bar intro (vocals within 2 s), and make_short trims any intro so the
+  first sung line starts 0.6 s in (`skip`; intro-only scenes are dropped, shot ids stay stable). Override with "skip": 0.
+- Thumbnails: 5 layouts x 5 fonts x 5 colour sets rotating per Short; the layout avoids the faces of the thumbnail scene; no
+  channel-name mark unless thumb.brand is set.
