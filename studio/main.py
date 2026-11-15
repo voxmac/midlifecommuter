@@ -107,7 +107,7 @@ def produce(spec):
                         still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], 5.0)   # not in shots/ → redone next run
                         report["shots"][s["id"]]["pending"] = True; report.setdefault("pending", []).append(s["id"])
                         log("over budget, pending:", s["id"]); continue
-                    prompt = s["motion"] + (", the characters keep exactly the same faces and designs as in the first frame, no new people or objects appear, "
+                    prompt = s["motion"] + (", one continuous shot with no scene cut, the characters keep exactly the same faces and designs as in the first frame, nobody else enters and no new people or objects appear, "
                                             "every scooter or bicycle keeps its rider, pixar style 3d animation, smooth natural motion, cinematic")
                     seed, sec = gen_shot(f"{E}/keys/{s['id']}.png", prompt, shot_files[s["id"]], s.get("video_seed"), frames=s.get("frames", 81))
                     report["shots"][s["id"]].update({"video_seed": seed, "minutes": round(sec / 60, 1)})

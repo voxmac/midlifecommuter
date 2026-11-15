@@ -244,7 +244,10 @@
   ]
  },
  "retake": [
-  "S11"
+  "S8",
+  "S9",
+  "S12",
+  "S15"
  ],
  "upload": {
   "title": "이십 년 만에 저녁 일곱 시에 집에 왔다 | 저녁 일곱 시의 식탁 #shorts",
@@ -591,7 +594,7 @@
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the family stands around the dinner table together and laughs, the pendant light glows warmly, steam rises from the pot of stew on the table",
+   "motion": "the four of them stand around the dinner table and laugh together, the pendant light glows warmly, a little steam rises from the stew pot on the table, nobody else is in the room",
    "frames": 69,
    "cast": [
     {
@@ -645,7 +648,9 @@
    ],
    "avoid": [
     "Is steam or smoke coming from somewhere other than a pot or bowl, such as the ceiling, a wall or a person?",
-    "Is any dish, bowl, spoon or object floating in the air?"
+    "Is any dish, bowl, spoon or object floating in the air?",
+    "Are there more people than one man, one woman and two children?",
+    "Does the picture suddenly change into a different scene or camera angle?"
    ]
   },
   {
@@ -654,12 +659,12 @@
     42.63,
     50.05
    ],
-   "plate": "a Korean apartment building seen from the walking path below at night, many windows glowing with warm yellow light, trees and street lamps along the path, a deep blue sky, no road",
+   "plate": "inside a small cozy Korean apartment living room at night seen at eye level, a big window showing the apartment building across with many warm glowing windows, a lamp, a potted plant",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the old couple stands on the path and looks up at the warm glowing windows with gentle smiles, the street lamps glow, leaves sway",
+   "motion": "the old couple stands by their window and looks at the warm glowing windows across with gentle smiles, the lamp glows, the window lights twinkle, nobody else is in the room",
    "frames": 121,
    "cast": [
     {
@@ -667,8 +672,8 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.42,
-      "cx": 0.36,
+      "h": 0.44,
+      "cx": 0.35,
       "foot": 0.95,
       "shadow": 0.45
      }
@@ -678,16 +683,20 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.38,
-      "cx": 0.6,
+      "h": 0.4,
+      "cx": 0.62,
       "foot": 0.95,
       "shadow": 0.45
      }
     }
    ],
    "must": [
-    "an apartment building with lit windows",
-    "street lamps"
+    "a window showing lit apartment windows",
+    "a lamp"
+   ],
+   "avoid": [
+    "Are there more than two people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
    ]
   },
   {
@@ -792,7 +801,7 @@
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the family laughs together around the table, the children giggle, the father laughs warmly, the pendant light glows",
+   "motion": "the family laughs together around the table, the children giggle, the father laughs warmly, the pendant light glows, the camera stays on this one view",
    "frames": 81,
    "cast": [
     {
@@ -845,7 +854,9 @@
     "a window with city lights"
    ],
    "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?"
+    "Is any dish, bowl, spoon or object floating in the air?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Are there more people than one man, one woman and two children?"
    ]
   },
   {
@@ -949,12 +960,12 @@
     72.82,
     78.0
    ],
-   "plate": "a Korean apartment building at night seen from the small park in front, one window in the middle glowing with especially warm golden light, a quiet path, trees, a starry sky, no road",
+   "plate": "a small cozy Korean apartment dining room at night seen at eye level, a small wooden table with two bowls of rice, a pot of stew and side dishes, a window with the night city lights, warm light",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the old couple walks slowly together along the path under the glowing windows and smiles, the stars twinkle, the trees sway",
+   "motion": "the old couple stands at their little dinner table and smiles at each other warmly, a little steam rises from the stew pot on the table, the window lights twinkle, nobody else is in the room",
    "frames": 89,
    "cast": [
     {
@@ -962,8 +973,8 @@
      "expr": null,
      "flip": false,
      "place": {
-      "h": 0.36,
-      "cx": 0.4,
+      "h": 0.4,
+      "cx": 0.38,
       "foot": 0.95,
       "shadow": 0.45
      }
@@ -973,16 +984,22 @@
      "expr": null,
      "flip": true,
      "place": {
-      "h": 0.4,
-      "cx": 0.62,
+      "h": 0.44,
+      "cx": 0.64,
       "foot": 0.95,
       "shadow": 0.45
      }
     }
    ],
    "must": [
-    "an apartment building with lit windows",
-    "trees"
+    "a small table with bowls",
+    "a pot on the table",
+    "a window with city lights"
+   ],
+   "avoid": [
+    "Is steam or smoke coming from somewhere other than a pot or bowl?",
+    "Are there more than two people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
    ]
   }
  ]
