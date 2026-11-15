@@ -4,6 +4,14 @@ Plan: {"id", "song": "MC01", "pick": 1, "scenes": [{"lines": [0, 1] | "intro" | 
 Every scene is a still keyframe (plate + M cutout + light harmonising pass) with a slow camera move; captions are the
 song's words, timed letter by letter from the Whisper alignment, coloured in karaoke style."""
 import json, os, re, sys, difflib
+
+def _thumb_style(plan):
+    """A different thumbnail layout / font / colour set for each Short, rotating with the Short number so neighbours on
+    the channel grid never share a layout, font or colours (a rerun keeps the same one)."""
+    n = int(re.sub(r"\D", "", plan["id"]) or 0) + 1
+    lays = ["top", "bottom_left", "band", "split", "side"]; fonts = ["jua", "blackhan", "dohyeon", "gowun", "pen"]
+    cols = ["warm", "night", "ink", "sunset", "mint"]
+    return {"layout": lays[n % 5], "font": fonts[(n * 2) % 5], "colors": cols[(n * 3) % 5]}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 plan = json.load(open(sys.argv[1], encoding="utf-8")); tm = json.load(open(sys.argv[2], encoding="utf-8"))
 song = json.load(open(f"{ROOT}/songs/{plan['song']}.json", encoding="utf-8"))
@@ -97,10 +105,11 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
         "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "sfx_vol": 0.0},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+        "thumb": {**_thumb_style(plan), **plan.get("thumb", {})},
         "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.83), "cap_size": plan.get("cap_size", 60), "cap_line": True, "top_label": plan.get("top_label"),
         "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
-        "props": plan.get("props", {}), "thumb": plan.get("thumb", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
+        "props": plan.get("props", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
 dst = f"{ROOT}/episodes/{plan['id']}.json"
 json.dump(spec, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(dst, len(shots), "scenes,", sum(len(x) for x in lyrics_tl), "caption words")

@@ -488,8 +488,35 @@ def thumbnail(spec, tl, body, out_jpg, font_path, ff, ch_color=None, key_dir=Non
     im.convert("RGB").save(out_jpg, quality=92)
     return out_jpg
 
+THUMB_FONTS = {   # Korean display fonts (OFL), downloaded on first use
+    "jua": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+    "blackhan": "https://github.com/google/fonts/raw/main/ofl/blackhansans/BlackHanSans-Regular.ttf",
+    "dohyeon": "https://github.com/google/fonts/raw/main/ofl/dohyeon/DoHyeon-Regular.ttf",
+    "gowun": "https://github.com/google/fonts/raw/main/ofl/gowunbatang/GowunBatang-Bold.ttf",
+    "pen": "https://github.com/google/fonts/raw/main/ofl/nanumpenscript/NanumPenScript-Regular.ttf",
+}
+THUMB_COLORS = {   # (main text, accent text, outline)
+    "warm": ((255, 255, 255), (255, 214, 102), (120, 50, 20)),
+    "night": ((255, 255, 255), (150, 210, 255), (20, 30, 70)),
+    "ink": ((30, 30, 35), (190, 40, 40), (255, 255, 255)),
+    "sunset": ((255, 240, 220), (255, 150, 90), (70, 20, 40)),
+    "mint": ((255, 255, 255), (170, 255, 210), (20, 70, 60)),
+}
+THUMB_LAYOUTS = ["top", "bottom_left", "band", "split", "side"]
+
+def _thumb_font(name, fallback):
+    import urllib.request
+    url = THUMB_FONTS.get(name)
+    if not url: return fallback
+    dst = f"/tmp/thumbfont_{name}.ttf"
+    try:
+        if not os.path.exists(dst): urllib.request.urlretrieve(url, dst)
+        return dst
+    except Exception: return fallback
+
 def thumbnail_vertical(spec, tl, body, out_jpg, font_path, ff, ch_color=None, key_dir=None, frame=None):
-    """1080x1920 cover for Shorts: the climax picture full-bleed, 1-2 big words on top, chapter tag and logo."""
+    """1080x1920 cover for Shorts. thumb = {"text": [line1, line2], "shot", "layout", "font", "colors"}: the layout, font and
+    colours vary per Short (make_short picks a different combination each time) so the channel grid does not look templated."""
     th = spec.get("thumb", {})
     sid = th.get("shot", spec.get("finale", spec["shots"][-1]["id"]))
     key = os.path.join(key_dir, f"{sid}.png") if key_dir else None
@@ -502,22 +529,42 @@ def thumbnail_vertical(spec, tl, body, out_jpg, font_path, ff, ch_color=None, ke
     from PIL import ImageEnhance
     fr = ImageEnhance.Color(ImageEnhance.Contrast(fr.resize((VW, VH), Image.LANCZOS)).enhance(1.08)).enhance(1.15)
     im = fr.convert("RGBA")
+    lay = th.get("layout", "top"); fnt = _thumb_font(th.get("font", "jua"), font_path)
+    c1, c2, ol = THUMB_COLORS.get(th.get("colors", "warm"), THUMB_COLORS["warm"])
+    words = (th.get("text") or spec.get("hook") or [spec.get("slug", "")])[:2]
     shade = Image.new("L", (VW, VH), 0); d = ImageDraw.Draw(shade)
-    for y in range(0, 700): d.line([(0, y), (VW, y)], fill=int(170 * (1 - y / 700) ** 1.5))
-    for y in range(1500, VH): d.line([(0, y), (VW, y)], fill=int(150 * ((y - 1500) / 420) ** 1.5))
-    im.alpha_composite(Image.merge("RGBA", [Image.new("L", (VW, VH), 0)] * 3 + [shade]))
-    words = th.get("text") or spec.get("hook") or [spec.get("slug", "").replace("_", " ").upper()]
-    col = tuple(ch_color) if ch_color else ORANGE
-    y = 200
-    if spec.get("series"):
-        ch = _text(font_path, f"CHAPTER {spec['series'].get('chapter')}", 64, stroke=col, sw=10)
-        im.alpha_composite(ch, (int(VW / 2 - ch.width / 2), 110)); y = 250
-    for i, w in enumerate(words[:2]):
-        L = _text(font_path, w.upper(), 128 if i == 0 else 150, fill=WHITE if i == 0 else GOLD, stroke=col if 0.299 * col[0] + 0.587 * col[1] + 0.114 * col[2] < 170 else NAVY, sw=16)
-        if L.width > VW - 60: L = L.resize((VW - 60, int(L.height * (VW - 60) / L.width)), Image.LANCZOS)
-        im.alpha_composite(L, (int(VW / 2 - L.width / 2), int(y))); y += L.height - 24
-    tag = _text(font_path, spec.get("brand", "PUDDLE PALS"), 72, stroke=NAVY, sw=10)
-    im.alpha_composite(tag, (int(VW / 2 - tag.width / 2), VH - tag.height - 150))
+    if lay in ("top", "split"):
+        for y in range(0, 720): d.line([(0, y), (VW, y)], fill=int(170 * (1 - y / 720) ** 1.5))
+    if lay in ("bottom_left", "split"):
+        for y in range(1150, VH): d.line([(0, y), (VW, y)], fill=int(190 * ((y - 1150) / 770) ** 1.3))
+    if lay == "side":
+        for x in range(0, 560): d.line([(x, 0), (x, VH)], fill=int(170 * (1 - x / 560) ** 1.4))
+    dark = Image.merge("RGBA", [Image.new("L", (VW, VH), 0)] * 3 + [shade]) if c1[0] > 128 else \
+           Image.merge("RGBA", [Image.new("L", (VW, VH), 255)] * 3 + [shade])
+    im.alpha_composite(dark)
+    def fit(L, maxw):
+        return L if L.width <= maxw else L.resize((maxw, int(L.height * maxw / L.width)), Image.LANCZOS)
+    big = [fit(_text(fnt, w, 150 if i == 0 else 120, fill=c1 if i == 0 else c2, stroke=ol, sw=14), VW - 90) for i, w in enumerate(words)]
+    if lay == "top":
+        y = 170
+        for L in big: im.alpha_composite(L, (int(VW / 2 - L.width / 2), y)); y += L.height - 10
+    elif lay == "bottom_left":
+        y = VH - 330 - sum(L.height - 10 for L in big)
+        for L in big: im.alpha_composite(L, (55, y)); y += L.height - 10
+    elif lay == "band":
+        bh = sum(L.height for L in big) + 60; y0 = int(VH * 0.09)   # faces sit in the middle/lower half
+        band = Image.new("RGBA", (VW, bh), (*ol, 175)); im.alpha_composite(band, (0, y0)); y = y0 + 30
+        for L in big: im.alpha_composite(L, (int(VW / 2 - L.width / 2), y)); y += L.height
+    elif lay == "split":
+        im.alpha_composite(big[0], (int(VW / 2 - big[0].width / 2), 150))
+        if len(big) > 1: im.alpha_composite(big[1], (int(VW / 2 - big[1].width / 2), VH - big[1].height - 330))
+    else:   # side: words stacked down the left edge, one per line, smaller
+        y = 150
+        for w in " ".join(words).split():
+            L = fit(_text(fnt, w, 104, fill=c1, stroke=ol, sw=11), 480); im.alpha_composite(L, (40, y)); y += L.height - 6
+    tag = _text(fnt, spec.get("brand", "MIDLIFE COMMUTER"), 58, fill=c1, stroke=ol, sw=8)
+    tx = 55 if lay in ("bottom_left", "side") else int(VW / 2 - tag.width / 2)
+    im.alpha_composite(tag, (tx, VH - tag.height - 150))
     im.convert("RGB").save(out_jpg, quality=92)
     return out_jpg
 
