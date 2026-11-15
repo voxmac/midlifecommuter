@@ -32,7 +32,7 @@ for i, seed in enumerate(spec.get("seeds", [11, 22, 33, 44])):
                              caption=spec["style"] + ", " + ext.get("caption", "the last line is sung completely, then a gentle short outro that ends naturally"),
                              lyrics=spec["lyrics"], bpm=spec.get("bpm"), keyscale=spec.get("key", ""),
                              timesignature=spec.get("time", "4"), vocal_language=spec.get("lang", "en"),
-                             duration=ext["end"], inference_steps=8, guidance_scale=1.0, seed=seed)
+                             duration=ext.get("total", ext["end"]), inference_steps=8, guidance_scale=1.0, seed=seed)
     else:
         p = GenerationParams(task_type="text2music", thinking=True, caption=spec["style"], lyrics=spec["lyrics"],
                          bpm=spec.get("bpm"), keyscale=spec.get("key", ""), timesignature=spec.get("time", "4"),
@@ -67,7 +67,7 @@ def produce_song(spec):
         sh(f"sed -i 's/self.dtype = torch.float16/self.dtype = torch.float32/' {ACE_DIR}/acestep/core/generation/handler/init_service_orchestrator.py")
     if spec.get("extend"):
         src = find_input(spec["extend"]["from"]); assert src, "extend: source take not in assets"
-        spec = {**spec, "_src": "/tmp/extend_src.wav"}; sh(f'ffmpeg -loglevel error -y -i "{src}" -ar 48000 -ac 2 -t {spec["extend"]["end"]} /tmp/extend_src.wav')
+        spec = {**spec, "_src": "/tmp/extend_src.wav"}; sh(f'ffmpeg -loglevel error -y -i "{src}" -ar 48000 -ac 2 -t {spec["extend"].get("total", spec["extend"]["end"])} /tmp/extend_src.wav')
     else:
         need = fit_seconds(spec)
         if spec.get("duration", 120) < need:   # a short duration cuts the last lines off: give every lyric line room
@@ -78,9 +78,33 @@ def produce_song(spec):
     vers = json.load(open(f"{E}/versions.json"))
     for v in vers:   # mp3 for listening on a phone, wav kept for the edit
         w = f"{E}/{v['file']}"; sh(f'ffmpeg -loglevel error -y -i "{w}" -af loudnorm=I=-14:TP=-1.5 -b:a 192k "{w[:-4]}.mp3"')
+    if spec.get("voice", "male") == "male":
+        try: voice_check(E, vers, spec)
+        except Exception as ex: print("voice check skipped:", ex, flush=True)
     json.dump({"episode": spec["id"], "type": "song", "title": spec.get("title"), "versions": vers,
                "minutes_total": round((time.time() - t0) / 60, 1)}, open(f"{E}/report.json", "w"), indent=1)
     print("DONE", E, flush=True)
+
+def voice_check(E, vers, spec):
+    """Separate each version's vocals (demucs) and flag passages sung clearly above a male chest voice: ACE-Step sometimes
+    lets a high chorus slide into a female voice. v["voice"] = {"high_share", "high": [[start, end], ...]}."""
+    sh("pip install -q demucs librosa soundfile")
+    import numpy as np, librosa
+    lim = spec.get("voice_max_hz", 370.0)   # ~F#4: a baritone rarely holds notes above this
+    for v in vers:
+        w = f"{E}/{v['file']}"; sh(f'python -m demucs --two-stems=vocals -n htdemucs -o /tmp/sep "{w}"')
+        voc = glob.glob(f"/tmp/sep/htdemucs/{os.path.basename(w)[:-4]}/vocals.wav")[0]
+        y, sr = librosa.load(voc, sr=16000, mono=True)
+        f0, _, _ = librosa.pyin(y, fmin=70, fmax=1000, sr=sr, frame_length=1024, hop_length=320)
+        t = librosa.times_like(f0, sr=sr, hop_length=320); ok = ~np.isnan(f0)
+        hi = ok & (f0 > lim); segs, a = [], None
+        for i, h in enumerate(list(hi) + [False]):
+            if h and a is None: a = i
+            if not h and a is not None:
+                if t[min(i, len(t) - 1)] - t[a] >= 1.0: segs.append([round(float(t[a]), 1), round(float(t[min(i, len(t) - 1)]), 1)])
+                a = None
+        v["voice"] = {"high_share": round(float(hi.sum() / max(1, ok.sum())), 2), "high": segs}
+        print("voice", v["file"], v["voice"], flush=True)
 
 PREP = r'''
 import json, re, sys, difflib, subprocess
