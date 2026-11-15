@@ -1,0 +1,29 @@
+name: voicecheck
+# Vocal-pitch check of an existing song release (CPU). Comments the result on the given issue.
+on:
+  workflow_dispatch:
+    inputs:
+      tag: {description: "Release tag, e.g. MC05-1115-0746", required: true}
+      issue: {description: "Issue number to comment on", required: true}
+permissions: {contents: read, issues: write}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", REPO: "${{ github.repository }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q demucs librosa soundfile
+          mkdir O && gh release download "${{ github.event.inputs.tag }}" -R $REPO -p '*.mp3' -p report.json -D O
+          python tools/voice_check.py O
+          python - <<'PY' > body.md
+          import json
+          r = json.load(open("O/report.json")); print("**Voice check** (vocals separated, pitch above 370 Hz held ≥1 s):\n")
+          for v in r["versions"]:
+              vc = v["voice"]; print(f"- v{v['version']}: " + ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"])))
+          PY
+          gh issue comment ${{ github.event.inputs.issue }} -R $REPO --body-file body.md
