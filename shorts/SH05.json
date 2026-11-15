@@ -7,10 +7,7 @@
  "gpu": "L40S",
  "lead": "mh",
  "retake": [
-  "S8",
-  "S9",
-  "S12",
-  "S15"
+  "S12"
  ],
  "thumb": {
   "text": [
@@ -429,7 +426,7 @@
   {
    "lines": "intro",
    "end": 65.2,
-   "plate": "a cozy Korean apartment dining room at night seen at eye level, a dining table with half-eaten dinner, warm pendant light, a window with night city lights",
+   "plate": "a cozy Korean apartment dining room at night seen at eye level, warm beige wallpaper with a framed family photo and a wall clock, a dining table with half-eaten dinner behind the family, warm pendant light, no windows",
    "cast": [
     {
      "char": "mh",
@@ -470,12 +467,12 @@
    "motion": "the family laughs together around the table, the children giggle, the father laughs warmly, the pendant light glows, the camera stays on this one view",
    "must": [
     "a dining table",
-    "a window with city lights"
+    "a framed photo on the wall"
    ],
    "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?",
+    "Are there more people than one man, one woman and two children?",
     "Does the picture suddenly change into a different scene or camera angle?",
-    "Are there more people than one man, one woman and two children?"
+    "Is there a bicycle, motorbike or vehicle anywhere in the picture?"
    ]
   },
   {

@@ -244,10 +244,7 @@
   ]
  },
  "retake": [
-  "S8",
-  "S9",
-  "S12",
-  "S15"
+  "S12"
  ],
  "upload": {
   "title": "이십 년 만에 저녁 일곱 시에 집에 왔다 | 저녁 일곱 시의 식탁 #shorts",
@@ -796,7 +793,7 @@
     60.6,
     65.2
    ],
-   "plate": "a cozy Korean apartment dining room at night seen at eye level, a dining table with half-eaten dinner, warm pendant light, a window with night city lights",
+   "plate": "a cozy Korean apartment dining room at night seen at eye level, warm beige wallpaper with a framed family photo and a wall clock, a dining table with half-eaten dinner behind the family, warm pendant light, no windows",
    "camera": {
     "move": "push",
     "amount": 0.04
@@ -851,12 +848,12 @@
    ],
    "must": [
     "a dining table",
-    "a window with city lights"
+    "a framed photo on the wall"
    ],
    "avoid": [
-    "Is any dish, bowl, spoon or object floating in the air?",
+    "Are there more people than one man, one woman and two children?",
     "Does the picture suddenly change into a different scene or camera angle?",
-    "Are there more people than one man, one woman and two children?"
+    "Is there a bicycle, motorbike or vehicle anywhere in the picture?"
    ]
   },
   {
