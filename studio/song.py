@@ -106,6 +106,7 @@ def voice_check(E, vers, spec):
 PREP = r'''
 import json, re, sys, difflib, subprocess
 spec, src, out = json.load(open(sys.argv[1])), sys.argv[2], sys.argv[3]
+__import__("shutil").rmtree("/tmp/sep", ignore_errors=True)   # one song per run: never pick up an earlier version's vocals
 subprocess.run([sys.executable, "-m", "demucs", "--two-stems", "vocals", "-n", "htdemucs", "-o", "/tmp/sep", src], check=True)
 voc = next(__import__("glob").iglob("/tmp/sep/htdemucs/*/vocals.wav"))
 subprocess.run(f"cp {voc} {out}/{spec['id']}_vocals.wav", shell=True, check=True)

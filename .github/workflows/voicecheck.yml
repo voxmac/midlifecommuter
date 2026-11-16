@@ -23,9 +23,12 @@ jobs:
           for d in /tmp/chk_v*; do echo "== $d"; python -c "import json,sys;[print(l['line'],l.get('start'),l.get('end'),l.get('matched'),'/',l.get('words')) for l in json.load(open(sys.argv[1]))['lines']]" $d/timing.json; done | tee lines.txt
           python - <<'PY' > body.md
           import json
-          r = json.load(open("O/report.json")); print("**Voice check** (vocals separated, pitch above 370 Hz held ≥1 s):\n")
+          r = json.load(open("O/report.json")); print("**Song check** (vocals separated per version; lyrics aligned; male songs: pitch above 370 Hz held ≥1 s):\n")
           for v in r["versions"]:
-              vc = v.get("voice", {"high": []}); print(f"- v{v['version']}: " + ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"])))
+              vc = v.get("voice"); miss = v.get("lyrics_missing")
+              txt = "" if vc is None else ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"]))
+              txt += "" if miss is None else ((" · " if txt else "") + ("✅ every line sung" if not miss else "⚠ not heard: " + " / ".join(miss)))
+              print(f"- v{v['version']}: {txt}")
           PY
           { echo; echo '<details><summary>line timings per version</summary>'; echo; echo '```'; cat lines.txt; echo '```'; echo '</details>'; } >> body.md
           gh issue comment ${{ github.event.inputs.issue }} -R $REPO --body-file body.md
