@@ -211,25 +211,47 @@
    "lines": [
     5
    ],
-   "plate": "a long steep stone stairway street in an old Seoul hillside neighborhood at night, small houses on both sides, street lamps, a big full moon above",
+   "plate": "a walking path inside a Korean apartment complex at night, street lamps, trees, apartment buildings with lit windows, no road",
    "expr": "walk",
    "place": {
-    "h": 0.42,
-    "cx": 0.45,
+    "h": 0.48,
+    "cx": 0.4,
     "foot": 0.95
    },
-   "motion": "the woman climbs the long steep stairs step by step, the street lamps glow, the moon shines above",
+   "motion": "the woman walks quickly along the lamp-lit path toward her building, the leaves sway, the street lamps glow",
    "must": [
-    "a long stairway",
-    "a full moon"
+    "street lamps",
+    "apartment buildings"
    ],
    "avoid": [
     "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "still": true,
-   "_id": "S10"
+   "end": 46.8,
+   "_id": "S8"
+  },
+  {
+   "lines": [
+    5
+   ],
+   "plate": "inside a Korean apartment elevator at night, brushed metal walls, a lit floor number panel",
+   "expr": "lookup",
+   "place": {
+    "h": 0.56,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the woman looks up at the floor numbers counting up and takes a breath, the elevator light hums",
+   "must": [
+    "elevator walls",
+    "a floor number panel"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ],
+   "_id": "S9"
   },
   {
    "lines": [
