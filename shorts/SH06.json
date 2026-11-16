@@ -8,12 +8,7 @@
  "lead": "wm",
  "cold_open": 4,
  "retake": [
-  "S6",
-  "S7",
-  "S10",
-  "S12",
-  "S13",
-  "S14"
+  "S13"
  ],
  "thumb": {
   "text": [
@@ -334,7 +329,7 @@
    "lines": [
     7
    ],
-   "plate": "the front entrance of a Korean apartment at night, warm light from inside, a shoe cabinet",
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment at night seen at eye level, warm golden light pouring from the living room, a wooden shoe cabinet, plain walls, no windows, no glass doors",
    "expr": "smile",
    "place": {
     "h": 0.5,
@@ -352,7 +347,8 @@
    "camera": {
     "move": "none",
     "amount": 0.0
-   }
+   },
+   "still": true
   },
   {
    "lines": [

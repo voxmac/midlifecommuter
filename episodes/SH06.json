@@ -287,12 +287,7 @@
  "captions": true,
  "props": {},
  "retake": [
-  "S6",
-  "S7",
-  "S10",
-  "S12",
-  "S13",
-  "S14"
+  "S13"
  ],
  "upload": {
   "title": "회사에서 퇴근, 집으로 출근하는 엄마 | 퇴근 없는 퇴근 #shorts",
@@ -722,7 +717,7 @@
     51.59,
     55.38
    ],
-   "plate": "the front entrance of a Korean apartment at night, warm light from inside, a shoe cabinet",
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment at night seen at eye level, warm golden light pouring from the living room, a wooden shoe cabinet, plain walls, no windows, no glass doors",
    "camera": {
     "move": "none",
     "amount": 0.0
@@ -743,7 +738,8 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "id": "S14",
