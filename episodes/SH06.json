@@ -244,6 +244,15 @@
  "cap_size": 60,
  "cap_line": true,
  "top_label": null,
+ "title_card": {
+  "font": "pen",
+  "colors": "night",
+  "text": [
+   "회사에서 퇴근",
+   "집으로 출근"
+  ],
+  "until": 4.5
+ },
  "qc": false,
  "budget_min": 220,
  "wan_min": 8,

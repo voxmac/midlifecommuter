@@ -73,3 +73,4 @@ Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직
 - No cold open (starting on the hook then jumping back felt awkward). The Short starts on the song's first sung line 1 s in
   (make_short trims the intro so line 1 begins at 1.0 s). The first verse line and the first picture carry the hook.
 - Child in bed: the plate must have no bed of its own (the bed comes with the cutout) -> "no bed in the room", avoid "two beds".
+- Title card (user, 2026-11-17): the thumbnail title (same font/colours) fades in semi-transparent over the first sung line and fades out (~0.2-4.5 s, upper fifth of the frame). Default for every Short; "title_card": false to turn off.

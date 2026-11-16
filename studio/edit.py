@@ -244,7 +244,21 @@ def overlay(spec, tl, total, body, out, font_path, ff, voice_tl=(), chapter_out=
             CAP.append((on, off, imgs, pos, None, None))
 
     TOPL = _text(font_path, spec["top_label"], 58, stroke=NAVY, sw=8) if spec.get("top_label") else None
+    # title card: the thumbnail's title (same font and colours) fades in over the first sung line and fades away
+    TC = spec.get("title_card")
+    if TC and TC.get("text"):
+        tf = _thumb_font(TC.get("font", "jua"), font_path)
+        c1, c2, olc = THUMB_COLORS.get(TC.get("colors", "warm"), THUMB_COLORS["warm"])
+        TCL = [_text(tf, w, 118 if i == 0 else 96, fill=c1 if i == 0 else c2, stroke=olc, sw=12) for i, w in enumerate(TC["text"][:2])]
+        TCL = [im if im.width <= VW - 80 else im.resize((VW - 80, int(im.height * (VW - 80) / im.width)), Image.LANCZOS) for im in TCL]
+        tc_on, tc_off = TC.get("from", 0.2), TC.get("until", 3.6); tc_a = TC.get("alpha", 0.82); tc_y = VH * TC.get("y", 0.2)
+    else: TCL = []
     def draw_common(fr, t):
+        if TCL and tc_on <= t < tc_off:
+            a = tc_a * min(1, (t - tc_on) / 0.45) * min(1, (tc_off - t) / 0.9)
+            y = tc_y - 6 * _ease(min(1, (t - tc_on) / 0.6))
+            for i, im in enumerate(TCL):
+                _paste(fr, im, VW / 2, y + i * (TCL[0].height - 6), 1.0, a)
         if TOPL is not None:   # series name fixed at the top, like a title card (MIDLIFE COMMUTER shorts)
             _paste(fr, TOPL, VW / 2, 200 if VH > VW else 70, 1.0, 1.0)
         if L_HOOK and 0.15 < t < 2.55:

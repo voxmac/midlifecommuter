@@ -153,6 +153,8 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
         "thumb": {**_thumb_style(plan), **plan.get("thumb", {})},
         "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.83), "cap_size": plan.get("cap_size", 60), "cap_line": True, "top_label": plan.get("top_label"),
+        "title_card": None if plan.get("title_card") is False else {**{k: v for k, v in _thumb_style(plan).items() if k in ("font", "colors")},
+                       "text": plan.get("thumb", {}).get("text", []), "until": round(min(ends[0] + 0.4, 4.5), 2), **(plan.get("title_card") or {})},
         "qc": plan.get("qc", True), "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
         "props": plan.get("props", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
