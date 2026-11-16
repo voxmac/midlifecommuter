@@ -9,7 +9,13 @@
  "key": "A major",
  "time": "4",
  "duration": 70,
- "seeds": [801, 802, 803, 804],
+ "seeds": [
+  801,
+  802,
+  803,
+  804
+ ],
  "lyrics": "[Verse]\n퇴근 버스 창가에 기대어\n장 볼 목록을 다시 적는다\n회사에선 엄마를 내려놓고\n현관에선 직원을 내려놓네\n\n[Chorus]\n회사에서 퇴근, 집으로 출근\n두 개의 바위를 굴리는 하루\n시시포스도 웃었다는데\n나도 오늘은 웃어 볼래\n잠든 아이 이마에 입 맞추면\n그게 나의 진짜 퇴근이야",
- "note": "Song 6 (plan sec.5): the working mom (M's wife: she works while M, after leaving the company, cooks dinner). Camus, Sisyphus (two boulders). Hooks: 회사에서 퇴근, 집으로 출근 / 그게 나의 진짜 퇴근이야. Female solo; vocals from the first bar."
+ "note": "Song 6 (plan sec.5): the working mom (M's wife: she works while M, after leaving the company, cooks dinner). Camus, Sisyphus (two boulders). Hooks: 회사에서 퇴근, 집으로 출근 / 그게 나의 진짜 퇴근이야. Female solo; vocals from the first bar.",
+ "pick": 3
 }
