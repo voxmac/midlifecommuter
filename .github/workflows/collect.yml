@@ -63,7 +63,7 @@ jobs:
             age=$(( ($(date +%s) - $(date -d "$(cat state/pending/$e)" +%s)) / 60 ))
             if echo "$st" | grep -q queued && [ $age -gt 40 ] && { [ -f songs/$e.json ] || [ -f cast/$e.json ]; }; then
               echo "$e queued on Kaggle for $age min -> Modal"; done_with $e || exit 1; close_running $e
-              gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"; continue
+              [ -f state/no_modal ] || gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"; continue
             fi
             case "$st" in
               *complete*)
@@ -79,7 +79,7 @@ jobs:
                 if python -c "import json,sys;sys.exit(0 if json.load(open('$E/report.json')).get('pending') else 1)" 2>/dev/null; then
                   gh issue comment $(gh issue list --state open --search "in:title \"Review: $e\"" --json number --jq '.[0].number') \
                     --body "Kaggle ran out of session time for some scenes (still pictures for now). Finishing them on Modal automatically." || true
-                  gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"
+                  [ -f state/no_modal ] || gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"
                 fi ;;
               *error*|*cancel*)
                 done_with $e || echo "::warning::could not record $e as collected (push refused) - continuing"
@@ -89,7 +89,7 @@ jobs:
                   [ -n "$LOG" ] && python -c "import json,sys;print(''.join(x.get('data','') for x in json.load(open(sys.argv[1])))[-3500:])" "$LOG" 2>/dev/null || tail -c 3500 "$LOG"; echo '```'; } > body.md
                 gh issue create --title "Kaggle failed: $e" --body-file body.md
                 close_running $e
-                gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal" ;;
+                [ -f state/no_modal ] || gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal" ;;
             esac
           done
           ls state/pending 2>/dev/null | grep -q . || break
