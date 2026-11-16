@@ -126,7 +126,7 @@ for n, sc in enumerate(plan["scenes"]):
     ls = sc["lines"]
     a = 0.0 if n == 0 else shots[-1]["slot"][1]
     nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
-    if ls == "cold": b = COLD[3]
+    if ls == "cold": b = sc.get("vend", COLD[3])   # several cold-open shots: "vend" = video time where this one ends
     elif sc.get("end"): b = sc["end"]   # split a long instrumental intro into several scenes ("lines": "intro", "end": s)
     else: b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.5, "cx": 0.5, "foot": 0.95, "shadow": 0.45, **sc.get("place", {})}

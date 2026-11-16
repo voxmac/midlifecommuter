@@ -1,0 +1,434 @@
+{
+ "id": "SH06",
+ "slug": "퇴근없는퇴근",
+ "song": "MC06",
+ "pick": 3,
+ "seconds": 78.0,
+ "gpu": "L40S",
+ "lead": "wm",
+ "cold_open": 4,
+ "retake": [],
+ "thumb": {
+  "text": [
+   "회사에서 퇴근",
+   "집으로 출근"
+  ]
+ },
+ "upload": {
+  "title": "회사에서 퇴근, 집으로 출근하는 엄마 | 퇴근 없는 퇴근 #shorts",
+  "description": "회사에서 퇴근, 집으로 출근.\n두 개의 바위를 굴리는 하루.\n\n카뮈는 말했습니다. 바위를 굴리는 시시포스도 행복하다고 상상해야 한다고.\n그런데 오늘, 현관문을 열었더니…\n\n🎵 퇴근 없는 퇴근 - MIDLIFE COMMUTER\n💬 오늘 당신의 '진짜 퇴근'은 언제였나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#워킹맘 #직장맘 #퇴근 #엄마 #육아 #시시포스 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "워킹맘",
+   "직장맘",
+   "퇴근",
+   "엄마",
+   "육아",
+   "맞벌이",
+   "위로 노래",
+   "직장인 공감",
+   "시시포스",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "scenes": [
+  {
+   "lines": "cold",
+   "vend": 3.7,
+   "plate": "a dark Korean office at night seen at eye level, rows of empty desks, most lights off, one desk lamp on, a wall clock showing past nine",
+   "expr": "phone",
+   "place": {
+    "h": 0.55,
+    "cx": 0.5,
+    "foot": 0.95
+   },
+   "motion": "the woman stands at her desk and looks down at her phone with a tired face, the desk lamp glows, the dark office stays still",
+   "must": [
+    "office desks",
+    "a desk lamp",
+    "a phone in her hand"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": "cold",
+   "plate": "the closed front door of a Korean apartment at night seen from the hallway at eye level, a door number plate, a digital door lock, a dim hallway light",
+   "expr": "back",
+   "place": {
+    "h": 0.55,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the woman stands still in front of the closed door and takes a deep breath, the hallway light flickers softly",
+   "must": [
+    "a closed front door",
+    "a door lock"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the door open?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    0
+   ],
+   "plate": "inside a Korean city bus at night seen at eye level, rows of seats, warm interior lights, dark windows with blurred city lights",
+   "expr": "sigh",
+   "place": {
+    "h": 0.55,
+    "cx": 0.35,
+    "foot": 0.95
+   },
+   "extras": "a few tired office workers sitting on the bus seats, dozing",
+   "motion": "the woman stands by the bus window with a tired sigh, the city lights drift past the dark windows, the seated passengers doze",
+   "must": [
+    "bus seats",
+    "bus windows"
+   ],
+   "avoid": [
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is any person floating or merged into a seat?"
+   ]
+  },
+  {
+   "lines": [
+    1
+   ],
+   "end": 21.0,
+   "plate": "inside a Korean city bus at night, close view by the window, a hand strap, warm interior light, blurred city lights outside",
+   "expr": "phone",
+   "place": {
+    "h": 0.6,
+    "cx": 0.5,
+    "foot": 1.0
+   },
+   "motion": "the woman looks down at her phone and taps the screen, the city lights drift past behind her",
+   "must": [
+    "bus windows",
+    "a phone in her hand"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    1
+   ],
+   "plate": "a bright Korean supermarket aisle at night seen at eye level, shelves of vegetables, ramen and milk, a shopping basket on the floor",
+   "expr": "walk",
+   "place": {
+    "h": 0.5,
+    "cx": 0.45,
+    "foot": 0.95
+   },
+   "motion": "the woman walks quickly along the supermarket aisle, the shelves pass by, the lights glow",
+   "must": [
+    "supermarket shelves"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is any object floating in the air?"
+   ]
+  },
+  {
+   "lines": [
+    2
+   ],
+   "plate": "a bright Korean office in the daytime seen at eye level, desks with monitors, a glass meeting room behind, a big window with soft daylight",
+   "cast": [
+    {
+     "char": "wm",
+     "place": {
+      "h": 0.52,
+      "cx": 0.32,
+      "foot": 0.95
+     },
+     "expr": "sigh"
+    },
+    {
+     "char": "boss",
+     "place": {
+      "h": 0.53,
+      "cx": 0.68,
+      "foot": 0.95
+     },
+     "flip": true
+    }
+   ],
+   "motion": "the boss talks and points at a document, the woman nods with a forced polite smile, the monitors glow",
+   "must": [
+    "office desks with monitors"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one woman and one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    3
+   ],
+   "plate": "the front entrance hallway (hyeongwan) inside a Korean apartment at night seen at eye level, a shoe cabinet, family shoes on the floor, warm light from the living room",
+   "expr": "smile",
+   "place": {
+    "h": 0.56,
+    "cx": 0.5,
+    "foot": 0.95
+   },
+   "motion": "the woman stands at the entrance and her tired face slowly softens into a small smile, warm light glows from inside",
+   "must": [
+    "a shoe cabinet",
+    "shoes on the floor"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    4
+   ],
+   "end": 39.4,
+   "plate": "a walking path inside a Korean apartment complex at night, street lamps, trees, apartment buildings with lit windows, no road",
+   "expr": "walk",
+   "place": {
+    "h": 0.48,
+    "cx": 0.4,
+    "foot": 0.95
+   },
+   "motion": "the woman walks quickly along the lamp-lit path toward her building, the leaves sway, the street lamps glow",
+   "must": [
+    "street lamps",
+    "apartment buildings"
+   ],
+   "avoid": [
+    "Is there a car, bicycle or motorbike anywhere in the picture?",
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    4
+   ],
+   "plate": "inside a Korean apartment elevator at night, brushed metal walls, a lit floor number panel",
+   "expr": "lookup",
+   "place": {
+    "h": 0.56,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the woman looks up at the floor numbers counting up and takes a breath, the elevator light hums",
+   "must": [
+    "elevator walls",
+    "a floor number panel"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    5
+   ],
+   "plate": "a long steep stone stairway street in an old Seoul hillside neighborhood at night, small houses on both sides, street lamps, a big full moon above",
+   "expr": "walk",
+   "place": {
+    "h": 0.42,
+    "cx": 0.45,
+    "foot": 0.95
+   },
+   "motion": "the woman climbs the long steep stairs step by step, the street lamps glow, the moon shines above",
+   "must": [
+    "a long stairway",
+    "a full moon"
+   ],
+   "avoid": [
+    "Is there a car, bicycle or motorbike anywhere in the picture?",
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    6
+   ],
+   "plate": "the top of a hillside stairway in Seoul at night, a low wall, the city lights spread far below, a big full moon",
+   "expr": "lookup",
+   "place": {
+    "h": 0.5,
+    "cx": 0.45,
+    "foot": 0.95
+   },
+   "motion": "the woman looks up at the full moon and a small smile spreads on her face, the city lights twinkle far below",
+   "must": [
+    "a full moon",
+    "city lights far below"
+   ],
+   "avoid": [
+    "Is there a car, bicycle or motorbike anywhere in the picture?",
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "end": 56.5,
+   "plate": "a warm Korean apartment dining room at night seen at eye level, a dining table already set with dinner, rice bowls and a stew pot, warm pendant light, no windows",
+   "cast": [
+    {
+     "char": "mh",
+     "place": {
+      "h": 0.5,
+      "cx": 0.3,
+      "foot": 0.95
+     },
+     "expr": "smile"
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.33,
+      "cx": 0.62,
+      "foot": 0.96
+     },
+     "flip": true
+    }
+   ],
+   "motion": "the father and the son smile and wave at the camera from the dinner table they prepared, steam rises from the stew pot, the pendant light glows",
+   "must": [
+    "a dining table with dinner",
+    "a pot on the table"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one man and one boy)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is any object floating in the air?",
+    "Is steam coming from somewhere other than the pot?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "plate": "the front entrance of a Korean apartment at night, warm light from inside, a shoe cabinet",
+   "expr": "smile",
+   "place": {
+    "h": 0.6,
+    "cx": 0.5,
+    "foot": 1.0
+   },
+   "motion": "the woman's eyes fill with surprise and then a big warm smile spreads across her face, warm light glows on her",
+   "must": [
+    "a shoe cabinet"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    8
+   ],
+   "plate": "a small Korean child's bedroom at night seen at eye level, a soft night lamp, star stickers on the wall, an empty wooden floor in the middle, no windows",
+   "cast": [
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.24,
+      "cx": 0.42,
+      "foot": 0.93
+     },
+     "expr": "bed"
+    },
+    {
+     "char": "wm",
+     "place": {
+      "h": 0.47,
+      "cx": 0.76,
+      "foot": 0.95
+     },
+     "expr": "smile",
+     "flip": true
+    }
+   ],
+   "motion": "the mother bends down gently toward her sleeping daughter with a loving smile, the girl sleeps peacefully, the night lamp glows",
+   "must": [
+    "a night lamp",
+    "star stickers on the wall"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one woman and one sleeping girl)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    9
+   ],
+   "plate": "a cozy Korean apartment living room at night seen at eye level, a sofa, a warm floor lamp, a family photo on the wall, no windows",
+   "cast": [
+    {
+     "char": "wm",
+     "place": {
+      "h": 0.5,
+      "cx": 0.35,
+      "foot": 0.95
+     },
+     "expr": "smile"
+    },
+    {
+     "char": "mh",
+     "place": {
+      "h": 0.53,
+      "cx": 0.65,
+      "foot": 0.95
+     },
+     "expr": "smile",
+     "flip": true
+    }
+   ],
+   "motion": "the wife and husband smile at each other warmly, she lets out a long relieved breath, the floor lamp glows",
+   "must": [
+    "a sofa",
+    "a floor lamp"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one woman and one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": "outro",
+   "plate": "the front entrance (hyeongwan) of a Korean apartment at night, four pairs of shoes lined up neatly including a pair of women's black heels, warm dim light",
+   "expr": "back",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the woman stands still looking toward the warm living room, the light glows softly, the shoes stay still",
+   "must": [
+    "shoes lined up on the floor"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Are any shoes moving?"
+   ]
+  }
+ ]
+}
