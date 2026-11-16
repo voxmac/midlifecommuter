@@ -6,9 +6,8 @@
  "seconds": 78.0,
  "gpu": "L40S",
  "lead": "wm",
- "cold_open": 4,
  "retake": [
-  "S13"
+  "S14"
  ],
  "thumb": {
   "text": [
@@ -35,47 +34,6 @@
  },
  "scenes": [
   {
-   "lines": "cold",
-   "vend": 3.7,
-   "plate": "a dark Korean office at night seen at eye level, rows of empty desks, most lights off, one desk lamp on, a wall clock showing past nine",
-   "expr": "phone",
-   "place": {
-    "h": 0.55,
-    "cx": 0.5,
-    "foot": 0.95
-   },
-   "motion": "the woman stands at her desk and looks down at her phone with a tired face, the desk lamp glows, the dark office stays still",
-   "must": [
-    "office desks",
-    "a desk lamp",
-    "a phone in her hand"
-   ],
-   "avoid": [
-    "Are there more than 1 people (one woman)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
-   ]
-  },
-  {
-   "lines": "cold",
-   "plate": "the closed front door of a Korean apartment at night seen from the hallway at eye level, a door number plate, a digital door lock, a dim hallway light",
-   "expr": "back",
-   "place": {
-    "h": 0.55,
-    "cx": 0.5,
-    "foot": 0.97
-   },
-   "motion": "the woman stands still in front of the closed door and takes a deep breath, the hallway light flickers softly",
-   "must": [
-    "a closed front door",
-    "a door lock"
-   ],
-   "avoid": [
-    "Are there more than 1 people (one woman)?",
-    "Does the door open?",
-    "Does the picture suddenly change into a different scene or camera angle?"
-   ]
-  },
-  {
    "lines": [
     0
    ],
@@ -95,7 +53,8 @@
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is any person floating or merged into a seat?"
-   ]
+   ],
+   "_id": "S3"
   },
   {
    "lines": [
@@ -117,7 +76,8 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "_id": "S4"
   },
   {
    "lines": [
@@ -138,7 +98,8 @@
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is any object floating in the air?"
-   ]
+   ],
+   "_id": "S5"
   },
   {
    "lines": [
@@ -173,7 +134,8 @@
     "Are there more than 2 people (one woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "still": true
+   "still": true,
+   "_id": "S6"
   },
   {
    "lines": [
@@ -195,7 +157,8 @@
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "still": true
+   "still": true,
+   "_id": "S7"
   },
   {
    "lines": [
@@ -218,7 +181,8 @@
     "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "_id": "S8"
   },
   {
    "lines": [
@@ -239,7 +203,8 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "_id": "S9"
   },
   {
    "lines": [
@@ -262,7 +227,8 @@
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "still": true
+   "still": true,
+   "_id": "S10"
   },
   {
    "lines": [
@@ -284,7 +250,8 @@
     "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "_id": "S11"
   },
   {
    "lines": [
@@ -323,7 +290,8 @@
     "Is any object floating in the air?",
     "Is steam coming from somewhere other than the pot?"
    ],
-   "still": true
+   "still": true,
+   "_id": "S12"
   },
   {
    "lines": [
@@ -348,13 +316,14 @@
     "move": "none",
     "amount": 0.0
    },
-   "still": true
+   "still": true,
+   "_id": "S13"
   },
   {
    "lines": [
     8
    ],
-   "plate": "a small Korean child's bedroom at night seen at eye level, a soft night lamp, star stickers on the wall, an empty wooden floor in the middle, no windows",
+   "plate": "a small cozy Korean child's bedroom at night seen at eye level, a soft glowing night lamp on a little table, star stickers and a child's drawings on the wall, a toy shelf, a rug on the empty wooden floor in the middle, no bed in the room, no windows",
    "cast": [
     {
      "char": "daughter",
@@ -382,8 +351,13 @@
     "star stickers on the wall"
    ],
    "avoid": [
+    "Are there two beds in the picture?",
     "Are there more than 2 people (one woman and one sleeping girl)?",
     "Does the picture suddenly change into a different scene or camera angle?"
+   ],
+   "_id": "S14",
+   "avoid_key": [
+    "Are there two beds in the picture?"
    ]
   },
   {
@@ -420,7 +394,8 @@
    "avoid": [
     "Are there more than 2 people (one woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "_id": "S15"
   },
   {
    "lines": "outro",
@@ -439,7 +414,8 @@
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Are any shoes moving?"
-   ]
+   ],
+   "_id": "S16"
   }
  ],
  "qc": false

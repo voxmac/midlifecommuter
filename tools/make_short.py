@@ -43,12 +43,12 @@ lines = [l.strip() for l in song["lyrics"].split("\n") if l.strip() and not l.st
 starts = [l["start"] for l in tm["lines"]]; ends = [l["end"] for l in tm["lines"]]
 assert len(lines) == len(starts), (len(lines), len(starts))
 heard = tm["heard"]
-SKIP = plan.get("skip", round(max(0.0, starts[0] - 0.6), 2) if starts[0] > 2.0 else 0.0)   # user: no long intros in Shorts
+SKIP = plan.get("skip", round(max(0.0, starts[0] - 1.0), 2) if starts[0] > 2.0 else 0.0)   # user: no long intros in Shorts
 COLD = None   # "cold_open": i -> the Short opens on lyric line i (the hook), then goes back to the first verse line
 if plan.get("cold_open") is not None:
     h = plan["cold_open"]; hs, he = round(starts[h] - 0.25, 2), round(ends[h] + 0.2, 2); C = round(he - hs, 2)
     vs = round(max(0.0, starts[0] - 0.6), 2); SKIP = round(vs - C, 2); COLD = (h, hs, he, C, vs)
-for i, sc in enumerate(plan["scenes"]): sc["_n"] = i + 1   # shot ids stay S<original number> (cached shots match)
+for i, sc in enumerate(plan["scenes"]): sc["_n"] = int(sc["_id"][1:]) if sc.get("_id") else i + 1   # shot ids stay S<original number> (cached shots match)
 if SKIP:   # scenes that sat only in the trimmed intro are dropped; absolute "end" times move with the song
     keep = []
     for sc in plan["scenes"]:

@@ -68,3 +68,8 @@ Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직
   first sung line starts 0.6 s in (`skip`; intro-only scenes are dropped, shot ids stay stable). Override with "skip": 0.
 - Thumbnails: 5 layouts x 5 fonts x 5 colour sets rotating per Short; the layout avoids the faces of the thumbnail scene; no
   channel-name mark unless thumb.brand is set.
+
+## Opening (user, 2026-11-17)
+- No cold open (starting on the hook then jumping back felt awkward). The Short starts on the song's first sung line 1 s in
+  (make_short trims the intro so line 1 begins at 1.0 s). The first verse line and the first picture carry the hook.
+- Child in bed: the plate must have no bed of its own (the bed comes with the cutout) -> "no bed in the room", avoid "two beds".
