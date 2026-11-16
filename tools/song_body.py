@@ -19,7 +19,7 @@ if r.get("type") == "songprep":
 print(f"## {r['episode']} — {r.get('title', '')}: {len(r['versions'])} versions to listen to\n")
 for v in r["versions"]:
     vc = v.get("voice")
-    tag = "" if not vc else (" — ✅ male voice throughout" if not vc["high"] else
+    tag = "" if not vc else (" — ✅ one voice throughout" if not vc["high"] else
           " — ⚠ high / possibly female voice at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"]))
     if "lyrics_missing" in v:
         tag += " — ✅ every line sung" if not v["lyrics_missing"] else " — ⚠ not heard: " + " / ".join(v["lyrics_missing"])

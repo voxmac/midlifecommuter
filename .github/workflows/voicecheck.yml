@@ -26,7 +26,7 @@ jobs:
           r = json.load(open("O/report.json")); print("**Song check** (vocals separated per version; lyrics aligned; male songs: pitch above 370 Hz held ≥1 s):\n")
           for v in r["versions"]:
               vc = v.get("voice"); miss = v.get("lyrics_missing")
-              txt = "" if vc is None else ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"]))
+              txt = "" if vc is None else ("✅ one voice throughout" if not vc["high"] else f"⚠ possibly a {vc.get('other', 'female')} voice at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"]))
               txt += "" if miss is None else ((" · " if txt else "") + ("✅ every line sung" if not miss else "⚠ not heard: " + " / ".join(miss)))
               print(f"- v{v['version']}: {txt}")
           PY

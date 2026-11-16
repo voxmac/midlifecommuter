@@ -360,8 +360,19 @@ def soundtrack(spec, tl, total, motion, out_wav, voice_tl=(), chapter=False):
         sp = f"/tmp/song_{spec['id']}.wav"
         subprocess.run([ffmpeg_bin(), "-loglevel", "error", "-y", "-i", asset(spec["song"]["file"]), "-ar", str(SR), "-ac", "2", sp], check=True)
         sr_, a_ = _wf.read(sp); a_ = a_.astype(np.float32) / 32768.0
-        sk = int(spec["song"].get("skip", 0.0) * SR)   # Shorts start close to the first sung line
-        if sk: a_ = a_[sk:].copy(); fi = min(len(a_), int(0.25 * SR)); a_[:fi] *= np.linspace(0, 1, fi)[:, None]
+        if spec["song"].get("segments"):   # cold open: [[hook from, to], [verse from, None]] joined with short crossfades
+            parts = [a_[int(x * SR): (int(y * SR) if y else None)].copy() for x, y in spec["song"]["segments"]]
+            xf = int(0.12 * SR); out = parts[0]
+            for q in parts[1:]:
+                out[-xf:] *= np.linspace(1, 0, xf)[:, None]; q[:xf] *= np.linspace(0, 1, xf)[:, None]
+                out = np.concatenate([out[:-xf], out[-xf:] + q[:xf], q[xf:]])
+            a_ = out
+        else:
+            sk = int(spec["song"].get("skip", 0.0) * SR)   # Shorts start close to the first sung line
+            if sk: a_ = a_[sk:].copy(); fi = min(len(a_), int(0.25 * SR)); a_[:fi] *= np.linspace(0, 1, fi)[:, None]
+        fo = int(1.5 * SR)   # the Short may end before the song does: fade out over the last 1.5 s
+        if len(a_) > N: a_ = a_[:N].copy()
+        if len(a_) >= fo and len(a_) >= N - 5: a_[-fo:] *= np.linspace(1, 0, fo)[:, None]
         music = np.zeros(N); i0 = int(spec["song"].get("at", 0.0) * SR); n_ = min(N - i0, len(a_))
         song_lr = np.zeros((N, 2)); song_lr[i0:i0 + n_] = a_[:n_]
     else:

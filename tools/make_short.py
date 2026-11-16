@@ -44,6 +44,10 @@ starts = [l["start"] for l in tm["lines"]]; ends = [l["end"] for l in tm["lines"
 assert len(lines) == len(starts), (len(lines), len(starts))
 heard = tm["heard"]
 SKIP = plan.get("skip", round(max(0.0, starts[0] - 0.6), 2) if starts[0] > 2.0 else 0.0)   # user: no long intros in Shorts
+COLD = None   # "cold_open": i -> the Short opens on lyric line i (the hook), then goes back to the first verse line
+if plan.get("cold_open") is not None:
+    h = plan["cold_open"]; hs, he = round(starts[h] - 0.25, 2), round(ends[h] + 0.2, 2); C = round(he - hs, 2)
+    vs = round(max(0.0, starts[0] - 0.6), 2); SKIP = round(vs - C, 2); COLD = (h, hs, he, C, vs)
 for i, sc in enumerate(plan["scenes"]): sc["_n"] = i + 1   # shot ids stay S<original number> (cached shots match)
 if SKIP:   # scenes that sat only in the trimmed intro are dropped; absolute "end" times move with the song
     keep = []
@@ -53,6 +57,7 @@ if SKIP:   # scenes that sat only in the trimmed intro are dropped; absolute "en
             sc = {**sc, "end": round(sc["end"] - SKIP, 2)}
         keep.append(sc)
     plan["scenes"] = keep
+    starts0 = list(starts)
     starts = [x - SKIP for x in starts]; ends = [x - SKIP for x in ends]
     heard = [[h[0], h[1] - SKIP, h[2] - SKIP] + list(h[3:]) for h in heard]
 units = [(ch, i, k) for i, l in enumerate(lines) for k, w in enumerate(l.split()) for ch in norm(w)]
@@ -72,6 +77,9 @@ for i, l in enumerate(lines):
     for j in range(1, len(out)):
         if out[j][1] < out[j - 1][1] + 0.05: out[j][1] = round(out[j - 1][1] + 0.12, 2); out[j][2] = max(out[j][2], out[j][1] + 0.15)
     lyrics_tl.append(out)
+if COLD:   # the hook line's words at the very start (its own audio segment), before the story begins
+    h, hs, he, C, vs = COLD
+    lyrics_tl.insert(0, [[w, round(a + SKIP - hs, 2), round(b + SKIP - hs, 2)] for w, a, b, *_ in lyrics_tl[h]])
 # ---- pre-flight lint: the mistakes found by hand in SH01, caught before any GPU time is spent ----
 import re as _re
 errors, notes = [], []
@@ -112,12 +120,14 @@ for x in notes: print("note:", x)
 if errors:
     print("\n".join("LINT: " + e for e in errors)); sys.exit("scene plan has problems; fix them before spending GPU time")
 total = round(plan["seconds"] - SKIP, 2)
+total = min(total, round(ends[-1] + plan.get("outro_sec", 4.0), 2))   # no long instrumental tail either
 shots = []
 for n, sc in enumerate(plan["scenes"]):
     ls = sc["lines"]
     a = 0.0 if n == 0 else shots[-1]["slot"][1]
     nxt = plan["scenes"][n + 1]["lines"] if n + 1 < len(plan["scenes"]) else None
-    if sc.get("end"): b = sc["end"]   # split a long instrumental intro into several scenes ("lines": "intro", "end": s)
+    if ls == "cold": b = COLD[3]
+    elif sc.get("end"): b = sc["end"]   # split a long instrumental intro into several scenes ("lines": "intro", "end": s)
     else: b = total if nxt is None else (ends[-1] + 0.3 if nxt == "outro" else starts[nxt[0]] - 0.15)
     place = {"h": 0.5, "cx": 0.5, "foot": 0.95, "shadow": 0.45, **sc.get("place", {})}
     shot = {"id": f"S{sc.get('_n', n + 1)}", "slot": [round(a, 2), round(b, 2)], "plate": sc["plate"],
@@ -137,7 +147,8 @@ for n, sc in enumerate(plan["scenes"]):
         if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
-        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "skip": SKIP, "sfx_vol": 0.0},
+        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "skip": SKIP, "sfx_vol": 0.0,
+                 **({"segments": [[COLD[1], COLD[2]], [COLD[4], None]]} if COLD else {})},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
         "thumb": {**_thumb_style(plan), **plan.get("thumb", {})},
