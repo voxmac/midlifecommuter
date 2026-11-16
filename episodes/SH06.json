@@ -445,63 +445,64 @@
    "still": true
   },
   {
-   "id": "S8",
+   "id": "S1",
    "slot": [
     23.73,
     27.38
    ],
-   "plate": "a walking path inside a Korean apartment complex at night, street lamps, trees, apartment buildings with lit windows, no road",
+   "plate": "a dark Korean office at night seen at eye level, rows of empty desks, most lights off, one desk lamp on, a wall clock showing past nine",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the woman walks quickly along the lamp-lit path toward her building, the leaves sway, the street lamps glow",
+   "motion": "the woman stands at her desk and looks down at her phone with a tired face, the desk lamp glows, the dark office stays still",
    "frames": 65,
    "char": "wm",
-   "expr": "walk",
+   "expr": "phone",
    "place": {
-    "h": 0.48,
-    "cx": 0.4,
+    "h": 0.55,
+    "cx": 0.5,
     "foot": 0.95,
     "shadow": 0.45
    },
    "must": [
-    "street lamps",
-    "apartment buildings"
+    "office desks",
+    "a desk lamp",
+    "a phone in her hand"
    ],
    "avoid": [
-    "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ]
   },
   {
-   "id": "S9",
+   "id": "S2",
    "slot": [
     27.38,
     30.79
    ],
-   "plate": "inside a Korean apartment elevator at night, brushed metal walls, a lit floor number panel",
+   "plate": "the closed front door of a Korean apartment at night seen from the hallway at eye level, a door number plate, a digital door lock, a dim hallway light",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the woman looks up at the floor numbers counting up and takes a breath, the elevator light hums",
+   "motion": "the woman stands still in front of the closed door and takes a deep breath, the hallway light flickers softly",
    "frames": 61,
    "char": "wm",
-   "expr": "lookup",
+   "expr": "back",
    "place": {
-    "h": 0.56,
+    "h": 0.55,
     "cx": 0.5,
     "foot": 0.97,
     "shadow": 0.45
    },
    "must": [
-    "elevator walls",
-    "a floor number panel"
+    "a closed front door",
+    "a door lock"
    ],
    "avoid": [
     "Are there more than 1 people (one woman)?",
+    "Does the door open?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ]
   },
