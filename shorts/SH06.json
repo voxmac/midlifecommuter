@@ -7,6 +7,7 @@
  "gpu": "L40S",
  "lead": "wm",
  "retake": [
+  "S10",
   "S14"
  ],
  "thumb": {
@@ -211,47 +212,30 @@
    "lines": [
     5
    ],
-   "plate": "a walking path inside a Korean apartment complex at night, street lamps, trees, apartment buildings with lit windows, no road",
+   "plate": "a long steep stone stairway street in an old Seoul hillside neighborhood at night seen at eye level, small houses with warm windows on both sides, old street lamps, a big full moon above, the stairs are empty, no vehicles, nobody else",
    "expr": "walk",
    "place": {
-    "h": 0.48,
-    "cx": 0.4,
+    "h": 0.42,
+    "cx": 0.45,
     "foot": 0.95
    },
-   "motion": "the woman walks quickly along the lamp-lit path toward her building, the leaves sway, the street lamps glow",
+   "motion": "the woman climbs the steep stairs step by step with tired but steady steps, her hair and bag sway with each step, the camera slowly follows her up the stairs, the street lamps glow, the moon shines, the stairs stay empty around her",
    "must": [
-    "street lamps",
-    "apartment buildings"
+    "a long stairway",
+    "a full moon",
+    "street lamps"
    ],
    "avoid": [
-    "Is there a car, bicycle or motorbike anywhere in the picture?",
+    "Is there a car, bicycle, scooter or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is the woman standing still without moving her legs?"
    ],
-   "end": 46.8,
-   "_id": "S8"
-  },
-  {
-   "lines": [
-    5
-   ],
-   "plate": "inside a Korean apartment elevator at night, brushed metal walls, a lit floor number panel",
-   "expr": "lookup",
-   "place": {
-    "h": 0.56,
-    "cx": 0.5,
-    "foot": 0.97
-   },
-   "motion": "the woman looks up at the floor numbers counting up and takes a breath, the elevator light hums",
-   "must": [
-    "elevator walls",
-    "a floor number panel"
-   ],
-   "avoid": [
-    "Are there more than 1 people (one woman)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
-   ],
-   "_id": "S9"
+   "_id": "S10",
+   "camera": {
+    "move": "tilt_up",
+    "amount": 0.1
+   }
   },
   {
    "lines": [

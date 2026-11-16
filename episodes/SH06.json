@@ -255,6 +255,7 @@
  "captions": true,
  "props": {},
  "retake": [
+  "S10",
   "S14"
  ],
  "upload": {
@@ -507,64 +508,36 @@
    ]
   },
   {
-   "id": "S8",
+   "id": "S10",
    "slot": [
     30.79,
-    34.78
+    38.39
    ],
-   "plate": "a walking path inside a Korean apartment complex at night, street lamps, trees, apartment buildings with lit windows, no road",
+   "plate": "a long steep stone stairway street in an old Seoul hillside neighborhood at night seen at eye level, small houses with warm windows on both sides, old street lamps, a big full moon above, the stairs are empty, no vehicles, nobody else",
    "camera": {
-    "move": "push",
-    "amount": 0.04
+    "move": "tilt_up",
+    "amount": 0.1
    },
-   "motion": "the woman walks quickly along the lamp-lit path toward her building, the leaves sway, the street lamps glow",
-   "frames": 69,
+   "motion": "the woman climbs the steep stairs step by step with tired but steady steps, her hair and bag sway with each step, the camera slowly follows her up the stairs, the street lamps glow, the moon shines, the stairs stay empty around her",
+   "frames": 121,
    "char": "wm",
    "expr": "walk",
    "place": {
-    "h": 0.48,
-    "cx": 0.4,
+    "h": 0.42,
+    "cx": 0.45,
     "foot": 0.95,
     "shadow": 0.45
    },
    "must": [
-    "street lamps",
-    "apartment buildings"
+    "a long stairway",
+    "a full moon",
+    "street lamps"
    ],
    "avoid": [
-    "Is there a car, bicycle or motorbike anywhere in the picture?",
+    "Is there a car, bicycle, scooter or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
-   ]
-  },
-  {
-   "id": "S9",
-   "slot": [
-    34.78,
-    38.39
-   ],
-   "plate": "inside a Korean apartment elevator at night, brushed metal walls, a lit floor number panel",
-   "camera": {
-    "move": "push",
-    "amount": 0.04
-   },
-   "motion": "the woman looks up at the floor numbers counting up and takes a breath, the elevator light hums",
-   "frames": 65,
-   "char": "wm",
-   "expr": "lookup",
-   "place": {
-    "h": 0.56,
-    "cx": 0.5,
-    "foot": 0.97,
-    "shadow": 0.45
-   },
-   "must": [
-    "elevator walls",
-    "a floor number panel"
-   ],
-   "avoid": [
-    "Are there more than 1 people (one woman)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is the woman standing still without moving her legs?"
    ]
   },
   {
