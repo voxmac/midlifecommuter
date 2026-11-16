@@ -167,6 +167,7 @@ BIBLE = {
          "dark trousers, brown shoes, holding a worn brown leather briefcase",
     "mh": "the same middle-aged Korean man after leaving his company, short black hair graying at the temples, round thin-framed glasses, "
           "heather-grey knit cardigan over a white t-shirt, loose navy trousers, grey slip-on shoes, empty hands",
+    "wm": "the mother, a Korean woman about 40 with long wavy brown hair, light beige blazer over a white blouse, black slacks, a black shoulder bag, a company ID badge",
     "jun": "a Korean young man about 26, a job seeker, slim, messy short black hair, light grey hoodie over a white t-shirt, dark jeans, white sneakers",
     "jmom": "his mother, a Korean woman in her late 50s, short permed black hair with some grey, floral blouse under a padded purple vest",
     # M's people: family, office, friend (same 3D animated look)
@@ -401,7 +402,7 @@ CAST_BG = (138, 143, 153)
 NAMES = {"pip": "duckling", "momo": "pink frog", "tock": "baby turtle", "bibi": "little pink cloud", "m": "middle-aged office worker man",
          "wife": "woman", "son": "boy", "daughter": "little girl", "junior": "young office worker", "boss": "older manager", "friend": "chubby man",
          "grandma": "grandmother", "grandpa": "grandfather", "mh": "middle-aged man with round glasses in a grey knit cardigan",
-         "jun": "young man in a grey hoodie", "jmom": "older woman"}
+         "jun": "young man in a grey hoodie", "wm": "woman in a beige blazer", "jmom": "older woman"}
 EDITS = {
     "sad": "Change only the facial expression: the {n} is crying sadly with big tears rolling down and a downturned mouth.",
     "laugh": "Change only the facial expression: the {n} is laughing out loud with joy, eyes squeezed shut into happy curves, mouth wide open.",
@@ -426,6 +427,9 @@ EDITS = {
     "wallet": "Make the {n} look down sadly at an open wallet held in both hands, the briefcase standing at his feet.",
 }
 # M after leaving the company (songs 2+ of the second-life arc): his own face and hair, everyday clothes, no badge or briefcase
+EDITS["office"] = ("Change only her clothes to neat office wear: a light beige blazer over a white blouse, black slacks, low black heels, "
+                   "a small black shoulder bag on one shoulder and a company ID badge on a lanyard. Same face, hair and body, standing, "
+                   "calm tired-but-kind expression, full body from head to shoes.")
 EDITS["home"] = ("Change only his clothes to comfortable everyday home wear: a soft heather-grey knit cardigan over a plain white "
                  "crew-neck t-shirt, loose navy cotton trousers and grey slip-on shoes. Remove the coat, the shirt collar, the tie, "
                  "the ID badge and lanyard, and the briefcase; both hands empty and relaxed at his sides. Same face, glasses, hair and "
@@ -448,7 +452,9 @@ EDITS_JUN = {
     "lookup": "Make the {n} raise his chin and gaze up toward the sky with a calm, determined, hopeful smile, both hands empty. Same hoodie, jeans and sneakers.",
     "back": "Show the {n} from behind, standing still and looking ahead, arms relaxed at his sides, same hoodie, jeans and sneakers.",
 }
-EDITS_BY_CHAR = {"mh": EDITS_MH, "jun": EDITS_JUN}
+EDITS_WM = {k: v.replace("hoodie, jeans and sneakers", "blazer, blouse, slacks and shoulder bag").replace("his ", "her ").replace(" he ", " she ")
+            for k, v in EDITS_JUN.items()}
+EDITS_BY_CHAR = {"mh": EDITS_MH, "jun": EDITS_JUN, "wm": EDITS_WM}
 KEEP = " Keep exactly the same character design, colours, proportions and glossy 3D animated style. Plain light grey background."
 
 def cast_candidates_edit(spec, out_dir):
