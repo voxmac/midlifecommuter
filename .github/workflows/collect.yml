@@ -67,7 +67,7 @@ jobs:
             fi
             case "$st" in
               *complete*)
-                done_with $e || exit 1
+                done_with $e || echo "::warning::could not record $e as collected (push refused) - continuing"
                 rm -rf dl && mkdir dl && kaggle kernels output $slug -p dl -q
                 E=$(find dl -type d -name "$e" | head -1); [ -n "$E" ] || E=dl
                 cp $(ls dl/*.log 2>/dev/null | head -1) $E/run.log 2>/dev/null || true
@@ -82,7 +82,7 @@ jobs:
                   gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"
                 fi ;;
               *error*|*cancel*)
-                done_with $e || exit 1
+                done_with $e || echo "::warning::could not record $e as collected (push refused) - continuing"
                 rm -rf dl && mkdir dl && (kaggle kernels output $slug -p dl -q || true)
                 LOG=$(ls dl/*.log 2>/dev/null | head -1)
                 { echo "## $e failed on Kaggle — started again on Modal automatically"; echo '```';
