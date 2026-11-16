@@ -454,7 +454,10 @@ EDITS_JUN = {
 }
 EDITS_WM = {k: v.replace("hoodie, jeans and sneakers", "blazer, blouse, slacks and shoulder bag").replace("his ", "her ").replace(" he ", " she ")
             for k, v in EDITS_JUN.items()}
-EDITS_BY_CHAR = {"mh": EDITS_MH, "jun": EDITS_JUN, "wm": EDITS_WM}
+EDITS_KID = {"bed": ("Show the {n} sleeping peacefully on her back in a small bed under a thick pastel pink blanket pulled up to her chin, "
+                     "eyes closed, calm face, only her head on a white pillow showing above the blanket. Side view of the whole small bed "
+                     "with its wooden frame, nothing else.")}
+EDITS_BY_CHAR = {"mh": EDITS_MH, "jun": EDITS_JUN, "wm": EDITS_WM, "daughter": EDITS_KID}
 KEEP = " Keep exactly the same character design, colours, proportions and glossy 3D animated style. Plain light grey background."
 
 def cast_candidates_edit(spec, out_dir):

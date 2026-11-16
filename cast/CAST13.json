@@ -1,0 +1,2 @@
+{"id":"CAST13","type":"cast","gpu":"T4","runner":"modal","engine":"qwen_edit","chars":["daughter"],"exprs":["bed"],"per_item":3,
+ "note":"Song 6 ending: the daughter asleep in bed (her mother kisses her forehead)."}
