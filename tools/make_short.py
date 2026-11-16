@@ -143,7 +143,7 @@ for n, sc in enumerate(plan["scenes"]):
     else:
         shot.update({"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
-    for k in ("must", "avoid", "avoid_key", "props", "key_seed"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
+    for k in ("must", "avoid", "avoid_key", "props", "key_seed", "still"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
         if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
@@ -153,7 +153,7 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
         "thumb": {**_thumb_style(plan), **plan.get("thumb", {})},
         "brand": "MIDLIFE COMMUTER", "cap_y": plan.get("cap_y", 0.83), "cap_size": plan.get("cap_size", 60), "cap_line": True, "top_label": plan.get("top_label"),
-        "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
+        "qc": plan.get("qc", True), "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
         "props": plan.get("props", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
 dst = f"{ROOT}/episodes/{plan['id']}.json"

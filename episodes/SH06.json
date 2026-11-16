@@ -276,6 +276,7 @@
  "cap_size": 60,
  "cap_line": true,
  "top_label": null,
+ "qc": false,
  "budget_min": 220,
  "wan_min": 8,
  "hook": [],
@@ -285,7 +286,14 @@
  "tracker": false,
  "captions": true,
  "props": {},
- "retake": [],
+ "retake": [
+  "S6",
+  "S7",
+  "S10",
+  "S12",
+  "S13",
+  "S14"
+ ],
  "upload": {
   "title": "회사에서 퇴근, 집으로 출근하는 엄마 | 퇴근 없는 퇴근 #shorts",
   "description": "회사에서 퇴근, 집으로 출근.\n두 개의 바위를 굴리는 하루.\n\n카뮈는 말했습니다. 바위를 굴리는 시시포스도 행복하다고 상상해야 한다고.\n그런데 오늘, 현관문을 열었더니…\n\n🎵 퇴근 없는 퇴근 - MIDLIFE COMMUTER\n💬 오늘 당신의 '진짜 퇴근'은 언제였나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#워킹맘 #직장맘 #퇴근 #엄마 #육아 #시시포스 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -501,7 +509,8 @@
    "avoid": [
     "Are there more than 2 people (one woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "id": "S7",
@@ -531,7 +540,8 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "id": "S8",
@@ -623,7 +633,8 @@
     "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "id": "S11",
@@ -702,7 +713,8 @@
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is any object floating in the air?",
     "Is steam coming from somewhere other than the pot?"
-   ]
+   ],
+   "still": true
   },
   {
    "id": "S13",
@@ -712,17 +724,17 @@
    ],
    "plate": "the front entrance of a Korean apartment at night, warm light from inside, a shoe cabinet",
    "camera": {
-    "move": "push",
-    "amount": 0.04
+    "move": "none",
+    "amount": 0.0
    },
-   "motion": "the woman's eyes fill with surprise and then a big warm smile spreads across her face, warm light glows on her",
+   "motion": "the woman stands still at the entrance, her eyes widen with surprise and then she smiles warmly, the camera does not move closer, the warm light stays the same",
    "frames": 65,
    "char": "wm",
    "expr": "smile",
    "place": {
-    "h": 0.6,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 1.0,
+    "foot": 0.96,
     "shadow": 0.45
    },
    "must": [

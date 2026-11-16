@@ -7,7 +7,14 @@
  "gpu": "L40S",
  "lead": "wm",
  "cold_open": 4,
- "retake": [],
+ "retake": [
+  "S6",
+  "S7",
+  "S10",
+  "S12",
+  "S13",
+  "S14"
+ ],
  "thumb": {
   "text": [
    "회사에서 퇴근",
@@ -170,7 +177,8 @@
    "avoid": [
     "Are there more than 2 people (one woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "lines": [
@@ -191,7 +199,8 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "lines": [
@@ -257,7 +266,8 @@
     "Is there a car, bicycle or motorbike anywhere in the picture?",
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "still": true
   },
   {
    "lines": [
@@ -317,7 +327,8 @@
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is any object floating in the air?",
     "Is steam coming from somewhere other than the pot?"
-   ]
+   ],
+   "still": true
   },
   {
    "lines": [
@@ -326,18 +337,22 @@
    "plate": "the front entrance of a Korean apartment at night, warm light from inside, a shoe cabinet",
    "expr": "smile",
    "place": {
-    "h": 0.6,
+    "h": 0.5,
     "cx": 0.5,
-    "foot": 1.0
+    "foot": 0.96
    },
-   "motion": "the woman's eyes fill with surprise and then a big warm smile spreads across her face, warm light glows on her",
+   "motion": "the woman stands still at the entrance, her eyes widen with surprise and then she smiles warmly, the camera does not move closer, the warm light stays the same",
    "must": [
     "a shoe cabinet"
    ],
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "camera": {
+    "move": "none",
+    "amount": 0.0
+   }
   },
   {
    "lines": [
@@ -430,5 +445,6 @@
     "Are any shoes moving?"
    ]
   }
- ]
+ ],
+ "qc": false
 }
