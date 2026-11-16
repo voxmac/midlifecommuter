@@ -17,13 +17,15 @@ jobs:
       - run: |
           sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
           pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -q demucs librosa soundfile
+          pip install -q demucs faster-whisper librosa soundfile
           mkdir O && gh release download "${{ github.event.inputs.tag }}" -R $REPO -p '*.mp3' -p report.json -D O
-          python tools/voice_check.py O
+          S=$(echo ${{ github.event.inputs.tag }} | cut -d- -f1); python tools/song_check.py songs/$S.json O
+          for d in /tmp/chk_v*; do echo "== $d"; python -c "import json,sys;[print(l['line'],l.get('start'),l.get('end'),l.get('matched'),'/',l.get('words')) for l in json.load(open(sys.argv[1]))['lines']]" $d/timing.json; done | tee lines.txt
           python - <<'PY' > body.md
           import json
           r = json.load(open("O/report.json")); print("**Voice check** (vocals separated, pitch above 370 Hz held ≥1 s):\n")
           for v in r["versions"]:
-              vc = v["voice"]; print(f"- v{v['version']}: " + ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"])))
+              vc = v.get("voice", {"high": []}); print(f"- v{v['version']}: " + ("✅ male voice throughout" if not vc["high"] else "⚠ high / possibly female at " + ", ".join(f"{a:.0f}–{b:.0f} s" for a, b in vc["high"])))
           PY
+          { echo; echo '<details><summary>line timings per version</summary>'; echo; echo '```'; cat lines.txt; echo '```'; echo '</details>'; } >> body.md
           gh issue comment ${{ github.event.inputs.issue }} -R $REPO --body-file body.md
