@@ -45,10 +45,10 @@
     "cx": 0.55,
     "foot": 0.96
    },
-   "motion": "the tired woman stands right in front of the bus window, turns slightly and rests the side of her head against the window glass, eyes closed, her hands stay down, the night city lights stream past outside",
+   "motion": "the tired woman stands still in the night bus, sighs, her head slowly tilts and droops to one side, eyes closed, her hands stay down, the bus sways gently, the night city lights outside the window behind her drift past",
    "must": [
-    "bus windows",
-    "night outside the windows"
+    "bus window",
+    "night outside the window"
    ],
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
@@ -56,7 +56,8 @@
     "Is the woman touching her nose or covering her face with her hand?",
     "Are there more than 1 people (one woman)?"
    ],
-   "_id": "S3"
+   "_id": "S3",
+   "key_image": "key_SH06_S3.png"
   },
   {
    "lines": [
@@ -374,7 +375,8 @@
     "Is there a bunk bed or loft bed in the picture?",
     "Is there a bed or a sofa in the background behind the people?"
    ],
-   "key_seed": 7
+   "key_seed": 7,
+   "key_image": "key_SH06_S14.png"
   },
   {
    "lines": [
@@ -435,6 +437,6 @@
   }
  ],
  "qc": true,
- "keys_only": true,
+ "keys_only": false,
  "key_variants": 3
 }
