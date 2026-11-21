@@ -253,7 +253,7 @@
   ],
   "until": 4.5
  },
- "qc": false,
+ "qc": true,
  "budget_min": 220,
  "wan_min": 8,
  "hook": [],
@@ -264,7 +264,6 @@
  "captions": true,
  "props": {},
  "retake": [
-  "S10",
   "S14"
  ],
  "upload": {
@@ -665,7 +664,7 @@
     48.27,
     53.83
    ],
-   "plate": "a small cozy Korean child's bedroom at night seen at eye level, a soft glowing night lamp on a little table, star stickers and a child's drawings on the wall, a toy shelf, a rug on the empty wooden floor in the middle, no bed in the room, no windows",
+   "plate": "close view of one wall corner of a cozy Korean child's bedroom at night seen at eye level, a soft glowing night lamp on a small round table, star stickers and crayon drawings on the wall, a low toy shelf with stuffed animals, a round rug on the empty wooden floor, nothing else, no furniture to sleep on, no windows",
    "camera": {
     "move": "push",
     "amount": 0.04
@@ -706,7 +705,8 @@
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
    "avoid_key": [
-    "Are there two beds in the picture?"
+    "Are there two beds in the picture?",
+    "Is there a bed or a sofa in the background behind the people?"
    ]
   },
   {
