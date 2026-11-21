@@ -96,6 +96,22 @@ for n, sc in enumerate(plan["scenes"]):
         if _re.search(rf"\b{w}", sc.get("motion", "").lower()) and sc.get("must") and not any(w in m.lower() for m in sc["must"]) \
                 and not (w == "steam" and any("pot" in m.lower() or "kettle" in m.lower() for m in sc["must"])) and w not in ("leaves",):
             errors.append(f"{tag}: the motion animates '{w}' but 'must' does not list it")
+    # lessons SH03-SH06: things the picture and video models get wrong in the same way every time (docs/QC.md)
+    plate, motion = sc.get("plate", "").lower(), sc.get("motion", "").lower()
+    cast_beds = any(c.get("expr") == "bed" for c in (sc.get("cast") or [sc]))
+    if cast_beds and _re.search(r"bedroom|\bbed\b(?!side)", _re.sub(r"no (bunk |loft |)bed|no furniture to sleep on", "", plate)):
+        errors.append(f"{tag}: a bed comes with the cutout; a plate that says 'bedroom'/'bed' draws a second bed - describe only walls and small things")
+    if cast_beds and "no bed" not in plate:
+        errors.append(f"{tag}: a bed comes with the cutout; the plate must say 'no bed, no bunk bed, no mattress'")
+    if _re.search(r"supermarket|convenience store|mart\b|grocery", plate) and "no glass" not in plate:
+        errors.append(f"{tag}: shops get glass fridges that warp when the camera moves; say 'open shelves, no glass, no refrigerators'")
+    if _re.search(r"\b(glass|mirror|aquarium|display case|refrigerator)\b", plate) and not _re.search(r"no (glass|mirror|refrigerator)", plate) and not sc.get("still"):
+        errors.append(f"{tag}: glass/mirrors bend in animation; remove them or make the scene a still")
+    if _re.search(r"\b(walks?|steps?|moves?|goes|comes) (over |up )?(to|toward|towards|into|around|across)\b", motion) and \
+            len(sc.get("cast") or []) + len(sc.get("props") or []) > 1:
+        errors.append(f"{tag}: someone walks toward another person/object - the video model walks through furniture; start them in the end position and animate only small moves (bend, turn, lean, reach)")
+    if _re.search(r"\b(sign|poster|screen|tv|television|monitor)\b", plate) and not _re.search(r"no (signs|text|letters)", plate):
+        notes.append(f"{tag}: signs and screens get fake letters or moving pictures - consider 'no signs with letters'")
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
     for c in sc.get("cast", []) or [{"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
@@ -143,7 +159,7 @@ for n, sc in enumerate(plan["scenes"]):
     else:
         shot.update({"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
-    for k in ("must", "avoid", "avoid_key", "props", "key_seed", "still"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
+    for k in ("must", "avoid", "avoid_key", "props", "key_seed", "still", "key_image"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
         if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
@@ -157,7 +173,7 @@ spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16"
                        "text": plan.get("thumb", {}).get("text", []), "until": round(min(ends[0] + 0.4, 4.5), 2), **(plan.get("title_card") or {})},
         "qc": plan.get("qc", True), "budget_min": plan.get("budget_min", 220), "wan_min": plan.get("wan_min", 8), "hook": plan.get("hook", []),
         "end_tag": "", "loop_drop": False, "chirps": False, "tracker": False, "captions": True,
-        "props": plan.get("props", {}), "retake": plan.get("retake", []), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
+        "props": plan.get("props", {}), "retake": plan.get("retake", []), "keys_only": plan.get("keys_only", False), "upload": plan["upload"], "gpu": plan.get("gpu", "T4"), "shots": shots}
 dst = f"{ROOT}/episodes/{plan['id']}.json"
 json.dump(spec, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(dst, len(shots), "scenes,", sum(len(x) for x in lyrics_tl), "caption words")

@@ -74,3 +74,14 @@ Claude는 매 결과를 장면마다 처음·중간·끝 화면을 캡처해 직
   (make_short trims the intro so line 1 begins at 1.0 s). The first verse line and the first picture carry the hook.
 - Child in bed: the plate must have no bed of its own (the bed comes with the cutout) -> "no bed in the room", avoid "two beds".
 - Title card (user, 2026-11-17): the thumbnail title (same font/colours) fades in semi-transparent over the first sung line and fades out (~0.2-4.5 s, upper fifth of the frame). Default for every Short; "title_card": false to turn off.
+
+## Keyframes first, animation second (from SH07, 2026-11-21)
+Retakes cost a Kaggle run each (S5 glass, S14 bed, S3 window in SH06). Almost all of them were visible in the keyframe already.
+1. `"keys_only": true` in shorts/SHxx.json -> Kaggle draws only plates + keyframes (~15-25 min, no Wan) -> release "SHxx keyframes".
+2. Every keyframe is looked at full size: one bed only, no glass/mirrors/fridges, no signs with letters, clothes and place fit the line,
+   nobody cut off, people standing where the motion ends (no walking toward furniture/people).
+3. A bad one: change the plate words and draw the keys again (cheap). Good ones go to assets/ as `key_SHxx_Sn.png` and the scene
+   gets `"key_image": "key_SHxx_Sn.png"` (full file name) - the full run uses them as they are.
+4. Full run (`keys_only` false): only Wan. Then the 0.5 s frame review of every shot before delivery.
+Lint (make_short.py) now refuses: 'bedroom'/'bed' in a plate when a bed cutout is used; shops without 'no glass'; glass/mirrors in
+animated scenes; motions where someone walks toward another person or object.

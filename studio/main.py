@@ -72,12 +72,15 @@ def produce(spec):
                 report["props"] = make_props(spec, todo, f"{E}/props")
             for s in todo:
                 key = f"{E}/keys/{s['id']}.png"
+                if s.get("key_image"):   # a keyframe already looked at and approved (keys-only preview run): used as is
+                    shutil.copy(asset(s["key_image"]), key); report["shots"][s["id"]] = {"key_image": s["key_image"]}
+                    log("keyframe", s["id"], "approved", s["key_image"]); continue
                 seed = make_keyframe(s, key, s.get("key_seed"))
                 report["shots"][s["id"]] = {"key_seed": seed}
                 log("keyframe", s["id"], seed)
             if qc_on(spec):   # automatic check of every keyframe; a failing one is drawn again (new seed), up to twice
                 stop_server(); report["qc"] = {}
-                for s in todo:
+                for s in [x for x in todo if not x.get("key_image")]:
                     key = f"{E}/keys/{s['id']}.png"; tries = []
                     for attempt in range(3):
                         r = qc_check([key], s["plate"], qc_who(s), must=s.get("must"), avoid=s.get("avoid_key")); tries.append(r["problems"])
@@ -87,6 +90,9 @@ def produce(spec):
                     report["qc"][s["id"]] = {"key_ok": r["ok"], "key_tries": len(tries), "key_problems": tries[-1]}
                     log("QC keyframe", s["id"], "ok" if r["ok"] else f"still failing: {r['problems']}")
                 qc_unload(); ensure("image")
+            if spec.get("keys_only"):   # preview run: keyframes only (minutes), looked at before any Wan GPU time is spent
+                report["minutes_total"] = round((time.time() - t0) / 60, 1)
+                json.dump(report, open(f"{E}/report.json", "w"), indent=1, ensure_ascii=False); log("DONE keys only"); return
             for s in [x for x in todo if x.get("still")]:
                 still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], s.get("dur", 5.0))
                 report["shots"][s["id"]]["still"] = True

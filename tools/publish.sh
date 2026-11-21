@@ -12,6 +12,12 @@ if [ -f $O/report.json ] && [ -f songs/$e.json ]; then
     --notes "Listen on your phone, then answer in the review issue."
   { python tools/song_body.py $O/report.json $REPO $TAG; note; } > body.md
   gh issue create --title "Review: $e" --body-file body.md
+elif [ -f $O/report.json ] && [ -f episodes/$e.json ] && ls $O/keys/*.png >/dev/null 2>&1 && ! ls $O/*.mp4 >/dev/null 2>&1 && grep -q '"keys_only": true' episodes/$e.json; then
+  # keys-only preview: every keyframe as a release asset, looked at before any Wan GPU time
+  mkdir -p keysout && for k in $O/keys/S*.png; do cp "$k" "keysout/key_$(basename $k)"; done
+  gh release create "$TAG" keysout/*.png $O/report.json --title "$e keyframes" --notes "Keyframe preview (no animation yet)."
+  { echo "## $e keyframes (preview, no animation yet)"; echo "https://github.com/$REPO/releases/tag/$TAG"; note; } > body.md
+  gh issue create --title "Keys: $e" --body-file body.md
 elif [ -f $O/report.json ] && [ -f episodes/$e.json ] && ! ls $O/*.mp4 >/dev/null 2>&1; then
   { echo "## $e: shots only (test run)"; echo '```json'; cat $O/report.json; echo '```'; note; } > body.md
   gh issue create --title "Test: $e" --body-file body.md
