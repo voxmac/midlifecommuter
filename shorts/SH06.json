@@ -342,7 +342,7 @@
      "char": "daughter",
      "place": {
       "h": 0.24,
-      "cx": 0.36,
+      "cx": 0.35,
       "foot": 0.93
      },
      "expr": "bed",
@@ -351,8 +351,8 @@
     {
      "char": "wm",
      "place": {
-      "h": 0.47,
-      "cx": 0.83,
+      "h": 0.45,
+      "cx": 0.8,
       "foot": 0.95
      },
      "expr": "smile",
