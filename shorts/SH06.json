@@ -38,14 +38,14 @@
    "lines": [
     0
    ],
-   "plate": "inside a Korean city bus at night, side view facing a long row of large bus windows showing dark night streets with blurred city lights, a vertical yellow grab pole, empty standing space on the floor in front of the windows, no seats in the foreground, no signs with letters",
+   "plate": "close view inside a Korean city bus at night, one large bus window fills the background, outside it the blurred night city lights and street lamps, a yellow grab pole beside the window, no seats, no signs with letters",
    "expr": "sigh",
    "place": {
-    "h": 0.6,
-    "cx": 0.5,
-    "foot": 0.95
+    "h": 0.62,
+    "cx": 0.55,
+    "foot": 0.96
    },
-   "motion": "the tired woman stands right by the bus window and slowly tilts her head to rest her temple on the window glass, eyes closed, her hands stay down, the night city lights stream past outside the window",
+   "motion": "the tired woman stands right in front of the bus window, turns slightly and rests the side of her head against the window glass, eyes closed, her hands stay down, the night city lights stream past outside",
    "must": [
     "bus windows",
     "night outside the windows"
@@ -434,5 +434,7 @@
    "_id": "S16"
   }
  ],
- "qc": true
+ "qc": true,
+ "keys_only": true,
+ "key_variants": 3
 }

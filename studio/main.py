@@ -78,6 +78,11 @@ def produce(spec):
                 seed = make_keyframe(s, key, s.get("key_seed"))
                 report["shots"][s["id"]] = {"key_seed": seed}
                 log("keyframe", s["id"], seed)
+                if spec.get("keys_only"):   # preview: a few more drawings of the same scene to choose from (~1 min each)
+                    report["shots"][s["id"]]["variants"] = {}
+                    for v in range(1, int(spec.get("key_variants", 3)) + 1):
+                        vs = make_keyframe(s, key.replace(".png", f"_v{v}.png"), None)
+                        report["shots"][s["id"]]["variants"][f"v{v}"] = vs
             if qc_on(spec):   # automatic check of every keyframe; a failing one is drawn again (new seed), up to twice
                 stop_server(); report["qc"] = {}
                 for s in [x for x in todo if not x.get("key_image")]:

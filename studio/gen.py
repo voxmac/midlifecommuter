@@ -344,20 +344,34 @@ def gen_plate(prompt, neg, seed, prefix, square=True):
     sq, sd = gen_image(prompt, neg=neg, w=1024, h=1024, seed=seed, prefix=prefix + "_sq")
     return gen_image(prompt, neg=neg, init=sq, denoise=0.45, seed=sd, prefix=prefix)
 
+def split_neg(text):
+    """'no bed, no glass doors' in a positive prompt makes SDXL draw a bed and glass (the words pull, 'no' does not):
+    every 'no X' / 'without X' phrase is taken out of the prompt and goes to the negative prompt instead."""
+    negs = []
+    def take(m):
+        negs.extend(x.strip() for x in re.split(r"\bor\b|\band\b", m.group(1)) if x.strip())
+        return ""
+    pos = re.sub(r"(?i)\b(?:no|without|nothing like)\s+([a-z][a-z \-]*?)(?=,|;|\.|$)", take, text)
+    pos = re.sub(r"\s*,(\s*,)+", ",", pos).strip(" ,")
+    negs = [n for n in dict.fromkeys(negs) if n not in ("one", "else", "other furniture")]
+    return pos, ", ".join(negs)
+
 def make_keyframe(shot, out_png, seed=None):
     members = [m for m in shot_members(shot) if m["char"].startswith("prop:") or find_input(f"{m['char']}_cut")]
     if len(members) < len(shot_members(shot)): log("skipped cast without a cutout yet:", [m["char"] for m in shot_members(shot) if m not in members])
+    plate, pneg = split_neg(shot["plate"]); pneg = (", " + pneg) if pneg else ""
+    if pneg: log("plate", shot["id"], "->", plate, "| negative:", pneg)
     if shot.get("extras"):   # passers-by, commuters, elderly people... drawn into the background plate
         neg = "text, watermark, 2d, flat, illustration, lowres, blurry, photo, photorealistic, person in the centre, object in the centre, " + PANELS_NEG
-        pf, pseed = gen_plate(f"{shot['plate']}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
-                              neg, seed, f"P_{shot['id']}", shot.get("square_plate", True))
+        pf, pseed = gen_plate(f"{plate}, {shot['extras']}, {EXTRAS_STYLE}, {PLATE_STYLE.replace('no characters, ', '')}",
+                              neg + pneg, seed, f"P_{shot['id']}", shot.get("square_plate", True))
     else:
-        pf, pseed = gen_plate(f"{shot['plate']}, {PLATE_OPEN}, {PLATE_STYLE}", PLATE_NEG + ", object in the centre",
+        pf, pseed = gen_plate(f"{plate}, {PLATE_OPEN}, {PLATE_STYLE}", PLATE_NEG + ", object in the centre" + pneg,
                               seed, f"P_{shot['id']}", shot.get("square_plate", True))
     comp = composite(pf, members)
     raw = out_png.replace(".png", "_raw.png"); comp.save(raw)
     who = "; ".join(BIBLE.get(m["char"], m["char"][5:].replace("_", " ")) for m in members)
-    hf, _ = gen_image(f"{who}, {shot['plate']}, soft light with warm rim light, {STYLE_3D}",
+    hf, _ = gen_image(f"{who}, {plate}, soft light with warm rim light, {STYLE_3D}", neg=NEG_3D + pneg,
                       init=raw, denoise=0.25, seed=pseed, prefix=f"H_{shot['id']}")
     shutil.copy(hf, out_png)
     return pseed

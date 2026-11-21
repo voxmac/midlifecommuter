@@ -267,6 +267,7 @@
   "S3",
   "S14"
  ],
+ "keys_only": true,
  "upload": {
   "title": "회사에서 퇴근, 집으로 출근하는 엄마 | 퇴근 없는 퇴근 #shorts",
   "description": "회사에서 퇴근, 집으로 출근.\n두 개의 바위를 굴리는 하루.\n\n카뮈는 말했습니다. 바위를 굴리는 시시포스도 행복하다고 상상해야 한다고.\n그런데 오늘, 현관문을 열었더니…\n\n🎵 퇴근 없는 퇴근 - MIDLIFE COMMUTER\n💬 오늘 당신의 '진짜 퇴근'은 언제였나요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#워킹맘 #직장맘 #퇴근 #엄마 #육아 #시시포스 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -292,19 +293,19 @@
     0.0,
     5.75
    ],
-   "plate": "inside a Korean city bus at night, side view facing a long row of large bus windows showing dark night streets with blurred city lights, a vertical yellow grab pole, empty standing space on the floor in front of the windows, no seats in the foreground, no signs with letters",
+   "plate": "close view inside a Korean city bus at night, one large bus window fills the background, outside it the blurred night city lights and street lamps, a yellow grab pole beside the window, no seats, no signs with letters",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the tired woman stands right by the bus window and slowly tilts her head to rest her temple on the window glass, eyes closed, her hands stay down, the night city lights stream past outside the window",
+   "motion": "the tired woman stands right in front of the bus window, turns slightly and rests the side of her head against the window glass, eyes closed, her hands stay down, the night city lights stream past outside",
    "frames": 97,
    "char": "wm",
    "expr": "sigh",
    "place": {
-    "h": 0.6,
-    "cx": 0.5,
-    "foot": 0.95,
+    "h": 0.62,
+    "cx": 0.55,
+    "foot": 0.96,
     "shadow": 0.45
    },
    "must": [
