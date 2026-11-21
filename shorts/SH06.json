@@ -7,6 +7,8 @@
  "gpu": "L40S",
  "lead": "wm",
  "retake": [
+  "S3",
+  "S5",
   "S14"
  ],
  "thumb": {
@@ -41,18 +43,19 @@
    "expr": "sigh",
    "place": {
     "h": 0.55,
-    "cx": 0.35,
+    "cx": 0.66,
     "foot": 0.95
    },
    "extras": "a few tired office workers sitting on the bus seats, dozing",
-   "motion": "the woman stands by the bus window with a tired sigh, the city lights drift past the dark windows, the seated passengers doze",
+   "motion": "the tired woman stands still beside the bus window and slowly leans her head and shoulder against the window glass, eyes half closed, her hands stay down holding her bag strap, the city lights drift past the dark windows, the seated passengers doze",
    "must": [
     "bus seats",
     "bus windows"
    ],
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
-    "Is any person floating or merged into a seat?"
+    "Is any person floating or merged into a seat?",
+    "Is the woman touching her nose or covering her face with her hand?"
    ],
    "_id": "S3"
   },
@@ -83,7 +86,7 @@
    "lines": [
     1
    ],
-   "plate": "a bright Korean supermarket aisle at night seen at eye level, shelves of vegetables, ramen and milk, a shopping basket on the floor",
+   "plate": "a simple Korean neighborhood supermarket aisle at night seen at eye level, open wooden shelves with vegetables, fruit, ramen packets and boxes on both sides, flat floor, bright ceiling lights, no glass, no refrigerators, no display cases, no glass doors",
    "expr": "walk",
    "place": {
     "h": 0.5,
@@ -97,9 +100,13 @@
    "avoid": [
     "Are there more than 1 people (one woman)?",
     "Does the picture suddenly change into a different scene or camera angle?",
-    "Is any object floating in the air?"
+    "Is any object floating in the air?",
+    "Does any glass, shelf or product bulge, melt, bend or warp?"
    ],
-   "_id": "S5"
+   "_id": "S5",
+   "avoid_key": [
+    "Is there a glass refrigerator or glass display case in the picture?"
+   ]
   },
   {
    "lines": [
@@ -335,23 +342,24 @@
      "char": "daughter",
      "place": {
       "h": 0.24,
-      "cx": 0.42,
+      "cx": 0.36,
       "foot": 0.93
      },
-     "expr": "bed"
+     "expr": "bed",
+     "flip": true
     },
     {
      "char": "wm",
      "place": {
       "h": 0.47,
-      "cx": 0.76,
+      "cx": 0.83,
       "foot": 0.95
      },
      "expr": "smile",
      "flip": true
     }
    ],
-   "motion": "the mother bends down gently toward her sleeping daughter with a loving smile, the girl sleeps peacefully, the night lamp glows",
+   "motion": "the mother stays standing in the same spot right beside the head of the bed, her feet do not move, she only bends gently at the waist toward the sleeping girl and kisses her forehead with a loving smile, the girl sleeps peacefully under the blanket, the night lamp glows",
    "must": [
     "a night lamp",
     "star stickers on the wall"
@@ -359,7 +367,8 @@
    "avoid": [
     "Are there two beds in the picture?",
     "Are there more than 2 people (one woman and one sleeping girl)?",
-    "Does the picture suddenly change into a different scene or camera angle?"
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is the woman standing inside the bed, on top of the bed, or walking through the bed?"
    ],
    "_id": "S14",
    "avoid_key": [
