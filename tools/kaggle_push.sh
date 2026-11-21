@@ -20,7 +20,24 @@ if [ ! -f /tmp/assets_synced ]; then
   for i in $(seq 1 40); do st=$(kaggle datasets status $U/midlife-assets 2>/dev/null | tr 'A-Z' 'a-z'); echo "assets: $st"; case "$st" in *ready*) break;; esac; sleep 30; done
   touch /tmp/assets_synced
 fi
-d=$(KERNEL_PREFIX=midlife KERNEL_DATASET=midlife-assets python tools/build_kernel.py $f $U) || exit 1
+SHOTS=""
+if python -c "import json,sys;s=json.load(open('$f'));sys.exit(0 if s.get('shots') and s.get('retake') else 1)"; then
+  # a retake: the other scenes' finished shots come from the Modal volume (no GPU used) into the Kaggle dataset midlife-shots,
+  # so Kaggle only renders the retaken scenes
+  pip install -q modal >/dev/null
+  rm -rf /tmp/shots && mkdir -p /tmp/shots
+  for n in $(modal volume ls midlife-commuter-cache /shots 2>/dev/null | grep -o "${e}_S[0-9]*\.mp4" | sort -u); do
+    modal volume get midlife-commuter-cache "/shots/$n" /tmp/shots/ >/dev/null 2>&1 || echo "could not fetch $n"; done
+  echo "previous shots: $(ls /tmp/shots | wc -l)"
+  if ls /tmp/shots/*.mp4 >/dev/null 2>&1; then
+    echo "{\"title\": \"midlife-shots\", \"id\": \"$U/midlife-shots\", \"licenses\": [{\"name\": \"other\"}]}" > /tmp/shots/dataset-metadata.json
+    if kaggle datasets status $U/midlife-shots >/dev/null 2>&1; then kaggle datasets version -p /tmp/shots -m "$e shots" -q
+    else kaggle datasets create -p /tmp/shots -q; fi
+    for i in $(seq 1 40); do st=$(kaggle datasets status $U/midlife-shots 2>/dev/null | tr 'A-Z' 'a-z'); echo "shots: $st"; case "$st" in *ready*) break;; esac; sleep 30; done
+    SHOTS="--shots-dataset"
+  fi
+fi
+d=$(KERNEL_PREFIX=midlife KERNEL_DATASET=midlife-assets python tools/build_kernel.py $f $U $SHOTS) || exit 1
 out=$(kaggle kernels push -p "$d" --accelerator NvidiaTeslaT4 2>&1); echo "$out"
 echo "$out" | grep -qi "successfully pushed" || { echo "::warning::Kaggle did not take $e (quota or busy) -> Modal"; exit 1; }
 mkdir -p state/pending && date -u +%FT%TZ > state/pending/$e
