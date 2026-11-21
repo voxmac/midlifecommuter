@@ -8,7 +8,6 @@
  "lead": "wm",
  "retake": [
   "S3",
-  "S5",
   "S14"
  ],
  "thumb": {
@@ -39,23 +38,23 @@
    "lines": [
     0
    ],
-   "plate": "inside a Korean city bus at night seen at eye level, rows of seats, warm interior lights, dark windows with blurred city lights",
+   "plate": "inside a Korean city bus at night, side view facing a long row of large bus windows showing dark night streets with blurred city lights, a vertical yellow grab pole, empty standing space on the floor in front of the windows, no seats in the foreground, no signs with letters",
    "expr": "sigh",
    "place": {
-    "h": 0.55,
-    "cx": 0.66,
+    "h": 0.6,
+    "cx": 0.5,
     "foot": 0.95
    },
-   "extras": "a few tired office workers sitting on the bus seats, dozing",
-   "motion": "the tired woman stands still beside the bus window and slowly leans her head and shoulder against the window glass, eyes half closed, her hands stay down holding her bag strap, the city lights drift past the dark windows, the seated passengers doze",
+   "motion": "the tired woman stands right by the bus window and slowly tilts her head to rest her temple on the window glass, eyes closed, her hands stay down, the night city lights stream past outside the window",
    "must": [
-    "bus seats",
-    "bus windows"
+    "bus windows",
+    "night outside the windows"
    ],
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
-    "Is any person floating or merged into a seat?",
-    "Is the woman touching her nose or covering her face with her hand?"
+    "Is it daytime outside the windows?",
+    "Is the woman touching her nose or covering her face with her hand?",
+    "Are there more than 1 people (one woman)?"
    ],
    "_id": "S3"
   },
@@ -336,7 +335,7 @@
    "lines": [
     8
    ],
-   "plate": "close view of one wall corner of a cozy Korean child's bedroom at night seen at eye level, a soft glowing night lamp on a small round table, star stickers and crayon drawings on the wall, a low toy shelf with stuffed animals, a round rug on the empty wooden floor, nothing else, no furniture to sleep on, no windows",
+   "plate": "close view of one plain lavender wall corner at night seen at eye level, a big glowing star-shaped lamp on the wall, small star stickers, a small white dresser with a teddy bear, a round fluffy rug on the empty wooden floor, nothing else in the room, no bed, no bunk bed, no loft bed, no mattress, no sofa, no windows",
    "cast": [
     {
      "char": "daughter",
@@ -361,8 +360,7 @@
    ],
    "motion": "the mother stays standing in the same spot right beside the head of the bed, her feet do not move, she only bends gently at the waist toward the sleeping girl and kisses her forehead with a loving smile, the girl sleeps peacefully under the blanket, the night lamp glows",
    "must": [
-    "a night lamp",
-    "star stickers on the wall"
+    "star lamp on the wall"
    ],
    "avoid": [
     "Are there two beds in the picture?",
@@ -373,8 +371,10 @@
    "_id": "S14",
    "avoid_key": [
     "Are there two beds in the picture?",
+    "Is there a bunk bed or loft bed in the picture?",
     "Is there a bed or a sofa in the background behind the people?"
-   ]
+   ],
+   "key_seed": 7
   },
   {
    "lines": [
