@@ -61,7 +61,7 @@ jobs:
             st=$(kaggle kernels status $slug 2>/dev/null | grep -o 'has status "[^"]*"' | tr 'A-Z' 'a-z')
             echo "$e: ${st:-unknown}"
             age=$(( ($(date +%s) - $(date -d "$(cat state/pending/$e)" +%s)) / 60 ))
-            if echo "$st" | grep -q queued && [ $age -gt 40 ] && { [ -f songs/$e.json ] || [ -f cast/$e.json ]; }; then
+            if [ ! -f state/no_modal ] && echo "$st" | grep -q queued && [ $age -gt 40 ] && { [ -f songs/$e.json ] || [ -f cast/$e.json ]; }; then
               echo "$e queued on Kaggle for $age min -> Modal"; done_with $e || exit 1; close_running $e
               [ -f state/no_modal ] || gh api -X POST repos/$REPO/actions/workflows/produce.yml/dispatches -f ref=main -f "inputs[id]=$e" -f "inputs[runner]=modal"; continue
             fi
