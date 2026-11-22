@@ -21,7 +21,7 @@ def _thumb_scene(plan):
     """Thumbnail picture: the scene with the most people that includes the lead (the song's heart, not the closing shot)."""
     lead = plan.get("lead", "m"); best, bi = -1, len(plan["scenes"]) - 1
     for i, sc in enumerate(plan["scenes"]):
-        who = [c["char"] for c in sc.get("cast", [])] or [sc.get("char", lead)]
+        who = [c["char"] for c in sc.get("cast", [])] or [sc["char"] if "char" in sc else lead]
         sc_ = len(who) + (10 if lead in who else 0) + (0.5 if sc.get("lines") not in ("intro", "outro") else 0)
         if sc_ > best: best, bi = sc_, i
     return bi
@@ -114,7 +114,7 @@ for n, sc in enumerate(plan["scenes"]):
         notes.append(f"{tag}: signs and screens get fake letters or moving pictures - consider 'no signs with letters'")
     if not _re.search(r"korea|seoul|busan|daegu", sc.get("plate", "").lower()):
         sc["plate"] = sc["plate"] + ", in present-day South Korea"; notes.append(f"{tag}: added 'present-day South Korea' to the place")
-    for c in sc.get("cast", []) or [{"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
+    for c in sc.get("cast", []) or [{"char": sc["char"] if "char" in sc else plan.get("lead", "m"), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
         if plan.get("lead") == "mh" and c["char"] == "m" and not sc.get("flashback"):
             errors.append(f"{tag}: this song is after M left the company; use 'mh' (everyday clothes), not 'm' (suit, badge, briefcase)")
         if c["char"] == "m" and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
@@ -157,7 +157,7 @@ for n, sc in enumerate(plan["scenes"]):
         shot["cast"] = [{"char": c["char"], "expr": c.get("expr"), "flip": c.get("flip", False),
                          "place": {"h": 0.5, "cx": 0.5, "foot": 0.93, "shadow": 0.45, **c.get("place", {})}} for c in sc["cast"]]
     else:
-        shot.update({"char": sc.get("char", plan.get("lead", "m")), "expr": sc.get("expr"), "place": place})
+        shot.update({"char": sc["char"] if "char" in sc else plan.get("lead", "m"), "expr": sc.get("expr"), "place": place})
     if sc.get("extras"): shot["extras"] = sc["extras"]   # passers-by, commuters, elderly people in the background
     for k in ("must", "avoid", "avoid_key", "props", "key_seed", "still", "key_image"):   # scene-specific checks: what the keyframe must show, what must not happen in the shot
         if sc.get(k): shot[k] = sc[k]

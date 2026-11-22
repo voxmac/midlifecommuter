@@ -1,0 +1,941 @@
+{
+ "id": "SH07",
+ "slug": "첫차는언제나만석이다",
+ "format": "mv",
+ "aspect": "9:16",
+ "lead": "m",
+ "song": {
+  "file": "MC07_v1",
+  "at": 0.0,
+  "skip": 11.48,
+  "sfx_vol": 0.0
+ },
+ "lyrics_tl": [
+  [
+   [
+    "첫차는",
+    1.0,
+    2.4
+   ],
+   [
+    "언제나",
+    2.4,
+    3.8
+   ],
+   [
+    "만석이다",
+    3.8,
+    5.7
+   ]
+  ],
+  [
+   [
+    "아무도",
+    5.7,
+    8.28
+   ],
+   [
+    "이름을",
+    8.28,
+    9.82
+   ],
+   [
+    "묻지",
+    9.82,
+    10.84
+   ],
+   [
+    "않는",
+    10.84,
+    11.68
+   ]
+  ],
+  [
+   [
+    "청소복",
+    11.68,
+    14.3
+   ],
+   [
+    "할머니",
+    14.3,
+    15.36
+   ],
+   [
+    "졸린",
+    15.36,
+    17.0
+   ],
+   [
+    "눈과",
+    17.0,
+    17.86
+   ]
+  ],
+  [
+   [
+    "밤샘",
+    17.86,
+    20.5
+   ],
+   [
+    "끝낸",
+    20.5,
+    21.5
+   ],
+   [
+    "청년의",
+    21.5,
+    22.92
+   ],
+   [
+    "어깨",
+    22.92,
+    24.52
+   ]
+  ],
+  [
+   [
+    "우리가",
+    24.52,
+    26.38
+   ],
+   [
+    "이",
+    26.38,
+    26.92
+   ],
+   [
+    "도시의",
+    26.92,
+    28.08
+   ],
+   [
+    "불을",
+    28.08,
+    28.76
+   ],
+   [
+    "켠다",
+    28.76,
+    30.6
+   ]
+  ],
+  [
+   [
+    "해보다",
+    30.6,
+    32.62
+   ],
+   [
+    "먼저",
+    32.62,
+    33.22
+   ],
+   [
+    "일어난",
+    33.22,
+    34.68
+   ],
+   [
+    "사람들",
+    34.68,
+    35.84
+   ]
+  ],
+  [
+   [
+    "별",
+    35.84,
+    37.86
+   ],
+   [
+    "하나",
+    37.86,
+    38.58
+   ],
+   [
+    "주머니에",
+    38.58,
+    40.26
+   ],
+   [
+    "넣어",
+    40.26,
+    41.12
+   ],
+   [
+    "두고",
+    41.12,
+    42.16
+   ]
+  ],
+  [
+   [
+    "오늘도",
+    42.16,
+    44.4
+   ],
+   [
+    "첫차에",
+    44.4,
+    46.12
+   ],
+   [
+    "몸을",
+    46.12,
+    47.02
+   ],
+   [
+    "싣는다",
+    47.02,
+    48.5
+   ]
+  ],
+  [
+   [
+    "고맙다는",
+    50.62,
+    52.02
+   ],
+   [
+    "말",
+    52.02,
+    52.62
+   ],
+   [
+    "대신에",
+    52.62,
+    54.78
+   ]
+  ],
+  [
+   [
+    "서로의",
+    54.78,
+    57.02
+   ],
+   [
+    "어깨를",
+    57.02,
+    58.24
+   ],
+   [
+    "빌려",
+    58.24,
+    59.7
+   ],
+   [
+    "준다",
+    59.7,
+    60.68
+   ]
+  ]
+ ],
+ "font": "Jua-Regular",
+ "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
+ "thumb": {
+  "layout": "split",
+  "font": "blackhan",
+  "colors": "mint",
+  "shot": "S11",
+  "text": [
+   "첫차는",
+   "언제나 만석이다"
+  ]
+ },
+ "brand": "MIDLIFE COMMUTER",
+ "cap_y": 0.83,
+ "cap_size": 60,
+ "cap_line": true,
+ "top_label": null,
+ "title_card": {
+  "font": "blackhan",
+  "colors": "mint",
+  "text": [
+   "첫차는",
+   "언제나 만석이다"
+  ],
+  "until": 4.5
+ },
+ "qc": true,
+ "budget_min": 220,
+ "wan_min": 8,
+ "hook": [],
+ "end_tag": "",
+ "loop_drop": false,
+ "chirps": false,
+ "tracker": false,
+ "captions": true,
+ "props": {},
+ "retake": [],
+ "keys_only": true,
+ "upload": {
+  "title": "새벽 다섯 시, 첫차는 언제나 만석이다 | 해보다 먼저 일어난 사람들 #shorts",
+  "description": "첫차는 언제나 만석이다.\n아무도 이름을 묻지 않는 사람들이\n해보다 먼저 이 도시의 불을 켭니다.\n\n청소하는 어머니, 밤을 지킨 경비원, 밤샘 알바를 마친 청년…\n고맙다는 말 대신, 서로의 어깨를 빌려 주는 새벽.\n\n🎵 첫차는 언제나 만석이다 - MIDLIFE COMMUTER\n💬 당신의 첫차는 몇 시인가요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#첫차 #새벽 #출근 #노동자 #청소노동자 #경비원 #알바 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "첫차",
+   "새벽 출근",
+   "노동자",
+   "청소 노동자",
+   "경비원",
+   "야간 알바",
+   "위로 노래",
+   "직장인 공감",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "gpu": "T4",
+ "shots": [
+  {
+   "id": "S1",
+   "slot": [
+    0.0,
+    3.42
+   ],
+   "plate": "inside a crowded Korean city bus before sunrise, deep blue dawn light through the windows, warm yellow interior lights, every seat taken by tired working people in work clothes dozing, hand straps, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the man in a suit holds the hand strap and slowly looks around the full bus with quiet surprise, the bus sways gently, the dozing passengers nod with the motion, the blue dawn passes outside",
+   "frames": 61,
+   "char": "m",
+   "expr": "lookup",
+   "place": {
+    "h": 0.56,
+    "cx": 0.5,
+    "foot": 0.97,
+    "shadow": 0.45
+   },
+   "extras": "many tired middle-aged working passengers sitting and dozing in the seats, seen softly in the background",
+   "must": [
+    "a full bus",
+    "dawn outside the windows"
+   ],
+   "avoid": [
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is it bright daytime outside the windows?"
+   ]
+  },
+  {
+   "id": "S2",
+   "slot": [
+    3.42,
+    5.55
+   ],
+   "plate": "inside a Korean city bus before sunrise, deep blue dawn light through the windows, warm yellow interior lights, hand straps, a vertical yellow grab pole, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old woman in a cleaning uniform and the old security guard stand side by side in the swaying bus, both nodding off sleepily, their eyes slowly closing and opening, the blue dawn passes outside",
+   "frames": 41,
+   "cast": [
+    {
+     "char": "grandma",
+     "expr": "cleaner",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.33,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": "guard",
+     "flip": true,
+     "place": {
+      "h": 0.54,
+      "cx": 0.7,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "bus interior",
+    "dawn outside the windows"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one old woman and one old man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S3",
+   "slot": [
+    5.55,
+    8.72
+   ],
+   "plate": "the entrance of an old Korean apartment complex before sunrise, deep blue dawn sky, a small brick guard post with a wooden door, a street lamp still on, empty paved path, trees, nobody else, no signs with letters, no vehicles",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old security guard stands in front of his guard post at the end of the night shift, takes a slow tired breath and straightens his back, the street lamp flickers off",
+   "frames": 57,
+   "char": "grandpa",
+   "expr": "guard",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "a guard post",
+    "dawn sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one old man)?"
+   ],
+   "still": true
+  },
+  {
+   "id": "S4",
+   "slot": [
+    8.72,
+    11.53
+   ],
+   "plate": "an empty Korean office building lobby before sunrise seen at eye level, polished stone floor, plain walls, a row of potted plants, dark windows with deep blue dawn, a few lights on, no signs with letters, no glass doors",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old cleaning worker stands alone in the quiet lobby, rubs her tired eyes once with the back of her hand, then smiles gently to herself, the polished floor shines",
+   "frames": 49,
+   "char": "grandma",
+   "expr": "cleaner",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "an office lobby"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one old woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is anything floating in the air?"
+   ]
+  },
+  {
+   "id": "S5",
+   "slot": [
+    11.53,
+    14.82
+   ],
+   "plate": "close view inside a Korean city bus before sunrise, deep blue dawn light through the window, warm yellow interior light, a hand strap, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "close shot: the old cleaning worker's sleepy eyes slowly close and her head nods down, then she blinks awake and smiles faintly, the bus sways, blue dawn light passes over her face",
+   "frames": 57,
+   "char": "grandma",
+   "expr": "cleaner",
+   "place": {
+    "h": 0.72,
+    "cx": 0.5,
+    "foot": 1.05,
+    "shadow": 0.45
+   },
+   "must": [
+    "bus interior"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one old woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S6",
+   "slot": [
+    14.82,
+    17.71
+   ],
+   "plate": "a quiet Korean street of small shops before sunrise, all metal shutters closed, deep blue dawn sky, street lamps still on, an empty sidewalk, no vehicles, nobody else, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old cleaning worker walks slowly along the empty sidewalk with small tired steps, the camera follows her, the street lamps glow in the blue dawn",
+   "frames": 53,
+   "char": "grandma",
+   "expr": "cleaner",
+   "place": {
+    "h": 0.46,
+    "cx": 0.45,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "a street at dawn",
+    "closed shop shutters"
+   ],
+   "avoid": [
+    "Is there a car, bicycle, scooter or motorbike anywhere in the picture?",
+    "Are there more than 1 people (one old woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S7",
+   "slot": [
+    17.71,
+    21.12
+   ],
+   "plate": "outside a small Korean corner store before sunrise, its metal shutter half pulled down, warm light from inside under the shutter, deep blue dawn sky, a street lamp, empty sidewalk, no vehicles, nobody else, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the young man in a store vest finishes his night shift outside the store, stretches both arms up with a big yawn, then lets his shoulders drop",
+   "frames": 61,
+   "char": "jun",
+   "expr": "nightshift",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "a store with a half-closed shutter",
+    "dawn sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one young man)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is there a car, scooter or motorbike anywhere in the picture?"
+   ]
+  },
+  {
+   "id": "S8",
+   "slot": [
+    21.12,
+    24.37
+   ],
+   "plate": "close view inside a Korean city bus before sunrise, deep blue dawn light through the window, warm yellow interior light, hand straps, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the exhausted young man stands in the swaying bus with drooping shoulders, his eyes close and his head sinks forward, the dawn light passes over him",
+   "frames": 57,
+   "char": "jun",
+   "expr": "nightshift",
+   "place": {
+    "h": 0.66,
+    "cx": 0.5,
+    "foot": 1.02,
+    "shadow": 0.45
+   },
+   "must": [
+    "bus interior"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one young man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S9",
+   "slot": [
+    24.37,
+    27.62
+   ],
+   "plate": "a wide view from a hillside path over a big Korean city before sunrise, rows of apartment blocks with mostly dark windows, deep blue sky turning soft orange at the horizon, street lamps, no vehicles, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "seen from behind, the man in a suit stands still and looks over the city, the apartment windows light up one by one across the city, the sky slowly brightens at the horizon",
+   "frames": 57,
+   "char": "m",
+   "expr": "back",
+   "place": {
+    "h": 0.44,
+    "cx": 0.5,
+    "foot": 0.97,
+    "shadow": 0.45
+   },
+   "must": [
+    "a city with many apartment windows",
+    "dawn sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S10",
+   "slot": [
+    27.62,
+    30.45
+   ],
+   "plate": "an empty Korean office building lobby before sunrise seen at eye level, polished stone floor, plain walls, a row of potted plants, rows of ceiling lights, no signs with letters, no glass doors",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the rows of ceiling lights in the dark lobby switch on one after another toward the camera, the old cleaning worker stands in the middle and looks up at the lights with a proud warm smile",
+   "frames": 53,
+   "char": "grandma",
+   "expr": "cleaner",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "an office lobby",
+    "ceiling lights"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one old woman)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S11",
+   "slot": [
+    30.45,
+    33.32
+   ],
+   "plate": "a Korean city bus stop on an empty street before sunrise, a simple bus shelter roof with a bench, deep blue dawn sky, a street lamp, no vehicles, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "four tired people wait side by side at the bus stop in the cold blue dawn, they sway a little and glance down the street, the street lamp glows",
+   "frames": 53,
+   "cast": [
+    {
+     "char": "grandma",
+     "expr": "cleaner",
+     "flip": false,
+     "place": {
+      "h": 0.36,
+      "cx": 0.17,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": "guard",
+     "flip": false,
+     "place": {
+      "h": 0.36,
+      "cx": 0.39,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "jun",
+     "expr": "nightshift",
+     "flip": false,
+     "place": {
+      "h": 0.36,
+      "cx": 0.61,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "m",
+     "expr": null,
+     "flip": true,
+     "place": {
+      "h": 0.36,
+      "cx": 0.83,
+      "foot": 0.94,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "a bus stop",
+    "dawn sky"
+   ],
+   "avoid": [
+    "Are there more than 4 people?",
+    "Is there a car, bus, scooter or motorbike anywhere in the picture?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S12",
+   "slot": [
+    33.32,
+    35.69
+   ],
+   "plate": "inside a crowded Korean city bus before sunrise, deep blue dawn light through the windows, warm yellow interior lights, every seat taken, hand straps, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the bus sways gently through the dawn, the man in a suit holds the strap among the tired working people",
+   "frames": 45,
+   "char": "m",
+   "expr": "sigh",
+   "place": {
+    "h": 0.54,
+    "cx": 0.5,
+    "foot": 0.97,
+    "shadow": 0.45
+   },
+   "extras": "many tired working passengers in work clothes, some dozing, some looking out of the window",
+   "must": [
+    "a full bus"
+   ],
+   "avoid": [
+    "Is it bright daytime outside the windows?"
+   ],
+   "still": true
+  },
+  {
+   "id": "S13",
+   "slot": [
+    35.69,
+    39.02
+   ],
+   "plate": "a quiet Korean residential street before sunrise, deep blue sky with one bright morning star, low houses with dark windows, a street lamp, empty, no vehicles, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the man in a suit stops and looks up at the last bright star in the blue dawn sky, a small calm smile spreads on his face, the star twinkles",
+   "frames": 61,
+   "char": "m",
+   "expr": "lookup",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "a bright star in the sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Is there a car, scooter or motorbike anywhere in the picture?"
+   ]
+  },
+  {
+   "id": "S14",
+   "slot": [
+    39.02,
+    42.01
+   ],
+   "plate": "outside a small Korean corner store before sunrise, its metal shutter pulled down, deep blue sky with one bright morning star, a street lamp, empty sidewalk, no vehicles, nobody else, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the young man looks up at the bright morning star, his tired face slowly breaks into a hopeful smile, he takes a deep breath, the star twinkles",
+   "frames": 53,
+   "char": "jun",
+   "expr": "nightshift",
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "a bright star in the sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one young man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S15",
+   "slot": [
+    42.01,
+    45.52
+   ],
+   "plate": "inside a Korean city bus at early dawn, soft blue light turning golden through the windows, warm interior lights, hand straps, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the man in a suit holds the hand strap, closes his eyes and lets out a long calm breath, warm golden dawn light moves across his face as the bus rolls on",
+   "frames": 61,
+   "char": "m",
+   "expr": "sigh",
+   "place": {
+    "h": 0.6,
+    "cx": 0.5,
+    "foot": 0.98,
+    "shadow": 0.45
+   },
+   "must": [
+    "bus interior",
+    "dawn light"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S16",
+   "slot": [
+    45.52,
+    50.47
+   ],
+   "plate": "a wide quiet Korean city street at dawn seen from the sidewalk, the sky turning soft gold and pink, rows of apartment blocks with lit windows, street lamps turning off, no vehicles, nobody, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the dawn light slowly spreads over the street, the apartment lights glow, the street lamps fade off",
+   "frames": 85,
+   "char": null,
+   "expr": null,
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "dawn sky"
+   ],
+   "still": true
+  },
+  {
+   "id": "S17",
+   "slot": [
+    50.47,
+    54.63
+   ],
+   "plate": "inside a Korean city bus at dawn, soft golden light through the windows, warm interior lights, hand straps, a vertical yellow grab pole, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the old cleaning worker and the man in a suit standing in the bus meet each other's eyes and both give a small warm nod and smile without words, the bus sways gently, golden light passes",
+   "frames": 73,
+   "cast": [
+    {
+     "char": "grandma",
+     "expr": "cleaner",
+     "flip": false,
+     "place": {
+      "h": 0.5,
+      "cx": 0.3,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "m",
+     "expr": "smile",
+     "flip": true,
+     "place": {
+      "h": 0.57,
+      "cx": 0.7,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "bus interior"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one old woman and one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "id": "S18",
+   "slot": [
+    54.63,
+    60.98
+   ],
+   "plate": "inside a Korean city bus at sunrise, warm golden light through the windows, hand straps, a vertical yellow grab pole, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the sleepy young man in a store vest dozes off and his head gently tilts onto the shoulder of the old security guard beside him, the old man smiles kindly and stays still to let him rest, golden sunrise light fills the bus",
+   "frames": 109,
+   "cast": [
+    {
+     "char": "jun",
+     "expr": "nightshift",
+     "flip": false,
+     "place": {
+      "h": 0.54,
+      "cx": 0.4,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": "guard",
+     "flip": true,
+     "place": {
+      "h": 0.53,
+      "cx": 0.64,
+      "foot": 0.96,
+      "shadow": 0.45
+     }
+    }
+   ],
+   "must": [
+    "bus interior",
+    "sunrise light"
+   ],
+   "avoid": [
+    "Are there more than 2 people (one young man and one old man)?",
+    "Does the picture suddenly change into a different scene or camera angle?",
+    "Are the two people merged into one body?"
+   ]
+  },
+  {
+   "id": "S19",
+   "slot": [
+    60.98,
+    64.68
+   ],
+   "plate": "a wide view of a big Korean city at sunrise from a hillside, the golden sun rising between rows of apartment blocks, warm light on the rooftops, soft clouds, no vehicles, no signs with letters",
+   "camera": {
+    "move": "push",
+    "amount": 0.04
+   },
+   "motion": "the golden sun rises slowly over the city",
+   "frames": 65,
+   "char": null,
+   "expr": null,
+   "place": {
+    "h": 0.5,
+    "cx": 0.5,
+    "foot": 0.95,
+    "shadow": 0.45
+   },
+   "must": [
+    "the rising sun"
+   ],
+   "still": true
+  }
+ ]
+}
