@@ -7,7 +7,7 @@
  "gpu": "T4",
  "lead": "m",
  "qc": true,
- "keys_only": true,
+ "keys_only": false,
  "key_variants": 2,
  "thumb": {
   "text": [
@@ -54,7 +54,8 @@
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is it bright daytime outside the windows?"
-   ]
+   ],
+   "key_image": "key_SH07_S1.png"
   },
   {
    "lines": [
@@ -91,7 +92,8 @@
    "avoid": [
     "Are there more than 2 people (one old woman and one old man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S2.png"
   },
   {
    "lines": [
@@ -115,7 +117,8 @@
    "still": true,
    "avoid": [
     "Are there more than 1 people (one old man)?"
-   ]
+   ],
+   "key_image": "key_SH07_S3.png"
   },
   {
    "lines": [
@@ -138,7 +141,8 @@
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is anything floating in the air?"
-   ]
+   ],
+   "key_image": "key_SH07_S4.png"
   },
   {
    "lines": [
@@ -161,7 +165,8 @@
    "avoid": [
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S5.png"
   },
   {
    "lines": [
@@ -185,7 +190,8 @@
     "Is there a car, bicycle, scooter or motorbike anywhere in the picture?",
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S6.png"
   },
   {
    "lines": [
@@ -210,7 +216,8 @@
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is there a car, scooter or motorbike anywhere in the picture?"
-   ]
+   ],
+   "key_image": "key_SH07_S7.png"
   },
   {
    "lines": [
@@ -232,7 +239,8 @@
    "avoid": [
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S8.png"
   },
   {
    "lines": [
@@ -255,7 +263,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S9.png"
   },
   {
    "lines": [
@@ -278,7 +287,8 @@
    "avoid": [
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S10.png"
   },
   {
    "lines": [
@@ -334,7 +344,8 @@
     "Are there more than 4 people?",
     "Is there a car, bus, scooter or motorbike anywhere in the picture?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S11.png"
   },
   {
    "lines": [
@@ -356,7 +367,8 @@
    "still": true,
    "avoid": [
     "Is it bright daytime outside the windows?"
-   ]
+   ],
+   "key_image": "key_SH07_S12.png"
   },
   {
    "lines": [
@@ -379,7 +391,8 @@
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is there a car, scooter or motorbike anywhere in the picture?"
-   ]
+   ],
+   "key_image": "key_SH07_S13.png"
   },
   {
    "lines": [
@@ -401,7 +414,8 @@
    "avoid": [
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S14.png"
   },
   {
    "lines": [
@@ -424,7 +438,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S15.png"
   },
   {
    "lines": [
@@ -437,7 +452,8 @@
     "dawn sky"
    ],
    "still": true,
-   "char": null
+   "char": null,
+   "key_image": "key_SH07_S16.png"
   },
   {
    "lines": [
@@ -473,7 +489,8 @@
    "avoid": [
     "Are there more than 2 people (one old woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S17.png"
   },
   {
    "lines": [
@@ -511,7 +528,8 @@
     "Are there more than 2 people (one young man and one old man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Are the two people merged into one body?"
-   ]
+   ],
+   "key_image": "key_SH07_S18.png"
   },
   {
    "lines": "outro",
@@ -522,7 +540,8 @@
    "motion": "the golden sun rises slowly over the city",
    "must": [
     "the rising sun"
-   ]
+   ],
+   "key_image": "key_SH07_S19.png"
   }
  ]
 }

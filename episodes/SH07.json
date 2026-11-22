@@ -269,7 +269,7 @@
  "captions": true,
  "props": {},
  "retake": [],
- "keys_only": true,
+ "keys_only": false,
  "upload": {
   "title": "새벽 다섯 시, 첫차는 언제나 만석이다 | 해보다 먼저 일어난 사람들 #shorts",
   "description": "첫차는 언제나 만석이다.\n아무도 이름을 묻지 않는 사람들이\n해보다 먼저 이 도시의 불을 켭니다.\n\n청소하는 어머니, 밤을 지킨 경비원, 밤샘 알바를 마친 청년…\n고맙다는 말 대신, 서로의 어깨를 빌려 주는 새벽.\n\n🎵 첫차는 언제나 만석이다 - MIDLIFE COMMUTER\n💬 당신의 첫차는 몇 시인가요? 댓글로 들려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#첫차 #새벽 #출근 #노동자 #청소노동자 #경비원 #알바 #위로 #직장인공감 #MIDLIFECOMMUTER #shorts",
@@ -317,7 +317,8 @@
    "avoid": [
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is it bright daytime outside the windows?"
-   ]
+   ],
+   "key_image": "key_SH07_S1.png"
   },
   {
    "id": "S2",
@@ -363,7 +364,8 @@
    "avoid": [
     "Are there more than 2 people (one old woman and one old man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S2.png"
   },
   {
    "id": "S3",
@@ -393,7 +395,8 @@
    "avoid": [
     "Are there more than 1 people (one old man)?"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH07_S3.png"
   },
   {
    "id": "S4",
@@ -423,7 +426,8 @@
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is anything floating in the air?"
-   ]
+   ],
+   "key_image": "key_SH07_S4.png"
   },
   {
    "id": "S5",
@@ -452,7 +456,8 @@
    "avoid": [
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S5.png"
   },
   {
    "id": "S6",
@@ -483,7 +488,8 @@
     "Is there a car, bicycle, scooter or motorbike anywhere in the picture?",
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S6.png"
   },
   {
    "id": "S7",
@@ -514,7 +520,8 @@
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is there a car, scooter or motorbike anywhere in the picture?"
-   ]
+   ],
+   "key_image": "key_SH07_S7.png"
   },
   {
    "id": "S8",
@@ -543,7 +550,8 @@
    "avoid": [
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S8.png"
   },
   {
    "id": "S9",
@@ -573,7 +581,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S9.png"
   },
   {
    "id": "S10",
@@ -603,7 +612,8 @@
    "avoid": [
     "Are there more than 1 people (one old woman)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S10.png"
   },
   {
    "id": "S11",
@@ -672,7 +682,8 @@
     "Are there more than 4 people?",
     "Is there a car, bus, scooter or motorbike anywhere in the picture?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S11.png"
   },
   {
    "id": "S12",
@@ -702,7 +713,8 @@
    "avoid": [
     "Is it bright daytime outside the windows?"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH07_S12.png"
   },
   {
    "id": "S13",
@@ -732,7 +744,8 @@
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is there a car, scooter or motorbike anywhere in the picture?"
-   ]
+   ],
+   "key_image": "key_SH07_S13.png"
   },
   {
    "id": "S14",
@@ -761,7 +774,8 @@
    "avoid": [
     "Are there more than 1 people (one young man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S14.png"
   },
   {
    "id": "S15",
@@ -791,7 +805,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S15.png"
   },
   {
    "id": "S16",
@@ -817,7 +832,8 @@
    "must": [
     "dawn sky"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH07_S16.png"
   },
   {
    "id": "S17",
@@ -862,7 +878,8 @@
    "avoid": [
     "Are there more than 2 people (one old woman and one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH07_S17.png"
   },
   {
    "id": "S18",
@@ -909,7 +926,8 @@
     "Are there more than 2 people (one young man and one old man)?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Are the two people merged into one body?"
-   ]
+   ],
+   "key_image": "key_SH07_S18.png"
   },
   {
    "id": "S19",
@@ -935,7 +953,8 @@
    "must": [
     "the rising sun"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH07_S19.png"
   }
  ]
 }
