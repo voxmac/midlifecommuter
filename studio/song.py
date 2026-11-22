@@ -30,7 +30,8 @@ for i, seed in enumerate(spec.get("seeds", [11, 22, 33, 44])):
         p = GenerationParams(task_type="repaint", src_audio=spec["_src"], repainting_start=ext["start"],
                              repainting_end=ext["end"], chunk_mask_mode="explicit", thinking=False,
                              caption=spec["style"] + ", " + ext.get("caption", "the last line is sung completely, then a gentle short outro that ends naturally"),
-                             lyrics=spec["lyrics"], bpm=spec.get("bpm"), keyscale=spec.get("key", ""),
+                             lyrics=ext.get("lyrics", spec["lyrics"]),   # ext.lyrics: spelled as pronounced (싣는다 -> 신는다); captions keep spec.lyrics
+                             bpm=spec.get("bpm"), keyscale=spec.get("key", ""),
                              timesignature=spec.get("time", "4"), vocal_language=spec.get("lang", "en"),
                              duration=ext.get("total", ext["end"]), inference_steps=8, guidance_scale=1.0, seed=seed)
     else:
