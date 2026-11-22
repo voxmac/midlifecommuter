@@ -458,7 +458,15 @@ EDITS_MH = {
             "pillow showing above the blanket, eyes open staring blankly, glum tired face. Side view of the whole bed with its wooden frame, "
             "nothing else."),
 }
+EDITS["cleaner"] = ("Change her into a building cleaning worker at dawn: grey hair tied in a low bun under a small light-blue cloth cap, "
+                    "a light-blue work jacket with plain pockets and no logo, dark-navy work trousers, white canvas shoes, cotton work "
+                    "gloves tucked in a pocket, no handbag, both hands empty and relaxed. Same kind wrinkled face and glasses, standing, "
+                    "gentle sleepy smile, full body from head to shoes.")
+EDITS["guard"] = ("Change him into an apartment security guard finishing a night shift: a dark-navy guard uniform jacket and trousers "
+                  "with plain shoulder straps and no logo or letters, a navy peaked cap, black shoes; remove the walking cane, both hands "
+                  "empty at his sides. Same kind wrinkled face and glasses, standing upright, tired but warm expression, full body from head to shoes.")
 EDITS_JUN = {
+    "nightshift": "Put a plain dark-green store work vest with no logo and no letters over the {n}'s grey hoodie, same jeans and sneakers, both hands empty, sleepy tired eyes after a night shift, gentle small smile, standing, full body from head to shoes.",
     "walk": "Make the {n} walk calmly to the right, mid-stride, arms swinging loosely, both hands empty, determined gentle face. Same hoodie, jeans and sneakers.",
     "sigh": "Make the {n} look tired and discouraged: shoulders slumped, head tilted slightly down, eyes half closed, small flat mouth, no tears, both hands empty. Same clothes.",
     "phone": "Make the {n} hold a smartphone in his right hand at chest height and look down at its screen with a disappointed, deflated face, no tears. Same clothes.",
@@ -483,7 +491,8 @@ def cast_candidates_edit(spec, out_dir):
         canvas.paste(b, ((1024 - b.width) // 2, 1024 - 90 - b.height), b)
         init = f"{out_dir}/{char}_init.png"; canvas.save(init)
         ed = EDITS_BY_CHAR.get(char, EDITS)
-        for expr in spec.get("exprs", list(ed)):
+        pairs = spec.get("pairs")   # [[char, edit], ...] when each character gets its own edit
+        for expr in ([e for c, e in pairs if c == char] if pairs else spec.get("exprs", list(ed))):
             for k in range(spec.get("per_item", 2)):
                 f, sd, sec = gen_edit(init, ed[expr].format(n=NAMES[char]) + KEEP, prefix=f"E_{char}_{expr}")
                 dst = f"{out_dir}/{char}_{expr}_{k}.png"; shutil.copy(f, dst); made.setdefault(f"{char}_{expr}", []).append(dst)

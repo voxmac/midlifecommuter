@@ -1,0 +1,3 @@
+{"id":"CAST14","type":"cast","gpu":"T4","engine":"qwen_edit","chars":["grandma","grandpa","jun"],
+ "pairs":[["grandma","cleaner"],["grandpa","guard"],["jun","nightshift"]],"per_item":2,
+ "note":"Song 7 (first bus at dawn): a cleaning worker (from grandma), a security guard after a night shift (from grandpa), jun in a night-shift store vest."}
