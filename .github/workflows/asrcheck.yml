@@ -1,0 +1,43 @@
+name: asrcheck
+# Pronunciation check (CPU): what speech recognition actually hears in one window of every mp3 of a song release
+# (vocals separated first). Catches a word sung wrongly even when the lyric alignment still "matches" it.
+on:
+  workflow_dispatch:
+    inputs:
+      tag: {description: "Release tag, e.g. MC07-1122-0908", required: true}
+      start: {description: "window start (s)", required: true}
+      end: {description: "window end (s)", required: true}
+      issue: {description: "Issue number to comment on", required: true}
+      pattern: {description: "mp3 name pattern", required: false, default: "*.mp3"}
+permissions: {contents: read, issues: write}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", REPO: "${{ github.repository }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q demucs faster-whisper
+          mkdir O && gh release download "${{ inputs.tag }}" -R $REPO -p "${{ inputs.pattern }}" -D O
+          S=${{ inputs.start }}; E=${{ inputs.end }}
+          echo "**What is heard at ${S}–${E} s** (vocals separated, Whisper medium, Korean):" > body.md; echo >> body.md
+          for f in O/*.mp3; do
+            n=$(basename $f .mp3)
+            ffmpeg -loglevel error -y -ss $S -to $E -i $f -ac 2 -ar 44100 /tmp/$n.wav
+            python -m demucs --two-stems=vocals -o /tmp/sep /tmp/$n.wav >/dev/null 2>&1
+            v=$(ls /tmp/sep/*/$n/vocals.wav)
+            for model in medium large-v3; do
+              t=$(python -c "
+          from faster_whisper import WhisperModel
+          m = WhisperModel('$model', device='cpu', compute_type='int8')
+          s, _ = m.transcribe('$v', language='ko', beam_size=5, temperature=0, vad_filter=False)
+          print(' '.join(x.text.strip() for x in s))")
+              echo "- **$n** ($model): $t" >> body.md
+            done
+          done
+          cat body.md
+          gh issue comment ${{ inputs.issue }} -R $REPO --body-file body.md
