@@ -1,0 +1,19 @@
+name: kstatus
+# Which of our Kaggle notebooks are running/queued right now (a stuck one blocks the GPU queue for the next).
+on: {workflow_dispatch: {}}
+permissions: {contents: read}
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    env: {KAGGLE_USERNAME: "${{ secrets.KAGGLE_USERNAME }}", KAGGLE_KEY: "${{ secrets.KAGGLE_KEY }}"}
+    steps:
+      - run: |
+          pip install -q kaggle six
+          mkdir -p ~/.kaggle
+          if echo "$KAGGLE_KEY" | grep -Eq '^[0-9a-f]{32}$'; then printf '{"username":"%s","key":"%s"}' "$KAGGLE_USERNAME" "$KAGGLE_KEY" > ~/.kaggle/kaggle.json
+          else printf '%s' "$KAGGLE_KEY" > ~/.kaggle/access_token; export KAGGLE_API_TOKEN=$KAGGLE_KEY; fi
+          chmod 600 ~/.kaggle/*
+          kaggle kernels list --mine --page-size 50 --sort-by dateRun 2>&1 | head -40 | sed "s/$KAGGLE_USERNAME/USER/g"
+          for k in $(kaggle kernels list --mine --page-size 30 --sort-by dateRun --csv 2>/dev/null | tail -n +2 | cut -d, -f1 | head -15); do
+            echo "$k: $(kaggle kernels status $k 2>&1 | sed 's/.*has status//')" | sed "s/$KAGGLE_USERNAME/USER/g"
+          done
