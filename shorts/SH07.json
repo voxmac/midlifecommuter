@@ -7,8 +7,8 @@
  "gpu": "T4",
  "lead": "m",
  "qc": true,
- "keys_only": false,
- "key_variants": 2,
+ "keys_only": true,
+ "key_variants": 1,
  "thumb": {
   "text": [
    "첫차는",
@@ -38,24 +38,65 @@
    ],
    "end": 14.9,
    "_id": "S1",
-   "plate": "inside a crowded Korean city bus before sunrise, deep blue dawn light through the windows, warm yellow interior lights, every seat taken by tired working people in work clothes dozing, hand straps, no signs with letters",
-   "extras": "many tired middle-aged working passengers sitting and dozing in the seats, seen softly in the background",
-   "expr": "lookup",
-   "place": {
-    "h": 0.56,
-    "cx": 0.5,
-    "foot": 0.97
-   },
-   "motion": "the man in a suit holds the hand strap and slowly looks around the full bus with quiet surprise, the bus sways gently, the dozing passengers nod with the motion, the blue dawn passes outside",
+   "plate": "close view inside a Korean city bus before sunrise, deep blue dawn light through the window, warm yellow interior light, hand straps, no signs with letters",
+   "motion": "the bus is packed with tired workers standing close together, the man in a suit in the middle slowly looks around at them with quiet surprise, everyone sways gently with the bus, the old woman's eyes droop sleepily, the blue dawn passes outside",
    "must": [
-    "a full bus",
-    "dawn outside the windows"
+    "bus interior",
+    "many people standing"
    ],
    "avoid": [
+    "Are there more than 5 people?",
     "Does the picture suddenly change into a different scene or camera angle?",
     "Is it bright daytime outside the windows?"
    ],
-   "key_image": "key_SH07_S1.png"
+   "key_seed": 1493291193,
+   "cast": [
+    {
+     "char": "junior",
+     "place": {
+      "h": 0.4,
+      "cx": 0.29,
+      "foot": 0.8
+     }
+    },
+    {
+     "char": "friend",
+     "place": {
+      "h": 0.4,
+      "cx": 0.71,
+      "foot": 0.8
+     },
+     "flip": true
+    },
+    {
+     "char": "grandma",
+     "expr": "cleaner",
+     "place": {
+      "h": 0.44,
+      "cx": 0.19,
+      "foot": 0.97
+     }
+    },
+    {
+     "char": "grandpa",
+     "expr": "guard",
+     "place": {
+      "h": 0.44,
+      "cx": 0.81,
+      "foot": 0.97
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "lookup",
+     "place": {
+      "h": 0.58,
+      "cx": 0.5,
+      "foot": 0.99
+     }
+    }
+   ]
   },
   {
    "lines": [
@@ -352,23 +393,64 @@
     5
    ],
    "_id": "S12",
-   "plate": "inside a crowded Korean city bus before sunrise, deep blue dawn light through the windows, warm yellow interior lights, every seat taken, hand straps, no signs with letters",
-   "extras": "many tired working passengers in work clothes, some dozing, some looking out of the window",
-   "expr": "sigh",
-   "place": {
-    "h": 0.54,
-    "cx": 0.5,
-    "foot": 0.97
-   },
-   "motion": "the bus sways gently through the dawn, the man in a suit holds the strap among the tired working people",
+   "plate": "close view inside a Korean city bus before sunrise, deep blue dawn light through the window, warm yellow interior light, hand straps, no signs with letters",
+   "motion": "the bus sways gently through the dawn, the man in a suit holds on among the tired working people standing close together",
    "must": [
-    "a full bus"
+    "bus interior",
+    "many people standing"
    ],
    "still": true,
    "avoid": [
-    "Is it bright daytime outside the windows?"
+    "Are there more than 5 people?"
    ],
-   "key_image": "key_SH07_S12.png"
+   "key_seed": 1493291193,
+   "cast": [
+    {
+     "char": "boss",
+     "place": {
+      "h": 0.4,
+      "cx": 0.29,
+      "foot": 0.8
+     }
+    },
+    {
+     "char": "junior",
+     "place": {
+      "h": 0.4,
+      "cx": 0.71,
+      "foot": 0.8
+     },
+     "flip": true
+    },
+    {
+     "char": "jun",
+     "expr": "nightshift",
+     "place": {
+      "h": 0.44,
+      "cx": 0.19,
+      "foot": 0.97
+     }
+    },
+    {
+     "char": "grandma",
+     "expr": "cleaner",
+     "place": {
+      "h": 0.44,
+      "cx": 0.81,
+      "foot": 0.97
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "sigh",
+     "place": {
+      "h": 0.58,
+      "cx": 0.5,
+      "foot": 0.99
+     }
+    }
+   ]
   },
   {
    "lines": [
@@ -423,7 +505,7 @@
    ],
    "end": 57.0,
    "_id": "S15",
-   "plate": "inside a Korean city bus at early dawn, soft blue light turning golden through the windows, warm interior lights, hand straps, no signs with letters",
+   "plate": "close view inside a Korean city bus before sunrise, deep blue dawn light through the window, warm yellow interior light, hand straps, no signs with letters",
    "expr": "sigh",
    "place": {
     "h": 0.6,
@@ -439,7 +521,7 @@
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "key_image": "key_SH07_S15.png"
+   "key_seed": 1493291193
   },
   {
    "lines": [
@@ -545,10 +627,8 @@
   }
  ],
  "retake": [
-  "S7",
-  "S10",
-  "S11",
-  "S13",
-  "S14"
+  "S1",
+  "S12",
+  "S15"
  ]
 }
