@@ -118,8 +118,10 @@ def produce(spec):
                         still_clip(f"{E}/keys/{s['id']}.png", shot_files[s["id"]], 5.0)   # not in shots/ → redone next run
                         report["shots"][s["id"]]["pending"] = True; report.setdefault("pending", []).append(s["id"])
                         log("over budget, pending:", s["id"]); continue
-                    prompt = s["motion"] + (", one continuous shot with no scene cut, the characters keep exactly the same faces and designs as in the first frame, nobody else enters and no new people or objects appear, "
-                                            "every scooter or bicycle keeps its rider, pixar style 3d animation, smooth natural motion, cinematic")
+                    # Wan runs at cfg 1: its negative prompt is ignored and every word here pulls - "no scooter", "nobody else enters",
+                    # "every scooter keeps its rider" put scooters and passers-by into SH07 shots. Only say what should be seen.
+                    prompt = split_neg(s["motion"])[0] + (", one continuous steady shot, the same place and the same characters with the same faces and designs "
+                                            "as in the first frame, only these characters move, the background stays calm and empty, pixar style 3d animation, smooth natural motion, cinematic")
                     seed, sec = gen_shot(f"{E}/keys/{s['id']}.png", prompt, shot_files[s["id"]], s.get("video_seed"), frames=s.get("frames", 81))
                     report["shots"][s["id"]].update({"video_seed": seed, "minutes": round(sec / 60, 1)})
                     log("shot", s["id"], f"{sec/60:.1f} min")

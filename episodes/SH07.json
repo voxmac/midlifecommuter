@@ -268,7 +268,13 @@
  "tracker": false,
  "captions": true,
  "props": {},
- "retake": [],
+ "retake": [
+  "S7",
+  "S10",
+  "S11",
+  "S13",
+  "S14"
+ ],
  "keys_only": false,
  "upload": {
   "title": "새벽 다섯 시, 첫차는 언제나 만석이다 | 해보다 먼저 일어난 사람들 #shorts",

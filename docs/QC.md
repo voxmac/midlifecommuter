@@ -85,3 +85,8 @@ Retakes cost a Kaggle run each (S5 glass, S14 bed, S3 window in SH06). Almost al
 4. Full run (`keys_only` false): only Wan. Then the 0.5 s frame review of every shot before delivery.
 Lint (make_short.py) now refuses: 'bedroom'/'bed' in a plate when a bed cutout is used; shops without 'no glass'; glass/mirrors in
 animated scenes; motions where someone walks toward another person or object.
+
+## Wan prompt words (SH07, 2026-11-23)
+Wan runs at cfg 1, so its negative prompt does nothing and every word in the positive prompt pulls. The fixed suffix said
+"nobody else enters ... every scooter or bicycle keeps its rider" -> delivery scooters rode through 5 of 15 SH07 shots (even an
+office lobby). The suffix now only describes what should be seen, and 'no X' phrases are stripped from the motion text.
