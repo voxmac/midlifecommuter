@@ -7,7 +7,7 @@
  "gpu": "T4",
  "lead": "m",
  "qc": true,
- "keys_only": true,
+ "keys_only": false,
  "key_variants": 1,
  "thumb": {
   "text": [
@@ -96,7 +96,8 @@
       "foot": 0.99
      }
     }
-   ]
+   ],
+   "key_image": "key_SH07_S1.png"
   },
   {
    "lines": [
@@ -450,7 +451,8 @@
       "foot": 0.99
      }
     }
-   ]
+   ],
+   "key_image": "key_SH07_S12.png"
   },
   {
    "lines": [
@@ -521,7 +523,8 @@
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ],
-   "key_seed": 1493291193
+   "key_seed": 1493291193,
+   "key_image": "key_SH07_S15.png"
   },
   {
    "lines": [
