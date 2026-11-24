@@ -1,0 +1,16 @@
+{
+ "id": "MC08",
+ "type": "song",
+ "title": "5분만 더",
+ "lang": "ko",
+ "voice": "male",
+ "style": "bright upbeat Korean city pop funk, 1980s retro groove, slap bass, crisp funky electric guitar, punchy brass section stabs, handclaps, tight disco drums, solo male baritone vocal in late 40s singing cheerfully with a playful humorous tone, the same singer from start to end, no female vocals, no choir, no falsetto, comfortable mid range melody, catchy bouncy chorus, comedic morning rush, energetic and fun",
+ "bpm": 118,
+ "key": "D major",
+ "time": "4",
+ "duration": 66,
+ "seeds": [881, 882, 883, 884],
+ "lyrics": "[Verse]\n알람이 울리면 오 분만 더\n눈 떠 보니 벌써 여덟 시 반\n양말은 짝짝이 넥타이 어디\n토스트 물고서 뛰어간다\n\n[Chorus]\n달려라 달려라 월요일 아침\n엘리베이터는 왜 꼭대기에\n버스는 방금 떠나 버렸고\n부장님은 오늘도 일찍 왔다\n\n[Outro]\n그래도 오늘을 버텨 낸 너\n오늘 밤엔 푹 자게 해 줄게",
+ "gpu": "T4",
+ "note": "Song 8 (first upbeat track, 2026-11-24 direction: 70% bright/upbeat, 30% ballad; relatable tragicomic 웃픈 situations). Monday morning rush: snooze, mismatched socks, toast in mouth, elevator on the top floor, bus just left, the boss already in. Hook at 1 s: 알람이 울리면 오 분만 더. Killing part: 달려라 달려라 월요일 아침. Twist: a warm last line. Numbers spelled as sung (오 분, 여덟 시) so they are sung right. Voice = MC02 male solo, no female/choir/falsetto."
+}
