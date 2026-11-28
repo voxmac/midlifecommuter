@@ -23,13 +23,20 @@ msg, ok = llm.initialize(checkpoint_dir="/tmp/ace/checkpoints", lm_model_path=sp
                          backend="pt", device="cuda", offload_to_cpu=True, dtype=None)
 print("LM:", msg, flush=True); assert ok, msg
 rep = []
+import re as _re
+def _pos(text):
+    """ACE-Step runs at guidance 1.0: negatives do nothing and every word pulls - 'no female vocals, no falsetto' asked for
+    a female voice and falsetto (MC04-MC08 high/female passages). Keep only what should be heard."""
+    t = _re.sub(r"(?i),?\s*\b(?:no|without)\s+[^,]*", "", text)
+    return _re.sub(r"\s*,(\s*,)+", ",", t).strip(" ,")
+spec["style"] = _pos(spec["style"])
 ext = spec.get("extend")   # keep a chosen take and redo only its tail (e.g. a last line that was cut off), longer if needed
 for i, seed in enumerate(spec.get("seeds", [11, 22, 33, 44])):
     t0 = time.time()
     if ext:
         p = GenerationParams(task_type="repaint", src_audio=spec["_src"], repainting_start=ext["start"],
                              repainting_end=ext["end"], chunk_mask_mode="explicit", thinking=False,
-                             caption=spec["style"] + ", " + ext.get("caption", "the last line is sung completely, then a gentle short outro that ends naturally"),
+                             caption=_pos(spec["style"] + ", " + ext.get("caption", "the last line is sung completely, then a gentle short outro that ends naturally")),
                              lyrics=ext.get("lyrics", spec["lyrics"]),   # ext.lyrics: spelled as pronounced (싣는다 -> 신는다); captions keep spec.lyrics
                              bpm=spec.get("bpm"), keyscale=spec.get("key", ""),
                              timesignature=spec.get("time", "4"), vocal_language=spec.get("lang", "en"),
