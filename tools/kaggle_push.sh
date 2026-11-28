@@ -14,7 +14,13 @@ if [ ! -f /tmp/assets_synced ]; then
   echo "{\"title\": \"midlife-assets\", \"id\": \"$U/midlife-assets\", \"licenses\": [{\"name\": \"other\"}]}" > assets/dataset-metadata.json
   H=$(cd assets && ls | grep -v dataset-metadata | xargs sha1sum | sha1sum | cut -c1-12)
   if kaggle datasets status $U/midlife-assets >/dev/null 2>&1; then
-    [ "$H" = "$(cat state/assets_hash 2>/dev/null)" ] || kaggle datasets version -p assets -m "sync $H" -q --dir-mode zip
+    if [ "$H" != "$(cat state/assets_hash 2>/dev/null)" ]; then
+      NEWEST=$(cd assets && ls -t | grep -v dataset-metadata | head -1)
+      kaggle datasets version -p assets -m "sync $H" -q --dir-mode zip
+      # 'status: ready' is the OLD version until the new one is registered: wait until the newest file is in the dataset
+      # (MC08 pass 2 started on the old version and could not find its source take)
+      for i in $(seq 1 40); do sleep 30; kaggle datasets files $U/midlife-assets --page-size 500 2>/dev/null | grep -q "$NEWEST" && break; echo "assets: waiting for $NEWEST"; done
+    fi
   else kaggle datasets create -p assets -q --dir-mode zip; fi
   rm -f assets/dataset-metadata.json; mkdir -p state && echo "$H" > state/assets_hash
   for i in $(seq 1 40); do st=$(kaggle datasets status $U/midlife-assets 2>/dev/null | tr 'A-Z' 'a-z'); echo "assets: $st"; case "$st" in *ready*) break;; esac; sleep 30; done
