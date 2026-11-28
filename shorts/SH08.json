@@ -8,7 +8,7 @@
  "lead": "m",
  "outro_sec": 3.0,
  "qc": true,
- "keys_only": true,
+ "keys_only": false,
  "key_variants": 2,
  "thumb": {
   "text": [
@@ -179,7 +179,8 @@
    "avoid": [
     "Are there more than 2 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S5.png"
   },
   {
    "lines": [
@@ -500,8 +501,5 @@
    ],
    "key_image": "key_SH08_S15.png"
   }
- ],
- "retake": [
-  "S5"
  ]
 }

@@ -293,10 +293,8 @@
  "tracker": false,
  "captions": true,
  "props": {},
- "retake": [
-  "S5"
- ],
- "keys_only": true,
+ "retake": [],
+ "keys_only": false,
  "upload": {
   "title": "알람 울리면 5분만 더… 월요일 아침 직장인 현실 | 5분만 더 #shorts",
   "description": "알람이 울리면 딱 5분만 더…\n눈 떠 보니 8시 반, 양말은 짝짝이, 엘리베이터는 꼭대기,\n버스는 방금 떠났고 부장님은 오늘도 일찍 와 계신 월요일 아침.\n\n그래도 오늘을 버텨 낸 당신, 오늘 밤엔 푹 주무세요.\n\n🎵 5분만 더 - MIDLIFE COMMUTER\n💬 당신의 월요일 아침 최대 위기는? 댓글로 알려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#월요병 #월요일아침 #출근 #지각 #직장인공감 #직장인 #웃픈현실 #MIDLIFECOMMUTER #shorts",
@@ -504,7 +502,8 @@
    "avoid": [
     "Are there more than 2 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S5.png"
   },
   {
    "id": "S6",
