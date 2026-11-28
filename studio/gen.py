@@ -17,7 +17,10 @@ def sh(cmd, check=True):
     return r.stdout
 
 def find_input(word):
-    hits = [p for p in glob.glob("/kaggle/input/**/*", recursive=True) if word.lower() in os.path.basename(p).lower()]
+    # exact name first: a substring match made "m_cut" find "jmom_cut.png" (CAST15 drew M's edits on his mother)
+    files = glob.glob("/kaggle/input/**/*", recursive=True); w = word.lower()
+    exact = [p for p in files if os.path.splitext(os.path.basename(p))[0].lower() == w]
+    hits = exact or [p for p in files if os.path.basename(p).lower().startswith(w)] or [p for p in files if w in os.path.basename(p).lower()]
     return sorted(hits)[0] if hits else None
 
 def setup():

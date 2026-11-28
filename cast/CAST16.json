@@ -1,0 +1,3 @@
+{"id":"CAST16","type":"cast","gpu":"T4","engine":"qwen_edit","chars":["m"],
+ "pairs":[["m","surprised"],["m","run"]],"per_item":2,
+ "note":"Redo of CAST15 for m: find_input('m_cut') had matched jmom_cut.png, so the edits were drawn on M's mother."}
