@@ -1,0 +1,3 @@
+{"id":"CAST15","type":"cast","gpu":"T4","engine":"qwen_edit","chars":["m","mh"],
+ "pairs":[["m","surprised"],["m","run"],["mh","surprised"]],"per_item":2,
+ "note":"MC08 5분만 더 (upbeat Monday rush): M in suit shocked and running late; M in home clothes shocked at the clock."}
