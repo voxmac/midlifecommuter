@@ -293,7 +293,9 @@
  "tracker": false,
  "captions": true,
  "props": {},
- "retake": [],
+ "retake": [
+  "S5"
+ ],
  "keys_only": true,
  "upload": {
   "title": "알람 울리면 5분만 더… 월요일 아침 직장인 현실 | 5분만 더 #shorts",
@@ -339,7 +341,8 @@
    "avoid": [
     "Are there two beds in the picture?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S1.png"
   },
   {
    "id": "S2",
@@ -368,7 +371,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S2.png"
   },
   {
    "id": "S3",
@@ -424,7 +428,8 @@
    "avoid": [
     "Are there more than 3 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S3.png"
   },
   {
    "id": "S4",
@@ -437,7 +442,7 @@
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the man in a suit runs along the corridor toward the camera holding his briefcase, his tie flapping, the camera moves back with him",
+   "motion": "the man in a suit runs along the corridor with his briefcase, his tie flapping, the camera tracks beside him",
    "frames": 69,
    "char": "m",
    "expr": "run",
@@ -453,7 +458,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S4.png"
   },
   {
    "id": "S5",
@@ -466,7 +472,7 @@
     "move": "push",
     "amount": 0.04
    },
-   "motion": "on the busy Monday morning sidewalk the man in a suit runs as fast as he can with a comic determined face, the hurried woman and the young man walk quickly beside him, the camera tracks along",
+   "motion": "on the busy Monday morning sidewalk the man in a suit runs as fast as he can with a comic determined face, the hurried working mom walks quickly behind him, the camera tracks along",
    "frames": 73,
    "cast": [
     {
@@ -474,20 +480,9 @@
      "expr": "walk",
      "flip": false,
      "place": {
-      "h": 0.46,
-      "cx": 0.2,
-      "foot": 0.93,
-      "shadow": 0.45
-     }
-    },
-    {
-     "char": "jun",
-     "expr": "walk",
-     "flip": true,
-     "place": {
-      "h": 0.47,
-      "cx": 0.8,
-      "foot": 0.93,
+      "h": 0.44,
+      "cx": 0.22,
+      "foot": 0.92,
       "shadow": 0.45
      }
     },
@@ -496,8 +491,8 @@
      "expr": "run",
      "flip": false,
      "place": {
-      "h": 0.57,
-      "cx": 0.5,
+      "h": 0.55,
+      "cx": 0.6,
       "foot": 0.98,
       "shadow": 0.45
      }
@@ -507,7 +502,7 @@
     "sidewalk"
    ],
    "avoid": [
-    "Are there more than 3 people?",
+    "Are there more than 2 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
    ]
   },
@@ -538,7 +533,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S6.png"
   },
   {
    "id": "S7",
@@ -546,12 +542,12 @@
     25.11,
     28.93
    ],
-   "plate": "a Korean city bus stop with a simple shelter roof on a sunny morning street, a green city bus far away down the road, trees, no signs with letters",
+   "plate": "a Korean city bus stop with a simple shelter roof on a sunny morning street, a green city bus on the road behind, trees, no signs with letters",
    "camera": {
     "move": "push",
     "amount": 0.04
    },
-   "motion": "the bus far down the road drives away and gets smaller, the man in a suit at the bus stop watches it go with his mouth wide open and his arms dropping",
+   "motion": "the green bus behind him pulls away and drives off down the road, the man in a suit watches it go with his mouth wide open and his arms dropping",
    "frames": 69,
    "char": "m",
    "expr": "surprised",
@@ -562,12 +558,13 @@
     "shadow": 0.45
    },
    "must": [
-    "a bus far away"
+    "a green bus"
    ],
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S7.png"
   },
   {
    "id": "S8",
@@ -612,7 +609,8 @@
    "avoid": [
     "Are there more than 2 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S8.png"
   },
   {
    "id": "S9",
@@ -668,7 +666,8 @@
    "avoid": [
     "Are there more than 3 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S9.png"
   },
   {
    "id": "S10",
@@ -697,7 +696,8 @@
    "avoid": [
     "Are there more than 1 people (one man)?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S10.png"
   },
   {
    "id": "S11",
@@ -753,7 +753,8 @@
    "avoid": [
     "Are there more than 3 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S11.png"
   },
   {
    "id": "S12",
@@ -817,7 +818,8 @@
    "must": [
     "dinner table"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH08_S12.png"
   },
   {
    "id": "S13",
@@ -862,7 +864,8 @@
    "avoid": [
     "Are there more than 2 people?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S13.png"
   },
   {
    "id": "S14",
@@ -892,7 +895,8 @@
    "avoid": [
     "Are there two beds in the picture?",
     "Does the picture suddenly change into a different scene or camera angle?"
-   ]
+   ],
+   "key_image": "key_SH08_S14.png"
   },
   {
    "id": "S15",
@@ -918,7 +922,8 @@
    "must": [
     "full moon"
    ],
-   "still": true
+   "still": true,
+   "key_image": "key_SH08_S15.png"
   }
  ]
 }
