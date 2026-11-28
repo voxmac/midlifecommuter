@@ -1,0 +1,500 @@
+{
+ "id": "SH08",
+ "slug": "5분만더",
+ "song": "MC08",
+ "pick": 2,
+ "seconds": 66.0,
+ "gpu": "T4",
+ "lead": "m",
+ "outro_sec": 3.0,
+ "qc": true,
+ "keys_only": true,
+ "key_variants": 2,
+ "thumb": {
+  "text": [
+   "5분만 더",
+   "월요일 아침"
+  ]
+ },
+ "upload": {
+  "title": "알람 울리면 5분만 더… 월요일 아침 직장인 현실 | 5분만 더 #shorts",
+  "description": "알람이 울리면 딱 5분만 더…\n눈 떠 보니 8시 반, 양말은 짝짝이, 엘리베이터는 꼭대기,\n버스는 방금 떠났고 부장님은 오늘도 일찍 와 계신 월요일 아침.\n\n그래도 오늘을 버텨 낸 당신, 오늘 밤엔 푹 주무세요.\n\n🎵 5분만 더 - MIDLIFE COMMUTER\n💬 당신의 월요일 아침 최대 위기는? 댓글로 알려주세요.\n\n가사는 사람이 쓰고, 음악(ACE-Step)과 그림은 AI와 함께 만들었습니다.\n\n#월요병 #월요일아침 #출근 #지각 #직장인공감 #직장인 #웃픈현실 #MIDLIFECOMMUTER #shorts",
+  "tags": [
+   "월요병",
+   "월요일 아침",
+   "출근",
+   "지각",
+   "직장인 공감",
+   "웃픈 현실",
+   "신나는 노래",
+   "MIDLIFE COMMUTER"
+  ],
+  "made_for_kids": false
+ },
+ "scenes": [
+  {
+   "lines": [
+    0
+   ],
+   "_id": "S1",
+   "plate": "a cozy Korean apartment room corner seen at eye level, soft beige wall, a small wooden nightstand with a round alarm clock, a framed family photo, no bed, no bunk bed, no mattress, no signs with letters, early morning light",
+   "char": "mh",
+   "expr": "bed",
+   "place": {
+    "h": 0.36,
+    "cx": 0.5,
+    "foot": 0.9
+   },
+   "motion": "the man sleeps happily in his bed under the blanket, snuggles deeper and smiles in his sleep, the alarm clock rings and shakes on the nightstand",
+   "must": [
+    "alarm clock"
+   ],
+   "avoid": [
+    "Are there two beds in the picture?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    1
+   ],
+   "_id": "S2",
+   "plate": "a cozy Korean apartment bedroom corner seen at eye level, soft beige wall, a big round wall clock, a window with bright morning sun, no signs with letters",
+   "char": "mh",
+   "expr": "surprised",
+   "place": {
+    "h": 0.6,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the man in home clothes stares at the wall clock, his eyes pop wide and his mouth drops open in comic shock, he grabs his head with both hands",
+   "must": [
+    "wall clock"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    2
+   ],
+   "_id": "S3",
+   "plate": "a bright cozy Korean apartment living room seen at eye level, warm wooden floor, a sofa against the wall, a small dining table with breakfast plates, morning sunlight through the window, no signs with letters",
+   "cast": [
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.5,
+      "cx": 0.2,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.34,
+      "cx": 0.8,
+      "foot": 0.95
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "surprised",
+     "place": {
+      "h": 0.58,
+      "cx": 0.5,
+      "foot": 0.98
+     }
+    }
+   ],
+   "motion": "the man in a suit looks down at his mismatched socks in panic and pats his collar looking for his tie, his wife and little son burst out laughing beside him",
+   "must": [
+    "living room"
+   ],
+   "avoid": [
+    "Are there more than 3 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ],
+   "dressed_for_work": true
+  },
+  {
+   "lines": [
+    3
+   ],
+   "_id": "S4",
+   "plate": "a long bright Korean apartment building corridor in the morning, a row of plain front doors, a tiled floor, sunlight from the side windows, no signs with letters",
+   "char": "m",
+   "expr": "run",
+   "place": {
+    "h": 0.55,
+    "cx": 0.5,
+    "foot": 0.96
+   },
+   "motion": "the man in a suit runs along the corridor toward the camera holding his briefcase, his tie flapping, the camera moves back with him",
+   "must": [
+    "corridor"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    4
+   ],
+   "_id": "S5",
+   "plate": "a sunny Korean city sidewalk on a Monday morning, rows of trees, office buildings, a crosswalk, no signs with letters",
+   "cast": [
+    {
+     "char": "wm",
+     "expr": "walk",
+     "place": {
+      "h": 0.46,
+      "cx": 0.2,
+      "foot": 0.93
+     }
+    },
+    {
+     "char": "jun",
+     "expr": "walk",
+     "place": {
+      "h": 0.47,
+      "cx": 0.8,
+      "foot": 0.93
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "run",
+     "place": {
+      "h": 0.57,
+      "cx": 0.5,
+      "foot": 0.98
+     }
+    }
+   ],
+   "motion": "on the busy Monday morning sidewalk the man in a suit runs as fast as he can with a comic determined face, the hurried woman and the young man walk quickly beside him, the camera tracks along",
+   "must": [
+    "sidewalk"
+   ],
+   "avoid": [
+    "Are there more than 3 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    5
+   ],
+   "_id": "S6",
+   "plate": "a Korean apartment elevator lobby seen at eye level, closed brushed metal elevator doors, a small floor display above the doors, a call button panel, a tiled floor, no signs with letters",
+   "char": "m",
+   "expr": "surprised",
+   "place": {
+    "h": 0.58,
+    "cx": 0.42,
+    "foot": 0.97
+   },
+   "motion": "the man in a suit stares up at the floor display above the elevator doors in disbelief and taps his foot impatiently, his shoulders slump",
+   "must": [
+    "elevator doors"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    6
+   ],
+   "_id": "S7",
+   "plate": "a Korean city bus stop with a simple shelter roof on a sunny morning street, a green city bus far away down the road, trees, no signs with letters",
+   "char": "m",
+   "expr": "surprised",
+   "place": {
+    "h": 0.56,
+    "cx": 0.5,
+    "foot": 0.97
+   },
+   "motion": "the bus far down the road drives away and gets smaller, the man in a suit at the bus stop watches it go with his mouth wide open and his arms dropping",
+   "must": [
+    "a bus far away"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "end": 32.6,
+   "_id": "S8",
+   "plate": "a bright Korean office in the morning seen at eye level, rows of desks with computers, potted plants, large windows, no signs with letters",
+   "cast": [
+    {
+     "char": "boss",
+     "place": {
+      "h": 0.55,
+      "cx": 0.35,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "m",
+     "expr": "surprised",
+     "place": {
+      "h": 0.56,
+      "cx": 0.75,
+      "foot": 0.97
+     },
+     "flip": true
+    }
+   ],
+   "motion": "the boss already standing in the office smiles and taps his wristwatch, the out-of-breath man in a suit freezes with a guilty grin",
+   "must": [
+    "office"
+   ],
+   "avoid": [
+    "Are there more than 2 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "end": 36.2,
+   "_id": "S9",
+   "plate": "a bright Korean office in the morning seen at eye level, rows of desks with computers, potted plants, large windows, no signs with letters",
+   "cast": [
+    {
+     "char": "junior",
+     "place": {
+      "h": 0.5,
+      "cx": 0.22,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "friend",
+     "place": {
+      "h": 0.5,
+      "cx": 0.78,
+      "foot": 0.95
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "sigh",
+     "place": {
+      "h": 0.56,
+      "cx": 0.5,
+      "foot": 0.97
+     }
+    }
+   ],
+   "motion": "the tired man in a suit lets out a long sigh with droopy eyes, his two coworkers beside him chuckle and give him a friendly thumbs up",
+   "must": [
+    "office"
+   ],
+   "avoid": [
+    "Are there more than 3 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "end": 39.8,
+   "_id": "S10",
+   "plate": "a Korean city street at sunset, warm orange sky, office buildings with lit windows, trees, a quiet sidewalk, no signs with letters",
+   "char": "m",
+   "expr": "walk",
+   "place": {
+    "h": 0.52,
+    "cx": 0.5,
+    "foot": 0.96
+   },
+   "motion": "the man in a suit walks home along the sidewalk at sunset with tired but relieved steps, the camera follows him",
+   "must": [
+    "sunset sky"
+   ],
+   "avoid": [
+    "Are there more than 1 people (one man)?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    7
+   ],
+   "end": 43.4,
+   "_id": "S11",
+   "plate": "the entrance hallway of a cozy Korean apartment in the evening, warm lights, a shoe rack, a wooden floor, no signs with letters",
+   "cast": [
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.34,
+      "cx": 0.2,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.34,
+      "cx": 0.8,
+      "foot": 0.95
+     },
+     "flip": true
+    },
+    {
+     "char": "m",
+     "expr": "smile",
+     "place": {
+      "h": 0.58,
+      "cx": 0.5,
+      "foot": 0.98
+     }
+    }
+   ],
+   "motion": "the man in a suit stands in the entrance and smiles warmly, his little daughter and son jump up and down happily beside him to welcome him home",
+   "must": [
+    "apartment entrance"
+   ],
+   "avoid": [
+    "Are there more than 3 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ],
+   "dressed_for_work": true
+  },
+  {
+   "lines": [
+    7
+   ],
+   "_id": "S12",
+   "still": true,
+   "plate": "a cozy Korean apartment living room in the evening, warm lamp light, a dining table with a hot dinner, a sofa, a window with city lights, no signs with letters",
+   "cast": [
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.5,
+      "cx": 0.2,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "daughter",
+     "place": {
+      "h": 0.33,
+      "cx": 0.62,
+      "foot": 0.96
+     }
+    },
+    {
+     "char": "son",
+     "place": {
+      "h": 0.33,
+      "cx": 0.82,
+      "foot": 0.96
+     },
+     "flip": true
+    },
+    {
+     "char": "mh",
+     "expr": "smile",
+     "place": {
+      "h": 0.56,
+      "cx": 0.42,
+      "foot": 0.98
+     }
+    }
+   ],
+   "motion": "the family smiles together in the warm living room in the evening",
+   "must": [
+    "dinner table"
+   ]
+  },
+  {
+   "lines": [
+    8
+   ],
+   "_id": "S13",
+   "plate": "a cozy Korean apartment living room at night, warm lamp light, a sofa, a window with city lights, no signs with letters",
+   "cast": [
+    {
+     "char": "wife",
+     "place": {
+      "h": 0.5,
+      "cx": 0.28,
+      "foot": 0.95
+     }
+    },
+    {
+     "char": "mh",
+     "expr": "smile",
+     "place": {
+      "h": 0.56,
+      "cx": 0.66,
+      "foot": 0.97
+     },
+     "flip": true
+    }
+   ],
+   "motion": "the wife smiles warmly and gives her tired husband a gentle pat on the shoulder, he smiles back with relief",
+   "must": [
+    "living room at night"
+   ],
+   "avoid": [
+    "Are there more than 2 people?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": [
+    9
+   ],
+   "_id": "S14",
+   "plate": "a cozy Korean apartment room corner seen at eye level, soft beige wall, a small wooden nightstand with a round alarm clock and a small warm lamp, a framed family photo, no bed, no bunk bed, no mattress, no signs with letters, the moon shining through a small window, night, soft lamp light",
+   "char": "mh",
+   "expr": "bed",
+   "place": {
+    "h": 0.36,
+    "cx": 0.5,
+    "foot": 0.9
+   },
+   "motion": "the man sleeps deeply and peacefully in his bed under the blanket with a happy smile, moonlight shines in, the warm lamp glows",
+   "must": [
+    "moon",
+    "window"
+   ],
+   "avoid": [
+    "Are there two beds in the picture?",
+    "Does the picture suddenly change into a different scene or camera angle?"
+   ]
+  },
+  {
+   "lines": "outro",
+   "_id": "S15",
+   "char": null,
+   "still": true,
+   "plate": "a quiet Korean apartment complex at night under a big full moon and stars, a few warm lit windows, trees, no vehicles, no signs with letters",
+   "motion": "the moon glows over the sleeping apartment complex",
+   "must": [
+    "full moon"
+   ]
+  }
+ ]
+}

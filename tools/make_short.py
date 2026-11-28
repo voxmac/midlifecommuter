@@ -43,7 +43,8 @@ lines = [l.strip() for l in song["lyrics"].split("\n") if l.strip() and not l.st
 starts = [l["start"] for l in tm["lines"]]; ends = [l["end"] for l in tm["lines"]]
 assert len(lines) == len(starts), (len(lines), len(starts))
 heard = tm["heard"]
-SKIP = plan.get("skip", round(max(0.0, starts[0] - 1.0), 2) if starts[0] > 2.0 else 0.0)   # user: no long intros in Shorts
+SKIP = plan.get("skip", round(starts[0] - 1.0, 2) if (starts[0] > 2.0 or starts[0] < 0.7) else 0.0)   # user: first sung line at 1 s
+# (negative SKIP: the song starts singing at once, so it is delayed - first line still lands at 1 s; MC08)
 COLD = None   # "cold_open": i -> the Short opens on lyric line i (the hook), then goes back to the first verse line
 if plan.get("cold_open") is not None:
     h = plan["cold_open"]; hs, he = round(starts[h] - 0.25, 2), round(ends[h] + 0.2, 2); C = round(he - hs, 2)
@@ -117,7 +118,7 @@ for n, sc in enumerate(plan["scenes"]):
     for c in sc.get("cast", []) or [{"char": sc["char"] if "char" in sc else plan.get("lead", "m"), "expr": sc.get("expr"), "place": sc.get("place", {})}]:
         if plan.get("lead") == "mh" and c["char"] == "m" and not sc.get("flashback"):
             errors.append(f"{tag}: this song is after M left the company; use 'mh' (everyday clothes), not 'm' (suit, badge, briefcase)")
-        if c["char"] == "m" and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
+        if c["char"] == "m" and not sc.get("dressed_for_work") and _re.search(r"bedroom|kitchen|living room|bathroom|at home|apartment entrance|hyeongwan", sc.get("plate", "").lower()):
             errors.append(f"{tag}: M in his office suit inside the home; use 'mh' (everyday clothes)")
         if c.get("expr") == "seated":
             errors.append(f"{tag}: the 'seated' pose carries its own bench; use a standing pose or a seat drawn in the place")
@@ -163,7 +164,7 @@ for n, sc in enumerate(plan["scenes"]):
         if sc.get(k): shot[k] = sc[k]
     shots.append(shot)
 spec = {"id": plan["id"], "slug": plan["slug"], "format": "mv", "aspect": "9:16", "lead": plan.get("lead", "m"),
-        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": 0.0, "skip": SKIP, "sfx_vol": 0.0,
+        "song": {"file": f"{plan['song']}_v{plan['pick']}", "at": max(0.0, -SKIP), "skip": max(0.0, SKIP), "sfx_vol": 0.0,
                  **({"segments": [[COLD[1], COLD[2]], [COLD[4], None]]} if COLD else {})},
         "lyrics_tl": lyrics_tl, "font": "Jua-Regular",
         "font_url": "https://github.com/google/fonts/raw/main/ofl/jua/Jua-Regular.ttf",
