@@ -10,19 +10,19 @@
  "time": "4",
  "duration": 66,
  "seeds": [
-  8831,
-  8832,
-  8833,
-  8834
+  8841,
+  8842,
+  8843,
+  8844
  ],
  "lyrics": "[Verse]\n알람이 울리면 오 분만 더\n눈 떠 보니 벌써 여덟 시 반\n양말은 짝짝이 넥타이 어디\n토스트 물고서 뛰어간다\n\n[Chorus]\n달려라 달려라 월요일 아침\n엘리베이터는 왜 꼭대기에\n버스는 방금 떠나 버렸고\n부장님은 오늘도 일찍 왔다\n\n[Outro]\n그래도 오늘을 버텨 낸 너\n오늘 밤엔 푹 자게 해 줄게",
  "gpu": "T4",
- "note": "Song 8 (first upbeat track, 2026-11-24 direction: 70% bright/upbeat, 30% ballad; relatable tragicomic 웃픈 situations). Monday morning rush: snooze, mismatched socks, toast in mouth, elevator on the top floor, bus just left, the boss already in. Hook at 1 s: 알람이 울리면 오 분만 더. Killing part: 달려라 달려라 월요일 아침. Twist: a warm last line. Numbers spelled as sung (오 분, 여덟 시) so they are sung right. Voice = MC02 male solo, no female/choir/falsetto. | 2026-11-28: user picked v3 but still hears a female voice. Root cause: ACE-Step runs at guidance 1.0, so 'no female vocals, no falsetto' in the style pulled a female voice/falsetto in (song.py now strips 'no X' phrases). Repaint pass 1: 15-37 s (flags 17-35 s, '양말' heard as '옛날'); pass 2 will be 56-66 s.",
+ "note": "Song 8 (first upbeat track, 2026-11-24 direction: 70% bright/upbeat, 30% ballad; relatable tragicomic 웃픈 situations). Monday morning rush: snooze, mismatched socks, toast in mouth, elevator on the top floor, bus just left, the boss already in. Hook at 1 s: 알람이 울리면 오 분만 더. Killing part: 달려라 달려라 월요일 아침. Twist: a warm last line. Numbers spelled as sung (오 분, 여덟 시) so they are sung right. Voice = MC02 male solo, no female/choir/falsetto. | 2026-11-28: user picked v3 but still hears a female voice. Root cause: ACE-Step runs at guidance 1.0, so 'no female vocals, no falsetto' in the style pulled a female voice/falsetto in (song.py now strips 'no X' phrases). Repaint pass 1: 15-37 s (flags 17-35 s, '양말' heard as '옛날'); pass 2 will be 56-66 s. | pass 1 (MC08-1128-0204) v2 kept for 0-31.6 s (verse + chorus heard right, no high flags) -> assets/MC08_p1.mp3; pass 2 redoes 31.6-66 s (the 37 s boundary had garbled '그래도 오늘을 버텨' into '떠나 버렸고', and a high '영원히' ad-lib at 58-64 s).",
  "extend": {
-  "from": "MC08_v3.mp3",
-  "start": 15.0,
-  "end": 37.0,
+  "from": "MC08_p1.mp3",
+  "start": 31.6,
+  "end": 66.02,
   "total": 66.02,
-  "caption": "the same deep low male baritone man keeps singing in his low chest voice, low notes only, one man singing alone, every word clear: 양말은 짝짝이 넥타이 어디, the groove continues exactly as before"
+  "caption": "the same deep low male baritone man sings the chorus once more in his low chest voice: 버스는 방금 떠나 버렸고, 부장님은 오늘도 일찍 왔다, then warmly and slowly the last two lines: 그래도 오늘을 버텨 낸 너, 오늘 밤엔 푹 자게 해 줄게, then the band plays a short bright instrumental ending and stops"
  }
 }
