@@ -35,7 +35,7 @@ jobs:
           from faster_whisper import WhisperModel
           m = WhisperModel('$model', device='cpu', compute_type='int8')
           s, _ = m.transcribe('$v', language='ko', beam_size=5, temperature=0, vad_filter=False)
-          print(' '.join(x.text.strip() for x in s))")
+          print(' '.join(f'[{x.start+$S:.1f}]{x.text.strip()}' for x in s))")
               echo "- **$n** ($model): $t" >> body.md
             done
           done
